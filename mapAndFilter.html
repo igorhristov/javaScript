@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>JavaScript Map</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-       const myArray = [2, 3, 5,];
+      /////////////////////// MAP ///////////////////////
+      const myArray = [2, 3, 5];
       console.log(myArray);
 
       const result = myArray.map(item => item + 1);
       console.log(result);
 
-
-      ///////////////////////////////////
       const numbers = [4, 6, 9];
 
       const addTwo = number => number + 0.1;
@@ -32,7 +31,6 @@
         return transformArray;
       }
 
-
       function mapArrayReduced(transform, array) {
         let transformArray = [];
         for (let i = 0; i < array.length; i++) {
@@ -41,8 +39,28 @@
         return transformArray;
       }
 
-      console.log (result1)
-    
+      console.log(result1);
+      /////////////////////// Filter ///////////////////////
+      const filterArray = [2, 3, 5, 6, 7, 9];
+      const res = filterArray.filter(item => item > 4);
+      console.log(res);
+
+      const isBigerThenFour = number => number > 4;
+
+      const funcFilterRez = filterArrayFn(isBigerThenFour, filterArray);
+      console.log(funcFilterRez);
+      function filterArrayFn(predicate, array) {
+        let filteredArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+          const current = array[i];
+          if(predicate(current)) {
+            filteredArray.push(current);
+          }
+        }
+        return filteredArray;
+      }
+
     </script>
-</body>
+  </body>
 </html>
