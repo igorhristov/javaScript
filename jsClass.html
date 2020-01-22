@@ -28,10 +28,6 @@
       Mark likes to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300, and 25% if the bill is more than $300 (different than John).
 
       5. Implement the same functionality as before, this time using Mark's tipping rules
-      6. Create a function (not a method) to calculate the average of a given array of tips. HINT: Loop over the array, and in each iteration store the current sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it (that's how you calculate the average)
-      7. Calculate the average tip for each family
-      8. Log to the console which family paid the highest tips on average
-      GOOD LUCK 😀
       */
       const legalos = {
         name: "Legalos",
@@ -51,7 +47,6 @@
           }
         }
       };
-
       legalos.calcTips();
       console.log(legalos);
 
@@ -73,9 +68,15 @@
           }
         }
       };
-
       gimli.calcTips();
       console.log(gimli);
+
+      /*
+ 6. Create a function (not a method) to calculate the average of a given array of tips. HINT: Loop over the array, and in each iteration store the current sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it (that's how you calculate the average)
+ 7. Calculate the average tip for each family
+ 8. Log to the console which family paid the highest tips on average
+ GOOD LUCK 😀
+*/
 
       function avgTips(arr) {
         var sum = 0;
@@ -87,7 +88,6 @@
 
       var legalosAvg = avgTips(legalos.billWithTips);
       console.log(legalosAvg);
-
       var gimliAvg = avgTips(gimli.billWithTips);
       console.log(gimliAvg);
 
@@ -129,9 +129,8 @@
         }
         return sum;
       }
-      
-      console.log(factorial(5));
 
+      console.log(factorial(5));
     </script>
   </body>
 </html>
