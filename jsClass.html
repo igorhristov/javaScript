@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*****************************
+       * CODING CHALLENGE 5
+       *****************************/
+
+      /*
+      Remember the tip calculator challenge? Let's create a more advanced version using everything we learned!
+
+      This time, John and his family went to 5 different restaurants. The bills were $124, $48, $268, $180 and $42.
+      John likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.
+
+      Implement a tip calculator using objects and loops:
+      1. Create an object with an array for the bill values
+      2. Add a method to calculate the tip
+      3. This method should include a loop to iterate over all the paid bills and do the tip calculations
+      4. As an output, create 1) a new array containing all tips, and 2) an array containing final paid amounts (bill + tip). HINT: Start with two empty arrays [] as properties and then fill them up in the loop.
+
+      EXTRA AFTER FINISHING: Mark's family also went on a holiday, going to 4 different restaurants. The bills were $77, $375, $110, and $45.
+      Mark likes to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300, and 25% if the bill is more than $300 (different than John).
+
+      5. Implement the same functionality as before, this time using Mark's tipping rules
+      6. Create a function (not a method) to calculate the average of a given array of tips. HINT: Loop over the array, and in each iteration store the current sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it (that's how you calculate the average)
+      7. Calculate the average tip for each family
+      8. Log to the console which family paid the highest tips on average
+      GOOD LUCK 😀
+      */
+      const legalos = {
+        name: "Legalos",
+        smetki: [124, 48, 268, 180, 42],
+        tips: [],
+        billWithTips: [],
+        calcTips: function() {
+          for (let i = 0; i < this.smetki.length; i++) {
+            if (this.smetki[i] < 50) {
+              this.tips.push(this.smetki[i] * 0.2);
+            } else if (this.smetki[i] < 200) {
+              this.tips.push(this.smetki[i] * 0.15);
+            } else {
+              this.tips.push(this.smetki[i] * 0.1);
+            }
+            this.billWithTips.push(this.tips[i] + this.smetki[i]);
+          }
+        }
+      };
+
+      legalos.calcTips();
+      console.log(legalos);
+
+      const gimli = {
+        name: "Gimli",
+        smetki: [77, 375, 110, 45],
+        tips: [],
+        billWithTips: [],
+        calcTips: function() {
+          for (let i = 0; i < this.smetki.length; i++) {
+            if (this.smetki[i] < 100) {
+              this.tips.push(this.smetki[i] * 0.2);
+            } else if (this.smetki[i] < 300) {
+              this.tips.push(this.smetki[i] * 0.1);
+            } else {
+              this.tips.push(this.smetki[i] * 0.25);
+            }
+            this.billWithTips.push(this.tips[i] + this.smetki[i]);
+          }
+        }
+      };
+
+      gimli.calcTips();
+      console.log(gimli);
+
+      function avgTips(arr) {
+        var sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum = sum + arr[i];
+        }
+        return sum / arr.length;
+      }
+
+      var legalosAvg = avgTips(legalos.billWithTips);
+      console.log(legalosAvg);
+
+      var gimliAvg = avgTips(gimli.billWithTips);
+      console.log(gimliAvg);
+
+      if (legalosAvg > gimliAvg) {
+        console.log("Legalos avg is Higher: " + legalosAvg);
+      } else if (gimliAvg > legalosAvg) {
+        console.log("Gimli avg is Higher: " + gimliAvg);
+      } else {
+        console.log("both avg is same");
+      }
+
+      /*
+       Write a function (call it `numsDivSevenNotFive`) that will find all such numbers (print it via console.log) which are divisible by 7 but are not a multiple of 5, between 2000 and 3200 (both included).
+      */
+      function numsDivSevenNotFive() {
+        for (let i = 2000; i <= 3200; i++) {
+          if (i % 7 === 0 && i % 5 !== 0) {
+            console.log(i);
+          }
+        }
+      }
+      // numsDivSevenNotFive();
+
+      /*
+      2. Write a function (call it `factorial(n)`) which can compute the factorial of a given number `n`.
+      _Factorial of `n` is `n! = n × (n - 1) × (n - 2) × ... × 2 × 1`_
+      */
+
+      function factorial(n) {
+        let sum = 1;
+        if (n < 0) {
+          sum = -1;
+        } else if (n === 0) {
+          sum = 1;
+        } else {
+          for (let i = n; i > 0; i--) {
+            sum = sum * i;
+          }
+        }
+        return sum;
+      }
+
+      console.log(factorial(5));
+    </script>
+  </body>
+</html>
