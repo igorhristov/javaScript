@@ -1003,6 +1003,31 @@
       */
       function findYoungestDeveloperByGenderAndSkill(people, gender, skill) {
         // your code goes here
+        var najmlad;
+        for (var i = 0; i < people.length; i++) {
+          var tekoven = people[i];
+
+          if (tekoven.skill === skill && tekoven.gender === gender) {
+            if (!najmlad) {
+              najmlad = tekoven;
+            }
+
+            if (tekoven.birthYear > najmlad.birthYear) {
+              najmlad = tekoven;
+            }
+          }
+        }
+        var firstName = najmlad.name.first;
+        var lastName = najmlad.name.last;
+        var fullName = firstName + ' ' + lastName;
+        var denes = new Date();
+        var thisYear = denes.getFullYear();
+        var godini = thisYear - najmlad.birthYear;
+        
+        var strAge =
+          ' is the youngest ' + najmlad.gender + ' ' + najmlad.skill;
+        var strYear = ' with ' + godini + ' years of age!';
+        console.log(fullName + strAge + strYear);
       }
 
       findYoungestDeveloperByGenderAndSkill(data, 'female', 'frontend');
