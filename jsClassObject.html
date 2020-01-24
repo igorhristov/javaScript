@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var data = [
+  {
+    birthYear: 1991,
+    name: {
+      first: 'Carrie',
+      last: 'Daniels'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 2000,
+    name: {
+      first: 'Isabella',
+      last: 'Carrillo'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1998,
+    name: {
+      first: 'Brandi',
+      last: 'Shaffer'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1985,
+    name: {
+      first: 'Page',
+      last: 'Barker'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1992,
+    name: {
+      first: 'Lottie',
+      last: 'Lee'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1999,
+    name: {
+      first: 'Mason',
+      last: 'Valdez'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1995,
+    name: {
+      first: 'Verna',
+      last: 'Barnes'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1983,
+    name: {
+      first: 'Barry',
+      last: 'Russo'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1988,
+    name: {
+      first: 'Raymond',
+      last: 'Maldonado'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Tameka',
+      last: 'Travis'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1983,
+    name: {
+      first: 'Monique',
+      last: 'Hall'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1983,
+    name: {
+      first: 'Becker',
+      last: 'Wyatt'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Melba',
+      last: 'Foreman'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Gregory',
+      last: 'Michael'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1990,
+    name: {
+      first: 'Jannie',
+      last: 'Anderson'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1990,
+    name: {
+      first: 'Parker',
+      last: 'Landry'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1986,
+    name: {
+      first: 'Hale',
+      last: 'Hopper'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1998,
+    name: {
+      first: 'Luz',
+      last: 'Fletcher'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Rosie',
+      last: 'Robles'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1985,
+    name: {
+      first: 'Osborne',
+      last: 'Calderon'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1997,
+    name: {
+      first: 'Ferguson',
+      last: 'Best'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Bates',
+      last: 'Wiggins'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Salas',
+      last: 'House'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1985,
+    name: {
+      first: 'Payne',
+      last: 'Weber'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1991,
+    name: {
+      first: 'Nunez',
+      last: 'Randolph'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1987,
+    name: {
+      first: 'Bennett',
+      last: 'James'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Mullen',
+      last: 'Tillman'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1995,
+    name: {
+      first: 'Morrow',
+      last: 'Macias'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1993,
+    name: {
+      first: 'Hickman',
+      last: 'Lynn'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Myrna',
+      last: 'Shields'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1999,
+    name: {
+      first: 'Berry',
+      last: 'Noel'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Kidd',
+      last: 'Francis'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1986,
+    name: {
+      first: 'Bryant',
+      last: 'Merritt'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 2000,
+    name: {
+      first: 'Copeland',
+      last: 'Holland'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1998,
+    name: {
+      first: 'Janis',
+      last: 'Curry'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Letitia',
+      last: 'Buchanan'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1995,
+    name: {
+      first: 'Clayton',
+      last: 'Duffy'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1996,
+    name: {
+      first: 'Valeria',
+      last: 'Vance'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1990,
+    name: {
+      first: 'Wilma',
+      last: 'Battle'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1997,
+    name: {
+      first: 'Tricia',
+      last: 'Adkins'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Sawyer',
+      last: 'Norris'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1996,
+    name: {
+      first: 'English',
+      last: 'Hinton'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1992,
+    name: {
+      first: 'Lacey',
+      last: 'Wilkinson'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1983,
+    name: {
+      first: 'Meyers',
+      last: 'Cole'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1993,
+    name: {
+      first: 'Ware',
+      last: 'Mack'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1992,
+    name: {
+      first: 'Tonia',
+      last: 'Morrison'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1994,
+    name: {
+      first: 'Roseann',
+      last: 'Quinn'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1986,
+    name: {
+      first: 'Horne',
+      last: 'Dunlap'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1986,
+    name: {
+      first: 'Toni',
+      last: 'Manning'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1984,
+    name: {
+      first: 'Gwendolyn',
+      last: 'Bell'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1998,
+    name: {
+      first: 'Hillary',
+      last: 'Castro'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1987,
+    name: {
+      first: 'Hendrix',
+      last: 'Sanchez'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1996,
+    name: {
+      first: 'Graves',
+      last: 'Warner'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1996,
+    name: {
+      first: 'Briggs',
+      last: 'Dennis'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1986,
+    name: {
+      first: 'Cummings',
+      last: 'Shelton'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1992,
+    name: {
+      first: 'Browning',
+      last: 'Prince'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1981,
+    name: {
+      first: 'Erika',
+      last: 'Cooke'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Salinas',
+      last: 'Osborne'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1981,
+    name: {
+      first: 'Gould',
+      last: 'Spears'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1984,
+    name: {
+      first: 'Leigh',
+      last: 'Henson'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1987,
+    name: {
+      first: 'Dyer',
+      last: 'Mccoy'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1984,
+    name: {
+      first: 'Calderon',
+      last: 'Orr'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1986,
+    name: {
+      first: 'Parsons',
+      last: 'Tyson'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1981,
+    name: {
+      first: 'Corine',
+      last: 'Gallagher'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1987,
+    name: {
+      first: 'Sabrina',
+      last: 'Ellison'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1999,
+    name: {
+      first: 'Summer',
+      last: 'Hurley'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1984,
+    name: {
+      first: 'Ronda',
+      last: 'Bernard'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1988,
+    name: {
+      first: 'Tanya',
+      last: 'Mercer'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1985,
+    name: {
+      first: 'Ayala',
+      last: 'Stewart'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 2000,
+    name: {
+      first: 'Holden',
+      last: 'Christian'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1987,
+    name: {
+      first: 'Nadia',
+      last: 'Sanford'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1985,
+    name: {
+      first: 'Jewell',
+      last: 'Dyer'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1993,
+    name: {
+      first: 'Mayer',
+      last: 'Mccarthy'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Roach',
+      last: 'Charles'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1996,
+    name: {
+      first: 'Erica',
+      last: 'Rios'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1986,
+    name: {
+      first: 'Lynette',
+      last: 'Hobbs'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1999,
+    name: {
+      first: 'Fields',
+      last: 'Henderson'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1981,
+    name: {
+      first: 'Bentley',
+      last: 'Watts'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1991,
+    name: {
+      first: 'Erickson',
+      last: 'Wells'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1987,
+    name: {
+      first: 'Bender',
+      last: 'Meyer'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1992,
+    name: {
+      first: 'Arline',
+      last: 'Jackson'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1998,
+    name: {
+      first: 'Waters',
+      last: 'Oneil'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 2000,
+    name: {
+      first: 'Marisol',
+      last: 'Lott'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1999,
+    name: {
+      first: 'Ferrell',
+      last: 'Lindsey'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1983,
+    name: {
+      first: 'Ellis',
+      last: 'Hoover'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1994,
+    name: {
+      first: 'Acosta',
+      last: 'Yates'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1987,
+    name: {
+      first: 'Rowe',
+      last: 'Nelson'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1981,
+    name: {
+      first: 'Lillie',
+      last: 'Weeks'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Warren',
+      last: 'Carey'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1982,
+    name: {
+      first: 'Herminia',
+      last: 'Wynn'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Janelle',
+      last: 'Miller'
+    },
+    skill: 'frontend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1996,
+    name: {
+      first: 'Stacey',
+      last: 'Ochoa'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Charity',
+      last: 'Stafford'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1997,
+    name: {
+      first: 'Christi',
+      last: 'Mcguire'
+    },
+    skill: 'frontend',
+    gender: 'male'
+  },
+  {
+    birthYear: 1989,
+    name: {
+      first: 'Jayne',
+      last: 'Hammond'
+    },
+    skill: 'backend',
+    gender: 'male'
+  },
+  {
+    birthYear: 2000,
+    name: {
+      first: 'Stone',
+      last: 'Pierce'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1999,
+    name: {
+      first: 'Vicki',
+      last: 'Rodriguez'
+    },
+    skill: 'fullstack',
+    gender: 'female'
+  },
+  {
+    birthYear: 1992,
+    name: {
+      first: 'Roxie',
+      last: 'Dickson'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 2000,
+    name: {
+      first: 'Reese',
+      last: 'Lowe'
+    },
+    skill: 'backend',
+    gender: 'female'
+  },
+  {
+    birthYear: 1990,
+    name: {
+      first: 'Osborn',
+      last: 'Blevins'
+    },
+    skill: 'fullstack',
+    gender: 'male'
+  }
+];
+
+
+/*****************************
+ * Find the youngest 
+ * frontend developer
+ *****************************/
+
+/*
+Write a function called `findYoungestFrontendDeveloper` which takes an array of people as an argument.
+The function needs to find the youngest person who is a frontend developer (has `frontend` skill), print their name and age, and return that person as an object.
+For example, if `Jane Smith` is the youngest frontend developer, your function should print `Jane Smith is the youngest frontend developer, with 19 years of age!` (assuming she is 19 years young). The object returned by this function might look like:
+```
+{
+    birthYear: 2001,
+    name: {
+      first: 'Jane',
+      last: 'Smith'
+    },
+    skill: 'frontend',
+    gender: 'female'
+}
+```
+GOOD LUCK 😀
+*/
+
+function findYoungestFrontendDeveloper (people) {
+    // your code goes here
+}
+
+findYoungestFrontendDeveloper(data)
+
+/*
+EXTRA 🎁: Once done with `findYoungestFrontendDeveloper`, create another function called `findYoungestFrontendDeveloperByGender` which takes two arguments (people, gender), where gender is either `male` or `female`, and similarly to `findYoungestFrontendDeveloper` prints their name, age, and gender, and also returns that person as an object.
+So for example, if `Jane Smith` is the youngest female frontend developer, and we call the function with `findYoungestFrontendDeveloperByGender(people, 'female')` your function should print `Jane Smith is the youngest female frontend developer, with 19 years of age!` (assuming she is 19 years young). 
+If we call the function with `findYoungestFrontendDeveloperByGender(people, 'male')` your function should print `John Doe is the youngest male frontend developer, with 21 years of age!` (assuming `John Doe` is 21 years young, and he is the youngest male front end developer).
+GOOD LUCK 😀
+*/
+
+function findYoungestFrontendDeveloperByGender(people, gender) {
+    // your code goes here
+}
+
+findYoungestFrontendDeveloperByGender(data, 'male');
+findYoungestFrontendDeveloperByGender(data, 'female');
+
+
+/*
+EXTRA (MASTERS ONLY) 💪: Once done with `findYoungestFrontendDeveloper`, and `findYoungestFrontendDeveloperByGender`, create another function called `findYoungestDeveloperByGenderAndSkill` which takes three arguments (people, gender, skill), where gender is either `male` or `female`, and skill is either `frontend`, `backend`, or `fullstack`.
+`findYoungestDeveloperByGenderAndSkill` prints their name, age, gender, and skill, and also returns that person as an object.
+For example, if we call the function with `findYoungestDeveloperByGenderAndSkill(people, 'male', 'backend')` your function should print `John Doe is the youngest male backend developer, with 21 years of age!` (assuming `John Doe` is 21 years young, and he is the youngest male backend developer).
+GOOD LUCK 😀
+*/
+function findYoungestDeveloperByGenderAndSkill(people, gender, skill) {
+    // your code goes here
+}
+
+findYoungestDeveloperByGenderAndSkill(data, 'female', 'frontend');
+findYoungestDeveloperByGenderAndSkill(data, 'male', 'frontend');
+findYoungestDeveloperByGenderAndSkill(data, 'female', 'backend');
+findYoungestDeveloperByGenderAndSkill(data, 'male', 'backend');
+findYoungestDeveloperByGenderAndSkill(data, 'female', 'fullstack');
+findYoungestDeveloperByGenderAndSkill(data, 'male', 'fullstack');
+
+/*****************************
+ * Group developers
+ *****************************/
+/*
+*
+Write a function called `countDevelopersBySkill(people)` which takes an array of people as an argument.
+The function needs to group developers by their skill:
+1. Prints number of developers by skill — `There are 27 frontend, 32 backend, and 16 fullstack developers!`, assuming there 27 frontend, 32 backend, and 16 fullstack devs in `people`
+2. Return an object that contains the numbers for each skill, might look something like this:
+```
+{
+    frontend: 27,
+    backend: 32,
+    fullstack: 16
+}
+```
+*/
+
+function countDevelopersBySkill(people) {
+    // your code goes here
+}
+
+countDevelopersBySkill(data)
+    </script>
+</body>
+</html>
