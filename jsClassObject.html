@@ -982,8 +982,13 @@
         }
         var firstName = najmlad.name.first;
         var lastName = najmlad.name.last;
-        var godini = 2020 - najmlad.birthYear;
-        console.log(firstName + " " + lastName + " " + godini + " " + gender);
+        var fullName = firstName + " " + lastName;
+        var denes = new Date();
+        var thisYear = denes.getFullYear();
+        var godini = thisYear - najmlad.birthYear;
+        var strAge = ' is the youngest ' + najmlad.gender + ' frontend developer, ';
+        var strYear = 'with ' + godini + ' years of age!';
+        console.log(fullName + strAge + strYear);
       }
 
       findYoungestFrontendDeveloperByGender(data, "male");
