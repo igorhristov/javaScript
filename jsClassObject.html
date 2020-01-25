@@ -1023,9 +1023,8 @@
         var denes = new Date();
         var thisYear = denes.getFullYear();
         var godini = thisYear - najmlad.birthYear;
-        
-        var strAge =
-          ' is the youngest ' + najmlad.gender + ' ' + najmlad.skill;
+
+        var strAge = ' is the youngest ' + najmlad.gender + ' ' + najmlad.skill;
         var strYear = ' with ' + godini + ' years of age!';
         console.log(fullName + strAge + strYear);
       }
@@ -1048,15 +1047,32 @@
       2. Return an object that contains the numbers for each skill, might look something like this:
       ```
       {
-          frontend: 27,
-          backend: 32,
-          fullstack: 16
+          
       }
       ```
       */
 
       function countDevelopersBySkill(people) {
-        // your code goes here
+
+
+        var developerBySkill = {
+          frontend: 0,
+          backend: 0,
+          fullstack: 0
+        }
+
+        for (var i = 0; i < people.length; i++) {
+          var tekoven = people[i];
+          if (tekoven.skill === 'frontend') {
+            developerBySkill.frontend += 1;
+          } else if(tekoven.skill === 'backend') {
+            developerBySkill.backend += 1;
+          } else if(tekoven.skill === 'fullstack') {
+            developerBySkill.fullstack += 1;
+          }
+        }
+
+        console.log(developerBySkill);
       }
 
       countDevelopersBySkill(data);
