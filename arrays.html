@@ -8,6 +8,7 @@
   </head>
   <body>
     <script>
+      data = [-12, -34, -10, -78];
       function greatestNumberInArray(arr) {
         var greatest = 0;
         for (var i = 0; i < arr.length; i++) {
@@ -17,29 +18,39 @@
         }
         return greatest;
       }
-      data = [1, 5, 3, 8, 9, 4];
+      data = [-12, -34, -10, -78];
       var rezult = greatestNumberInArray(data);
-      console.log(rezult);
+      console.log('rezult: ' + rezult);
 
+      function greatestNumberInArray1(arr) {
+        var greatest;
+        for (var i = 0; i < arr.length; i++) {
+          if (!greatest) {
+            greatest = arr[i];
+          }
+          if (greatest < arr[i]) {
+            greatest = arr[i];
+          }
+        }
+        return greatest;
+      }
+      var rezult1 = greatestNumberInArray1(data);
+      console.log('rezult1: ' + rezult1);
 
       function smallestNumberInArray(arr) {
         var smallest;
-        for(var i = 0; i < arr.length; i++) {
-          if(!smallest) {
+        for (var i = 0; i < arr.length; i++) {
+          if (!smallest) {
             smallest = arr[i];
-            console.log(smallest)
           }
-          if(arr[i] < smallest) {
+          if (arr[i] < smallest) {
             smallest = arr[i];
-
           }
         }
         return smallest;
       }
-var rez = smallestNumberInArray(data);
-console.log(rez);
-
-
+      var rezSmall = smallestNumberInArray(data);
+      console.log('rezSmall: ' + rezSmall);
     </script>
   </body>
 </html>
