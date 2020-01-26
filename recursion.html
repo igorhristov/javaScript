@@ -34,6 +34,19 @@
 
       var resCountup = countup(6);
       console.log(resCountup);
+
+      function countDown(n) {
+        if (n < 1) {
+            return [];
+        } else {
+            var varCountDown = countDown(n - 1);
+            varCountDown.unshift(n);
+            return varCountDown;
+        }
+      }
+      
+      var resCountDown = countDown(6);
+      console.log(resCountDown);
       
     </script>
   </body>
