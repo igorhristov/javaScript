@@ -970,11 +970,14 @@
         for (var i = 0; i < people.length; i++) {
           var tekoven = people[i];
 
-          if (tekoven.skill === 'frontend' && tekoven.gender === gender) {
-            if (!najmlad || tekoven.birthYear > najmlad.birthYear) {
-              najmlad = tekoven;
-            }
-
+          // one SHORT version
+          if (tekoven.skill === 'frontend' && tekoven.gender === gender &&
+            (!najmlad || tekoven.birthYear > najmlad.birthYear)
+          ) {
+            // if (!najmlad || tekoven.birthYear > najmlad.birthYear) {
+            najmlad = tekoven;
+            // }
+            // Longest version
             // if (!najmlad) {
             //   najmlad = tekoven;
             // }
@@ -1064,7 +1067,6 @@
         };
 
         for (var i = 0; i < people.length; i++) {
-
           //////// one line version
           developerBySkill[people[i].skill] += 1;
 
