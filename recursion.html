@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Recursive Functions</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-    function sumArr(arr, n) {
-        if(n <= 0) {
-            return arr[0];
+      // sum
+      function sumArr(arr, n) {
+        if (n <= 0) {
+          return arr[0];
         } else {
-            return sumArr(arr, n - 1) + arr[n];
+          return sumArr(arr, n - 1) + arr[n];
         }
-    }
-    data = [1, 3, 7, 9, 10];
+      }
+      data = [1, 3, 7, 9, 10];
 
-var result = sumArr(data, 4);
-console.log(result);
+      var result = sumArr(data, 4);
+      console.log(result);
 
+      //countup
+      function countup(n) {
+        if (n < 1) {
+          return [];
+        } else {
+          var counting = countup(n - 1);
+          counting.push(n);
+          return counting;
+        }
+      }
 
+      var resCountup = countup(6);
+      console.log(resCountup);
+      
     </script>
-</body>
+  </body>
 </html>
