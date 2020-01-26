@@ -1064,14 +1064,23 @@
         };
 
         for (var i = 0; i < people.length; i++) {
-          var tekoven = people[i];
-          if (tekoven.skill === 'frontend') {
-            developerBySkill.frontend += 1;
-          } else if (tekoven.skill === 'backend') {
-            developerBySkill.backend += 1;
-          } else if (tekoven.skill === 'fullstack') {
-            developerBySkill.fullstack += 1;
-          }
+
+          //////// one line version
+          developerBySkill[people[i].skill] += 1;
+
+          //////////// Short Version
+          // var skill = people[i].skill;
+          // developerBySkill[skill] += 1;
+
+          /////////// LONG VERSION
+          // var tekoven = people[i];
+          // if (tekoven.skill === 'frontend') {
+          //   developerBySkill.frontend += 1;
+          // } else if (tekoven.skill === 'backend') {
+          //   developerBySkill.backend += 1;
+          // } else if (tekoven.skill === 'fullstack') {
+          //   developerBySkill.fullstack += 1;
+          // }
         }
         console.log(
           'There are ' +
