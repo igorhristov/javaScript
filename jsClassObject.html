@@ -971,7 +971,7 @@
           var tekoven = people[i];
 
           if (tekoven.skill === 'frontend' && tekoven.gender === gender) {
-            if(!najmlad || tekoven.birthYear > najmlad.birthYear) {
+            if (!najmlad || tekoven.birthYear > najmlad.birthYear) {
               najmlad = tekoven;
             }
 
@@ -981,7 +981,6 @@
             // if (tekoven.birthYear > najmlad.birthYear) {
             //   najmlad = tekoven;
             // }
-
           }
         }
         var firstName = najmlad.name.first;
@@ -990,8 +989,7 @@
         var denes = new Date();
         var thisYear = denes.getFullYear();
         var godini = thisYear - najmlad.birthYear;
-        var strAge =
-          ' is the youngest ' + najmlad.gender + ' frontend developer, ';
+        var strAge = ' is the youngest ' + najmlad.gender + ' frontend developer, ';
         var strYear = 'with ' + godini + ' years of age!';
         console.log(fullName + strAge + strYear);
       }
@@ -1012,12 +1010,15 @@
           var tekoven = people[i];
 
           if (tekoven.skill === skill && tekoven.gender === gender) {
-            if (!najmlad ) {
+            if (!najmlad || tekoven.birthYear > najmlad.birthYear) {
               najmlad = tekoven;
             }
-            if (tekoven.birthYear > najmlad.birthYear) {
-              najmlad = tekoven;
-            }
+            // if (!najmlad ) {
+            //   najmlad = tekoven;
+            // }
+            // if (tekoven.birthYear > najmlad.birthYear) {
+            //   najmlad = tekoven;
+            // }
           }
         }
         var firstName = najmlad.name.first;
@@ -1056,27 +1057,31 @@
       */
 
       function countDevelopersBySkill(people) {
-
-
         var developerBySkill = {
           frontend: 0,
           backend: 0,
           fullstack: 0
-        }
+        };
 
         for (var i = 0; i < people.length; i++) {
           var tekoven = people[i];
           if (tekoven.skill === 'frontend') {
             developerBySkill.frontend += 1;
-          } else if(tekoven.skill === 'backend') {
+          } else if (tekoven.skill === 'backend') {
             developerBySkill.backend += 1;
-          } else if(tekoven.skill === 'fullstack') {
+          } else if (tekoven.skill === 'fullstack') {
             developerBySkill.fullstack += 1;
           }
         }
-
-
-console.log('There are ' + developerBySkill.frontend + ' frontend, ' + developerBySkill.backend + ' backend, and ' + developerBySkill.fullstack + ' fullstack developers!')
+        console.log(
+          'There are ' +
+            developerBySkill.frontend +
+            ' frontend, ' +
+            developerBySkill.backend +
+            ' backend, and ' +
+            developerBySkill.fullstack +
+            ' fullstack developers!'
+        );
         console.log(developerBySkill);
       }
 
