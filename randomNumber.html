@@ -16,6 +16,12 @@
     console.log(result);
     console.log(randomNumber())
     
+    function randomNumberRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1))+ min;
+    }
+    console.log("range: " + randomNumberRange(11, 20));
+    console.log("range: " + randomNumberRange(21, 30));
+    console.log("range: " + randomNumberRange(31, 40));
     </script>
 </body>
 </html>
