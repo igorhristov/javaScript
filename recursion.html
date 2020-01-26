@@ -21,7 +21,7 @@
       var result = sumArr(data, 4);
       console.log(result);
 
-      //countup
+      /////////////// count UP
       function countup(n) {
         if (n < 1) {
           return [];
@@ -35,19 +35,33 @@
       var resCountup = countup(6);
       console.log(resCountup);
 
+      ////////////// count DOWN
       function countDown(n) {
         if (n < 1) {
-            return [];
+          return [];
         } else {
-            var varCountDown = countDown(n - 1);
-            varCountDown.unshift(n);
-            return varCountDown;
+          var varCountDown = countDown(n - 1);
+          varCountDown.unshift(n);
+          return varCountDown;
         }
       }
-      
+
       var resCountDown = countDown(6);
       console.log(resCountDown);
-      
+
+      /////////////// Range Of Numbers
+      function rangeOfNumbers(startNum, endNum) {
+        if (endNum - startNum === 0) {
+          return [startNum];
+        } else {
+          var add = endNum - 1;
+          var range = rangeOfNumbers(startNum, endNum - 1);
+          range.push(endNum);
+          return range;
+        }
+      }
+      console.log(rangeOfNumbers(5, 10));
+      console.log(rangeOfNumbers(5, 5));
     </script>
   </body>
 </html>
