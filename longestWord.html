@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function findLongestWord(words) {
+        var longestWord;
+        for (var i = 0; i < words.length; i++) {
+            if(!longestWord || words[i].length > longestWord.length) {
+                longestWord = words[i];
+            }
+          // your code here
+        }
+        console.log("The longest word is '%s', %s chars long!", longestWord, longestWord.length);
+        return longestWord;
+      }
+      data = ["i", "ki", 'bsi', 'mssadadsadsi'];
+      findLongestWord(data);
+
+      
+
+    </script>
+  </body>
+</html>
