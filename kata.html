@@ -22,6 +22,22 @@
         return number - number * 2;
       }
       console.log(opposite(10));
+
+      function findShort(s) {
+        var spl = s.split(' ');
+        var shortest;
+        for (var i = 0; i < spl.length; i++) {
+          if (!shortest || shortest.length > spl[i].length) {
+            shortest = spl[i];
+          }
+        }
+        return shortest.length;
+      }
+      console.log(
+        findShort(
+          'turns out random test cases are easier than writing out basic ones'
+        )
+      );
     </script>
   </body>
 </html>
