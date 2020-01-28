@@ -56,6 +56,57 @@
       }
       var car = 'carcar';
       console.log(isHalfPalindrom(car));
+
+      /*
+      Веќе знаеме дека палиндром е збор кој се чита исто и однапред и одназад. Алтернативен начин (можеби поочигледен) да се пристапи на проблемот е самиот збор да се спореди со зборот прочитан од наназад — наместо да правиме for циклус до пола збор и да ги споредуваме карактерите на соодветните позиции лево и десно од средината на зборот, би можеле да изгенерираме целосно нов збор но прочитан наназад: последниот карактер од зборот ќе стане прв карактер од новиот збор, претпоследниот карактер ќе стане втор карактер од новиот збор итн... се до првиот карактер од зборот кој ќе стане последен карактер од новиот збор. Откако ќе го изгенерираме новиот збор, доволно е само да ги споредиме двата збора  word === newWord, ако се исти зборот е палиндром, ако не се исти (не се читаат исто однапред и одназад) тогаш не е палиндром.
+      Пробајте сами да ја решите задачата на овој начин. Може да ви биде од помош:
+      1. не мора, но веројатно многу ќе си олесните ако направите посебна функција која за даден збор ќе ви го враќа зборот прочитан наопаку. На пр. кога функцијата би ја крстиле reverseWord(word), тогаш кога би ја повикал функцијата со 'blah' ќе ми врати halb — reverseWord('blah') -> 'halb', reverseWord('neven') -> 'neven' итн.
+      2. Бидејќи последниот карактер од зборот треба да стане прв карактер од новиот збор, изминувајќи го зборот од наназад кон нанапред може да биде корисно за генерирање на обратно прочитаниот збор for (var i = word.length; i > 0; i--) { ... }
+      */
+      function reverseWord(word) {
+        var revers;
+        for (var i = word.length - 1; i > 0; i--) {
+          if (!revers) {
+            // console.log(word[i]);
+
+            revers = word[i];
+            console.log(revers);
+          }
+        }
+        return revers;
+      }
+      console.log(reverseWord('hello'));
+
+
+
+      function isPalindrome1(word) {
+        var palindrome = true;
+        var half = Math.floor(word.length / 2);
+        console.log('Is ' + word + ' palindrome?');
+        for (i = 0; i < half; i++) {
+          var leftIx = i;
+          var rightIx = word.length - i - 1;
+          console.log(
+            'checking,',
+            'word[' + leftIx + '](' + word[leftIx] + ')',
+            ' === ',
+            'word[' + rightIx + '](' + word[rightIx] + ')',
+            '?'
+          );
+          if (word[i] !== word[word.length - i - 1]) {
+            palindrome = false;
+            break;
+          }
+        }
+        if (palindrome) {
+          console.log('YES', word + ' is palindrome');
+        } else {
+          console.log('NO', word + ' is not palindrome');
+        }
+        console.log('-----------');
+        return palindrome;
+      }
+      isPalindrome1("nevenneven");
     </script>
   </body>
 </html>
