@@ -28,8 +28,8 @@
         var leftSide = i;
 
         for (var i = 0; i < half; i++) {
-            var rightSide = word.length - 1 - i;
-            // var rightSide = word.length - half + i;
+          var rightSide = word.length - 1 - i;
+          // var rightSide = word.length - half + i;
 
           if (word[i] !== word[rightSide]) {
             palindrome = false;
@@ -38,27 +38,24 @@
         }
         return palindrome;
       }
-
       var neven = 'neven';
       console.log(isPalindrome(neven));
 
       function isHalfPalindrom(word) {
-          var half = Math.floor(word.length / 2);
-          var palinHalf = true;
-          for (var i = 0; i < half; i++) {
-            var left = i;
-            var right = word.length - half + i;
-            if(word[left] !== word[right]) {
-                return false;
-                break;
-            }
+        var half = Math.floor(word.length / 2);
+        var palinHalf = true;
+        for (var i = 0; i < half; i++) {
+          var left = i;
+          var right = word.length - half + i;
+          if (word[left] !== word[right]) {
+            return false;
+            break;
           }
-          return palinHalf;
+        }
+        return palinHalf;
       }
-      var car = "carcar";
-     console.log(isHalfPalindrom(car));
-    
-
+      var car = 'carcar';
+      console.log(isHalfPalindrom(car));
     </script>
   </body>
 </html>
