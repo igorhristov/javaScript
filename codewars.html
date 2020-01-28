@@ -16,8 +16,7 @@
           return false;
         }
       }
-      console.log(isSquare(0));
-      console.log(isSquare(25));
+    //   console.log(isSquare(0));      console.log(isSquare(25));
 
       function even_or_odd(number) {
         // ...
@@ -27,12 +26,12 @@
           return 'Odd';
         }
       }
-      console.log(even_or_odd(2));
+    //   console.log(even_or_odd(2));
 
       function opposite(number) {
         return number - number * 2;
       }
-      console.log(opposite(10));
+    //   console.log(opposite(10));
 
       function findShort(s) {
         var spl = s.split(' ');
@@ -44,30 +43,38 @@
         }
         return shortest.length;
       }
-      console.log(findShort('turns out random test cases are easier than writing out basic ones'));
+    //   console.log(findShort('turns out random test cases are easier than writing out basic ones'));
 
       function highAndLow(numbers) {
         var arrNum = numbers.split(' ');
         var bigest;
         var smallest;
-        console.log(arrNum);
         for (var i = 0; i < arrNum.length; i++) {
-          if (!smallest || smallest > arrNum[i]*1) {
+          if (!smallest || smallest > arrNum[i] * 1) {
             smallest = arrNum[i];
           }
           if (!bigest) {
             bigest = arrNum[i];
           }
-          if (bigest < arrNum[i]*1) {
-            //   console.log(arrNum[i]);
-
+          if (bigest < arrNum[i] * 1) {
             bigest = arrNum[i];
-            console.log(arrNum[i]);
           }
         }
         return bigest + ' ' + smallest;
       }
-      console.log(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
+    //   console.log(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
+
+      /*
+         Trolls are attacking your comment section!
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+Note: for this kata y isn't considered a vowel.
+      */
+      function disemvowel(str) {
+        return str;
+      }
+      console.log(disemvowel('hellow'));
     </script>
   </body>
 </html>
