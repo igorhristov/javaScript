@@ -16,7 +16,7 @@
           return false;
         }
       }
-    //   console.log(isSquare(0));      console.log(isSquare(25));
+      //   console.log(isSquare(0));      console.log(isSquare(25));
 
       function even_or_odd(number) {
         // ...
@@ -26,12 +26,12 @@
           return 'Odd';
         }
       }
-    //   console.log(even_or_odd(2));
+      //   console.log(even_or_odd(2));
 
       function opposite(number) {
         return number - number * 2;
       }
-    //   console.log(opposite(10));
+      //   console.log(opposite(10));
 
       function findShort(s) {
         var spl = s.split(' ');
@@ -43,7 +43,7 @@
         }
         return shortest.length;
       }
-    //   console.log(findShort('turns out random test cases are easier than writing out basic ones'));
+      //   console.log(findShort('turns out random test cases are easier than writing out basic ones'));
 
       function highAndLow(numbers) {
         var arrNum = numbers.split(' ');
@@ -62,7 +62,7 @@
         }
         return bigest + ' ' + smallest;
       }
-    //   console.log(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
+      //   console.log(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
 
       /*
          Trolls are attacking your comment section!
@@ -72,9 +72,17 @@ For example, the string "This website is for losers LOL!" would become "Ths wbst
 Note: for this kata y isn't considered a vowel.
       */
       function disemvowel(str) {
-        return str;
+        var string = str.split('');
+        var regex = /[aeiou]/gim;
+        var str1 = [];
+        for (var i = 0; i < string.length; i++) {
+          if (!string[i].match(regex)) {
+            str1.push(string[i]);
+          }
+        }
+        return str1.join('');
       }
-      console.log(disemvowel('hellow'));
+      console.log(disemvowel('hellow world'));
     </script>
   </body>
 </html>
