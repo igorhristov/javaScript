@@ -11,19 +11,36 @@
       function findLongestWord(words) {
         var longestWord;
         for (var i = 0; i < words.length; i++) {
-            if(!longestWord || words[i].length > longestWord.length) {
-                longestWord = words[i];
-            }
+          if (!longestWord || words[i].length > longestWord.length) {
+            longestWord = words[i];
+          }
           // your code here
         }
         console.log("The longest word is '%s', %s chars long!", longestWord, longestWord.length);
         return longestWord;
       }
-      data = ["i", "ki", 'bsi', 'mssadadsadsi'];
+      data = ['i', 'ki', 'bsi', 'mssadadsadsi'];
       findLongestWord(data);
 
-      
+      function isPalindrome(word) {
+        var palindrome = true;
+        var half = Math.floor(word.length / 2);
+        var leftSide = i;
 
+        for (var i = 0; i < half; i++) {
+            var rightSide = word.length - 1 - i;
+            // var rightSide = word.length - half + i;
+
+          if (word[i] !== word[rightSide]) {
+            palindrome = false;
+            break;
+          }
+        }
+        return palindrome;
+      }
+
+      var neven = 'neven';
+      console.log(isPalindrome(neven));
     </script>
   </body>
 </html>
