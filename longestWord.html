@@ -41,6 +41,24 @@
 
       var neven = 'neven';
       console.log(isPalindrome(neven));
+
+      function isHalfPalindrom(word) {
+          var half = Math.floor(word.length / 2);
+          var palinHalf = true;
+          for (var i = 0; i < half; i++) {
+            var left = i;
+            var right = word.length - half + i;
+            if(word[left] !== word[right]) {
+                return false;
+                break;
+            }
+          }
+          return palinHalf;
+      }
+      var car = "carcar";
+     console.log(isHalfPalindrom(car));
+    
+
     </script>
   </body>
 </html>
