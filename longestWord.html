@@ -106,6 +106,24 @@
       //   return palindrome;
       // }
       // isPalindrome1("nevenneven");
+
+        function makeWordReversed(word) {
+          var reversedWord = '';
+          for(var i = word.length - 1; i >=0; i--) {
+            reversedWord += word[i];
+          }
+          return reversedWord;
+        }
+        console.log(makeWordReversed("skopje"));
+        function checkIfPalindromWithFn(word) {
+          if(word === makeWordReversed(word)) {
+            return word + " is Palindrome both side is equal: " + makeWordReversed(word);
+          } else {
+            return word + " is NOT Palindrome both side is NOT equal: " + makeWordReversed(word); 
+          }
+        }
+        console.log(checkIfPalindromWithFn("strumica"));
+        
     </script>
   </body>
 </html>
