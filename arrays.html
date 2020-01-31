@@ -20,7 +20,7 @@
       }
       data = [-12, -34, -10, -78];
       var rezult = greatestNumberInArray(data);
-      console.log('rezult: ' + rezult);
+      // console.log('rezult: ' + rezult);
 
       function greatestNumberInArray1(arr) {
         var greatest;
@@ -35,7 +35,7 @@
         return greatest;
       }
       var rezult1 = greatestNumberInArray1(data);
-      console.log('rezult1: ' + rezult1);
+      // console.log('rezult1: ' + rezult1);
 
       function smallestNumberInArray(arr) {
         var smallest;
@@ -50,7 +50,23 @@
         return smallest;
       }
       var rezSmall = smallestNumberInArray(data);
-      console.log('rezSmall: ' + rezSmall);
+      // console.log('rezSmall: ' + rezSmall);
+
+      function firstToSecond(str) {
+        var word = '';
+
+        for (var i = 0; i < str.length; i += 2) {
+            if (str[i + 1]) {
+            word += str[i + 1] + str[i];
+          } else {
+            word += str[i];
+          }
+        }
+
+        return word;
+      }
+      console.log(firstToSecond('helo MaSter'));
+      console.log(firstToSecond('Ahelo'));
     </script>
   </body>
 </html>
