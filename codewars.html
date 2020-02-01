@@ -104,19 +104,46 @@ Note: for this kata y isn't considered a vowel.
       }
       //console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
 
-
       function squareDigits(num) {
-        
         var square = '';
         var arr = num.toString();
-        
+
         for (var i = 0; i < arr.length; i++) {
-          square += arr[i] ** 2
+          square += arr[i] ** 2;
         }
 
         return square * 1;
       }
-      console.log(squareDigits(123));
+      // console.log(squareDigits(123));
+
+      function isPrime(num) {
+        var count = 0;
+        var prime = false;
+        if (num < 2) {
+          prime = false
+        } else {
+        for (var i = 1; i <= num; i++) {
+
+          if (num % i === 0) {
+            count++;       
+            console.log(count);
+          }
+          
+        }
+        if (count < 2) {
+          prime = true;
+        }
+        }
+        
+        console.log(count);
+
+        return prime;
+      }
+      console.log(isPrime(7) + " 7");
+      console.log(isPrime(9) + " 9");
+      console.log(isPrime(9) + " 11");
+      console.log(isPrime(1) + " 1");
+      
     </script>
   </body>
 </html>
