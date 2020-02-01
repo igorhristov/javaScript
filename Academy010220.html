@@ -1,168 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-    /*
- * Helper functions
- */
+      /*
+       * Helper functions
+       */
 
-/*
- * `isVowel(ch)`
- * takes a character `ch` as argument
- * returns `true` if the character is vowel,
- * return `false` otherwise
- */
-function isVowel (ch) {
-    return (
-        ch === 'a' ||
-        ch === 'e' ||
-        ch === 'o' ||
-        ch === 'u' ||
-        ch === 'i'
-    );
- }
+      /*
+       * `isVowel(ch)`
+       * takes a character `ch` as argument
+       * returns `true` if the character is vowel,
+       * return `false` otherwise
+       */
+      function isVowel(ch) {
+        return ch === 'a' || ch === 'e' || ch === 'o' || ch === 'u' || ch === 'i';
+      }
 
-/*
- * `isConsonant(ch)`
- * takes a character `ch` as argument
- * returns `true` if the character is consonant,
- * return `false` otherwise
- */
- function isConsonant (ch) {
-    return !isVowel(ch);
- }
+      /*
+       * `isConsonant(ch)`
+       * takes a character `ch` as argument
+       * returns `true` if the character is consonant,
+       * return `false` otherwise
+       */
+      function isConsonant(ch) {
+        return !isVowel(ch);
+      }
 
-/*
- * Да се напише функција `calculateCircleArea(r)`
- * која што за даден полупречник (радиус) `r` 
- * ќе ја пресмета и врати површината на кружницата.
- * За даден радиус `r` површината на кружница 
- * се пресметува со формулата r^2π, 
- * каде `π=3.14`, или во JS Math.PI
- */
+      /*
+       * Да се напише функција `calculateCircleArea(r)`
+       * која што за даден полупречник (радиус) `r`
+       * ќе ја пресмета и врати површината на кружницата.
+       * За даден радиус `r` површината на кружница
+       * се пресметува со формулата r^2π,
+       * каде `π=3.14`, или во JS Math.PI
+       */
 
-function calculateCircleArea (r) {
-    return r ** 2 * Math.PI;
-}
+      function calculateCircleArea(r) {
+        return r ** 2 * Math.PI;
+      }
 
-console.log(calculateCircleArea(5)); // 78.539...
-console.log(calculateCircleArea(1)); // 3.141...
-console.log(calculateCircleArea(2.24)); // 15.763...
+      console.log(calculateCircleArea(5)); // 78.539...
+      console.log(calculateCircleArea(1)); // 3.141...
+      console.log(calculateCircleArea(2.24)); // 15.763...
 
+      /*
+       * Прост број е природен број (цел број/integer)
+       * поголем од еден кој не може да се формира со
+       * множење на два помали природни броеви.
+       * На пример, 5 е прост број бидејќи единствен
+       * начин да се добие како производ на два броја е
+       * со множење со еден: 1 × 5 или 5 × 1.
+       * 6 не е прост број бидејќи 6 = 2 × 3,
+       * или 3 × 2.
+       * 18 не е прост број бидејќи 18 = 2 × 9, 3 × 6 итн.
+       *
+       * Да се напише функција `isPrimeNumber(n)`
+       * која за даден природен број поголем од 1 ќе
+       * врати `true` ако бројот е прост, или `false`
+       * во друг случај.
+       */
 
-/*
- * Прост број е природен број (цел број/integer)
- * поголем од еден кој не може да се формира со 
- * множење на два помали природни броеви. 
- * На пример, 5 е прост број бидејќи единствен 
- * начин да се добие како производ на два броја е 
- * со множење со еден: 1 × 5 или 5 × 1. 
- * 6 не е прост број бидејќи 6 = 2 × 3, 
- * или 3 × 2. 
- * 18 не е прост број бидејќи 18 = 2 × 9, 3 × 6 итн. 
- * 
- * Да се напише функција `isPrimeNumber(n)` 
- * која за даден природен број поголем од 1 ќе 
- * врати `true` ако бројот е прост, или `false` 
- * во друг случај.
- */
+      function isPrimeNumber(n) {
+          
+        if (n < 2) {
+          return false;
+        } else if (n % 2 === 0 && n > 2) {
+          return false;
+        } else {
 
-function isPrimeNumber (n) {
-    var count = 0;
-    var prime;
+          for (var i = 3; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+              return false;
+            }
+          }
 
-    for(var i = 1; i <= n; i+=2) {
-
-        if(n % i === 0 ) {
-            count++;
-            console.log(i);
         }
 
-    }
+        return true;
+      }
 
-    if (count > 2) {
-        prime = false;
-    }  else {
-        prime = true;
-    }
+      console.log(isPrimeNumber(5) + ' 5'); // true
+      console.log(isPrimeNumber(25) + ' 25'); // false
+      console.log(isPrimeNumber(17) + ' 17'); // true
+      console.log(isPrimeNumber(113) + ' 113'); // true
+      console.log(isPrimeNumber(256) + ' 256'); // false
+      console.log(isPrimeNumber(9) + ' 9'); // false
+      console.log(isPrimeNumber(7) + ' 7'); // true
+      console.log(isPrimeNumber(2) + ' 2'); // true
+      console.log(isPrimeNumber(-2) + ' -2'); // false
+      //   console.log(isPrimeNumber(100000010807) + ' 100000010807'); // true
 
-    return prime;
-}
+      /*
+       * "Pig Latin" е јазична игра во која зборовите
+       * се променуваат, обично со поместување на
+       * првата буква и со додавање на одредена
+       * наставка на крајот од зборот.
+       *
+       * Да се напише функција `translateToPigLatin(word)`
+       * која за даден збор `word` ќе го "преведе" и ќе
+       * го врати зборот на "Pig Latin" според следниве правила:
+       *
+       *
+       * - за збор кој започнува со согласка,
+       * ќе ја помести првата буква (согласка) на
+       * крајот од зборот, и ќе додаде `ay`,
+       * како на пример:
+       * `translateToPigLatin('pig')` —> 'igpay'
+       * `translateToPigLatin('latin')` —> 'atinlay'
+       * `translateToPigLatin('banana')` —> 'ananabay'
+       * `translateToPigLatin('happy')` —> 'appyhay'
+       * `translateToPigLatin('duck')` —> 'uckday'
+       * `translateToPigLatin('me')` —> 'emay'
+       * `translateToPigLatin('too')` —> 'ootay'
+       * `translateToPigLatin('bagel')` —> 'agelbay'
+       *
+       * - за збор кој започнува со самогласка,
+       * ќе додаде само `way` на крајот од зборот,
+       * како на пример:
+       * `translateToPigLatin('eat')` —> 'eatway'
+       * `translateToPigLatin('omelet')` —> 'omeletway'
+       * `translateToPigLatin('are')` —> 'areway'
+       * `translateToPigLatin('egg')` —> 'eggway'
+       * `translateToPigLatin('explain')` —> 'explainway'
+       * `translateToPigLatin('always')` —> 'alwaysway'
+       * `translateToPigLatin('ends')` —> 'endsway'
+       */
 
-console.log(isPrimeNumber(5) + ' 5'); // true
-console.log(isPrimeNumber(25) + ' 25'); // false
-console.log(isPrimeNumber(17) + ' 17'); // true
-console.log(isPrimeNumber(113) + ' 113'); // true
-console.log(isPrimeNumber(256) + ' 256'); // false
-console.log(isPrimeNumber(9) + ' 9'); // false
-console.log(isPrimeNumber(7) + ' 7'); // true
-console.log(isPrimeNumber(2) + ' 2'); // true
-// console.log(isPrimeNumber(100000010807) + ' 100000010807'); // true
+      function translateToPigLatin(word) {
+        var conStr = '';
 
-
-/*
- * "Pig Latin" е јазична игра во која зборовите 
- * се променуваат, обично со поместување на 
- * првата буква и со додавање на одредена 
- * наставка на крајот од зборот. 
- * 
- * Да се напише функција `translateToPigLatin(word)` 
- * која за даден збор `word` ќе го "преведе" и ќе 
- * го врати зборот на "Pig Latin" според следниве правила:
- * 
- * 
- * - за збор кој започнува со согласка, 
- * ќе ја помести првата буква (согласка) на 
- * крајот од зборот, и ќе додаде `ay`, 
- * како на пример:
- * `translateToPigLatin('pig')` —> 'igpay'
- * `translateToPigLatin('latin')` —> 'atinlay'
- * `translateToPigLatin('banana')` —> 'ananabay'
- * `translateToPigLatin('happy')` —> 'appyhay'
- * `translateToPigLatin('duck')` —> 'uckday'
- * `translateToPigLatin('me')` —> 'emay'
- * `translateToPigLatin('too')` —> 'ootay'
- * `translateToPigLatin('bagel')` —> 'agelbay'
- * 
- * - за збор кој започнува со самогласка, 
- * ќе додаде само `way` на крајот од зборот, 
- * како на пример:
- * `translateToPigLatin('eat')` —> 'eatway'
- * `translateToPigLatin('omelet')` —> 'omeletway'
- * `translateToPigLatin('are')` —> 'areway'
- * `translateToPigLatin('egg')` —> 'eggway'
- * `translateToPigLatin('explain')` —> 'explainway'
- * `translateToPigLatin('always')` —> 'alwaysway'
- * `translateToPigLatin('ends')` —> 'endsway'
- */
-
-function translateToPigLatin (word) {
-    var conStr = '';
-
-    if(isVowel(word[0])) {
-        return word + 'way';
-    } else if(isConsonant(word[0])) {
-       
-        for(var i = 1; i < word.length; i++) {
+        if (isVowel(word[0])) {
+          return word + 'way';
+        } else if (isConsonant(word[0])) {
+          for (var i = 1; i < word.length; i++) {
             conStr += word[i];
+          }
         }
-        
-    }
-    return conStr + word[0] + 'ay';
-}
+        return conStr + word[0] + 'ay';
+      }
 
-console.log(translateToPigLatin('omelet')); // 'omeletway'
-console.log(translateToPigLatin('banana')); // 'ananabay'
-console.log(translateToPigLatin('bagel')); // 'agelbay'
-console.log(translateToPigLatin('always')); // 'alwaysway'
-console.log(translateToPigLatin('egg')); // 'eggway'
-    
+      console.log(translateToPigLatin('omelet')); // 'omeletway'
+      console.log(translateToPigLatin('banana')); // 'ananabay'
+      console.log(translateToPigLatin('bagel')); // 'agelbay'
+      console.log(translateToPigLatin('always')); // 'alwaysway'
+      console.log(translateToPigLatin('egg')); // 'eggway'
     </script>
-</body>
+  </body>
 </html>
