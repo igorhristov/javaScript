@@ -117,32 +117,52 @@ Note: for this kata y isn't considered a vowel.
       // console.log(squareDigits(123));
 
       function isPrime(num) {
-        var count = 0;
-        var prime = false;
         if (num < 2) {
-          prime = false
+          return false;
+        } else if (num % 2 === 0 && num > 2) {
+          return false;
         } else {
-        for (var i = 1; i <= num; i++) {
-
-          if (num % i === 0) {
-            count++;       
-            console.log(count);
+          for (let i = 3; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) return false;
           }
-          
         }
-        if (count < 2) {
-          prime = true;
-        }
+
+        return true;
+      }
+      /*
+      console.log(isPrime(7) + ' 7');
+      console.log(isPrime(2) + ' 2');
+      console.log(isPrime(9) + ' 9');
+      console.log(isPrime(11) + ' 11');
+      console.log(isPrime(25) + ' 25');
+      console.log(isPrime(1) + ' 1');
+      console.log(isPrime(-21) + ' -21');
+      console.log(isPrime(22248) + ' 22248');
+      console.log(isPrime(100000010549) + ' 100000010549');*/
+
+      function colorOf(r, g, b) {
+        var hex = '#';
+
+        var hexr = r.toString(16);
+        if (hexr.length === 1) {
+          hexr = '0' + hexr;
         }
         
-        console.log(count);
+        var hexg = g.toString(16);
+        if (hexg.length === 1) {
+          hexg = '0' + hexg;
+        }
 
-        return prime;
+        var hexb = b.toString(16);
+        if (hexb.length === 1) {
+          hexb = '0' + hexb;
+        }
+        
+        hex += hexr + hexg + hexb;
+        return hex;
       }
-      console.log(isPrime(7) + " 7");
-      console.log(isPrime(9) + " 9");
-      console.log(isPrime(9) + " 11");
-      console.log(isPrime(1) + " 1");
+      console.log(colorOf(0,111,0));
+      console.log(colorOf(254,74,230));
       
     </script>
   </body>
