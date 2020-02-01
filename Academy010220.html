@@ -77,15 +77,16 @@ function isPrimeNumber (n) {
     var count = 0;
     var prime;
 
-    for(var i = 2; i <= n; i++) {
+    for(var i = 1; i <= n; i+=2) {
 
-        if(n % i === 0) {
+        if(n % i === 0 ) {
             count++;
-        }    
-             
+            console.log(i);
+        }
+
     }
 
-    if (count > 1) {
+    if (count > 2) {
         prime = false;
     }  else {
         prime = true;
@@ -102,6 +103,7 @@ console.log(isPrimeNumber(256) + ' 256'); // false
 console.log(isPrimeNumber(9) + ' 9'); // false
 console.log(isPrimeNumber(7) + ' 7'); // true
 console.log(isPrimeNumber(2) + ' 2'); // true
+// console.log(isPrimeNumber(100000010807) + ' 100000010807'); // true
 
 
 /*
