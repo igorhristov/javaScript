@@ -147,7 +147,7 @@ Note: for this kata y isn't considered a vowel.
         if (hexr.length === 1) {
           hexr = '0' + hexr;
         }
-        
+
         var hexg = g.toString(16);
         if (hexg.length === 1) {
           hexg = '0' + hexg;
@@ -157,13 +157,27 @@ Note: for this kata y isn't considered a vowel.
         if (hexb.length === 1) {
           hexb = '0' + hexb;
         }
-        
+
         hex += hexr + hexg + hexb;
         return hex;
       }
-      console.log(colorOf(0,111,0));
-      console.log(colorOf(254,74,230));
-      
+      console.log(colorOf(0, 111, 0));
+      console.log(colorOf(254, 74, 230));
+
+      function fakeBin(x) {
+        var fake = '';
+
+        for (var i = 0; i < x.length; i++) {
+          if (x[i] * 1 < 5) {
+            fake += '0';
+          } else {
+            fake += '1';
+          }
+        }
+
+        return fake;
+      }
+      console.log(fakeBin('123456'));
     </script>
   </body>
 </html>
