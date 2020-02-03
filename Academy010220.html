@@ -67,19 +67,16 @@
        */
 
       function isPrimeNumber(n) {
-          
         if (n < 2) {
           return false;
         } else if (n % 2 === 0 && n > 2) {
           return false;
         } else {
-
           for (var i = 3; i <= Math.sqrt(n); i++) {
             if (n % i === 0) {
               return false;
             }
           }
-
         }
 
         return true;

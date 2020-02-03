@@ -969,7 +969,9 @@
           var tekoven = people[i];
 
           // one SHORT version
-          if (tekoven.skill === 'frontend' && tekoven.gender === gender &&
+          if (
+            tekoven.skill === 'frontend' &&
+            tekoven.gender === gender &&
             (!najmlad || tekoven.birthYear > najmlad.birthYear)
           ) {
             // if (!najmlad || tekoven.birthYear > najmlad.birthYear) {
