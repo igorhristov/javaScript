@@ -186,14 +186,15 @@ The first mission: Traversing ```arr```, find the shortest string length.
 The second mission: Traversing ```arr``` again, intercept all strings to the shortest string length(Start from index0). you can use one of slice() substring() or substr() do it. return the result after finished the work.
 */
       function cutIt(arr) {
-        var short = arr.sort(function(a, b) {
-          return a.length - b.length;
-        });
+        // var short = arr.sort((a, b) => a.length - b.length);
+        var min = Math.min(...arr.map(({ length }) => length));
+        console.log(min);
+        
+        // var dolzina = short[0].length;
         var newArr = [];
         for (var i = 0; i < arr.length; i++) {
-          newArr.push(arr[i].slice(0, short[0].length));
+          newArr.push(arr[i].slice(0, min));
         }
-        var slice1 = short.slice(0, short[0].length);
         return newArr;
       }
 
