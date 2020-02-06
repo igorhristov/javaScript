@@ -7,6 +7,11 @@
     <title>Array.prototype.reduce()</title>
   </head>
   <body>
+    <h1>Array.prototype.reduce()</h1>
+    <h3>
+      The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a
+      single output value.
+    </h3>
     <script>
       var array1 = [1, 2, 3, 4, 1];
       var sum = array1.reduce((a, c) => a + c);
@@ -103,9 +108,9 @@
           return acc;
         }, {});
       }
-      var groupedFriend = groupBy(friends, 'name');
+      var groupedFriend = groupBy(friends, 'age');
       console.log('groupedFriend:');
-      console.log(groupedFriend.Anna[0].name);
+      console.log(groupedFriend);
     </script>
   </body>
 </html>
