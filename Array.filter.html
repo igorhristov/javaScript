@@ -28,6 +28,19 @@
       });
       console.log('filterPrimeNumbers: ');
       console.log(filterPrimeNumbers);
+
+      function filterItems(arr, baraj) {
+        return arr.filter(function(el) {
+          return el.toLowerCase().indexOf(baraj.toLowerCase()) !== -1;
+        });
+      }
+      console.log('filterItems: ');
+      console.log(filterItems(words, 'li'));
+
+      var filterItemsArrow = (arr, baraj) => arr.filter(el => el.toLowerCase().indexOf(baraj.toLowerCase()) !== -1);
+
+      console.log('filterItemsArrow: ');
+      console.log(filterItemsArrow(words, 'li'));
     </script>
   </body>
 </html>
