@@ -68,6 +68,44 @@
       }, {});
       console.log('countNames:');
       console.log(countNames);
+
+      var friends = [
+        {
+          name: 'Anna',
+          books: ['The Way of The Kings', 'Harry Potter'],
+          age: 21
+        },
+        {
+          name: 'Bob',
+          books: ['War and peace', 'Romeo and Juliet'],
+          age: 26
+        },
+        {
+          name: 'Alice',
+          books: ['The Lord of the Rings', 'The Shining'],
+          age: 18
+        }
+      ];
+      var allBooks = friends.reduce(function(acc, current) {
+        return [...acc, ...current.books];
+      }, []);
+      console.log('allBooks:');
+      console.log(allBooks);
+
+      //Grouping objects by a property
+      function groupBy(OjbectArray, property) {
+        return OjbectArray.reduce(function(acc, currentObj) {
+          var key = currentObj[property];
+          if (!acc[key]) {
+            acc[key] = [];
+          }
+          acc[key].push(currentObj);
+          return acc;
+        }, {});
+      }
+      var groupedFriend = groupBy(friends, 'name');
+      console.log('groupedFriend:');
+      console.log(groupedFriend.Anna[0].name);
     </script>
   </body>
 </html>
