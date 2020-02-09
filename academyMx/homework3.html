@@ -41,8 +41,8 @@
           return acc;
         }, 0);
 
-        var result = (reduceSalary / sorted.length).toFixed(2) * 1;
-        return console.table(`${sorted.length} - ${gender} - ${skill} --> ${result}`);
+        var result = (reduceSalary / sorted.length).toFixed(2);
+        return console.log(`${sorted.length} - ${gender} - ${skill} ==> ${result}`);
       };
       console.log('devs gender skill averageSalary')
       averageSalary('all', 'all', dataObj);
@@ -61,7 +61,7 @@
 
 
 
-      
+
     </script>
   </body>
 </html>
