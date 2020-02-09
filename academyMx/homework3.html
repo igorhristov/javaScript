@@ -58,34 +58,34 @@
       averageSalary('female', 'backend', dataObj);
       averageSalary('female', 'fullstack', dataObj);
 
-      var averageAge = (gender, skill, obj) => {
+      var averageAgeSallary = (gender, skill, obj) => {
         var today = new Date().getFullYear();
         var sorted = obj.filter(developer => 
         (gender === 'all' || developer.gender === gender) &&
         (killCase = skill === 'all' || developer.skill === skill));
+        var numDevs = sorted.length;
 
         var salaryReduce = sorted.reduce((acc, current) => acc += current.sallary * 1, 0);
-        
-        var avgSal = (salaryReduce / sorted.length).toFixed(2);
-
         var ageReduce = sorted.reduce((acc, current) => acc += today - current.age*1, 0);
-        var howMany = sorted.length;
-        var averageAgeResult = (ageReduce / howMany).toFixed(2);
-        return console.table(`${howMany}->   ${gender}->   ${skill}=>    ${averageAgeResult}   <|>    ${avgSal}`);
+        
+        var avgSal = (salaryReduce / numDevs).toFixed(2);
+        var averageAgeResult = (ageReduce / numDevs).toFixed(2);
+        
+        return console.log(`${numDevs}->   ${gender}->   ${skill}=>    ${averageAgeResult}   <|>    ${avgSal}`);
       };
       console.log('NumDevs Gender Skill AvaerageAge <|> averageSalary');
-      averageAge('all', 'all', dataObj);
-      averageAge('male', 'all', dataObj);
-      averageAge('female', 'all', dataObj);
-      averageAge('all', 'frontend', dataObj);
-      averageAge('all', 'backend', dataObj);
-      averageAge('all', 'fullstack', dataObj);
-      averageAge('male', 'frontend', dataObj);
-      averageAge('male', 'backend', dataObj);
-      averageAge('male', 'fullstack', dataObj);
-      averageAge('female', 'frontend', dataObj);
-      averageAge('female', 'backend', dataObj);
-      averageAge('female', 'fullstack', dataObj);
+      averageAgeSallary('all', 'all', dataObj);
+      averageAgeSallary('male', 'all', dataObj);
+      averageAgeSallary('female', 'all', dataObj);
+      averageAgeSallary('all', 'frontend', dataObj);
+      averageAgeSallary('all', 'backend', dataObj);
+      averageAgeSallary('all', 'fullstack', dataObj);
+      averageAgeSallary('male', 'frontend', dataObj);
+      averageAgeSallary('male', 'backend', dataObj);
+      averageAgeSallary('male', 'fullstack', dataObj);
+      averageAgeSallary('female', 'frontend', dataObj);
+      averageAgeSallary('female', 'backend', dataObj);
+      averageAgeSallary('female', 'fullstack', dataObj);
 
 
     </script>
