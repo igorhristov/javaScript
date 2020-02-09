@@ -44,8 +44,7 @@
         var result = (reduceSalary / sorted.length).toFixed(2);
         return console.log(`${sorted.length} - ${gender} - ${skill} ==> ${result}`);
       };
-      console.log('devs gender skill averageSalary')
-      averageSalary('all', 'all', dataObj);
+      console.log('devs gender skill averageSalary');
       averageSalary('all', 'all', dataObj);
       averageSalary('male', 'all', dataObj);
       averageSalary('female', 'all', dataObj);
@@ -59,8 +58,31 @@
       averageSalary('female', 'backend', dataObj);
       averageSalary('female', 'fullstack', dataObj);
 
+      var averageAge = (gender, skill, obj) => {
+        var today = new Date().getFullYear();
+        var sorted = obj.filter(developer => 
+        (gender === 'all' || developer.gender === gender) &&
+        (killCase = skill === 'all' || developer.skill === skill));
 
+        var ageReduce = sorted.reduce((acc, current) => acc += today - current.age*1, 0);
 
+        var howMany = sorted.length;
+        var averageAgeResult = (ageReduce / howMany).toFixed(2);
+        return console.table(`${howMany} ${gender}  ${skill} ${averageAgeResult}`);
+      };
+      console.log('NumDevs Gender Skill AvaerageAge');
+      averageAge('all', 'all', dataObj);
+      averageAge('male', 'all', dataObj);
+      averageAge('female', 'all', dataObj);
+      averageAge('all', 'frontend', dataObj);
+      averageAge('all', 'backend', dataObj);
+      averageAge('all', 'fullstack', dataObj);
+      averageAge('male', 'frontend', dataObj);
+      averageAge('male', 'backend', dataObj);
+      averageAge('male', 'fullstack', dataObj);
+      averageAge('female', 'frontend', dataObj);
+      averageAge('female', 'backend', dataObj);
+      averageAge('female', 'fullstack', dataObj);
 
     </script>
   </body>
