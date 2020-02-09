@@ -90,7 +90,7 @@
       averageAgeSallary('female', 'fullstack', dataObj);
 */
 
-      var developersBySkill = (gender) => {
+      var developersByGender = (gender) => {
         var filterDev = dataObj.filter(dev => gender === undefined || dev.gender === gender);
         var reducedDevByskill = filterDev.reduce((acc, current) => {
             acc[current.skill].push(current)
@@ -100,14 +100,31 @@
             backend :   [],
             fullstack : []
         });
-      console.log('Developers By Skill: ' + (gender === undefined ? "all" : gender).toUpperCase())
+      console.log('Developers By Gender: ' + (gender === undefined ? "all" : gender).toUpperCase())
         return reducedDevByskill;
       };
-      console.log(developersBySkill('male'))
-      console.log(developersBySkill('female'))
+      console.log(developersByGender('male'))
+      console.log(developersByGender('female'))
+      console.log(developersByGender())
+      console.log('==================================================================================')
+
+
+      var developersBySkill = (skill) => {
+        var filterDev = dataObj.filter(dev => skill === undefined || dev.skill === skill);
+        var reducedDevByskill = filterDev.reduce((acc, current) => {
+            acc[current.gender].push(current)
+            return acc;
+        }, {
+            male :  [],
+            female :   [],
+        });
+      console.log('Developers By Skill: ' + (skill === undefined ? "all" : skill).toUpperCase())
+        return reducedDevByskill;
+      };
+      console.log(developersBySkill('frontend'));
+      console.log(developersBySkill('backend'));
+      console.log(developersBySkill('fullstack'));
       console.log(developersBySkill())
-
-
 
 
 
