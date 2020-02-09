@@ -25,13 +25,18 @@
           };
         });
       };
-      console.table(csvStringToObject(csvStringNewLineFn(csvString)));
+      //   console.table(csvStringToObject(csvStringNewLineFn(csvString)));
+      var dataObj = csvStringToObject(csvStringNewLineFn(csvString));
+      console.table(dataObj)
 
-      var sortByFullname = function name(params) {
+      var youngestDeveloper = params => {
 
-        
+        var sortObj = params.sort((a.age, b.age) => b.age - a.age);
+
+        return sortObj
+
       };
-      console.table(sortByFullname());
+      console.table(youngestDeveloper(dataObj));
     </script>
   </body>
 </html>
