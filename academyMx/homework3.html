@@ -9,9 +9,9 @@
   <body>
     <script>
       var csvStringNewLineFn = str => str.split('\n');
-    //   console.log(csvStringNewLineFn(csvString));
+      //   console.log(csvStringNewLineFn(csvString));
       var csvStringLineToColumnArray = str => str.map(line => line.split(','));
-      console.log(csvStringLineToColumnArray(csvStringNewLineFn(csvString)));
+      //   console.log(csvStringLineToColumnArray(csvStringNewLineFn(csvString)));
       var csvStringToObject = strLine => {
         return strLine.map(line => {
           var col = line.split(',');
@@ -25,9 +25,13 @@
           };
         });
       };
-    //   console.log(csvStringToObject(csvStringNewLineFn(csvString)));
+      console.table(csvStringToObject(csvStringNewLineFn(csvString)));
 
+      var sortByFullname = function name(params) {
 
+        
+      };
+      console.table(sortByFullname());
     </script>
   </body>
 </html>
