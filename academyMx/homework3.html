@@ -27,10 +27,9 @@
       };
       //   console.table(csvStringToObject(csvStringNewLineFn(csvString)));
       var dataObj = csvStringToObject(csvStringNewLineFn(csvString));
-        console.table(dataObj)
+      // console.table(dataObj)
 
       var averageSalary = (gender, skill, obj) => {
-
         var sorted = obj.filter(function(developer) {
           var genderCase = gender === 'all' || developer.gender === gender;
           var skillCase = skill === 'all' || developer.skill === skill;
@@ -38,15 +37,31 @@
         });
 
         var reduceSalary = sorted.reduce(function(acc, current) {
-          acc += current.sallary * 1
+          acc += current.sallary * 1;
           return acc;
         }, 0);
-        // var mapSalary = sorted.map()
 
-
-        return reduceSalary / sorted.length;
+        var result = (reduceSalary / sorted.length).toFixed(2) * 1;
+        return console.table(`${sorted.length} - ${gender} - ${skill} --> ${result}`);
       };
-      console.table(averageSalary('male', 'frontend', dataObj));
+      console.log('devs gender skill averageSalary')
+      averageSalary('all', 'all', dataObj);
+      averageSalary('all', 'all', dataObj);
+      averageSalary('male', 'all', dataObj);
+      averageSalary('female', 'all', dataObj);
+      averageSalary('all', 'frontend', dataObj);
+      averageSalary('all', 'backend', dataObj);
+      averageSalary('all', 'fullstack', dataObj);
+      averageSalary('male', 'frontend', dataObj);
+      averageSalary('male', 'backend', dataObj);
+      averageSalary('male', 'fullstack', dataObj);
+      averageSalary('female', 'frontend', dataObj);
+      averageSalary('female', 'backend', dataObj);
+      averageSalary('female', 'fullstack', dataObj);
+
+
+
+      
     </script>
   </body>
 </html>
