@@ -64,13 +64,16 @@
         (gender === 'all' || developer.gender === gender) &&
         (killCase = skill === 'all' || developer.skill === skill));
 
-        var ageReduce = sorted.reduce((acc, current) => acc += today - current.age*1, 0);
+        var salaryReduce = sorted.reduce((acc, current) => acc += current.sallary * 1, 0);
+        
+        var avgSal = (salaryReduce / sorted.length).toFixed(2);
 
+        var ageReduce = sorted.reduce((acc, current) => acc += today - current.age*1, 0);
         var howMany = sorted.length;
         var averageAgeResult = (ageReduce / howMany).toFixed(2);
-        return console.table(`${howMany} ${gender}  ${skill} ${averageAgeResult}`);
+        return console.table(`${howMany}->   ${gender}->   ${skill}=>    ${averageAgeResult}   <|>    ${avgSal}`);
       };
-      console.log('NumDevs Gender Skill AvaerageAge');
+      console.log('NumDevs Gender Skill AvaerageAge <|> averageSalary');
       averageAge('all', 'all', dataObj);
       averageAge('male', 'all', dataObj);
       averageAge('female', 'all', dataObj);
@@ -83,6 +86,7 @@
       averageAge('female', 'frontend', dataObj);
       averageAge('female', 'backend', dataObj);
       averageAge('female', 'fullstack', dataObj);
+
 
     </script>
   </body>
