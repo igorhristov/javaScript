@@ -27,16 +27,26 @@
       };
       //   console.table(csvStringToObject(csvStringNewLineFn(csvString)));
       var dataObj = csvStringToObject(csvStringNewLineFn(csvString));
-      console.table(dataObj)
+        console.table(dataObj)
 
-      var youngestDeveloper = params => {
+      var averageSalary = (gender, skill, obj) => {
 
-        var sortObj = params.sort((a.age, b.age) => b.age - a.age);
+        var sorted = obj.filter(function(developer) {
+          var genderCase = gender === 'all' || developer.gender === gender;
+          var skillCase = skill === 'all' || developer.skill === skill;
+          return genderCase && skillCase;
+        });
 
-        return sortObj
+        var reduceSalary = sorted.reduce(function(acc, current) {
+          acc += current.sallary * 1
+          return acc;
+        }, 0);
+        // var mapSalary = sorted.map()
 
+
+        return reduceSalary / sorted.length;
       };
-      console.table(youngestDeveloper(dataObj));
+      console.table(averageSalary('male', 'frontend', dataObj));
     </script>
   </body>
 </html>
