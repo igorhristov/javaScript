@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homework</title>
+    <script src="common.js"></script>
+  </head>
+  <body>
+    <script>
+      var csvStringNewLineFn = str => str.split('\n');
+    //   console.log(csvStringNewLineFn(csvString));
+      var csvStringLineToColumnArray = str => str.map(line => line.split(','));
+      console.log(csvStringLineToColumnArray(csvStringNewLineFn(csvString)));
+      var csvStringToObject = strLine => {
+        return strLine.map(line => {
+          var col = line.split(',');
+          return {
+            age: col[0],
+            firstName: col[1],
+            lastName: col[2],
+            skill: col[3],
+            gender: col[4],
+            sallary: col[5]
+          };
+        });
+      };
+    //   console.log(csvStringToObject(csvStringNewLineFn(csvString)));
+
+
+    </script>
+  </body>
+</html>
