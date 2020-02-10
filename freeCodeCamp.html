@@ -37,25 +37,24 @@
 
       function lookUpProfile(name, prop) {
         for (var i = 0; i < contacts.length; i++) {
-            if(contacts[i].firstName === name) {
-                if(contacts[i].hasOwnProperty(prop)) {
-                    return contacts[i][prop];
-                } else {
-                    return "No such property";
-                }
-            } 
+          if (contacts[i].firstName === name) {
+            if (contacts[i].hasOwnProperty(prop)) {
+              return contacts[i][prop];
+            } else {
+              return 'No such property';
+            }
+          }
         }
         return 'No such Contact';
       }
-      console.log( lookUpProfile('Harry', 'likes'));
+      console.log(lookUpProfile('Harry', 'likes'));
       console.log(lookUpProfile('Akira', 'address'));
       console.log(lookUpProfile('Bob', 'number'));
       console.log(lookUpProfile('Sherlock', 'likes'));
       console.log(lookUpProfile('Kristian', 'lastName'));
-     
 
-       //random number from 1 to 10
-       function randomNumber() {
+      //random number from 1 to 10
+      function randomNumber() {
         return Math.floor(Math.random() * 10 + 1);
       }
       var result = randomNumber();
@@ -68,6 +67,39 @@
       console.log('range: ' + randomNumberRange(11, 20));
       console.log('range: ' + randomNumberRange(21, 30));
       console.log('range: ' + randomNumberRange(31, 40));
+
+      function largestOfFour(arr) {
+        return arr[0].forEach(element => {
+         return element.Math.max.apply( element)
+        });
+        var mapArr = arr.map(x => x.map(j => Math.max(j)))
+
+        // return Math.max.applay(null,arr)
+      }
+
+      // largestOfFour([
+      //   [4, 5, 1, 3],
+      //   [13, 27, 18, 26],
+      //   [32, 35, 37, 39],
+      //   [1000, 1001, 857, 1]
+      // ]);
+      // console.log(
+      //   largestOfFour([
+      //     [13, 27, 18, 26],
+      //     [4, 5, 1, 3],
+      //     [32, 35, 37, 39],
+      //     [1000, 1001, 857, 1]
+      //   ])
+      // );
+      // console.log(largestOfFour([1, 5, 2, 9]));
+      console.log(
+        largestOfFour([
+          [17, 23, 25, 12],
+          [25, 7, 34, 48],
+          [4, -10, 18, 21],
+          [-72, -3, -17, -10]
+        ])
+      );
     </script>
   </body>
 </html>
