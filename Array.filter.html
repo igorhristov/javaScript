@@ -18,17 +18,17 @@
       var filterLength = words.filter(word => word.length > 6);
       console.log('filterLength: ');
       console.log(filterLength);
-
+      //////////////////////////////////////
       var filterOutSmallNumbers = [1, 3, 4, 8, 2, 9, 22].filter(num => num > 5);
       console.log('filterOutSmallNumbers: ');
       console.log(filterOutSmallNumbers);
-
+      //////////////////////////////////////
       var filterPrimeNumbers = [4, 6, 8, 12, 53, -17, 2, 5, 7, 31, 97, -1, 17].filter(function(num) {
         return num > 2 && num % 2 === 0 ? false : num > 1;
       });
       console.log('filterPrimeNumbers: ');
       console.log(filterPrimeNumbers);
-
+      //////////////////////////////////////
       function filterItems(arr, baraj) {
         return arr.filter(function(el) {
           return el.toLowerCase().indexOf(baraj.toLowerCase()) !== -1;
@@ -37,10 +37,34 @@
       console.log('filterItems: ');
       console.log(filterItems(words, 'li'));
 
+      //////////////////////////////////////
       var filterItemsArrow = (arr, baraj) => arr.filter(el => el.toLowerCase().indexOf(baraj.toLowerCase()) !== -1);
 
       console.log('filterItemsArrow: ');
       console.log(filterItemsArrow(words, 'li'));
+
+      //////////////////////////////////////
+
+      const filterArray = [2, 3, 5, 6, 7, 9];
+      const res = filterArray.filter(item => item > 4);
+      console.log(res);
+
+      const isBigerThenFour = number => number > 4;
+
+      const funcFilterRez = filterArrayFn(isBigerThenFour, filterArray);
+      console.log(funcFilterRez);
+      function filterArrayFn(predicate, array) {
+        let filteredArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+          const current = array[i];
+          if (predicate(current)) {
+            filteredArray.push(current);
+          }
+        }
+        return filteredArray;
+      }
+      //////////////////////////////////////
     </script>
   </body>
 </html>

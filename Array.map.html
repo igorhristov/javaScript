@@ -7,6 +7,39 @@
     <title>Array.prototype.map()</title>
 </head>
 <body>
+    <script>
     
+    const myArray = [2, 3, 5];
+      console.log(myArray);
+
+      const result = myArray.map(item => item + 1);
+      console.log(result);
+
+      const numbers = [4, 6, 9];
+
+      const addTwo = number => number + 0.1;
+
+      const result1 = mapArrayReduced(addTwo, numbers);
+
+      function mapArray(transform, array) {
+        let transformArray = [];
+        for (let i = 0; i < array.length; i++) {
+          const current = array[i];
+          const transformed = transform(current);
+          transformArray.push(transformed);
+        }
+        return transformArray;
+      }
+
+      function mapArrayReduced(transform, array) {
+        let transformArray = [];
+        for (let i = 0; i < array.length; i++) {
+          transformArray.push(transform(array[i]));
+        }
+        return transformArray;
+      }
+
+      console.log(result1);
+    </script>
 </body>
 </html>
