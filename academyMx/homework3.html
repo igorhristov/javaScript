@@ -128,11 +128,26 @@
       console.log(developersBySkill('backend'));
       console.log(developersBySkill('fullstack'));
       console.log(developersBySkill());
+      console.log('==================================================================================');
+      console.log('==================================================================================');
+      /*sortDeveloper (sortBy, sortDir) — треба да ги сортира девелоперите (податоците во CSV-то), според sortBy која може да има две вредности: salary или age; и sortDir која исто може да има две вредности — asc за сортирање во растечки редослед, и desc за сортирање во опаѓачки редослед.*/
+
+      var sortedDeveloper = (sortBy, sortDir, obj) => {
+
+        var sortedAsc = obj.sort((a, b) => a[sortBy] - b[sortBy]);
+        var sortedDesc = obj.sort((a, b) => b[sortBy] - a[sortBy]);
+
+      console.log("Sort By: " + sortBy + ' ' + sortDir.toUpperCase()); 
+      return sortDir === 'desc' ? sortedDesc : sortDir === 'asc' ? sortedAsc : "no valid input"
+               
+      };
+
+      console.table(sortedDeveloper('sallary', 'asc', dataObj));
+      console.table(sortedDeveloper('sallary', 'desc', dataObj));
+      // console.table(sortedDeveloper('age', 'desc', dataObj));
+      // console.table(sortedDeveloper('age', 'asc', dataObj));
       
-
-
-
-
+      
 
 
 
