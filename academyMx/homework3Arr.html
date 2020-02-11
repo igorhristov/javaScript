@@ -40,7 +40,7 @@
 
         return reducedAvg / filtered.length;
       }
-
+/*
       console.log(findAverageAgeOrSallary('all', 'all', 'age', csvArr));
       console.log(findAverageAgeOrSallary('male', 'all', 'age', csvArr));
       console.log(findAverageAgeOrSallary('female', 'all', 'age', csvArr));
@@ -66,7 +66,7 @@
       console.log(findAverageAgeOrSallary('female', 'frontend', 'sallary', csvArr));
       console.log(findAverageAgeOrSallary('female', 'backend', 'sallary', csvArr));
       console.log(findAverageAgeOrSallary('female', 'fullstack', 'sallary', csvArr));
-    
+    */
       //=================================== SortArrays ========================//
 
       var sortedDeveloper = (sortBy, sortDir, obj) => {
@@ -85,6 +85,49 @@
       //   console.log(sortedDeveloper('age', 'asc', csvArr));
       //   console.log(sortedDeveloper('sallary', 'asc', csvArr));
       //   console.log(sortedDeveloper('sallary', 'desc', csvArr));
+
+      //=================================== developersByGender from array ========================//
+
+
+     var  developersByGenderFromArray = (gender) => {
+      var filterDev = csvArr.filter(dev =>
+       gender === undefined || dev[4] === gender);
+
+       return filterDev.reduce((acc, dev,i,arr) => {
+          acc[de].push(dev)
+          return acc
+        }, [
+         [], [], []
+       ]
+       )
+     }
+
+     console.log(developersByGenderFromArray('male'));
+     
+
+
+
+
+
+
+
+     var developersByGender = gender => {
+        var filterDev = dataObj.filter
+        (dev => gender === undefined || dev.gender === gender);
+        var reducedDevByskill = filterDev.reduce(
+          (acc, current) => {
+            acc[current.skill].push(current);
+            return acc;
+          },
+          {
+            frontend: [],
+            backend: [],
+            fullstack: []
+          }
+        );
+        console.log('Developers By Gender: ' + (gender === undefined ? 'all' : gender).toUpperCase());
+        return reducedDevByskill;
+      };
     </script>
   </body>
 </html>
