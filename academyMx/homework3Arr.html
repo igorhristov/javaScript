@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="common.js"></script>
+</head>
+<body>
+    <script>
+    var csvToArray = csvStr => csvStr
+    .split('\n')
+    .map(arr => arr.split(','));
+
+var csvArr = csvToArray(csvString)
+console.log(csvArr[0]);
+
+//=================================== findAverageAge ========================//
+
+function findAverageAge(gender, skill, arr) {
+
+    var filtered = arr.filter(developer => {
+        if(gender === 'all') {
+            return gender;
+        } else {
+            
+        }
+
+})
+
+        // (gender === 'all' || developer.gender === gender) &&
+        // (skill === 'all' || developer.skill === skill)
+
+    return filtered
+}
+
+
+
+console.log(findAverageAge('male', 'frontend', csvArr));
+
+    
+    
+    
+    </script>
+</body>
+</html>
