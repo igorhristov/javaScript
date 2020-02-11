@@ -14,19 +14,29 @@
       var csvArr = csvToArray(csvString);
       console.log(csvArr);
 
-      //=================================== findAverageAge ========================//
+      //=================================== findAverageAgeOrSalary ========================//
 
-      function findAverageAge(gender) {
+      function findAverageAge(gender, skill, avgType) {
 
-        var filtered = csvArr.filter(developer => developer[4] === gender)
+          
 
+        var filtered = csvArr.filter(developer => 
+        (developer[4] === gender || gender === 'all') &&
+        (developer[3] === skill || skill === 'all')
+        )
 
+        var reducedAvg = filtered.reduce((acc, dev, _, arr) => {
+            acc += 2020 - parseInt(dev[0]) ;
+            return acc
+        }, 0)
 
-        return filtered;
+        console.log(filtered.length);
+        
+        return reducedAvg / filtered.length;
       }
 
 
-      console.log(findAverageAge('female'));
+    //   console.log(findAverageAge('female', "frontend", "age"));
 
       //=================================== SortArrays ========================//
 
@@ -46,6 +56,13 @@
     //   console.log(sortedDeveloper('age', 'asc', csvArr));
     //   console.log(sortedDeveloper('sallary', 'asc', csvArr));
     //   console.log(sortedDeveloper('sallary', 'desc', csvArr));
+
+
+
+
+
+
+
     </script>
   </body>
 </html>

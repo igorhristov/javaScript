@@ -61,22 +61,24 @@
 */
       var averageAgeSallary = (gender, skill, obj) => {
         var today = new Date().getFullYear();
-        var sorted = obj.filter(developer => 
-        (gender === 'all' || developer.gender === gender) &&
-        (killCase = skill === 'all' || developer.skill === skill));
+        var sorted = obj.filter(
+          developer =>
+            (gender === 'all' || developer.gender === gender) &&
+            (killCase = skill === 'all' || developer.skill === skill)
+        );
         var numDevs = sorted.length;
 
-        var salaryReduce = sorted.reduce((acc, current) => acc += current.sallary * 1, 0);
-        var ageReduce = sorted.reduce((acc, current) => acc += today - current.age*1, 0);
-        
+        var salaryReduce = sorted.reduce((acc, current) => (acc += current.sallary * 1), 0);
+        var ageReduce = sorted.reduce((acc, current) => (acc += today - current.age * 1), 0);
+
         var avgSal = (salaryReduce / numDevs).toFixed(2);
         var averageAgeResult = (ageReduce / numDevs).toFixed(2);
-        
+
         return console.log(`${numDevs}->   ${gender}->   ${skill}=>    ${averageAgeResult}   <|>    ${avgSal}`);
       };
-      /*
+
       console.log('NumDevs Gender Skill AvaerageAge <|> averageSalary');
-      averageAgeSallary('all', 'all', dataObj);
+      // averageAgeSallary('all', 'all', dataObj);
       averageAgeSallary('male', 'all', dataObj);
       averageAgeSallary('female', 'all', dataObj);
       averageAgeSallary('all', 'frontend', dataObj);
@@ -88,19 +90,21 @@
       averageAgeSallary('female', 'frontend', dataObj);
       averageAgeSallary('female', 'backend', dataObj);
       averageAgeSallary('female', 'fullstack', dataObj);
-*/
 
-      var developersByGender = (gender) => {
+      var developersByGender = gender => {
         var filterDev = dataObj.filter(dev => gender === undefined || dev.gender === gender);
-        var reducedDevByskill = filterDev.reduce((acc, current) => {
-            acc[current.skill].push(current)
+        var reducedDevByskill = filterDev.reduce(
+          (acc, current) => {
+            acc[current.skill].push(current);
             return acc;
-        }, {
-            frontend :  [],
-            backend :   [],
-            fullstack : []
-        });
-      console.log('Developers By Gender: ' + (gender === undefined ? "all" : gender).toUpperCase())
+          },
+          {
+            frontend: [],
+            backend: [],
+            fullstack: []
+          }
+        );
+        console.log('Developers By Gender: ' + (gender === undefined ? 'all' : gender).toUpperCase());
         return reducedDevByskill;
       };
       /*
@@ -111,19 +115,22 @@
       console.log('==================================================================================');
       */
 
-      var developersBySkill = (skill) => {
+      var developersBySkill = skill => {
         var filterDev = dataObj.filter(dev => skill === undefined || dev.skill === skill);
-        var reducedDevByskill = filterDev.reduce((acc, current) => {
-            acc[current.gender].push(current)
+        var reducedDevByskill = filterDev.reduce(
+          (acc, current) => {
+            acc[current.gender].push(current);
             return acc;
-        }, {
-            male :  [],
-            female :   [],
-        });
-      console.log('Developers By Skill: ' + (skill === undefined ? "all" : skill).toUpperCase())
+          },
+          {
+            male: [],
+            female: []
+          }
+        );
+        console.log('Developers By Skill: ' + (skill === undefined ? 'all' : skill).toUpperCase());
         return reducedDevByskill;
       };
-      
+
       console.log(developersBySkill('frontend'));
       console.log(developersBySkill('backend'));
       console.log(developersBySkill('fullstack'));
@@ -133,26 +140,66 @@
       /*sortDeveloper (sortBy, sortDir) — треба да ги сортира девелоперите (податоците во CSV-то), според sortBy која може да има две вредности: salary или age; и sortDir која исто може да има две вредности — asc за сортирање во растечки редослед, и desc за сортирање во опаѓачки редослед.*/
 
       var sortedDeveloper = (sortBy, sortDir, obj) => {
-
         var sortedAsc = obj.sort((a, b) => a[sortBy] - b[sortBy]);
         var sortedDesc = obj.sort((a, b) => b[sortBy] - a[sortBy]);
 
-      console.log("Sort By: " + sortBy + ' ' + sortDir.toUpperCase()); 
-      return sortDir === 'desc' ? sortedDesc : sortDir === 'asc' ? sortedAsc : "no valid input"
-               
+        console.log('Sort By: ' + sortBy + ' ' + sortDir.toUpperCase());
+        return sortDir === 'desc' ? sortedDesc : sortDir === 'asc' ? sortedAsc : 'no valid input';
       };
 
-      console.table(sortedDeveloper('sallary', 'asc', dataObj));
-      console.table(sortedDeveloper('sallary', 'desc', dataObj));
+      // console.table(sortedDeveloper('sallary', 'asc', dataObj));
+      // console.table(sortedDeveloper('sallary', 'desc', dataObj));
       // console.table(sortedDeveloper('age', 'desc', dataObj));
       // console.table(sortedDeveloper('age', 'asc', dataObj));
-      
-      
 
+      // console.log(findAverageAge1111('male','frontend'));
 
+      function findAverageAge(gender, skill) {
+        return dataObj
+          .filter(person => {
+            (person.gender === gender || gender === 'all') && (person.skill === skill || skill === 'all');
+          })
+          .reduce((acc, person, _, filteredArr) => {
+            acc += 2020 - (person.age * 1) / filteredArr.length;
+            return acc;
+          }, 0);
+      }
 
+      console.log(findAverageAge('male', 'frontend'));
 
+      var averageSalary = (gender, skill, obj) => {
+        var sorted = obj.filter(function(developer) {
+          var genderCase = gender === 'all' || developer.gender === gender;
+          var skillCase = skill === 'all' || developer.skill === skill;
+          return genderCase && skillCase;
+        });
 
+        var reduceSalary = sorted.reduce(function(acc, current) {
+          acc += current.sallary * 1;
+          return acc;
+        }, 0);
+
+        var result = (reduceSalary / sorted.length).toFixed(2);
+        return console.log(`${sorted.length} - ${gender} - ${skill} ==> ${result}`);
+      };
+
+      function findAverageAge123(gender, skill) {
+        return dataObj
+          .filter(function(person) {
+            if ((person.gender === gender || gender === 'all') && (person.skill === skill || skill === 'all')) {
+              return true;
+            } else {
+              return false;
+            }
+          })
+
+          .reduce(function(acc, personAge, _, filteredArr) {
+            acc += (2020 - personAge.age) / filteredArr.length;
+            return acc;
+          }, 0);
+      }
+
+      console.log(findAverageAge123('male', 'frontend'));
     </script>
   </body>
 </html>
