@@ -10,34 +10,63 @@
   <body>
     <script>
       var csvToArray = csvStr => csvStr.split('\n').map(arr => arr.split(','));
-
       var csvArr = csvToArray(csvString);
-      console.log(csvArr);
+      // console.log(csvArr);
 
-      //=================================== findAverageAgeOrSalary ========================//
+      //=========== findAverageAgeOrSalary of array ============//
 
-      function findAverageAge(gender, skill, avgType) {
+      function findAverageAgeOrSallary(gender, skill, avgType, arr) {
+        var filtered = arr.filter(
+          developer =>
+            (developer[4] === gender || gender === 'all') &&
+            (developer[3] === skill || skill === 'all')
+        );
 
-          
-
-        var filtered = csvArr.filter(developer => 
-        (developer[4] === gender || gender === 'all') &&
-        (developer[3] === skill || skill === 'all')
-        )
+        console.log(
+          `There are ${filtered.length} ${gender === 'all' ? '' : gender} ${
+            skill === 'all' ? '' : skill
+          } developers with average ${avgType.toUpperCase()}: `
+        );
 
         var reducedAvg = filtered.reduce((acc, dev, _, arr) => {
-            acc += 2020 - parseInt(dev[0]) ;
-            return acc
-        }, 0)
+          if (avgType === 'age') {
+            avgType = 2020 - parseInt(dev[0]);
+          } else if (avgType === 'sallary') {
+            avgType = parseInt(dev[5]);
+          }
+          acc += avgType;
+          return acc;
+        }, 0);
 
-        console.log(filtered.length);
-        
         return reducedAvg / filtered.length;
       }
 
+      console.log(findAverageAgeOrSallary('all', 'all', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'all', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'all', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('all', 'frontend', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('all', 'backend', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('all', 'fullstack', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'frontend', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'backend', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'fullstack', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'frontend', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'backend', 'age', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'fullstack', 'age', csvArr));
 
-    //   console.log(findAverageAge('female', "frontend", "age"));
-
+      console.log(findAverageAgeOrSallary('all', 'all', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'all', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'all', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('all', 'frontend', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('all', 'backend', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('all', 'fullstack', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'frontend', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'backend', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('male', 'fullstack', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'frontend', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'backend', 'sallary', csvArr));
+      console.log(findAverageAgeOrSallary('female', 'fullstack', 'sallary', csvArr));
+    
       //=================================== SortArrays ========================//
 
       var sortedDeveloper = (sortBy, sortDir, obj) => {
@@ -52,17 +81,10 @@
         return sortDir === 'desc' ? sortedDesc : sortDir === 'asc' ? sortedAsc : 'no valid input';
       };
 
-    //   console.log(sortedDeveloper('age', 'desc', csvArr));
-    //   console.log(sortedDeveloper('age', 'asc', csvArr));
-    //   console.log(sortedDeveloper('sallary', 'asc', csvArr));
-    //   console.log(sortedDeveloper('sallary', 'desc', csvArr));
-
-
-
-
-
-
-
+      //   console.log(sortedDeveloper('age', 'desc', csvArr));
+      //   console.log(sortedDeveloper('age', 'asc', csvArr));
+      //   console.log(sortedDeveloper('sallary', 'asc', csvArr));
+      //   console.log(sortedDeveloper('sallary', 'desc', csvArr));
     </script>
   </body>
 </html>
