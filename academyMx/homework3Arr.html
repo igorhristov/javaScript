@@ -16,26 +16,17 @@
 
       //=================================== findAverageAge ========================//
 
-      // function findAverageAge(gender,  arr) {
+      function findAverageAge(gender) {
 
-      //     var filtered = arr.filter((developer,i, arr) => {
-      //           if(gender === "male") {
-      //             return developer[i][4] === 'male'
-      //               }
-      //           })
-      //         //   console.log(developer);
+        var filtered = csvArr.filter(developer => developer[4] === gender)
 
-      //         // arr[index+1] +=' extra'
-      // //   return word.length < 6
 
-      //         // (gender === 'all' || developer.gender === gender) &&
-      //         // (skill === 'all' || developer.skill === skill)
-      //         // console.log('hi');
 
-      //     return filtered
-      // }
+        return filtered;
+      }
 
-      // console.log(findAverageAge('male',  csvArr));
+
+      console.log(findAverageAge('female'));
 
       //=================================== SortArrays ========================//
 
@@ -51,10 +42,10 @@
         return sortDir === 'desc' ? sortedDesc : sortDir === 'asc' ? sortedAsc : 'no valid input';
       };
 
-      console.log(sortedDeveloper('age', 'desc', csvArr));
-      console.log(sortedDeveloper('age', 'asc', csvArr));
-      console.log(sortedDeveloper('sallary', 'asc', csvArr));
-      console.log(sortedDeveloper('sallary', 'desc', csvArr));
+    //   console.log(sortedDeveloper('age', 'desc', csvArr));
+    //   console.log(sortedDeveloper('age', 'asc', csvArr));
+    //   console.log(sortedDeveloper('sallary', 'asc', csvArr));
+    //   console.log(sortedDeveloper('sallary', 'desc', csvArr));
     </script>
   </body>
 </html>
