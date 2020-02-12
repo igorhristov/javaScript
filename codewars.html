@@ -203,12 +203,28 @@ The second mission: Traversing ```arr``` again, intercept all strings to the sho
 
       function countLettersAndDigits(input) {
         // return /[a-z0-9]/i.test(input).length;
-        return input.match(/[a-z0-9]/ig).length
+        return input.match(/[a-z0-9]/gi).length;
       }
       console.log(countLettersAndDigits('hel2!lo'));
-      
 
-
+      function absentVowel(x) {
+        var lowerX = x.toLowerCase();
+        if (lowerX.includes('a') === false) {
+          return 0;
+        } else if (lowerX.includes('e') === false) {
+          return 1;
+        }
+        if (lowerX.includes('i') === false) {
+          return 2;
+        }
+        if (lowerX.includes('o') === false) {
+          return 3;
+        }
+        if (lowerX.includes('u') === false) {
+          return 4;
+        }
+      }
+      console.log(absentVowel('aeiob'));
     </script>
   </body>
 </html>
