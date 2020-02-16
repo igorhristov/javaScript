@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.forEach()</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Array.prototype.forEach()</h1>
+    <p>
+      The <strong>forEach()</strong> method executes a provided function once for each array
+      element.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.forEach(callback(currentValue [, index [, array]])[, thisArg])</code>
+    <h3>Parameters</h3>
+    <p>
+      callback <br />
+      Function to execute on each element. It accepts between one and three arguments: <br />
+      currentValue <br />
+      The current element being processed in the array. <br />
+      index | Optional <br />
+      The index currentValue in the array. <br />
+      array | Optional <br />
+      The array forEach() was called upon. <br />
+      thisArg | Optional <br />
+      Value to use as this when executing callback.
+    </p>
+    <h3>Return value: undefined</h3>
+
+    <h3>W3Schools.com</h3>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+      const array1 = ['a', 'b', 'c'];
+      array1.forEach(element => console.log(element));
+      // expected output: "a"
+      // expected output: "b"
+      // expected output: "c"
+
+      ////// Converting a for loop to forEach
+      const items = ['item1', 'item2', 'item3'];
+      const copy = [];
+
+      // before
+      for (let i = 0; i < items.length; i++) {
+        copy.push(items[i]);
+      }
+
+      // after
+      items.forEach(function(item) {
+        copy.push(item);
+      });
+
+      ////// from w3schools.com
+      var fruits = ['apple', 'orange', 'cherry'];
+      fruits.forEach(myFunction);
+
+      function myFunction(item, index) {
+        document.getElementById('demo').innerHTML += index + ':' + item + '<br>';
+      }
+
+      // Get the sum of all the values in the array:
+      var sum = 0;
+      var numbers = [65, 44, 12, 4];
+      numbers.forEach(myFunction1);
+
+      function myFunction1(item) {
+        sum += item;
+        document.getElementById('demo1').innerHTML = sum;
+      }
+
+      // For each element in the array: update the value with 10 times the original value:
+      var numbers1 = [65, 44, 12, 4];
+      numbers1.forEach(myFunction2);
+
+      function myFunction2(item, index, arr) {
+        arr[index] = item * 10;
+      }
+      console.log(numbers1); // [650, 440, 120, 40]
+      
+    </script>
+  </body>
+</html>
