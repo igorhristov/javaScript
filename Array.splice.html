@@ -40,6 +40,17 @@
       The elements to add to the array, beginning from start. If you do not specify any elements,
       splice() will only remove elements from the array.
     </p>
+    <h2>Return value</h2>
+    <p>
+      An array containing the deleted elements. <br />
+      If only one element is removed, an array of one element is returned. <br />
+      If no elements are removed, an empty array is returned.
+    </p>
+    <h3>Description</h3>
+    <p>
+      If the specified number of elements to insert differs from the number of elements being
+      removed, the array's length will be different at the end of the call.
+    </p>
     <script>
       const months = ['Jan', 'March', 'April', 'June'];
       console.log(months); // ['Jan', 'March', 'April', 'June']
@@ -48,6 +59,17 @@
 
       months.splice(4, 1, 'May'); // replaces 1 element at index 4
       console.log(months); // ["Jan", "Feb", "March", "April", "May"]
+
+      //////// Examples
+      // Remove 0 (zero) elements from index 2, and insert "drum"
+      let myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      console.log(myFish);
+      let removed = myFish.splice(2, 0, 'drum');
+      console.log(myFish); // ["angel", "clown", "drum", "mandarin", "sturgeon"]
+      console.log(removed); // // removed is [], no elements removed
+
+      // Remove 0 (zero) elements from index 2, and insert "drum" and "guitar"
+      
     </script>
   </body>
 </html>
