@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.split()</title>
+  </head>
+  <body>
+    <h1>String.prototype.split()</h1>
+    <p>
+      The split() method turns a String into an array of strings, by separating the string at each
+      instance of a specified separator string.
+    </p>
+    <h2>Syntax</h2>
+    <code>str.split([separator[, limit]])</code>
+    <h3>Return value:</h3>
+    <p>An Array of strings, split at each point where the separator occurs in the given string.</p>
+    <h3>Description</h3>
+    <p>
+      When found, separator is removed from the string and the substrings are returned in an array.
+      <br />
+      If separator is a regular expression with capturing parentheses, then each time separator
+      matches, the results (including any undefined results) of the capturing parentheses are
+      spliced into the output array. <br />
+      If the separator is an array, then that Array is coerced to a String and used as a separator.
+    </p>
+    <script>
+      const str = 'The quick brown fox jumps over the lazy dog.';
+
+      const words = str.split(' ');
+      console.log(words[3]); // expected output: "fox"
+
+      const chars = str.split('');
+      console.log(chars[8]); // expected output: "k"
+
+      const strCopy = str.split();
+      console.log(strCopy); // expected output: Array ["The quick brown fox jumps over the lazy dog."]
+
+      // Splitting with a RegExp to include parts of the separator in the result
+      const myString = 'Hello 1 word. Sentence number 2.';
+      const splits = myString.split(/(\d)/);
+      // Note: \d matches the character class for digits between 0 and 9.
+      console.log(splits); // [ "Hello ", "1", " word. Sentence number ", "2", "." ]
+
+      // W3Schools
+      //Split a string into an array of substrings:
+      var strw3 = 'How are you doing today?';
+      var res = strw3.split(' ');
+      console.log(res); // ["How", "are", "you", "doing", "today?"]
+
+      // Omit the separator parameter:
+      var res1 = strw3.split();
+      console.log(res1); // ["How are you doing today?"]
+      var res2 = strw3.split('');
+
+      //Separate each character, including white-space:
+      console.log(res2); // ["H", "o", "w", " ", "a", "r", "e", " ", "y", "o", "u", " ", "d", "o", "i", "n", "g", " ", "t", "o", "d", "a", "y", "?"]
+
+      // Use the limit parameter:
+      var res3 = strw3.split(' ', 3);
+      console.log(res3); // ["How", "are", "you"]
+
+      // Use a letter as a separator:
+      var res4 = strw3.split('o');
+      console.log(res4); //  ["H", "w are y", "u d", "ing t", "day?"]
+    </script>
+  </body>
+</html>
