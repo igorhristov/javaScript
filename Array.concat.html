@@ -41,9 +41,20 @@
       //// Concatenating three arrays
       const arrey5 = [1, 2, 4];
       const cobine3Arrays = arrey5.concat(array1, array2);
-      console.log(combine3Arrays);
+      console.log(cobine3Arrays);
 
       /// Concatenating values to an array
+      const valuesToAnArray = array1.concat(1, [2, 3]); // ['a', 'b', 'c', 1, 2, 3]
+      console.log(valuesToAnArray);
+
+      /// Concatenating nested arrays
+      const num1 = [[1]];
+      const num2 = [2, [3]];
+      const numbers = num1.concat(num2);
+      console.log(numbers); /// results in [[1], 2, [3]]
+      num1[0].push(999)
+      console.log(numbers); /// results in [[1], 2, [3]]
+
     </script>
   </body>
 </html>
