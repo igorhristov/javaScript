@@ -14,22 +14,33 @@
     </p>
     <h2>Syntax</h2>
     <code>arr.slice([begin[, end]])</code>
+    <h2>Parameters</h2>
+    <p>begin | Optional <br>
+        Zero-based index at which to begin extraction. <br>
+        A negative index can be used, indicating an offset from the end of the sequence. slice(-2) extracts the last two elements in the sequence. <br>
+        If begin is undefined, slice begins from index 0. <br>
+        If begin is greater than the index range of the sequence, an empty array is returned.
+        <br> end || Optional <br>
+        Zero-based index before which to end extraction. slice extracts up to but not including end. <br>
+        For example, slice(1,4) extracts the secon element through the fourth element (elements indexed 1, 2, and 3). <br>
+        A negative index can be used, indicating an offset from the end of the sequence. slice(2,-1) extracts the third element through the second-to-last element in the sequence.
+        <br> If end is omitted, slice extracts through the end of the sequence (arr.length).
+         <br> If end is greater than the length of the sequence, slice extracts through to the end of the sequence (arr.length).</p>
 
     <h2>Return value</h2>
     <p>A new array containing the extracted elements.</p>
-    <h3>Description</h3>
-    <p></p>
     <script>
       const animals = ['ant', 'bison', 'camel', 'duck', 'elephant', 'lion'];
       console.log(animals.slice(2)); // expected output: Array ["camel", "duck", "elephant"]
       console.log(animals.slice(2, 4)); // expected output: Array ["camel", "duck"]
       console.log(animals.slice(1, 5)); // Array ["bison", "camel", "duck", "elephant"]
 
-      /// Return a portion of an existing array ////////////
+      ///////// Description //////////
       /* slice does not alter the original array. It returns a shallow copy of elements from the original array. Elements of the original array are copied into the returned array as follows:
       ---> For object references (and not the actual object), slice copies object references into the new array. Both the original and new array refer to the same object. If a referenced object changes, the changes are visible to both the new and original arrays.---> For strings, numbers and booleans (not String, Number and Boolean objects), slice copies the values into the new array. Changes to the string, number, or boolean in one array do not affect the other array. 
       If a new element is added to either array, the other array is not affected. */
 
+      /// Return a portion of an existing array ////////////
       let fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
       let citrus = fruits.slice(1, 3);
       console.log(fruits); // ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
@@ -37,6 +48,20 @@
 
       /// using slice //////////////////
       /* In the following example, slice creates a new array, newCar, from myCar. Both include a reference to the object myHonda. When the color of myHonda is changed to purple, both arrays reflect the change. */
+
+      let myHonda = { color: 'red', wheels: 4, engine: { cilinders: 4, size: 2.2 } };
+      let myCar = [myHonda, 2, 'good condition', 'purached 1997'];
+      let newCar = myCar.slice(0, 2);
+      console.log('myCar = ' + JSON.stringify(myCar));
+      console.log('newCar = ' + JSON.stringify(newCar));
+      console.log('myCar[0].color = ' + myCar[0].color);
+      console.log('newCar[0].color = ' + newCar[0].color);
+      // Change the color of myHonda.
+      myHonda.color = 'yellow';
+      console.log('The new color of my Honda is ' + myHonda.color);
+      // Display the color of myHonda referenced from both arrays.
+      console.log('myCar[0].color = ' + myCar[0].color);
+      console.log('newCar[0].color = ' + newCar[0].color);
     </script>
   </body>
 </html>
