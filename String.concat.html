@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.concat()</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">String.prototype.concat()</h1>
+    <p>
+      The concat() method concatenates the string arguments to the calling string and returns a new
+      string.
+    </p>
+    <h2>Syntax</h2>
+    <code>str.concat(str2 [, ...strN])</code>
+    <h3>Description</h3>
+    <p>
+      The concat() function concatenates the string arguments to the calling string and returns a
+      new string. Changes to the original string or the returned string don't affect the other.
+      <br />
+      If the arguments are not of the type string, they are converted to string values before
+      concatenating.
+    </p>
+    <h3>Performance</h3>
+    <p>
+      It is strongly recommended that the assignment operators (+, +=) are used instead of the
+      concat() method. According to this performance test, the assignment operators are several
+      times faster.
+    </p>
+    <script>
+      const str1 = 'Hello';
+      const str2 = 'World';
+      console.log(str1.concat(' ', str2)); // expected output: "Hello World"
+      console.log(str2.concat(', ', str1)); // expected output: "World, Hello"
+
+      //// Using concat()
+      let hello = 'Hello, ';
+      console.log(hello.concat('Kevin', '. Have a nice day.'));
+      // Hello, Kevin. Have a nice day.
+
+      let greetList = ['Hello', ' ', 'Venkat', '!'];
+      ''.concat(...greetList); // "Hello Venkat!"
+
+      ''.concat({}); // [object Object]
+      ''.concat([]); // ""
+      ''.concat(null); // "null"
+      ''.concat(true); // "true"
+      ''.concat(4, 5); // "45"
+    </script>
+  </body>
+</html>
