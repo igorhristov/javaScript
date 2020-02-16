@@ -18,31 +18,25 @@
     <h2>Return value</h2>
     <p>A new array containing the extracted elements.</p>
     <h3>Description</h3>
-    <p>
-      slice does not alter the original array. It returns a shallow copy of elements from the
-      original array. Elements of the original array are copied into the returned array as follows:
-      <br />
-      ---> For object references (and not the actual object), slice copies object references into
-      the new array. Both the original and new array refer to the same object. If a referenced
-      object changes, the changes are visible to both the new and original arrays.<br />---> For
-      strings, numbers and booleans (not String, Number and Boolean objects), slice copies the
-      values into the new array. Changes to the string, number, or boolean in one array do not
-      affect the other array. <br />
-      If a new element is added to either array, the other array is not affected.
-    </p>
+    <p></p>
     <script>
       const animals = ['ant', 'bison', 'camel', 'duck', 'elephant', 'lion'];
-      console.log(animals.slice(2));// expected output: Array ["camel", "duck", "elephant"]
+      console.log(animals.slice(2)); // expected output: Array ["camel", "duck", "elephant"]
       console.log(animals.slice(2, 4)); // expected output: Array ["camel", "duck"]
       console.log(animals.slice(1, 5)); // Array ["bison", "camel", "duck", "elephant"]
 
-      /// Return a portion of an existing array
-      let fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
-      let citrus = fruits.slice(1, 3); 
-      console.log(fruits); // ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
-      console.log(cirtrus); // citrus contains ['Orange','Lemon']
+      /// Return a portion of an existing array ////////////
+      /* slice does not alter the original array. It returns a shallow copy of elements from the original array. Elements of the original array are copied into the returned array as follows:
+      ---> For object references (and not the actual object), slice copies object references into the new array. Both the original and new array refer to the same object. If a referenced object changes, the changes are visible to both the new and original arrays.---> For strings, numbers and booleans (not String, Number and Boolean objects), slice copies the values into the new array. Changes to the string, number, or boolean in one array do not affect the other array. 
+      If a new element is added to either array, the other array is not affected. */
 
-      
+      let fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+      let citrus = fruits.slice(1, 3);
+      console.log(fruits); // ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+      console.log(citrus); // citrus contains ['Orange','Lemon']
+
+      /// using slice //////////////////
+      /* In the following example, slice creates a new array, newCar, from myCar. Both include a reference to the object myHonda. When the color of myHonda is changed to purple, both arrays reflect the change. */
     </script>
   </body>
 </html>
