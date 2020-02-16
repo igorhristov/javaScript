@@ -97,6 +97,19 @@
       console.log(removed4); // ["blue", "trumpet"]
 
       // Remove 1 element from index -2
+      let myFish5 = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      console.log(myFish5);
+      let removed5 = myFish5.splice(-2, 1);
+      console.log(myFish5); // ["angel", "clown", "sturgeon"]
+      console.log(removed5); // ["mandarin"];
+
+      // Remove all elements after index 2 (incl.)
+      let myFish6 = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      console.log(myFish6);
+      let removed6 = myFish6.splice(2);
+      console.log(myFish6); // ["angel", "clown"]
+      console.log(removed6); //["mandarin", "sturgeon"]
+
     </script>
   </body>
 </html>
