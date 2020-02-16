@@ -69,7 +69,34 @@
       console.log(removed); // // removed is [], no elements removed
 
       // Remove 0 (zero) elements from index 2, and insert "drum" and "guitar"
-      
+      let myFish1 = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      console.log(myFish1);
+      let removed1 = myFish1.splice(2, 0, 'drum', 'guitar');
+      console.log(myFish1); // ["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"]
+      console.log(removed1); // removed is [], no elements removed
+
+      // Remove 1 element from index 3
+      let myFish2 = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+      console.log(myFish2);
+      let removed2 = myFish2.splice(3, 1);
+      console.log(myFish2); // ["angel", "clown", "drum", "sturgeon"]
+      console.log(removed2); // ["mandarin"]
+
+      // Remove 1 element from index 2, and insert "trumpet"
+      let myFish3 = ['angel', 'clown', 'drum', 'sturgeon'];
+      console.log(myFish3);
+      let removed3 = myFish3.splice(2, 1, 'trumpet');
+      console.log(myFish3); // ["angel", "clown", "trumpet", "sturgeon"]
+      console.log(removed3); // ["drum"]
+
+      // Remove 2 elements from index 0, and insert "parrot", "anemone" and "blue"
+      let myFish4 = ['angel', 'clown', 'trumpet', 'sturgeon'];
+      console.log(myFish4);
+      let removed4 = myFish4.splice(0, 2, 'parrot', 'anemone', 'blue');
+      console.log(myFish4); // ["parrot", "anemone", "sturgeon"]
+      console.log(removed4); // ["blue", "trumpet"]
+
+      // Remove 1 element from index -2
     </script>
   </body>
 </html>
