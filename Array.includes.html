@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.includes()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.includes()</h1>
+    <p>
+      The <strong> includes() </strong>method determines whether an array includes a certain value
+      among its entries, returning true or false as appropriate.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.includes(valueToFind[, fromIndex])</code>
+    <script>
+      const array1 = [1, 2, 3];
+      console.log(array1.includes(2)); // expected output: true
+      const pets = ['cat', 'dog', 'bat'];
+      console.log(pets.includes('cat')); // expected output: true
+      console.log(pets.includes('at')); // expected output: false
+    </script>
+  </body>
+</html>
