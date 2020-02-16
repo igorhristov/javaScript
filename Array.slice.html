@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.slice()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.slice()</h1>
+    <p>
+      The slice() method returns a shallow copy of a portion of an array into a new array object
+      selected from begin to end (end not included) where begin and end represent the index of items
+      in that array. The original array will not be modified.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.slice([begin[, end]])</code>
+
+    <h2>Return value</h2>
+    <p>A new array containing the extracted elements.</p>
+    <h3>Description</h3>
+    <p>
+      slice does not alter the original array. It returns a shallow copy of elements from the
+      original array. Elements of the original array are copied into the returned array as follows:
+      <br />
+      ---> For object references (and not the actual object), slice copies object references into
+      the new array. Both the original and new array refer to the same object. If a referenced
+      object changes, the changes are visible to both the new and original arrays.<br />---> For
+      strings, numbers and booleans (not String, Number and Boolean objects), slice copies the
+      values into the new array. Changes to the string, number, or boolean in one array do not
+      affect the other array. <br />
+      If a new element is added to either array, the other array is not affected.
+    </p>
+    <script>
+      const animals = ['ant', 'bison', 'camel', 'duck', 'elephant', 'lion'];
+      console.log(animals.slice(2));// expected output: Array ["camel", "duck", "elephant"]
+      console.log(animals.slice(2, 4)); // expected output: Array ["camel", "duck"]
+      console.log(animals.slice(1, 5)); // Array ["bison", "camel", "duck", "elephant"]
+
+      /// Return a portion of an existing array
+      let fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+      let citrus = fruits.slice(1, 3); 
+      console.log(fruits); // ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+      console.log(cirtrus); // citrus contains ['Orange','Lemon']
+
+      
+    </script>
+  </body>
+</html>
