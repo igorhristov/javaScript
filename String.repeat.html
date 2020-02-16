@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.repeat()</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">String.prototype.repeat()</h1>
+    <p>
+      The repeat() method constructs and returns a new string which contains the specified number of
+      copies of the string on which it was called, concatenated together.
+    </p>
+    <h2>Syntax</h2>
+    <code>str.repeat(count)</code>
+    <h3>Parameters</h3>
+    <p>
+      count <br />
+      An integer between 0 and +Infinity, indicating the number of times to repeat the string.
+    </p>
+    <h3>Return value</h3>
+    <p>A new string containing the specified number of copies of the given string.</p>
+    <h3>Exceptions</h3>
+    <p>
+      RangeError: repeat count must be non-negative. <br />
+      RangeError: repeat count must be less than infinity and not overflow maximum string size.
+    </p>
+    <script>
+      const chorus = "Because I'm happy. ";
+      console.log('Chorus lyrics for "Happy": ' + chorus.repeat(3)); // expected output: "Chorus lyrics for "Happy": Because I'm happy. Because I'm happy. Because I'm happy.
+
+       // 'abc'.repeat(-1); // RangeError
+      'abc'.repeat(0); // ''
+      'abc'.repeat(1); // 'abc'
+      'abc'.repeat(2); // 'abcabc'
+      'abc'.repeat(3.5); // 'abcabcabc' (count will be converted to integer)
+      // 'abc'.repeat(1 / 0); // RangeError
+
+      /// W3Schools
+      var str = 'Hello world! ';
+      var str1 = str.repeat(2);
+      console.log(str1)
+    </script>
+  </body>
+</html>
