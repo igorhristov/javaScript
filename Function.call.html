@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function.prototype.call()</title>
+  </head>
+  <body>
+    <h1>Function.prototype.call()</h1>
+    <p>
+      The call() method calls a function with a given this value and arguments provided
+      individually. <br />
+      --> Note: While the syntax of this function is almost identical to that of apply(), the
+      fundamental difference is that call() accepts an argument list, while apply() accepts a single
+      array of arguments.
+    </p>
+    <h2>Syntax</h2>
+    <code>func.call([thisArg[, arg1, arg2, ...argN]])</code>
+    <script>
+      function Product(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+      function Food(name, price) {
+        Product.call(this, name, price);
+        this.category = 'food';
+      }
+      console.log(new Food('cheese', 5).name); // expected output: "cheese"
+    </script>
+  </body>
+</html>
