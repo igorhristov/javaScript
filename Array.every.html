@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.every()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.every()</h1>
+    <p>
+      The every() method tests whether all elements in the array pass the test implemented by the provided function. It
+      returns a Boolean value. <br />
+      Caution: Calling this method on an empty array will return true for any condition!
+    </p>
+    <h2>Syntax</h2>
+    <code>
+      arr.every(callback(element[, index[, array]])[, thisArg])
+    </code>
+    <h3>Return value</h3>
+    <p>true if the callback function returns a truthy value for every array element. Otherwise, false.</p>
+
+    <!-- W3Schools -->
+    <h2>Definition and Usage</h2>
+    <p>
+      The every() method checks if all elements in an array pass a test (provided as a function). <br />
+      The every() method executes the function once for each element present in the array:
+    </p>
+    <ul>
+      <li>
+        If it finds an array element where the function returns a false value, every() returns false (and does not check
+        the remaining values)
+      </li>
+      <li>If no false occur, every() returns true</li>
+    </ul>
+    <p>
+      Note: every() does not execute the function for array elements without values. <br />
+      Note: every() does not change the original array
+    </p>
+    <p>Click the button to check if every element in the array has a value of 18 or more.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+    <script>
+      const isBelowThreshold = currentValue => currentValue < 40;
+      const array1 = [1, 30, 39, 29, 10, 13];
+      console.log(array1.every(isBelowThreshold)); // expected output: true
+
+      // Testing size of all array elements
+      // The following example tests whether all elements in the array are bigger than 10.
+      function isBigEnough(element, index, array) {
+        return element >= 10;
+      }
+      [12, 5, 8, 130, 44].every(isBigEnough); // false
+      [12, 54, 18, 130, 44].every(isBigEnough); // true
+
+      ///// W3Schools
+      var ages = [32, 33, 16, 40];
+      function checkAdult(age) {
+        return age >= 18;
+      }
+      function myFunction() {
+        document.getElementById('demo').innerHTML = ages.every(checkAdult);
+      }
+
+      ////////////////////// Web Dev Simplified ////////////////
+      const webItems = [
+        { name: 'Bike', price: 100 },
+        { name: 'TV', price: 200 },
+        { name: 'Album', price: 10 },
+        { name: 'Book', price: 5 },
+        { name: 'Phone', price: 500 },
+        { name: 'Computer', price: 1000 },
+        { name: 'Keyboard', price: 25 }
+      ];
+      const hasInexpensiveItems = webItems.every(item => {
+        // return item.price <= 100; // false
+        return item.price <= 1000; // true every item is less then 1000
+      });
+      console.log(hasInexpensiveItems);
+    </script>
+  </body>
+</html>
