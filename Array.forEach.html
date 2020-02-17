@@ -7,10 +7,7 @@
   </head>
   <body>
     <h1 style="text-align: center;">Array.prototype.forEach()</h1>
-    <p>
-      The <strong>forEach()</strong> method executes a provided function once for each array
-      element.
-    </p>
+    <p>The <strong>forEach()</strong> method executes a provided function once for each array element.</p>
     <h2>Syntax</h2>
     <code>arr.forEach(callback(currentValue [, index [, array]])[, thisArg])</code>
     <h3>Parameters</h3>
@@ -78,7 +75,21 @@
         arr[index] = item * 10;
       }
       console.log(numbers1); // [650, 440, 120, 40]
-      
+
+      ////////////////////// Web Dev Simplified////////////////
+      const webItems = [
+        { name: 'Bike', price: 100 },
+        { name: 'TV', price: 200 },
+        { name: 'Album', price: 10 },
+        { name: 'Book', price: 5 },
+        { name: 'Phone', price: 500 },
+        { name: 'Computer', price: 1000 },
+        { name: 'Keyboard', price: 25 }
+      ];
+      webItems.forEach(item => {
+        console.log(item.name);
+        // console.log(item.price);
+      });
     </script>
   </body>
 </html>
