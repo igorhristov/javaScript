@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.reduceRight()</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Array.prototype.reduceRight()</h1>
+    <p>
+      The reduceRight() method applies a function against an accumulator and each value of the array (from
+      right-to-left) to reduce it to a single value.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.reduceRight(callback(accumulator, currentValue[, index[, array]])[, initialValue])</code>
+    <h3>Return value: The value that results from the reduction.</h3>
+    <script>
+      const array1 = [
+        [0, 1],
+        [2, 3],
+        [4, 5]
+      ].reduceRight((accumulator, currentValue) => accumulator.concat(currentValue));
+      console.log(array1); // expected output: Array [4, 5, 2, 3, 0, 1]
+      // Difference between reduce and reduceRight
+      var a = ['1', '2', '3', '4', '5'];
+      var left = a.reduce(function(prev, cur) {
+        return prev + cur;
+      });
+      var right = a.reduceRight(function(prev, cur) {
+        return prev + cur;
+      });
+      console.log(left); // "12345"
+      console.log(right); // "54321"
+
+      // W3Schools
+      var numbers = [2, 45, 30, 100];
+      var reduceNum = numbers.reduceRight((acc, currentValue) => {
+        acc = acc - currentValue;
+        return acc;
+      },);
+      console.log(reduceNum); 
+    </script>
+  </body>
+</html>
