@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Array.prototype.map()</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Array.prototype.map()</h1>
+    <p>
+      The map() method creates a new array populated with the results of calling a provided function on every element in
+      the calling array.
+    </p>
+    <h2>Syntax</h2>
+    <code>
+      let new_array = arr.map(function callback( currentValue[, index[, array]]) { // return element for new_array }[,
+      thisArg])
+    </code>
+    <h3>When not to use map()</h3>
+    <p>
+      Since map builds a new array, using it when you aren't using the returned array is an anti-pattern; use forEach or for-of instead. <br />
+      You shouldn't be using map if: <br />
+      1. you're not using the array it returns; and/or <br />
+      2. you're not returning a value from the callback.
+    </p>
     <script>
-    
-    const myArray = [2, 3, 5];
+      const myArray = [2, 3, 5];
       console.log(myArray);
 
       const result = myArray.map(item => item + 1);
@@ -40,6 +56,23 @@
       }
 
       console.log(result1);
+
+      ////////////////////// Web Dev Simplified////////////////
+      const webItems = [
+        { name: 'Bike', price: 100 },
+        { name: 'TV', price: 200 },
+        { name: 'Album', price: 10 },
+        { name: 'Book', price: 5 },
+        { name: 'Phone', price: 500 },
+        { name: 'Computer', price: 1000 },
+        { name: 'Keyboard', price: 25 }
+      ];
+      const webItemsNames = webItems.map(item => {
+        return item.name;
+        // return item.name + ' is ' + item.price
+      });
+      console.log(webItems);
+      console.log(webItemsNames);
     </script>
-</body>
+  </body>
 </html>
