@@ -111,7 +111,22 @@
       var groupedFriend = groupBy(friends, 'age');
       console.log('groupedFriend:');
       console.log(groupedFriend);
-      
+
+      ////////////////////// Web Dev Simplified ////////////////
+      const webItems = [
+        { name: 'Bike', price: 100 },
+        { name: 'TV', price: 200 },
+        { name: 'Album', price: 10 },
+        { name: 'Book', price: 5 },
+        { name: 'Phone', price: 500 },
+        { name: 'Computer', price: 1000 },
+        { name: 'Keyboard', price: 25 }
+      ];
+      const total = webItems.reduce((acc, curent) => {
+        acc = acc + curent.price
+        return acc;
+      }, 0);
+      console.log(total);
     </script>
   </body>
 </html>
