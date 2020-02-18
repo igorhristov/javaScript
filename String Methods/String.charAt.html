@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.charAt()</title>
+  </head>
+  <body>
+    <h1>String.prototype.charAt()</h1>
+    <p>
+      The String object's charAt() method returns a new string consisting of the single UTF-16 code
+      unit located at the specified offset into the string.
+    </p>
+    <h2>Syntax</h2>
+    <code>let character = str.charAt(index)</code>
+    <h3>Parameters</h3>
+    <p>
+      index <br />
+      An integer between 0 and 1-less-than the length of the string. If the index cannot be
+      converted to the integer or no index is provided, the default is 0, so the first character in
+      of str is returned.
+    </p>
+    <h3>Return value:</h3>
+    <p>
+      A string representing the character (exactly one UTF-16 code unit) at the specified index. If
+      index is out of range, charAt() returns an empty string.
+    </p>
+    <h3>Description</h3>
+    <p>
+      Characters in a string are indexed from left to right. The index of the first character is 0,
+      and the index of the last character—in a string called stringName—is stringName.length - 1. If
+      the index you supply is out of this range, JavaScript returns an empty string. <br />
+
+      If no index is provided to charAt(), the default is 0.
+    </p>
+
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The charAt() method returns the character at the specified index in a string. <br />
+
+      The index of the first character is 0, the second character is 1, and so on. <br />
+
+      Tip: The index of the last character in a string is string.length-1, the second last character
+      is string.length-2, and so on (See "More Examples").
+    </p>
+    <script>
+      const sentence = 'The quick brown fox jumps over the lazy dog.';
+      const index = 4;
+      console.log('The character at index ' + index + ' is ' + sentence.charAt(index)); // expected output: "The character at index 4 is q"
+
+      // Displaying characters at different locations in a string
+      // The following example displays characters at different locations in the string "Brave new world":
+      var anyString = 'Brave new world';
+      console.log("The character at index 0   is '" + anyString.charAt() + "'");
+      // No index was provided, used 0 as default
+      // The character at index 0   is 'B'
+
+      console.log("The character at index 0   is '" + anyString.charAt(0) + "'");
+      //The character at index 0   is 'B'
+      console.log("The character at index 1   is '" + anyString.charAt(1) + "'");
+      //   The character at index 1   is 'r'
+      console.log("The character at index 2   is '" + anyString.charAt(2) + "'");
+      //   The character at index 2   is 'a'
+      console.log("The character at index 3   is '" + anyString.charAt(3) + "'");
+      //   The character at index 3   is 'v'
+      console.log("The character at index 4   is '" + anyString.charAt(4) + "'");
+      //   The character at index 4   is 'e'
+      console.log("The character at index 999 is '" + anyString.charAt(999) + "'");
+      //   The character at index 999 is ''
+
+      // W3Schools
+      var str = 'HELLO WORLD';
+      var res = str.charAt(str.length - 1);
+      console.log(res); // D
+    </script>
+  </body>
+</html>
