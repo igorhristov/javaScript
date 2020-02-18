@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object.freeze()</title>
+  </head>
+  <body>
+    <h1>Object.freeze()</h1>
+    <p>
+      The Object.freeze() method freezes an object. A frozen object can no longer be changed;
+      freezing an object prevents new properties from being added to it, existing properties from
+      being removed, prevents changing the enumerability, configurability, or writability of
+      existing properties, and prevents the values of existing properties from being changed. In
+      addition, freezing an object also prevents its prototype from being changed. freeze() returns
+      the same object that was passed in.
+    </p>
+    <h2>Syntax</h2>
+    <code>Object.freeze(obj)</code>
+    <h3>Return value:</h3>
+    <p>The object that was passed to the function.</p>
+    <h3>Description</h3>
+    <p>
+      Nothing can be added to or removed from the properties set of a frozen object. Any attempt to
+      do so will fail, either silently or by throwing a TypeError exception (most commonly, but not
+      exclusively, when in strict mode). <br />
+
+      For data properties of a frozen object, values cannot be changed, the writable and
+      configurable attributes are set to false. Accessor properties (getters and setters) work the
+      same (and still give the illusion that you are changing the value). Note that values that are
+      objects can still be modified, unless they are also frozen. As an object, an array can be
+      frozen; after doing so, its elements cannot be altered and no elements can be added to or
+      removed from the array. <br />
+
+      freeze() returns the same object that was passed into the function. It does not create a
+      frozen copy.
+    </p>
+    <script>
+      const obj = {
+        prop: 42
+      };
+      Object.freeze(obj);
+      obj.prop = 33; // Throws an error in strict mode
+      console.log(obj.prop); // expected output: 42
+      //Examples
+      //Freezing objects
+      var obj = {
+        prop: function() {},
+        foo: 'bar'
+      };
+
+      // Before freezing: new properties may be added,
+      // and existing properties may be changed or removed
+      obj.foo = 'baz';
+      obj.lumpy = 'woof';
+      delete obj.prop;
+
+      // Freeze.
+      var o = Object.freeze(obj);
+
+      // The return value is just the same object we passed in.
+      o === obj; // true
+
+      // The object has become frozen.
+      Object.isFrozen(obj); // === true
+
+      // Now any changes will fail
+      obj.foo = 'quux'; // silently does nothing
+      // silently doesn't add the property
+      obj.quaxxor = 'the friendly duck';
+
+      // In strict mode such attempts will throw TypeErrors
+      function fail() {
+        'use strict';
+        obj.foo = 'sparky'; // throws a TypeError
+        delete obj.foo; // throws a TypeError
+        delete obj.quaxxor; // returns true since attribute 'quaxxor' was never added
+        obj.sparky = 'arf'; // throws a TypeError
+      }
+
+      fail();
+
+      // Attempted changes through Object.defineProperty;
+      // both statements below throw a TypeError.
+      Object.defineProperty(obj, 'ohai', { value: 17 });
+      Object.defineProperty(obj, 'foo', { value: 'eit' });
+
+      // It's also impossible to change the prototype
+      // both statements below will throw a TypeError.
+      Object.setPrototypeOf(obj, { x: 20 });
+      obj.__proto__ = { x: 20 };
+
+      /// What is "shallow freeze"?
+      // The result of calling Object.freeze(object) only applies to the immediate properties of object itself and will prevent future property addition, removal or value re-assignment operations only on object. If the value of those properties are objects themselves, those objects are not frozen and may be the target of property addition, removal or value re-assignment operations.
+      var employee = {
+        name: 'Mayank',
+        designation: 'Developer',
+        address: {
+          street: 'Rohini',
+          city: 'Delhi'
+        }
+      };
+
+      Object.freeze(employee);
+
+      employee.name = 'Dummy'; // fails silently in non-strict mode
+      employee.address.city = 'Noida'; // attributes of child object can be modified
+
+      console.log(employee.address.city); // Output: "Noida"
+
+      //////////////// Freezing arrays //////////////////
+      let a = [0];
+      Object.freeze(a); // The array cannot be modified now.
+
+      a[0] = 1; // fails silently
+
+      // In strict mode such attempt will throw a TypeError
+      function fail() {
+        'use strict';
+        a[0] = 1;
+      }
+
+      fail();
+
+      // Attempted to push
+      a.push(2); // throws a TypeError
+    </script>
+  </body>
+</html>
