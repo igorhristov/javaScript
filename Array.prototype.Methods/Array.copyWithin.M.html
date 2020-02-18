@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.copyWithin()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.copyWithin()</h1>
+    <p>
+      The copyWithin() method shallow copies part of an array to another location in the same array and returns it
+      without modifying its length.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.copyWithin(target[, start[, end]])</code>
+    <h3>Return value: The modified array.</h3>
+    <h3>Parameters</h3>
+    <p>
+      target <br />
+      Zero-based index at which to copy the sequence to. If negative, target will be counted from the end. <br />
+      If target is at or greater than arr.length, nothing will be copied. If target is positioned after start, the
+      copied sequence will be trimmed to fit arr.length. <br />
+      start | Optional <br />
+      Zero-based index at which to start copying elements from. If negative, start will be counted from the end. <br />
+      If start is omitted, copyWithin will copy from index 0. <br />
+      end | Optional <br />
+      Zero-based index at which to end copying elements from. copyWithin copies up to but not including end. If
+      negative, end will be counted from the end. <br />
+      If end is omitted, copyWithin will copy until the last index (default to arr.length).
+    </p>
+    <h3>Description</h3>
+    <p>
+      The copyWithin works like C and C++'s memmove, and is a high-performance method to shift the data of an Array.
+      This especially applies to the TypedArray method of the same name. The sequence is copied and pasted as one
+      operation; pasted sequence will have the copied values even when the copy and paste region overlap. <br />
+
+      The copyWithin function is intentionally generic, it does not require that its this value be an Array object.
+      <br />
+      The copyWithin method is a mutable method. It does not alter the length of this, but it will change its content
+      and create new properties, if necessary.
+    </p>
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The copyWithin() method copies array elements to another position in the array, overwriting the existing values.
+      <br />
+      This method will never add more items to the array. <br />
+      Note: this method overwrites the original array.
+    </p>
+    <script>
+      const array1 = ['a', 'b', 'c', 'd', 'e'];
+
+      // copy to index 0 the element at index 3
+      console.log(array1.copyWithin(0, 3, 4));
+      // expected output: Array ["d", "b", "c", "d", "e"]
+      // copy to index 1 all elements from index 3 to the end
+      console.log(array1.copyWithin(1, 3));
+      // expected output: Array ["d", "d", "e", "d", "e"]
+      /*
+            [1, 2, 3, 4, 5].copyWithin(-2) // [1, 2, 3, 1, 2]
+
+            [1, 2, 3, 4, 5].copyWithin(0, 3) // [4, 5, 3, 4, 5]
+
+            [1, 2, 3, 4, 5].copyWithin(0, 3, 4) // [4, 2, 3, 4, 5]
+
+            [1, 2, 3, 4, 5].copyWithin(-2, -3, -1) // [1, 2, 3, 3, 4]
+
+            //[].copyWithin.call({length: 5, 3: 1}, 0, 3) // {0: 1, 3: 1, length: 5}
+
+            // ES2015 Typed Arrays are subclasses of Array
+            var i32a = new Int32Array([1, 2, 3, 4, 5])
+
+            i32a.copyWithin(0, 2) // Int32Array [3, 4, 5, 4, 5]
+
+            // On platforms that are not yet ES2015 compliant:
+            //[].copyWithin.call(new Int32Array([1, 2, 3, 4, 5]), 0, 3, 4); // Int32Array [4, 2, 3, 4, 5]
+*/
+      // W3Schools
+      var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      fruits.copyWithin(2, 0);
+      console.log(fruits); // ["Banana", "Orange", "Banana", "Orange"]
+
+      // Copy the first two array elements to the third and fourth position:
+      var fruits1 = ['Banana', 'Orange', 'Apple', 'Mango', 'Kiwi', 'Papaya'];
+      fruits1.copyWithin(2, 0, 2);
+      console.log(fruits1); // ["Banana", "Orange", "Banana", "Orange", "Kiwi", "Papaya"]
+    </script>
+  </body>
+</html>
