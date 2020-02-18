@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.values()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.values()</h1>
+    <p>
+      The values() method returns a new Array Iterator object that contains the values for each
+      index in the array.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.values()</code>
+    <h3>Return value: A new Array iterator object.</h3>
+    <script>
+      const array1 = ['a', 'b', 'c'];
+      const iterator5 = array1.values();
+      for (const value of iterator5) {
+        console.log(value);
+      }
+      // expected output: "a"
+      // expected output: "b"
+      // expected output: "c"
+
+      //Examples
+      //   Iteration using for...of loop
+      var arr1 = ['a', 'b', 'c', 'd', 'e'];
+      var iterator4 = arr1.values();
+      for (let letter of iterator4) {
+        console.log(letter);
+      } //"a" "b" "c" "d"
+
+      // Iteration using .next()
+      var arr = ['a', 'b', 'c', 'd', 'e'];
+      var iterator = arr.values();
+      iterator.next(); // Object { value: "a", done: false }
+      iterator.next().value; // "b"
+      iterator.next()['value']; // "c"
+      iterator.next(); // Object { value: "d", done: false }
+      iterator.next(); // Object { value: "e", done: false }
+      iterator.next(); // Object { value: undefined, done: true }
+      iterator.next().value; // undefined
+
+      // !! One-use: the array iterator object is one use or temporary object !!
+      var arr2 = ['a', 'b', 'c', 'd', 'e'];
+      var iterator1 = arr2.values();
+      for (let letter of iterator1) {
+        console.log(letter);
+      } //"a" "b" "c" "d"
+      for (let letter of iterator1) {
+        console.log(letter);
+      } // undefined
+      // reason: When next().done=true  or  currentIndex>length the for..of loop ends. See Iteration protocols.
+
+      // Value: there are no values stored in the array Iterator object; instead it stores the address of the array used in its creation and so depends on the values stored in that array.
+
+      var arr3 = ['a', 'b', 'c', 'd', 'e'];
+      var iterator2 = arr3.values();
+      console.log(iterator2); // Array Iterator {  }
+      iterator2.next().value; // "a"
+      arr3[1] = 'n';
+      iterator2.next().value; //  "n"
+    </script>
+  </body>
+</html>
