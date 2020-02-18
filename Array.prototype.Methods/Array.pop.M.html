@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.pop()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.pop()</h1>
+    <p>
+      The pop() method removes the last element from an array and returns that element. This method changes the length
+      of the array.
+    </p>
+    <h3>Syntax</h3>
+    <code>arr.pop()</code>
+    <h3>Return value</h3>
+    <p>The removed element from the array; undefined if the array is empty.</p>
+    <h3>Description</h3>
+    <p>
+      The pop method removes the last element from an array and returns that value to the caller. <br />
+
+      pop is intentionally generic; this method can be called or applied to objects resembling arrays. Objects which do
+      not contain a length property reflecting the last in a series of consecutive, zero-based numerical properties may
+      not behave in any meaningful manner. <br />
+
+      If you call pop() on an empty array, it returns undefined. <br />
+
+      Array.prototype.shift() has similar behavior to pop, but applied to the first element in an array.
+    </p>
+    <h3>Definition and Usage</h3>
+    <p>
+      The pop() method removes the last element of an array, and returns that element. <br />
+
+      Note: This method changes the length of an array. <br />
+
+      Tip: To remove the first element of an array, use the shift() method.
+    </p>
+    <script>
+      const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+      console.log(plants.pop()); // expected output: "tomato"
+      console.log(plants); // expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+      plants.pop();
+      console.log(plants); // expected output: Array ["broccoli", "cauliflower", "cabbage"]
+
+      // Removing the last element of an array
+      // The following code creates the myFish array containing four elements, then removes its last element.
+      var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      var popped = myFish.pop();
+      console.log(myFish); // ['angel', 'clown', 'mandarin' ]
+      console.log(popped); // 'sturgeon'
+
+      //Using apply( ) or call ( ) on array-like objects
+      //The following code creates the myFish array-like object containing four elements and a length parameter, then removes its last element and decrements the length parameter.
+      var myFish = { 0: 'angel', 1: 'clown', 2: 'mandarin', 3: 'sturgeon', length: 4 };
+      var popped = Array.prototype.pop.call(myFish); //same syntax for using apply( )
+      console.log(myFish); // {0:'angel', 1:'clown', 2:'mandarin', length: 3}
+      console.log(popped); // 'sturgeon'
+
+      // W3Schools
+
+      var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      fruits.pop();
+      console.log(fruits); // ["Banana", "Orange", "Apple"]
+    </script>
+  </body>
+</html>
