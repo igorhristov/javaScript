@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.shift()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.shift()</h1>
+    <p>
+      The shift() method removes the first element from an array and returns that removed element. This method changes
+      the length of the array.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.shift()</code>
+    <h3>Return value</h3>
+    <p>The removed element from the array; undefined if the array is empty.</p>
+    <h3>Description</h3>
+    <p>
+      The shift method removes the element at the zeroeth index and shifts the values at consecutive indexes down, then
+      returns the removed value. If the length property is 0, undefined is returned. <br />
+
+      shift is intentionally generic; this method can be called or applied to objects resembling arrays. Objects which
+      do not contain a length property reflecting the last in a series of consecutive, zero-based numerical properties
+      may not behave in any meaningful manner. <br />
+
+      Array.prototype.pop() has similar behavior to shift, but applied to the last element in an array.
+    </p>
+
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The shift() method removes the first item of an array. <br />
+
+      Note: This method changes the length of the array. <br />
+
+      Note: The return value of the shift method is the removed item. <br />
+
+      Tip: To remove the last item of an array, use the pop() method. <br />
+
+      Note: this method will change the original array.
+    </p>
+
+    <h3>Return Value:</h3>
+    <p>
+      Any type*, representing the removed array item. *An array item can be a string, a number, an array, a boolean, or
+      any other object types that are allowed in an array.
+    </p>
+    <script>
+      const array1 = [1, 2, 3];
+      const firstElement = array1.shift();
+      console.log(array1); // expected output: Array [2, 3]
+      console.log(firstElement); // expected output: 1
+
+      //Removing an element from an array
+      // The following code displays the myFish array before and after removing its first element. It also displays the removed element:
+      var myFish = ['angel', 'clown', 'mandarin', 'surgeon'];
+      console.log('myFish before:', JSON.stringify(myFish));
+      // myFish before: ['angel', 'clown', 'mandarin', 'surgeon']
+      var shifted = myFish.shift();
+      console.log('myFish after:', myFish); // myFish after: ['clown', 'mandarin', 'surgeon']
+      console.log('Removed this element:', shifted); // Removed this element: angel
+
+      // Using shift() method in while loop
+      // The shift() method is often used in condition inside while loop. In the following example every iteration will remove the next element from an array, until it is empty:
+      var names = ['Andrew', 'Edward', 'Paul', 'Chris', 'John'];
+
+      while ((i = names.shift()) !== undefined) {
+        console.log(i);
+      }
+      // Andrew, Edward, Paul, Chris, John
+
+      // W3Schools
+      var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      fruits.shift();
+      console.log(fruits); //["Orange", "Apple", "Mango"]
+    </script>
+  </body>
+</html>
