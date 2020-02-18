@@ -65,12 +65,12 @@
       //   console.log(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
 
       /*
-               Trolls are attacking your comment section!
-      A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
-      Your task is to write a function that takes a string and return a new string with all vowels removed.
-      For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
-      Note: for this kata y isn't considered a vowel.
-            */
+                     Trolls are attacking your comment section!
+            A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+            Your task is to write a function that takes a string and return a new string with all vowels removed.
+            For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+            Note: for this kata y isn't considered a vowel.
+                  */
       function disemvowel(str) {
         var string = str.split('');
         var regex = /[aeiou]/gim;
@@ -130,15 +130,15 @@
         return true;
       }
       /*
-            console.log(isPrime(7) + ' 7');
-            console.log(isPrime(2) + ' 2');
-            console.log(isPrime(9) + ' 9');
-            console.log(isPrime(11) + ' 11');
-            console.log(isPrime(25) + ' 25');
-            console.log(isPrime(1) + ' 1');
-            console.log(isPrime(-21) + ' -21');
-            console.log(isPrime(22248) + ' 22248');
-            console.log(isPrime(100000010549) + ' 100000010549');*/
+                  console.log(isPrime(7) + ' 7');
+                  console.log(isPrime(2) + ' 2');
+                  console.log(isPrime(9) + ' 9');
+                  console.log(isPrime(11) + ' 11');
+                  console.log(isPrime(25) + ' 25');
+                  console.log(isPrime(1) + ' 1');
+                  console.log(isPrime(-21) + ' -21');
+                  console.log(isPrime(22248) + ' 22248');
+                  console.log(isPrime(100000010549) + ' 100000010549');*/
 
       function colorOf(r, g, b) {
         var hex = '#';
@@ -179,12 +179,12 @@
       }
       // console.log(fakeBin('123456'));
       /*
-      Coding in function ```cutIt```, function accept 1 parameter:```arr```. ```arr``` is a string array.
+            Coding in function ```cutIt```, function accept 1 parameter:```arr```. ```arr``` is a string array.
 
-      The first mission: Traversing ```arr```, find the shortest string length.
+            The first mission: Traversing ```arr```, find the shortest string length.
 
-      The second mission: Traversing ```arr``` again, intercept all strings to the shortest string length(Start from index0). you can use one of slice() substring() or substr() do it. return the result after finished the work.
-      */
+            The second mission: Traversing ```arr``` again, intercept all strings to the shortest string length(Start from index0). you can use one of slice() substring() or substr() do it. return the result after finished the work.
+            */
       var cutIt = arr => {
         // var short = arr.sort((a, b) => a.length - b.length); // not workin is mutating original array
         var min = Math.min(...arr.map(({ length }) => length));
@@ -273,9 +273,37 @@
         const sortAges = ages.sort((a, b) => b - a);
         return [sortAges[0], sortAges[1]];
       }
-      const ag1 = [1,5,87,45,8,8];
+      const ag1 = [1, 5, 87, 45, 8, 8];
       console.log(twoOldestAges(ag1));
-      
+
+      function noOdds(values) {
+        return values.reduce((acc, c) => {
+          c % 2 === 0 ? acc.push(c) : null;
+          return acc;
+        }, []);
+      }
+      console.log(noOdds([0, 1, 2, 3]));
+
+      function sortList(sortBy, list) {
+        return list.sort((a, b) => (a[sortBy] > b[sortBy] ? -1 : 1));
+      }
+      const sortlista = [
+        { a: 1, b: 3 },
+        { a: 3, b: 2 },
+        { a: 2, b: 40 },
+        { a: 4, b: 12 }
+      ];
+      console.log(sortList('a', sortlista));
+
+      function getMissingElement(superImportantArray) {
+        
+        for(let i = 0; i <=9 i++) {
+          if(superImportantArray[i] !== i) {
+            return i;
+          }
+        }
+      }
+      console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4]));
     </script>
   </body>
 </html>
