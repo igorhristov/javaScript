@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.keys()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.keys()</h1>
+    <p>
+      The keys() method returns a new Array Iterator object that contains the keys for each index in
+      the array.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.keys()</code>
+    <h3>Return value: A new Array iterator object.</h3>
+
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The keys() method returns an Array Iterator object with the keys of an array. <br />
+
+      Note: this method does not change the original array.
+    </p>
+    <p id="demo"></p>
+    <script>
+      const array1 = ['a', 'b', 'c'];
+      const iterator = array1.keys();
+      for (const key of iterator) {
+        console.log(key);
+      }
+      // expected output: 0
+      // expected output: 1
+      // expected output: 2
+
+      // Examples
+      // Key iterator doesn't ignore holes
+      var arr = ['a', , 'c'];
+      var sparseKeys = Object.keys(arr);
+      var denseKeys = [...arr.keys()];
+      console.log(sparseKeys); // ['0', '2']
+      console.log(denseKeys); // [0, 1, 2]
+
+      // W3Schools
+      var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      var fk = fruits.keys();
+
+      for (x of fk) {
+        document.getElementById('demo').innerHTML += x + '<br>';
+      }
+    </script>
+  </body>
+</html>
