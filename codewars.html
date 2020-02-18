@@ -258,9 +258,23 @@
       console.log(sumSquares([1, 2, 3, 4, 5]));
 
       function superSize(num) {
-        return num.toString().split('').map(x=> 1 * x).sort((x, y) => y - x).join('') * 1;
+        return (
+          num
+            .toString()
+            .split('')
+            .map(x => 1 * x)
+            .sort((x, y) => y - x)
+            .join('') * 1
+        );
       }
       console.log(superSize(69));
+
+      function twoOldestAges(ages) {
+        const sortAges = ages.sort((a, b) => b - a);
+        return [sortAges[0], sortAges[1]];
+      }
+      const ag1 = [1,5,87,45,8,8];
+      console.log(twoOldestAges(ag1));
       
     </script>
   </body>
