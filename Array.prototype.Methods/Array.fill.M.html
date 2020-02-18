@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.fill()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.fill()</h1>
+    <p>
+      The fill() method changes all elements in an array to a static value, from a start index
+      (default 0) to an end index (default array.length). It returns the modified array.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.fill(value[, start[, end]])</code>
+    <h3>Parameters</h3>
+    <p>
+      value <br />
+      Value to fill the array with. (Note all elements in the array will be this exact value.)
+      <br />
+      start | Optional <br />
+      Start index, default 0. <br />
+      end | Optional <br />
+      End index, default arr.length.
+    </p>
+    <h3>Return value: The modified array, filled with value.</h3>
+    <h3>Description</h3>
+    <ul>
+      <li>If start is negative, it is treated as array.length + start.</li>
+      <li>If end is negative, it is treated as array.length + end.</li>
+      <li>
+        fill is intentionally generic: it does not require that its this value be an Array object.
+      </li>
+      <li>
+        fill is a mutator method: it will change the array itself and return it, not a copy of it.
+      </li>
+      <li>
+        If the first parameter is an object, it will copy its reference and fill the array with
+        references to that object.
+      </li>
+    </ul>
+
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The fill() method fills the specified elements in an array with a static value. <br />
+
+      You can specify the position of where to start and end the filling. If not specified, all
+      elements will be filled. <br />
+
+      Note: this method overwrites the original array.
+    </p>
+    <script>
+      const array1 = [1, 2, 3, 4];
+
+      // fill with 0 from position 2 until position 4
+      console.log(array1.fill(0, 2, 4)); // expected output: [1, 2, 0, 0]
+
+      // fill with 5 from position 1
+      console.log(array1.fill(5, 1)); // expected output: [1, 5, 5, 5]
+
+      console.log(array1.fill(6)); // expected output: [6, 6, 6, 6]
+
+      /// Examples
+      console.log([1, 2, 3].fill(4)); // [4, 4, 4]
+      console.log([1, 2, 3].fill(4, 1)); // [1, 4, 4]
+      console.log([1, 2, 3].fill(4, 1, 2)); // [1, 4, 3]
+      console.log([1, 2, 3].fill(4, 1, 1)); // [1, 2, 3]
+      console.log([1, 2, 3].fill(4, 3, 3)); // [1, 2, 3]
+      console.log([1, 2, 3].fill(4, -3, -2)); // [4, 2, 3]
+      console.log([1, 2, 3].fill(4, NaN, NaN)); // [1, 2, 3]
+      console.log([1, 2, 3].fill(4, 3, 5)); // [1, 2, 3]
+      console.log(Array(3).fill(4)); // [4, 4, 4]
+      console.log([].fill.call({ length: 3 }, 4)); // {0: 4, 1: 4, 2: 4, length: 3}
+
+      // Objects by reference
+      let arr = Array(3).fill({}); // [{}, {}, {}]
+      arr[0].hi = 'hi'; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
+
+      // W3Schools
+      var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      fruits.fill('Kiwi');
+      console.log(fruits); // ["Kiwi", "Kiwi", "Kiwi", "Kiwi"]
+    </script>
+  </body>
+</html>
