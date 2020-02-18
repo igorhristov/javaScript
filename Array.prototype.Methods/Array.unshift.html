@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array.prototype.unshift()</title>
+  </head>
+  <body>
+    <h1>Array.prototype.unshift()</h1>
+    <p>
+      The unshift() method adds one or more elements to the beginning of an array and returns the new length of the
+      array.
+    </p>
+    <h2>Syntax</h2>
+    <code>arr.unshift(element1[, ...[, elementN]])</code>
+    <h3>Parameters</h3>
+    <p>
+      elementN <br />
+      The elements to add to the front of the arr.
+    </p>
+    <h3>Return value</h3>
+    <p>The new length property of the object upon which the method was called.</p>
+    <h3>Description</h3>
+    <p>
+      The unshift method inserts the given values to the beginning of an array-like object. <br />
+
+      unshift is intentionally generic. This method can be called or applied to objects resembling arrays. Objects which
+      do not contain a length property—reflecting the last in a series of consecutive, zero-based numerical
+      properties—may not behave in any meaningful manner. <br />
+
+      Please note that, if multiple elements are passed as parameters, they're inserted in chunk at the beginning of the
+      object, in the exact same order they were passed as parameters. Hence, calling unshift with n arguments once, or
+      calling it n times with 1 argument (with a loop, for example), don't yield the same results. <br />
+      See example:
+    </p>
+
+    <h2>W3Schools</h2>
+    <p>
+      The unshift() method adds new items to the beginning of an array, and returns the new length. <br />
+
+      Note: This method changes the length of an array. <br />
+
+      Tip: To add new items at the end of an array, use the push() method.
+    </p>
+    <script>
+      const array1 = [1, 2, 3];
+      console.log(array1.unshift(4, 5)); // expected output: 5
+      console.log(array1); // expected output: Array [4, 5, 1, 2, 3]
+
+      // from description
+      let arr = [4, 5, 6];
+      arr.unshift(1, 2, 3);
+      console.log(arr); // [1, 2, 3, 4, 5, 6]
+      arr = [4, 5, 6]; // resetting the array
+      arr.unshift(1);
+      arr.unshift(2);
+      arr.unshift(3);
+      console.log(arr); // [3, 2, 1, 4, 5, 6]
+
+      /// Examples
+      let arr1 = [1, 2];
+      arr.unshift(0); // result of the call is 3, which is the new array length
+      // arr is [0, 1, 2]
+      arr1.unshift(-2, -1); // the new array length is 5
+      // arr is [-2, -1, 0, 1, 2]
+      arr1.unshift([-4, -3]); // the new array length is 6
+      // arr is [[-4, -3], -2, -1, 0, 1, 2]
+      arr1.unshift([-7, -6], [-5]); // the new array length is 8
+      // arr is [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]
+
+      // Example
+      var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      fruits.unshift('Lemon', 'Pineapple');
+      console.log(fruits); //["Lemon", "Pineapple", "Banana", "Orange", "Apple", "Mango"]
+    </script>
+  </body>
+</html>
