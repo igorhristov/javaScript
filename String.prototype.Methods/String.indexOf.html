@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.indexOf()</title>
+  </head>
+  <body>
+    <h1>String.prototype.indexOf()</h1>
+    <p>
+      The indexOf() method returns the index within the calling String object of the first occurrence of the specified
+      value, starting the search at fromIndex. Returns -1 if the value is not found. <br />
+      --> Note: For the Array method, see Array.prototype.indexOf().
+    </p>
+    <script>
+      const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+      const searchTerm = 'dog';
+      const indexOfFirst = paragraph.indexOf(searchTerm);
+
+      console.log('The index of the first "' + searchTerm + '" from the beginning is ' + indexOfFirst);
+      // expected output: "The index of the first "dog" from the beginning is 40"
+
+      console.log('The index of the 2nd "' + searchTerm + '" is ' + paragraph.indexOf(searchTerm, indexOfFirst + 1));
+      // expected output: "The index of the 2nd "dog" is 52"
+    </script>
+    <h2>Syntax</h2>
+    <code>str.indexOf(searchValue [, fromIndex])</code>
+    <h3>Parameters</h3>
+    <p>
+      searchValue <br />
+      The string value to search for. <br />
+
+      If no string is explicitly provided, searchValue will be coerced to "undefined", and this value will be searched
+      for in str. <br />
+
+      So, for example: 'undefined'.indexOf() will return 0, as undefined is found at position 0, but
+      'undefine'.indexOf() will return -1, as the string "undefined" is not found. <br />
+
+      fromIndex | Optional <br />
+      An integer representing the index at which to start the search. Defaults to 0. <br />
+
+      For fromIndex values lower than 0, or greater than str.length, the search starts at index 0 and str.length,
+      respectively. <br />
+
+      For example, 'hello world'.indexOf('o', -5) will return 4, as it starts at position 0, and o is found at position
+      4. On the other hand, 'hello world'.indexOf('o', 11) (and with any fromIndex value greater than 11) will return
+      -1, as the search is started at position 11, a position after the end of the string.
+    </p>
+
+    <h3>Return value</h3>
+    <p>
+      The index of the first occurrence of searchValue, or -1 if not found. <br />
+
+      An empty string searchValue produces strange results. With no fromIndex value, or any fromIndex value lower than
+      the string's length, the returned value is the same as the fromIndex value:
+    </p>
+    <script>
+      'hello world'.indexOf(''); // returns 0
+      'hello world'.indexOf('', 0); // returns 0
+      'hello world'.indexOf('', 3); // returns 3
+      'hello world'.indexOf('', 8); // returns 8
+    </script>
+    <p>
+      However, with any fromIndex value equal to or greater than the string's length, the returned value is the string's
+      length:
+    </p>
+    <script>
+      'hello world'.indexOf('', 11); // returns 11
+      'hello world'.indexOf('', 13); // returns 11
+      'hello world'.indexOf('', 22); // returns 11
+    </script>
+    <p>
+      In the former instance, JS seems to find an empty string just after the specified index value. In the latter
+      instance, JS seems to be finding an empty string at the end of the searched string.
+    </p>
+
+    <h3>Description</h3>
+    <p>
+      Characters in a string are indexed from left to right. The index of the first character is 0, and the index of the
+      last character of a string called stringName is stringName.length - 1.
+    </p>
+    <script>
+      'Blue Whale'.indexOf('Blue'); // returns  0
+      'Blue Whale'.indexOf('Blute'); // returns -1
+      'Blue Whale'.indexOf('Whale', 0); // returns  5
+      'Blue Whale'.indexOf('Whale', 5); // returns  5
+      'Blue Whale'.indexOf('Whale', 7); // returns -1
+      'Blue Whale'.indexOf(''); // returns  0
+      'Blue Whale'.indexOf('', 9); // returns  9
+      'Blue Whale'.indexOf('', 10); // returns 10
+      'Blue Whale'.indexOf('', 11); // returns 10
+    </script>
+    <h3>The indexOf() method is case sensitive. For example, the following expression returns -1:</h3>
+    <script>
+      'Blue Whale'.indexOf('blue'); // returns -1
+    </script>
+    <h4>Checking occurrences</h4>
+    <p>
+      Note that 0 doesn't evaluate to true and -1 doesn't evaluate to false. Therefore, when checking if a specific
+      string exists within another string, the correct way to check would be:
+    </p>
+    <script>
+      'Blue Whale'.indexOf('Blue') !== -1; // true
+      'Blue Whale'.indexOf('Bloe') !== -1; // false
+      ~'Blue Whale'.indexOf('Bloe'); // 0, which is falsy
+    </script>
+
+    <h3>Examples</h3>
+    <script>
+      // Using indexOf()
+      // The following example uses indexOf() to locate values in the string "Brave new world".
+      const str5 = 'Brave new world';
+      console.log('Index of first w from start is ' + str5.indexOf('w')); // logs 8
+      console.log('Index of "new" from start is ' + str5.indexOf('new')); // logs 6
+
+      // indexOf() and case-sensitivity
+      // The following example defines two string variables.
+      // The variables contain the same string, except that the second string contains uppercase letters. The first console.log() method displays 19. But because the indexOf() method is case sensitive, the string "cheddar" is not found in myCapString, so the second console.log() method displays -1.
+
+      const myString = 'brie, pepper jack, cheddar';
+      const myCapString = 'Brie, Pepper Jack, Cheddar';
+
+      console.log('myString.indexOf("cheddar") is ' + myString.indexOf('cheddar'));
+      // logs 19
+      console.log('myCapString.indexOf("cheddar") is ' + myCapString.indexOf('cheddar'));
+      // logs -1
+    </script>
+
+    <h2>W2Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The indexOf() method returns the position of the first occurrence of a specified value in a string. <br />
+
+      This method returns -1 if the value to search for never occurs. <br />
+
+      Note: The indexOf() method is case sensitive. <br />
+
+      Tip: Also look at the lastIndexOf() method.
+    </p>
+    <script>
+      var str = 'Hello world, welcome to the universe.';
+      var n = str.indexOf('welcome'); // 13
+
+      // Find the first occurrence of the letter "e" in a string:
+      var str1 = 'Hello world, welcome to the universe.';
+      var n = str1.indexOf('e'); // 1
+
+      // Find the first occurrence of the letter "e" in a string, starting the search at position 5:
+      var str2 = 'Hello world, welcome to the universe.';
+      var n = str2.indexOf('e', 5); // 14
+    </script>
+  </body>
+</html>
