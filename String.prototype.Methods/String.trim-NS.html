@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.trim()</title>
+  </head>
+  <body>
+    <h1>String.prototype.trim()</h1>
+    <p>
+      The trim() method removes whitespace from both ends of a string. Whitespace in this context is all the whitespace
+      characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
+    </p>
+    <h2>Syntax</h2>
+    <code>str.trim()</code>
+    <h3>Return value</h3>
+    <p>
+      A new string representing the calling string stripped of whitespace from both ends.
+    </p>
+    <h3>Description</h3>
+    <p>
+      The trim() method returns the string stripped of whitespace from both ends. trim() does not affect the value of
+      the string itself.
+    </p>
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The trim() method removes whitespace from both sides of a string. <br />
+
+      Note: The trim() method does not change the original string.
+    </p>
+    <script>
+      const greeting = '   Hello world!   ';
+      console.log(greeting); // expected output: "   Hello world!   ";
+      console.log(greeting.trim()); // expected output: "Hello world!";
+      console.log(greeting); // expected output: "   Hello world!   ";
+
+      // Using trim()
+      var orig = '   foo  ';
+      console.log(orig.trim()); // 'foo'
+
+      // Another example of .trim() removing whitespace from just one side.
+      var orig = 'foo    ';
+      console.log(orig.trim()); // 'foo'
+
+      // Running the following code before any other code will create trim() if it's not natively available.
+      if (!String.prototype.trim) {
+        String.prototype.trim = function() {
+          return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+        };
+      }
+      // w3schools
+      var str = '       Hello World!        ';
+      console.log(str.trim());
+
+      function myTrim(x) {
+        return x.replace(/^\s+|\s+$/gm, '');
+      }
+
+      function myFunction() {
+        var str = myTrim('        Hello World!        ');
+        console.log(str);
+      }
+    </script>
+  </body>
+</html>
