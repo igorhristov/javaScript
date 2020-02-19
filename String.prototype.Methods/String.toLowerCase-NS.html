@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.toLowerCase()</title>
+  </head>
+  <body>
+    <h1>String.prototype.toLowerCase()</h1>
+    <p>The toLowerCase() method returns the calling string value converted to lower case.</p>
+    <h2>Syntax</h2>
+    <code>str.toLowerCase()</code>
+    <h3>Return value:</h3>
+    <p>A new string representing the calling string converted to lower case.</p>
+    <h3>Description</h3>
+    <p>
+      The toLowerCase() method returns the value of the string converted to lower case. toLowerCase() does not affect
+      the value of the string str itself.
+    </p>
+    <h2>W3Schools</h2>
+    <p>
+      The toLowerCase() method converts a string to lowercase letters. <br />
+
+      Note: The toLowerCase() method does not change the original string. <br />
+
+      Tip: Use the toUpperCase() method to convert a string to uppercase letters.
+    </p>
+    <script>
+      const sentence = 'The quick brown fox jumps over the lazy dog.';
+      console.log(sentence.toLowerCase()); // expected output: "the quick brown fox jumps over the lazy dog."
+
+      //Examples
+      console.log('ALPHABET'.toLowerCase()); // 'alphabet'
+
+      var str = 'Hello World!';
+      var res = str.toLowerCase();
+      console.log(res); // hello world!
+    </script>
+  </body>
+</html>
