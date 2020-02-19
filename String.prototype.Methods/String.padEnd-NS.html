@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.padEnd()</title>
+  </head>
+  <body>
+    <h1>String.prototype.padEnd()</h1>
+    <p>
+      The padEnd() method pads the current string with a given string (repeated, if needed) so that the resulting string
+      reaches a given length. The padding is applied from the end of the current string.
+    </p>
+    <h2>Syntax</h2>
+    <code>str.padEnd(targetLength [, padString])</code>
+    <h3>Parameters</h3>
+    <p>
+      targetLength <br />
+      The length of the resulting string once the current string has been padded. If the value is lower than the current
+      string's length, the current string will be returned as is. <br />
+
+      padString | Optional <br />
+      The string to pad the current string with. If this string is too long to stay within the target length, it will be
+      truncated: for left-to-right languages the left-most part and for right-to-left languages the right-most will be
+      applied. The default value for this parameter is " " (U+0020).
+    </p>
+    <h3>Return value</h3>
+    <p>A String of the specified length with the pad string applied at the end of the current string.</p>
+    <script>
+      const str1 = 'Bread';
+      console.log(str1.padEnd(9, '.')); // expected output: "Bread...."
+      const str2 = '200';
+      console.log(str2.padEnd(5)); // expected output: "200  "
+
+      // Examples
+      console.log('abc'.padEnd(10)); //"abc       "
+      console.log('abc'.padEnd(10, 'foo')); // "abcfoofoof"
+      console.log('abc'.padEnd(6, '123456')); // "abc123"
+      console.log('abc'.padEnd(1)); // "abc"
+    </script>
+  </body>
+</html>
