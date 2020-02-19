@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.codePointAt()</title>
+  </head>
+  <body>
+    <h1>String.prototype.codePointAt()</h1>
+    <p>The codePointAt() method returns a non-negative integer that is the Unicode code point value.</p>
+    <h2>Syntax</h2>
+    <code>str.codePointAt(pos)</code>
+    <h3>Parameters</h3>
+    <p>
+      pos <br />
+      Position of an element in str to return the code point value from.
+    </p>
+    <h3>Return Value:</h3>
+    <p>
+      A number representing the code point value of the character at the given pos. If there is no element at pos,
+      returns undefined.
+    </p>
+    <h3>Description</h3>
+    <p>
+      If there is no element at the specified position, undefined is returned. If no UTF-16 surrogate pair begins at
+      pos, the code unit at pos is returned.
+    </p>
+    <script>
+      const icons = '☃★♲';
+      console.log(icons.codePointAt(1)); // expected output: "9733"
+      // Examples
+      // Using codePointAt()
+      console.log('ABC'.codePointAt(1)); // 66
+      console.log('\uD800\uDC00'.codePointAt(0)); // 65536
+      console.log('XYZ'.codePointAt(42)); // undefined
+
+      // Looping with codePointAt()
+      for (let codePoint of '\ud83d\udc0e\ud83d\udc71\u2764') {
+        console.log(codePoint.codePointAt(0).toString(16));
+      }
+      // '1f40e', '1f471', '2764'
+    </script>
+  </body>
+</html>
