@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.endsWith()</title>
+  </head>
+  <body>
+    <h1>String.prototype.endsWith()</h1>
+    <p>
+      The endsWith() method determines whether a string ends with the characters of a specified string, returning true
+      or false as appropriate.
+    </p>
+    <h2>Syntax</h2>
+    <code>str.endsWith(searchString[, length])</code>
+    <h3>Parameters</h3>
+    <p>
+      searchString <br />
+      The characters to be searched for at the end of str. <br />
+      length | Optional <br />
+      If provided, it is used as the length of str. Defaults to str.length.
+    </p>
+    <h3>Return value:</h3>
+    <p>true if the given characters are found at the end of the string; otherwise, false.</p>
+    <h3>Description</h3>
+    <p>
+      This method lets you determine whether or not a string ends with another string. This method is case-sensitive.
+    </p>
+
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The endsWith() method determines whether a string ends with the characters of a specified string. <br />
+
+      This method returns true if the string ends with the characters, and false if not. <br />
+
+      Note: The endsWith() method is case sensitive.
+    </p>
+    <script>
+      const str1 = 'Cats are the best!';
+      console.log(str1.endsWith('best', 17)); // expected output: true
+
+      const str2 = 'Is this a question';
+      console.log(str2.endsWith('?')); // expected output: false
+
+      //   Examples
+      // Using endsWith()
+      let str = 'To be, or not to be, that is the question.';
+
+      console.log(str.endsWith('question.')); // true
+      console.log(str.endsWith('to be')); // false
+      console.log(str.endsWith('to be', 19)); // true
+
+      // W3Schools
+      // Check if a string ends with "universe.":
+      var str = 'Hello world, welcome to the universe.';
+      var n = str.endsWith('universe.'); // true
+
+      // Check if a string ends with "world", assuming the string is 11 characters long:
+      var str = 'Hello world, welcome to the universe.';
+      var n = str.endsWith('world', 11); // true
+    </script>
+  </body>
+</html>
