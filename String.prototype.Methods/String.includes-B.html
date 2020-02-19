@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.includes()</title>
+  </head>
+  <body>
+    <h1>String.prototype.includes()</h1>
+    <p>
+      The includes() method determines whether one string may be found within another string, returning true or false as
+      appropriate.
+    </p>
+    <h2>Syntax</h2>
+    <code>str.includes(searchString[, position])</code>
+    <h3>Parameters</h3>
+    <p>
+      searchString <br />
+      A string to be searched for within str. <br />
+      position | Optional <br />
+      The position within the string at which to begin searching for searchString. (Defaults to 0.)
+    </p>
+    <h3>Return value</h3>
+    <p>true if the search string is found anywhere within the given string; otherwise, false if not.</p>
+    <h3>Description</h3>
+    <p>
+      This method lets you determine whether or not a string includes another string. <br />
+      The includes() method is case sensitive.
+    </p>
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The includes() method determines whether a string contains the characters of a specified string. <br />
+
+      This method returns true if the string contains the characters, and false if not. <br />
+
+      Note: The includes() method is case sensitive.
+    </p>
+    <script>
+      const sentence = 'The quick brown fox jumps over the lazy dog.';
+      const word = 'fox';
+      console.log(`The word "${word}" ${sentence.includes(word) ? 'is' : 'is not'} in the sentence`); // expected output: "The word "fox" is in the sentence"
+
+      // Case-sensitivity
+      console.log('Blue Whale'.includes('blue')); // returns false
+
+      // Using includes()
+      const str = 'To be, or not to be, that is the question.';
+
+      console.log(str.includes('To be')); // true
+      console.log(str.includes('question')); // true
+      console.log(str.includes('nonexistent')); // false
+      console.log(str.includes('To be', 1)); // false
+      console.log(str.includes('TO BE')); // false
+      console.log(str.includes('')); // true
+
+      // W3Schools
+      var str = 'Hello world, welcome to the universe.';
+      var n = str.includes('world'); //true
+
+      // Check if a string includes "world", starting the search at position 12:
+      var str1 = 'Hello world, welcome to the universe.';
+      var n = str1.includes('world', 12); // false
+    </script>
+  </body>
+</html>
