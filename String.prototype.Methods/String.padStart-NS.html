@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.padStart()</title>
+  </head>
+  <body>
+    <h1>String.prototype.padStart()</h1>
+    <p>
+      The padStart() method pads the current string with another string (multiple times, if needed) until the resulting
+      string reaches the given length. The padding is applied from the start of the current string.
+    </p>
+    <h2>Syntax</h2>
+    <code>str.padStart(targetLength [, padString])</code>
+    <h3>Parameters</h3>
+    <p>
+      targetLength <br />
+      The length of the resulting string once the current string has been padded. If the value is less than the current
+      string's length, the current string is returned as is. <br />
+
+      padString | Optional <br />
+      The string to pad the current string with. If this padding string is too long to stay within the targetLength, it
+      will be truncated from the end. The default value is " " (U+0020 'SPACE').
+    </p>
+    <h3>Return value</h3>
+    <p>A String of the specified length with the pad string applied from the start.</p>
+    <script>
+      const str1 = '5';
+      console.log(str1.padStart(2, '0')); // expected output: "05"
+
+      const fullNumber = '2034399002125581';
+      const last4Digits = fullNumber.slice(-4);
+      const maskedNumber = last4Digits.padStart(fullNumber.length, '*');
+      console.log(maskedNumber); // expected output: "************5581"
+
+      //Basic examples
+      console.log('abc'.padStart(10)); // "       abc"
+      console.log('abc'.padStart(10, 'foo')); // "foofoofabc"
+      console.log('abc'.padStart(6, '123465')); // "123abc"
+      console.log('abc'.padStart(8, '0')); // "00000abc"
+      console.log('abc'.padStart(1)); // "abc"
+
+      //  Fixed width string number conversion
+      // Javascript version of: (unsigned)
+      //  printf "%0*d" width num
+      function leftFillNum(num, targetLength) {
+        return num.toString().padStart(targetLength, 0);
+      }
+
+      const num = 123;
+      console.log(leftFillNum(num, 5)); // expected output: "00123"
+    </script>
+  </body>
+</html>
