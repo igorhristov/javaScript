@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.lastIndexOf()</title>
+  </head>
+  <body>
+    <h1>String.prototype.lastIndexOf()</h1>
+    <p>
+      The lastIndexOf() method returns the index within the calling String object of the last
+      occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value
+      is not found.
+    </p>
+    <h2>Syntax</h2>
+    <code>
+      str.lastIndexOf(searchValue[, fromIndex])
+    </code>
+    <h3>Parameters</h3>
+    <p>
+      searchValue <br />
+      A string representing the value to search for. If searchValue is an empty string, then
+      fromIndex is returned. <br />
+      fromIndex | Optional <br />
+      The index of the last character in the string to be considered as the beginning of a match.
+      The default value is +Infinity. If fromIndex >= str.length, the whole string is searched. If
+      fromIndex < 0, the behavior will be the same as if it would be 0.
+    </p>
+    <h3>Return value:</h3>
+    <p>The index of the last occurrence of the specified value; -1 if not found.</p>
+    <h3>Description</h3>
+    <p>
+      Characters in a string are indexed from left to right. The index of the first character is 0,
+      and the index of the last character is str.length - 1.
+    </p>
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The lastIndexOf() method returns the position of the last occurrence of a specified value in a
+      string. <br />
+
+      Note: The string is searched from the end to the beginning, but returns the index starting at
+      the beginning, at position 0. <br />
+
+      This method returns -1 if the value to search for never occurs. <br />
+
+      Note: The lastIndexOf() method is case sensitive! <br />
+
+      Tip: Also look at the indexOf() method.
+    </p>
+    <script>
+      const paragraph =
+        'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+      const searchTerm = 'dog';
+      console.log(
+        'The index of the first "' +
+          searchTerm +
+          '" from the end is ' +
+          paragraph.lastIndexOf(searchTerm)
+      ); // expected output: "The index of the first "dog" from the end is 52"
+
+      'canal'.lastIndexOf('a'); // returns 3
+      'canal'.lastIndexOf('a', 2); // returns 1
+      'canal'.lastIndexOf('a', 0); // returns -1
+      'canal'.lastIndexOf('x'); // returns -1
+      'canal'.lastIndexOf('c', -5); // returns 0
+      'canal'.lastIndexOf('c', 0); // returns 0
+      'canal'.lastIndexOf(''); // returns 5
+      'canal'.lastIndexOf('', 2); // returns 2
+
+      // The lastIndexOf() method is case sensitive. For example, the following expression returns -1:
+      'Blue Whale, Killer Whale'.lastIndexOf('blue'); // returns -1
+
+      // Using indexOf() and lastIndexOf()
+      //The following example uses indexOf() and lastIndexOf() to locate values in the string "Brave new world".
+      var anyString = 'Brave new world';
+
+      console.log('The index of the first w from the beginning is ' + anyString.indexOf('w')); // logs 8
+      console.log('The index of the first w from the end is ' + anyString.lastIndexOf('w')); // logs 10
+      console.log('The index of "new" from the beginning is ' + anyString.indexOf('new')); // logs 6
+      console.log('The index of "new" from the end is ' + anyString.lastIndexOf('new')); // logs 6
+
+      // w3schools
+      // Search a string for the last occurrence of "planet", starting the search at position 20:
+      var str = 'Hello planet earth, you are a great planet.';
+      var n = str.lastIndexOf('planet', 20);
+      console.log(n); // 6
+
+      // Search a string for the last occurrence of "planet":
+      var str1 = 'Hello planet earth, you are a great planet.';
+      var n = str1.lastIndexOf('planet'); // 36
+    </script>
+  </body>
+</html>
