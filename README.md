@@ -1,10 +1,5 @@
 # javaScript
 
-## Array Methods
-
-- [Array.prototype.concat()](./Array.prototype.Methods/Array.concat-NA.html) Concatanating arrays
-- [Array.prototype.pop()](./Array.prototype.Methods/Array.pop-M.html) Remove last element from array
-
 ## String Methods
 
 - [String.prototype.concat()](./String.prototype.Methods/String.concat-NS.html) Concatanating strings
@@ -16,3 +11,12 @@
 ```
 
 - [String.prototype.split()](./String.prototype.Methods/String.split-NA.html) Make Array from strings
+
+## Array Methods
+
+- [Array.prototype.concat()](./Array.prototype.Methods/Array.concat-NA.html) Concatanating arrays
+- [Array.prototype.pop()](./Array.prototype.Methods/Array.pop-M.html) Remove last element from array
+
+## Object Methods
+
+- [Object.assign()](./Object.Methods/Object.assign-TO.html) Copy Object from source object to target object
