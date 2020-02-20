@@ -15,11 +15,15 @@
 ## Array Methods
 
 - [Array.prototype.concat()](./Array.prototype.Methods/Array.concat-NA.html) Concatanating arrays
+
 - [Array.prototype.pop()](./Array.prototype.Methods/Array.pop-M.html) Remove last element from array
+- [Array.prototype.push()](./Array.prototype.Methods/Array.push-ML.html) Add one or more elements to the end array
+- [Array.prototype.shift()](./Array.prototype.Methods/Array.shift-M.html) Remove first element from array
+- [Array.prototype.unshift()](./Array.prototype.Methods/Array.unshift-ML.html) Add one or more elements to the start of an array
+
 
 ## Object Methods
 - [Object.hasOwnProperty()](./Object.Methods/Object.hasOwnProperty-B.html) Indicating whether the object has the specified property as its own
-
 
 - [Object.assign()](./Object.Methods/Object.assign-TO.html) Copy Object from source object to target object
 - [Object.freeze()](./Object.Methods/Object.freeze.html) Object can no longer be changed
