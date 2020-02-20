@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.replace()</title>
+  </head>
+  <body>
+    <h1>String.prototype.replace()</h1>
+    <p>
+      The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The
+      pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each
+      match. If pattern is a string, only the first occurrence will be replaced. <br />
+
+      The original string is left unchanged.
+    </p>
+    <h2>Syntax</h2>
+    <code>var newStr = str.replace(regexp|substr, newSubstr|function)</code>
+    <h3>Parameters</h3>
+    <p>
+      regexp (pattern) <br />
+      A RegExp object or literal. The match or matches are replaced with newSubStr or the value returned by the
+      specified function. <br />
+
+      substr (pattern) <br />
+      A String that is to be replaced by newSubStr. It is treated as a verbatim string and is not interpreted as a
+      regular expression. Only the first occurrence will be replaced. <br />
+
+      newSubStr (replacement) <br />
+      The String that replaces the substring specified by the specified regexp or substr parameter. A number of special
+      replacement patterns are supported; see the "Specifying a string as a parameter" section below. <br />
+
+      function (replacement) <br />
+      A function to be invoked to create the new substring to be used to replace the matches to the given regexp or
+      substr. The arguments supplied to this function are described in the "Specifying a function as a parameter"
+      section below.
+    </p>
+    <h3>Return value:</h3>
+    <p>A new string with some or all matches of a pattern replaced by a replacement.</p>
+    <h3>Description</h3>
+    <p>
+      This method does not change the String object it is called on. It simply returns a new string. <br />
+
+      To perform a global search and replace, include the g switch in the regular expression.
+    </p>
+    <script>
+      const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+      const regex = /dog/gi;
+      console.log(p.replace(regex, 'ferret'));
+      // expected output: "The quick brown fox jumps over the lazy ferret. If the ferret reacted, was it really lazy?"
+      console.log(p.replace('dog', 'monkey'));
+      // expected output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
+
+      // Defining the regular expression in replace()
+      // In the following example, the regular expression is defined in replace() and includes the ignore case flag.
+      var str = 'Twas the night before Xmas...';
+      var newstr = str.replace(/xmas/i, 'Christmas');
+      console.log(newstr); // Twas the night before Christmas...
+
+      // Using global and ignore with replace()
+      // Global replace can only be done with a regular expression. In the following example, the regular expression includes the global and ignore case flags which permits replace() to replace each occurrence of 'apples' in the string with 'oranges'.
+      var re = /apples/gi;
+      var str1 = 'Apples are round, and apples are juicy.';
+      var newstr = str1.replace(re, 'oranges');
+      console.log(newstr); // oranges are round, and oranges are juicy.
+      var re = /apples/gi;
+
+      // Switching words in a string
+      // The following script switches the words in the string. For the replacement text, the script uses capturing groups and the $1 and $2 replacement patterns.
+      var re1 = /(\w+)\s(\w+)/;
+      var str2 = 'John Smith';
+      var newstr1 = str2.replace(re1, '$2, $1');
+      console.log(newstr1); // Smith, John
+    </script>
+    <h2>W3Schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The replace() method searches a string for a specified value, or a regular expression, and returns a new string
+      where the specified values are replaced. <br />
+
+      Note: If you are replacing a value (and not a regular expression), only the first instance of the value will be
+      replaced. To replace all occurrences of a specified value, use the global (g) modifier (see "More Examples"
+      below). <br />
+
+      This method does not change the original string.
+    </p>
+    <script>
+      var w3str = 'Visit Microsoft!';
+      var w3res = w3str.replace('Microsoft', 'W3Schools');
+      console.log(w3res); // Visit W3Schools!
+
+      // Perform a global replacement:
+      var w3str1 = 'Mr Blue has a blue house and a blue car';
+      var w3res1 = w3str1.replace(/blue/g, 'red');
+      console.log(w3res1); // Mr Blue has a red house and a red car
+
+      //   Perform a global, case-insensitive replacement:
+      var w3str2 = 'Mr Blue has a blue house and a blue car';
+      var w3res2 = w3str2.replace(/blue/gi, 'red');
+      console.log(w3res2); // Mr red has a red house and a red car
+
+      // Using a function to return the replacement text:
+      var strFn = 'Mr Blue has a blue house and a blue car';
+      var resFn = strFn.replace(/blue|house|car/gi, function(x) {
+        return x.toUpperCase();
+      });
+    </script>
+  </body>
+</html>
