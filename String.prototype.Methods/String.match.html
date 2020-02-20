@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String.prototype.match()</title>
+  </head>
+  <body>
+    <h1>String.prototype.match()</h1>
+    <p>The match() method retrieves the result of matching a string against a regular expression.</p>
+    <h2>Syntax</h2>
+    <code>str.match(regexp)</code>
+    <h3>Parameters</h3>
+    <p>
+      regexp <br />
+      A regular expression object. <br />
+      If regexp is a non-RegExp object, it is implicitly converted to a RegExp by using new RegExp(regexp). <br />
+      If you don't give any parameter and use the match() method directly, you will get an Array with an empty string:
+      [""].
+    </p>
+    <h3>Return value:</h3>
+    <p>
+      An Array whose contents depend on the presence or absence of the global (g) flag, or null if no matches are found.
+      <br />
+
+      --> If the g flag is used, all results matching the complete regular expression will be returned, but capturing
+      groups will not. <br />
+      --> if the g flag is not used, only the first complete match and its related capturing groups are returned. In
+      this case, the returned item will have additional properties as described below.
+    </p>
+    <h4>Additional properties</h4>
+    <p>
+      As explained above, some results contain additional properties as described below. <br />
+      groups <br />
+      An array of named capturing groups or undefined if no named capturing groups were defined. See Groups and Ranges
+      for more information. <br />
+      index <br />
+      The index of the search at which the result was found. <br />
+      input <br />
+      A copy of the search string.
+    </p>
+    <h3>Description</h3>
+    <p>
+      If the regular expression does not include the g flag, str.match() will return the same result as RegExp.exec().
+    </p>
+    <h5>Other methods</h5>
+    <p>
+      If you need to know if a string matches a regular expression RegExp, use RegExp.test(). <br />
+      If you only want the first match found, you might want to use RegExp.exec() instead. <br />
+      if you want to obtain capture groups and the global flag is set, you need to use RegExp.exec() or
+      String.prototype.matchAll() instead.
+    </p>
+
+    <h2>w3schools</h2>
+    <h3>Definition and Usage</h3>
+    <p>
+      The match() method searches a string for a match against a regular expression, and returns the matches, as an
+      Array object. <br />
+
+      Note: If the regular expression does not include the g modifier (to perform a global search), the match() method
+      will return only the first match in the string. <br />
+
+      This method returns null if no match is found.
+    </p>
+    <script>
+      const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+      const regex = /[A-Z]/g;
+      const found1 = paragraph.match(regex);
+      console.log(found1); // expected output: Array ["T", "I"]
+
+      // Using match()
+      // In the following example, match() is used to find 'Chapter' followed by 1 or more numeric characters followed by a decimal point and numeric character 0 or more times.
+      // The regular expression includes the i flag so that upper/lower case differences will be ignored.
+      let str = 'For more information, see Chapter 3.4.5.1';
+      let re = /see (chapter \d+(\.\d)*)/i;
+      let found = str.match(re);
+
+      console.log(found);
+
+      // logs [ 'see Chapter 3.4.5.1',
+      //        'Chapter 3.4.5.1',
+      //        '.1',
+      //        index: 22,
+      //        input: 'For more information, see Chapter 3.4.5.1' ]
+
+      // 'see Chapter 3.4.5.1' is the whole match.
+      // 'Chapter 3.4.5.1' was captured by '(chapter \d+(\.\d)*)'.
+      // '.1' was the last value captured by '(\.\d)'.
+      // The 'index' property (22) is the zero-based index of the whole match.
+      // The 'input' property is the original string that was parsed.
+
+      ///// Using global and ignore case flags with match()
+      /// The following example demonstrates the use of the global and ignore case flags with match(). All letters A through E and a through e are returned, each its own element in the array.
+      let str5 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      let regexp = /[A-E]/gi;
+      let matches_array = str5.match(regexp);
+      console.log(matches_array); // ['A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e']
+      /// Note: See also String.prototype.matchAll() and Advanced searching with flags.
+
+      // Note: See also String.prototype.matchAll() and Advanced searching with flags.
+      // In browsers which support named capturing groups, the following code captures "fox" or "cat" into a group named "animal":
+      let paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+      let capturingRegex = /(?<animal>fox|cat) jumps over/;
+      found = paragraph.match(capturingRegex);
+      console.log(found.groups); // {animal: "fox"}
+
+      // Using match() with no parameter
+      let strng = 'Nothing will come of nothing.';
+      strng.match(); // returns [""]
+
+      //// A non-RegExp object as the parameter
+      // When the regexp parameter is a string or a number, it is implicitly converted to a RegExp by using new RegExp(regexp).
+      //  If it is a positive number with a positive sign, RegExp() will ignore the positive sign.
+
+      let str1 = 'NaN means not a number. Infinity contains -Infinity and +Infinity in JavaScript.',
+        str2 = 'My grandfather is 65 years old and My grandmother is 63 years old.',
+        str3 = 'The contract was declared null and void.';
+      str1.match('number'); // "number" is a string. returns ["number"]
+      str1.match(NaN); // the type of NaN is the number. returns ["NaN"]
+      str1.match(Infinity); // the type of Infinity is the number. returns ["Infinity"]
+      str1.match(+Infinity); // returns ["Infinity"]
+      str1.match(-Infinity); // returns ["-Infinity"]
+      str2.match(65); // returns ["65"]
+      str2.match(+65); // A number with a positive sign. returns ["65"]
+      str3.match(null); // returns ["null"]
+
+      ////////////////////////////////////////////////////
+      /// w3schools //////////////////////////////
+      var str2 = 'The rain in SPAIN stays mainly in the plain';
+      var res2 = str2.match(/ain/g);
+      console.log(res2); // ["ain", "ain", "ain"]
+
+      // Perform a global, case-insensitive search for "ain":
+      var str1 = 'The rain in SPAIN stays mainly in the plain';
+      var res1 = str1.match(/ain/gi);
+      console.log(res1);
+      ['ain', 'AIN', 'ain', 'ain'];
+    </script>
+    <h2>flags DeprecatedNon-standard Not for use in new websites.</h2>
+  </body>
+</html>
