@@ -20,3 +20,7 @@
 ## Object Methods
 
 - [Object.assign()](./Object.Methods/Object.assign-TO.html) Copy Object from source object to target object
+
+- [Object.entries()](./Object.Methods/Object.entries-NA.html) Get key values pairs from object inside Array
+- [Object.keys()](./Object.Methods/Object.keys-NA.html) Get key  from object inside Array
+- [Object.values()](./Object.Methods/Object.values-NA.html) Get values from object inside Array
