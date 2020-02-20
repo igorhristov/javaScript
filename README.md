@@ -16,10 +16,10 @@
 
 - [Array.prototype.concat()](./Array.prototype.Methods/Array.concat-NA.html) Concatanating arrays
 
-- [Array.prototype.pop()](./Array.prototype.Methods/Array.pop-M.html) Remove last element from array
-- [Array.prototype.push()](./Array.prototype.Methods/Array.push-ML.html) Add one or more elements to the end array
-- [Array.prototype.shift()](./Array.prototype.Methods/Array.shift-M.html) Remove first element from array
-- [Array.prototype.unshift()](./Array.prototype.Methods/Array.unshift-ML.html) Add one or more elements to the start of an array
+* [Array.prototype.pop()](./Array.prototype.Methods/Array.pop-M.html) Remove last element from array
+* [Array.prototype.push()](./Array.prototype.Methods/Array.push-ML.html) Add one or more elements to the end array
+* [Array.prototype.shift()](./Array.prototype.Methods/Array.shift-M.html) Remove first element from array
+* [Array.prototype.unshift()](./Array.prototype.Methods/Array.unshift-ML.html) Add one or more elements to the start of an array
 
 
 ## Object Methods
