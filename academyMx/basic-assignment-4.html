@@ -8,28 +8,29 @@
   <body>
     <script>
       /*
-                  var parsedCSVLines = parseCsvLines(csvString);
-                  // console.log(parsedCSVLines);
-                  var csvColumnsAsObjects = parseCsvLinesAsObjects(parsedCSVLines);
-                  function sortDeveloper(sortBy, sortDir) {
-                    var sortedArr = csvColumnsAsObjects.sort(function(x, y) {
-                      if (sortBy === 'age') {
-                        return 2020 - x.birthYear - (2020 - y.birthYear);
-                      } else if (sortBy === 'salary') {
-                        return x.salary - y.salary;
-                      }
-                    });
-                    if (sortDir === 'asc') {
-                      return sortedArr;
-                    } else if (sortDir === 'desc') {
-                      return sortedArr.reverse();
-                    }
-                  }
-                  console.log(sortDeveloper('age', 'asc'));
-                  console.log(sortDeveloper('salary', 'asc'));
-                  console.log(sortDeveloper('age', 'desc'));
-                  console.log(sortDeveloper('salary', 'desc'));
-                  */
+                        var parsedCSVLines = parseCsvLines(csvString);
+                        // console.log(parsedCSVLines);
+                        var csvColumnsAsObjects = parseCsvLinesAsObjects(parsedCSVLines);
+                        function sortDeveloper(sortBy, sortDir) {
+                          var sortedArr = csvColumnsAsObjects.sort(function(x, y) {
+                            if (sortBy === 'age') {
+                              return 2020 - x.birthYear - (2020 - y.birthYear);
+                            } else if (sortBy === 'salary') {
+                              return x.salary - y.salary;
+                            }
+                          });
+                          if (sortDir === 'asc') {
+                            return sortedArr;
+                          } else if (sortDir === 'desc') {
+                            return sortedArr.reverse();
+                          }
+                        }
+                        console.log(sortDeveloper('age', 'asc'));
+                        console.log(sortDeveloper('salary', 'asc'));
+                        console.log(sortDeveloper('age', 'desc'));
+                        console.log(sortDeveloper('salary', 'desc'));
+
+        */
 
       const decodeResistorColors = arg => {
         const colors = [
@@ -57,8 +58,8 @@
       console.log('============================');
 
       /*Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma, "every letter") is a sentence using every letter of the alphabet at least once. The best known English pangram is:
-            The quick brown fox jumps over the lazy dog.
-            The alphabet used consists of ASCII letters a to z, inclusive, and is case insensitive. Input will not contain non-ASCII symbols.*/
+                  The quick brown fox jumps over the lazy dog.
+                  The alphabet used consists of ASCII letters a to z, inclusive, and is case insensitive. Input will not contain non-ASCII symbols.*/
       const isPangram = str => {
         const abc = 'The quick brown fox jumps over the lazy dog';
         const abc1 = abc
@@ -123,8 +124,7 @@
         // console.log(inputStrToLowerCaseInArray);
 
         return (
-          allLettersInArray
-            .filter(letter => inputStrToLowerCaseInArray.indexOf(letter) === -1)
+          allLettersInArray.filter(letter => inputStrToLowerCaseInArray.indexOf(letter) === -1)
             .length === 0
         );
       };
@@ -139,13 +139,104 @@
       console.log(isPangram2('"Five quacking Zephyrs jolt my wax bed."')); //  true
       console.log(isPangram2('the quick brown fox jumps over with lazy FX')); // false*/
 
+      console.log('============================');
+      /*
+      var csvStringNewLineFn = str => str.split('\n');
+      //   console.log(csvStringNewLineFn(csvString));
+      var csvStringLineToColumnArray = str => str.map(line => line.split(','));
+      //   console.log(csvStringLineToColumnArray(csvStringNewLineFn(csvString)));
+      var csvStringToObject = strLine => {
+        return strLine.map(line => {
+          var col = line.split(',');
+          return {
+            age: col[0],
+            firstName: col[1],
+            lastName: col[2],
+            skill: col[3],
+            gender: col[4],
+            sallary: col[5]
+          };
+        });
+      };
+      //   console.table(csvStringToObject(csvStringNewLineFn(csvString)));
+      var dataObj = csvStringToObject(csvStringNewLineFn(csvString));
+      // console.table(dataObj)
+      */
       class Matrix {
-        constructor(input) {}
+        constructor(input) {
+          const stringArr = input.split('\n').map(x => x.split(' ').map(x => x * 1));
+          console.log(stringArr);
+        }
 
         getRows() {}
 
         getColumns() {}
       }
+      const matrixString = `89 1903 3
+18 3 1
+9 4 800`;
+
+      const matrix1 = new Matrix(matrixString);
+
+      console.log(matrix1.getColumns());
+      /*
+      [
+        [89, 18, 9],
+        [1903, 3, 4],
+        [3, 1, 800]
+      ]
+      */
+
+      console.log(matrix1.getRows());
+      /*
+      [
+        [89, 1903, 3],
+        [18, 3, 1],
+        [9, 4, 800]
+      ]
+      */
+
+      const matrix2 = new Matrix('1 2 3 4\n5 6 7 8\n9 8 7 6');
+
+      console.log(matrix2.getRows());
+      /*
+      [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 8, 7, 6]
+      ]
+      */
+
+      console.log(matrix2.getColumns());
+      /*
+      [
+        [1, 5, 6],
+        [2, 6, 8],
+        [3, 7, 7],
+        [4, 8, 6]
+      ]*/
+
+      const matrix3Str = `9 8 7
+5 3 2
+6 6 7`
+const matrix3 = new Matrix(matrix3Str);
+console.log(matrix3.getRows());
+
+      /* rows [
+  [9, 8, 7],
+  [5, 3, 2],
+  [6, 6, 7]
+]
+
+
+And its columns: */
+      console.log(matrix3.getColumns());
+/*
+[
+  [9, 5, 6],
+  [8, 3, 6],
+  [7, 2, 7]
+] */
     </script>
   </body>
 </html>
