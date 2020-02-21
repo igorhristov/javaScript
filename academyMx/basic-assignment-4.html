@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var parsedCSVLines = parseCsvLines(csvString);
+      // console.log(parsedCSVLines);
+      var csvColumnsAsObjects = parseCsvLinesAsObjects(parsedCSVLines);
+
+      function sortDeveloper(sortBy, sortDir) {
+        var sortedArr = csvColumnsAsObjects.sort(function(x, y) {
+          if (sortBy === 'age') {
+            return 2020 - x.birthYear - (2020 - y.birthYear);
+          } else if (sortBy === 'salary') {
+            return x.salary - y.salary;
+          }
+        });
+
+        if (sortDir === 'asc') {
+          return sortedArr;
+        } else if (sortDir === 'desc') {
+          return sortedArr.reverse();
+        }
+      }
+
+      console.log(sortDeveloper('age', 'asc'));
+      console.log(sortDeveloper('salary', 'asc'));
+      console.log(sortDeveloper('age', 'desc'));
+      console.log(sortDeveloper('salary', 'desc'));
+
+      const decodeResistorColors = arg => {
+        const colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
+        const el1 = colors.indexOf(arg[0]);
+        const el2 = colors.indexOf(arg[1]);
+        return el1 + '' + el2;
+      };
+      console.log(decodeResistorColors(['brown', 'black'])); // 10
+      console.log(decodeResistorColors(['blue', 'grey'])); // 68
+      console.log(decodeResistorColors(['yellow', 'violet'])); // 47
+      console.log(decodeResistorColors(['orange', 'orange'])); // 33
+      console.log(decodeResistorColors(['green', 'brown', 'orange'])); // 51
+    </script>
+  </body>
+</html>
