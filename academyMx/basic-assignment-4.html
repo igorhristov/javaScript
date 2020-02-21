@@ -35,7 +35,7 @@
         const colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
         const el1 = colors.indexOf(arg[0]);
         const el2 = colors.indexOf(arg[1]);
-        return el1 + '' + el2;
+        return parseInt(el1 + '' + el2);
       };
       console.log(decodeResistorColors(['brown', 'black'])); // 10
       console.log(decodeResistorColors(['blue', 'grey'])); // 68
@@ -75,11 +75,11 @@
 
       const isPangram1 = str => {
         // make all to lowerCase and give me back array only from a to z with match [a-z] with g flag check all items
-        let stringMatch = str.toLowerCase().match(/[a-z]/g);
+        const stringMatch = str.toLowerCase().match(/[a-z]/g);
         // console.log(stringMatch);
 
         // with set remove all duplicates from array and returns Set(number of unique items)
-        let strSet = new Set(stringMatch);
+        const strSet = new Set(stringMatch);
         // console.log(strSet);
 
         // if set is 26 (all english leters are 26) return true else false  (set have size not Length :))
