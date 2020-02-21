@@ -8,28 +8,28 @@
   <body>
     <script>
       /*
-            var parsedCSVLines = parseCsvLines(csvString);
-            // console.log(parsedCSVLines);
-            var csvColumnsAsObjects = parseCsvLinesAsObjects(parsedCSVLines);
-            function sortDeveloper(sortBy, sortDir) {
-              var sortedArr = csvColumnsAsObjects.sort(function(x, y) {
-                if (sortBy === 'age') {
-                  return 2020 - x.birthYear - (2020 - y.birthYear);
-                } else if (sortBy === 'salary') {
-                  return x.salary - y.salary;
-                }
-              });
-              if (sortDir === 'asc') {
-                return sortedArr;
-              } else if (sortDir === 'desc') {
-                return sortedArr.reverse();
-              }
-            }
-            console.log(sortDeveloper('age', 'asc'));
-            console.log(sortDeveloper('salary', 'asc'));
-            console.log(sortDeveloper('age', 'desc'));
-            console.log(sortDeveloper('salary', 'desc'));
-            */
+                  var parsedCSVLines = parseCsvLines(csvString);
+                  // console.log(parsedCSVLines);
+                  var csvColumnsAsObjects = parseCsvLinesAsObjects(parsedCSVLines);
+                  function sortDeveloper(sortBy, sortDir) {
+                    var sortedArr = csvColumnsAsObjects.sort(function(x, y) {
+                      if (sortBy === 'age') {
+                        return 2020 - x.birthYear - (2020 - y.birthYear);
+                      } else if (sortBy === 'salary') {
+                        return x.salary - y.salary;
+                      }
+                    });
+                    if (sortDir === 'asc') {
+                      return sortedArr;
+                    } else if (sortDir === 'desc') {
+                      return sortedArr.reverse();
+                    }
+                  }
+                  console.log(sortDeveloper('age', 'asc'));
+                  console.log(sortDeveloper('salary', 'asc'));
+                  console.log(sortDeveloper('age', 'desc'));
+                  console.log(sortDeveloper('salary', 'desc'));
+                  */
 
       const decodeResistorColors = arg => {
         const colors = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
@@ -43,8 +43,8 @@
       console.log(decodeResistorColors(['orange', 'orange'])); // 33
       console.log(decodeResistorColors(['green', 'brown', 'orange'])); // 51
       /*Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma, "every letter") is a sentence using every letter of the alphabet at least once. The best known English pangram is:
-      The quick brown fox jumps over the lazy dog.
-      The alphabet used consists of ASCII letters a to z, inclusive, and is case insensitive. Input will not contain non-ASCII symbols.*/
+            The quick brown fox jumps over the lazy dog.
+            The alphabet used consists of ASCII letters a to z, inclusive, and is case insensitive. Input will not contain non-ASCII symbols.*/
       const isPangram = str => {
         const abc = 'The quick brown fox jumps over the lazy dog';
         const abc1 = abc
@@ -96,6 +96,14 @@
       console.log(isPangram1('7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog')); // false
       console.log(isPangram1('"Five quacking Zephyrs jolt my wax bed."')); //  true
       console.log(isPangram1('the quick brown fox jumps over with lazy FX')); // false*/
+
+      class Matrix {
+        constructor(input) {}
+
+        getRows() {}
+
+        getColumns() {}
+      }
     </script>
   </body>
 </html>
