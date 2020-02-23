@@ -210,7 +210,7 @@
         }
 
         getColumns() {
-          return Array.from(this.getRows(), (_, i) => this.getRows().map(row => row[i]));
+          return Array.from(this.getRows()[0], (_, i) => this.getRows().map(x => x[i]));
         }
         // getColumns() {
         //   return this.input
@@ -232,8 +232,8 @@
 
       const matrix1 = new Matrix(matrixString);
 
-      console.log('Matrix1 columns');
-      console.log(matrix1.getColumns());
+      // console.log('Matrix1 columns');
+      // console.log(matrix1.getColumns());
       /*
       [
         [89, 18, 9],
@@ -241,9 +241,9 @@
         [3, 1, 800]
       ]
       */
-      console.log('Matrix1 getRows');
+      // console.log('Matrix1 getRows');
 
-      console.log(matrix1.getRows());
+      // console.log(matrix1.getRows());
       /*
       [
         [89, 1903, 3],
