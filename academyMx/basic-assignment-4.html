@@ -206,24 +206,26 @@
         }
 
         getRows() {
-          // return this.input.split('\n').map(x => x.split(' ').map(x => x * 1));
+          return this.input.split('\n').map(x => x.split(' ').map(x => x * 1));
         }
 
         getColumns() {
-          return this.input
-            .split('\n')
-            .map(x => x.split(' ').map(x => x * 1))
-            .reduce(
-              (acc, current, i, arr) => {
-               acc = ([arr[i]])
-                return acc;
-              },
-              []
-            );
+          return Array.from(this.getRows(), (_, n) => this.getRows().map(row => row[n]));
         }
+        // getColumns() {
+        //   return this.input
+        //     .split('\n')
+        //     .map(x => x.split(' ').map(x => x * 1))
+        //     .reduce(
+        //       (acc, c, i, arr) => {
+        //       acc.push(c[arr[i]])
+        //         return acc;
+        //       },
+        //       []
+        //     );
+        // }
       }
 
-     
       const matrixString = `89 1903 3
 18 3 1
 9 4 800`;
