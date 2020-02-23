@@ -210,9 +210,20 @@
         }
 
         getColumns() {
-          return this.input.split('\n').map(x => x.split(' '));
+          return this.input
+            .split('\n')
+            .map(x => x.split(' ').map(x => x * 1))
+            .reduce(
+              (acc, current, i, arr) => {
+               acc = ([arr[i]])
+                return acc;
+              },
+              []
+            );
         }
       }
+
+     
       const matrixString = `89 1903 3
 18 3 1
 9 4 800`;
