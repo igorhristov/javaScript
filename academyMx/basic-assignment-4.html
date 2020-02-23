@@ -55,7 +55,7 @@
       console.log(decodeResistorColors(['orange', 'orange'])); // 33
       console.log(decodeResistorColors(['green', 'brown', 'orange'])); // 51
 
-      console.log('============================');
+      console.log('============== ==============');
 
       /*Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma, "every letter") is a sentence using every letter of the alphabet at least once. The best known English pangram is:
                   The quick brown fox jumps over the lazy dog.
@@ -86,7 +86,7 @@
       console.log(isPangram('"Five quacking Zephyrs jolt my wax bed."')); //  true
       console.log(isPangram('the quick brown fox jumps over with lazy FX')); // false*/
 
-      console.log('============================');
+      console.log('============= Set ===============');
 
       const isPangram1 = str => {
         // make all to lowerCase and give me back array only from a to z with match [a-z] with g flag check all items
@@ -112,7 +112,7 @@
       console.log(isPangram1('"Five quacking Zephyrs jolt my wax bed."')); //  true
       console.log(isPangram1('the quick brown fox jumps over with lazy FX')); // false*/
 
-      console.log('============================');
+      console.log('============== filter ==============');
 
       const isPangram2 = inputStr => {
         const allLetters = 'thequickbrownfoxjumpsoverthelazydog';
@@ -139,7 +139,43 @@
       console.log(isPangram2('"Five quacking Zephyrs jolt my wax bed."')); //  true
       console.log(isPangram2('the quick brown fox jumps over with lazy FX')); // false*/
 
+      console.log('============== every ==============');
+
+      function isPangram3(string) {
+        const newString = string.toLowerCase();
+        const alphabet = 'abcdefghijkelmnopqrtuvwxyz';
+        return alphabet.split('').every(ch => newString.indexOf(ch) !== -1);
+      }
+
+      console.log(isPangram3('')); // false
+      console.log(isPangram3('abcdefghijklmnopqrstuvwxyz')); // true
+      console.log(isPangram3('the quick brown fox jumps over the lazy dog')); // true
+      console.log(isPangram3('a quick movement of the enemy will jeopardize five gunboats')); // false
+      console.log(isPangram3('five boxing wizards jump quickly at it')); // false
+      console.log(isPangram3('the_quick_brown_fox_jumps_over_the_lazy_dog')); // true
+      console.log(isPangram3('the 1 quick brown fox jumps over the 2 lazy dogs')); // true
+      console.log(isPangram3('7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog')); // false
+      console.log(isPangram3('"Five quacking Zephyrs jolt my wax bed."')); //  true
+      console.log(isPangram3('the quick brown fox jumps over with lazy FX')); // false*/
+
       console.log('============================');
+      function isPangram4(string) {
+        const newString = string.toLowerCase();
+        const alphabet = 'abcdefghijkelmnopqrtuvwxyz';
+        return alphabet.split('').every(ch => newString.indexOf(ch) !== -1);
+      }
+
+      console.log(isPangram4('')); // false
+      console.log(isPangram4('abcdefghijklmnopqrstuvwxyz')); // true
+      console.log(isPangram4('the quick brown fox jumps over the lazy dog')); // true
+      console.log(isPangram4('a quick movement of the enemy will jeopardize five gunboats')); // false
+      console.log(isPangram4('five boxing wizards jump quickly at it')); // false
+      console.log(isPangram4('the_quick_brown_fox_jumps_over_the_lazy_dog')); // true
+      console.log(isPangram4('the 1 quick brown fox jumps over the 2 lazy dogs')); // true
+      console.log(isPangram4('7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog')); // false
+      console.log(isPangram4('"Five quacking Zephyrs jolt my wax bed."')); //  true
+      console.log(isPangram4('the quick brown fox jumps over with lazy FX')); // false*/
+
       /*
       var csvStringNewLineFn = str => str.split('\n');
       //   console.log(csvStringNewLineFn(csvString));
@@ -166,15 +202,15 @@
         constructor(input) {
           const stringArr = input.split('\n');
           // console.log(stringArr);
-          this.input = stringArr;
+          this.input = input;
         }
 
         getRows() {
-          return this.input.map(x => x.split(' ').map(x => x * 1));
+          // return this.input.split('\n').map(x => x.split(' ').map(x => x * 1));
         }
 
         getColumns() {
-          
+          return this.input.split('\n').map(x => x.split(' '));
         }
       }
       const matrixString = `89 1903 3
