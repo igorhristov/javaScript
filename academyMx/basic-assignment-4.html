@@ -212,18 +212,7 @@
         getColumns() {
           return Array.from(this.getRows()[0], (_, i) => this.getRows().map(x => x[i]));
         }
-        // getColumns() {
-        //   return this.input
-        //     .split('\n')
-        //     .map(x => x.split(' ').map(x => x * 1))
-        //     .reduce(
-        //       (acc, c, i, arr) => {
-        //       acc.push(c[arr[i]])
-        //         return acc;
-        //       },
-        //       []
-        //     );
-        // }
+      
       }
 
       const matrixString = `89 1903 3
