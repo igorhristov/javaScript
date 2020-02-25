@@ -373,10 +373,10 @@
           rez = 0;
         } else {
           let count = 0;
-          for (let i = broj.length -1; i >= 0; i--) {
+          for (let i = broj.length - 1; i >= 0; i--) {
             count++;
             // console.log(count);
-            
+
             if (count === nth) {
               rez = broj[i];
             }
@@ -389,6 +389,25 @@
       console.log(findDigit(-2825, 3)); // returns 8
       console.log(findDigit(-456, 4)); // returns 0
       console.log(findDigit(65, 0)); // returns -1
+
+      console.log('======== Animal =======');
+
+      class Animal {
+        constructor(name, type) {
+          this.type = type;
+          this.name = name;
+        }
+
+        toString() {
+          return this.name + ' is a ' + this.type;
+        }
+      }
+      
+      var dog = new Animal('Max', 'dog');
+      dog.toString(); // should return 'Max is a dog'
+      dog.type; // should == 'dog'
+      dog.name; // should == 'Max'
+      dog.name = 'Lassie'; // should set name to 'Lassie'
     </script>
   </body>
 </html>
