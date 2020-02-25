@@ -307,12 +307,18 @@
       console.log('======== isAnagram =======');
 
       var isAnagram = function(test, original) {
-        let testVar = test.toLowerCase().split('').sort();
-        let originalVar = original.toLowerCase().split('').sort();
+        let testVar = test
+          .toLowerCase()
+          .split('')
+          .sort();
+        let originalVar = original
+          .toLowerCase()
+          .split('')
+          .sort();
         console.log(testVar);
         console.log(originalVar);
-        
-        return testVar.join('') === originalVar.join('')
+
+        return testVar.join('') === originalVar.join('');
         // return test.toLowerCase().includes(original.toLowerCase());
       };
       console.log(isAnagram('foefet', 'toffee'));
@@ -323,6 +329,16 @@
       console.log(isAnagram('dumble', 'bumble'));
 
       // "dumble", "bumble"
+
+      console.log('======== minValue =======');
+
+      function minValue(values) {
+        var nums = new Set(values);
+        console.log([...nums].sort().join(''));
+        
+        // return nums.sort().join('');
+      }
+      console.log(minValue([3, 6, 5, 5, 9, 8, 7, 6, 3, 5, 9]));
     </script>
   </body>
 </html>
