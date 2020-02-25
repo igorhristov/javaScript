@@ -335,10 +335,17 @@
       function minValue(values) {
         var nums = new Set(values);
         console.log([...nums].sort().join(''));
-        
+
         // return nums.sort().join('');
       }
       console.log(minValue([3, 6, 5, 5, 9, 8, 7, 6, 3, 5, 9]));
+
+      console.log('======== digitize =======');
+      function digitize(n) {
+        return (n + '').split('').map(x => x * 1);
+      }
+      console.log(digitize(5654));
+      
     </script>
   </body>
 </html>
