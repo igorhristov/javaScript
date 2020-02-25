@@ -349,10 +349,12 @@
       console.log('======== flattenAndSort =======');
 
       function flattenAndSort(array) {
-        let arr = array.flat();
+        let arr = array.reduce((acc, c) => {
+          return acc.concat(c);
+        }, []);
         console.log(arr);
         
-        return array.flat().sort((a, b) => a - b);
+        return arr.sort((a, b) => a - b);
       }
       console.log(flattenAndSort([[1, 3, 5], [100], [2, 4, 6]]));
       
