@@ -392,22 +392,38 @@
 
       console.log('======== Animal =======');
 
-      class Animal {
-        constructor(name, type) {
-          this.type = type;
-          this.name = name;
-        }
+      // class Animal {
+      //   constructor(name, type) {
+      //     this.type = type;
+      //     this.name = name;
+      //   }
 
-        toString() {
-          return this.name + ' is a ' + this.type;
-        }
-      }
+      //   toString() {
+      //     return this.name + ' is a ' + this.type;
+      //   }
+      // }
       
-      var dog = new Animal('Max', 'dog');
-      dog.toString(); // should return 'Max is a dog'
-      dog.type; // should == 'dog'
-      dog.name; // should == 'Max'
-      dog.name = 'Lassie'; // should set name to 'Lassie'
+      // var dog = new Animal('Max', 'dog');
+      // dog.toString(); // should return 'Max is a dog'
+      // dog.type; // should == 'dog'
+      // dog.name; // should == 'Max'
+      // dog.name = 'Lassie'; // should set name to 'Lassie'
+
+      class Animal {
+    constructor(name, type) {
+        this.name = name
+        this.type = type
+    }
+    toString() {
+        const { name, type } = this
+        return `${name} is a ${type}`
+    }
+}
+var dog = new Animal('Max', 'dog');
+console.log(dog.toString()); // should return 'Max is a dog'
+console.log(dog.type); // should == 'dog'
+console.log(dog.name); // should == 'Max'
+console.log(dog.name = 'Lassie') // should set name to 'Lassie
     </script>
   </body>
 </html>
