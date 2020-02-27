@@ -426,14 +426,15 @@
       console.log((dog.name = 'Lassie')); // should set name to 'Lassie
 
       console.log('============ accum ==========');
-      
 
       function accum(s) {
         var arr = s.toLowerCase().split('');
-        return arr.map((x,i) => x.repeat(i+1)).map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('-');
+        return arr
+          .map((x, i) => x.repeat(i + 1))
+          .map(x => x.charAt(0).toUpperCase() + x.slice(1))
+          .join('-');
       }
-      console.log(accum("NyffsGeyylB")); // "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb"
-      
+      console.log(accum('NyffsGeyylB')); // "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb"
     </script>
   </body>
 </html>
