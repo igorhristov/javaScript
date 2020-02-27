@@ -438,8 +438,14 @@
       console.log('============ digital_root ==========');
 
       const digital_root = num => {
-        let num1 = num.toString().split('').reduce((acc,c) => acc + c*1 ,0);
-        return num1.toString().split('').reduce((acc,c) => acc + c*1 ,0)
+        let num1 = num
+          .toString()
+          .split('')
+          .reduce((acc, c) => acc + c * 1, 0);
+        return num1
+          .toString()
+          .split('')
+          .reduce((acc, c) => acc + c * 1, 0);
       };
       console.log(digital_root(942));
 
@@ -448,6 +454,23 @@
       => 15 ...
       => 1 + 5
       => 6*/
+      console.log('============ descendingOrder ==========');
+
+      function descendingOrder(n) {
+        let num = n
+          .toString()
+          .split('')
+          .sort((a, b) => b - a)
+          .join('');
+        return num * 1;
+      }
+      console.log(descendingOrder(123456789)); // 987654321
+
+      console.log('============ likes ==========');
+
+      function likes(names) {
+        // TODO
+      }
     </script>
   </body>
 </html>
