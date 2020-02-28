@@ -490,6 +490,29 @@
       console.log(likes(['Peter'])); // Peter likes this
       console.log(likes(['Max', 'John', 'Mark'])); // 'Max, John and Mark like this'
       console.log(likes(['Alex', 'Jacob', 'Mark', 'Max'])); // 'Alex, Jacob and 2 others like this'
+
+      console.log('============ GetSum ==========');
+      const GetSum = (...arr1) => {
+        let arr = [...arr1].sort();
+        console.log(arr);
+        let sum = [];
+        for (let i = arr[0]; i < arr[1]; i++) {
+          sum.push(i)
+        }
+        console.log(sum);
+        
+        const sumR = sum.reduce((acc, c) => {
+          acc += c;
+          return acc;
+        }, 0);
+        return sumR
+      };
+      console.log(GetSum(1, 0)) == 1; // 1 + 0 = 1
+      GetSum(1, 2) == 3; // 1 + 2 = 3
+      GetSum(0, 1) == 1; // 0 + 1 = 1
+      GetSum(1, 1) == 1; // 1 Since both are same
+      GetSum(-1, 0) == -1; // -1 + 0 = -1
+      console.log(GetSum(-1, 2)); // -1 + 0 + 1 + 2 = 2
     </script>
   </body>
 </html>
