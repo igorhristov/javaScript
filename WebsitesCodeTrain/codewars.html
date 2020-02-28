@@ -116,6 +116,7 @@
       }
       // console.log(squareDigits(123));
 
+      console.log('======== isPrime =======');
       function isPrime(num) {
         if (num < 2) {
           return false;
@@ -140,6 +141,7 @@
                                    console.log(isPrime(22248) + ' 22248');
                                    console.log(isPrime(100000010549) + ' 100000010549');*/
 
+      console.log('======== colorOf =======');
       function colorOf(r, g, b) {
         var hex = '#';
 
@@ -164,6 +166,7 @@
       console.log(colorOf(0, 111, 0));
       console.log(colorOf(254, 74, 230));
 
+      console.log('======== fakeBin =======');
       function fakeBin(x) {
         var fake = '';
 
@@ -201,12 +204,14 @@
       console.log(cutIt(['abc', 'defgh', 'ijklmn'])); //should return ["abc","def","ijk"]
       console.log(cutIt(['codewars', 'javascript', 'java'])); //should return ["code","java","java"]
 
+      console.log('======== countLettersAndDigits =======');
       function countLettersAndDigits(input) {
         // return /[a-z0-9]/i.test(input).length;
         return input.match(/[a-z0-9]/gi).length;
       }
       console.log(countLettersAndDigits('hel2!lo'));
 
+      console.log('======== absentVowel =======');
       function absentVowel(x) {
         var lowerX = x.toLowerCase();
         if (lowerX.includes('a') === false) {
@@ -226,6 +231,7 @@
       }
       console.log(absentVowel('aeiob'));
 
+      console.log('======== factorial =======');
       function factorial(n) {
         if (n < 2) {
           return 1;
@@ -239,6 +245,7 @@
       }
       console.log(factorial(5));
 
+      console.log('======== sumDigits =======');
       function sumDigits(number) {
         return Math.abs(number)
           .toString()
@@ -249,6 +256,8 @@
 
       console.log(sumDigits(-32));
       console.log(sumDigits(99));
+
+      console.log('======== sumSquares =======');
       function sumSquares(array) {
         return array.reduce((a, c) => {
           a += c ** 2;
@@ -257,6 +266,7 @@
       }
       console.log(sumSquares([1, 2, 3, 4, 5]));
 
+      console.log('======== superSize =======');
       function superSize(num) {
         return (
           num
@@ -268,6 +278,7 @@
         );
       }
       console.log(superSize(69));
+      console.log('======== twoOldestAges =======');
 
       function twoOldestAges(ages) {
         const sortAges = ages.sort((a, b) => b - a);
@@ -275,6 +286,7 @@
       }
       const ag1 = [1, 5, 87, 45, 8, 8];
       console.log(twoOldestAges(ag1));
+      console.log('======== noOdds =======');
 
       function noOdds(values) {
         return values.reduce((acc, c) => {
@@ -283,6 +295,7 @@
         }, []);
       }
       console.log(noOdds([0, 1, 2, 3]));
+      console.log('======== sortList =======');
 
       function sortList(sortBy, list) {
         return list.sort((a, b) => (a[sortBy] > b[sortBy] ? -1 : 1));
@@ -294,6 +307,7 @@
         { a: 4, b: 12 }
       ];
       console.log(sortList('a', sortlista));
+      console.log('======== getMissingElement =======');
 
       function getMissingElement(superImportantArray) {
         for (let i = 0; i <= 9; i++) {
