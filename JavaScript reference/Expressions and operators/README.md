@@ -42,7 +42,7 @@
 
 #### [Property accessors]() -Member operators provide access to a property or method of an object (object.property and object["property"]).
 
-#### [**new**]() -The new operator creates an instance of a constructor.
+#### [new]() -The new operator creates an instance of a constructor.
 
 #### [new.target]() -n constructors, new.target refers to the constructor that was invoked by new.
 
@@ -54,31 +54,31 @@
 
 ### Increment and decrement
 
-#### A++
+#### [A++]()
 
-#### A--
+#### [A--]()
 
-#### ++A
+#### [++A]()
 
-#### --A
+#### [--A]()
 
 =======================================================================
 
 ### Unary operators
 
-#### delete
+#### [delete]()
 
-#### void
+#### [void]()
 
-#### typeof
+#### [typeof]()
 
-#### +
+#### [+]()
 
-#### -
+#### [-]()
 
-#### ~
+#### [~]()
 
-#### !
+#### [!]()
 
 =======================================================================
 
@@ -104,29 +104,17 @@
 
     A comparison operator compares its operands and returns a Boolean value based on whether the comparison is true.
 
-#### in
+#### [in]() -The in operator determines whether an object has a given property.
 
-    The in operator determines whether an object has a given property.
+#### [instanceof]() -The instanceof operator determines whether an object is an instance of another object.
 
-#### instanceof
+#### [<]() -Less than operator.
 
-    The instanceof operator determines whether an object is an instance of another object.
+#### [>]() -Greater than operator.
 
-#### <
+#### [<=]() -Less than or equal operator.
 
-    Less than operator.
-
-#### >
-
-    Greater than operator.
-
-#### <=
-
-    Less than or equal operator.
-
-#### >=
-
-    Greater than or equal operator.
+#### [>=]() -Greater than or equal operator.
 
 =======================================================================
 
@@ -134,21 +122,13 @@
 
     The result of evaluating an equality operator is always of type Boolean based on whether the comparison is true.
 
-#### ==
+#### [==]() -Equality operator.
 
-    Equality operator.
+#### [!=]() -Inequality operator.
 
-#### !=
+#### [===]() -Identity operator.
 
-    Inequality operator.
-
-#### ===
-
-    Identity operator.
-
-#### !==
-
-    Nonidentity operator.
+#### [!==]() -Nonidentity operator.
 
 =======================================================================
 
@@ -156,17 +136,11 @@
 
     Operations to shift all bits of the operand.
 
-#### <<
+#### [<<]() -Bitwise left shift operator.
 
-    Bitwise left shift operator.
+#### [>>]() -Bitwise right shift operator.
 
-#### >>
-
-    Bitwise right shift operator.
-
-#### >>>
-
-    Bitwise unsigned right shift operator.
+#### [>>>]() -Bitwise unsigned right shift operator.
 
 =======================================================================
 
@@ -174,17 +148,11 @@
 
     Bitwise operators treat their operands as a set of 32 bits (zeros and ones) and return standard JavaScript numerical values.
 
-#### &
+#### [&]() -Bitwise AND.
 
-    Bitwise AND.
+#### [|]() -Bitwise OR.
 
-#### |
-
-    Bitwise OR.
-
-#### ^
-
-    Bitwise XOR.
+#### [^]() -Bitwise XOR.
 
 =======================================================================
 
@@ -192,21 +160,15 @@
 
     Logical operators are typically used with boolean (logical) values, and when they are, they return a boolean value.
 
-#### &&
+#### [&&]() -Logical AND.
 
-    Logical AND.
-
-#### ||
-
-    Logical OR.
+#### [||]() -Logical OR.
 
 =======================================================================
 
 ### Conditional (ternary) operator
 
-#### (condition ? ifTrue : ifFalse)
-
-    The conditional operator returns one of two values based on the logical value of the condition.
+#### [(condition ? ifTrue : ifFalse)]() -The conditional operator returns one of two values based on the logical value of the condition.
 
 =======================================================================
 
@@ -214,62 +176,34 @@
 
     An assignment operator assigns a value to its left operand based on the value of its right operand.
 
-#### =
+#### [=]() -Assignment operator.
 
-    Assignment operator.
+#### [*=]() -Multiplication assignment.
 
-#### \*=
+#### [/=]() -Division assignment.
 
-    Multiplication assignment.
+#### [%=]() -Remainder assignment.
 
-#### /=
+#### [+=]() -Addition assignment.
 
-    Division assignment.
+#### [-=]() -Subtraction assignment
 
-#### %=
+#### [<<=]() -Left shift assignment.
 
-    Remainder assignment.
+#### [>>=]() -Right shift assignment.
 
-#### +=
+#### [>>>=]() -Unsigned right shift assignment.
 
-    Addition assignment.
+#### [&=]() -Bitwise AND assignment.
 
-#### -=
+#### [^=]() -Bitwise XOR assignment.
 
-    Subtraction assignment
+#### [|=]() -Bitwise OR assignment.
 
-#### <<=
-
-    Left shift assignment.
-
-#### >>=
-
-    Right shift assignment.
-
-#### >>>=
-
-    Unsigned right shift assignment.
-
-#### &=
-
-    Bitwise AND assignment.
-
-#### ^=
-
-    Bitwise XOR assignment.
-
-#### |=
-
-    Bitwise OR assignment.
-
-#### [a, b] = [1, 2] {a, b} = {a:1, b:2}
-
-    Destructuring assignment allows you to assign the properties of an array or object to variables using syntax that looks similar to array or object literals.
+#### [[a, b] = [1, 2] {a, b} = {a:1, b:2}]() -Destructuring assignment allows you to assign the properties of an array or object to variables using syntax that looks similar to array or object literals.
 
 =======================================================================
 
 ### Comma operator
 
-#### ,
-
-    The comma operator allows multiple expressions to be evaluated in a single statement and returns the result of the last expression.
+#### [,]() -The comma operator allows multiple expressions to be evaluated in a single statement and returns the result of the last expression.
