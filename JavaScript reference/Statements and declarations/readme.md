@@ -63,8 +63,13 @@ JavaScript applications consist of statements with an appropriate syntax. A sing
 =======================================================================
 ### Others
 #### debugger
+    Invokes any available debugging functionality. If no debugging functionality is available, this statement has no effect.
 #### export
+    Used to export functions to make them available for imports in external modules, and other scripts.
 #### import
+    Used to import functions exported from an external module, another script.
 #### import.meta
+    An object exposing context-specific metadata to a JavaScript module.
 #### label
+    Provides a statement with an identifier that you can refer to using a break or continue statement.
 
