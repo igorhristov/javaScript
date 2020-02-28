@@ -1,6 +1,16 @@
+const colorCode = color => COLORS.indexOf(color);
 
-const colorCode = () => {
-  throw new Error("Remove this statement and implement this function");
-};
+const COLORS = [
+  'Black',
+  'Brown',
+  'Red',
+  'Orange',
+  'Yellow',
+  'Green',
+  'Blue',
+  'Violet',
+  'Grey',
+  'White'
+];
 
-const COLORS = undefined;
+console.log(colorCode('Red'));
