@@ -497,15 +497,15 @@
         console.log(arr);
         let sum = [];
         for (let i = arr[0]; i < arr[1]; i++) {
-          sum.push(i)
+          sum.push(i);
         }
         console.log(sum);
-        
+
         const sumR = sum.reduce((acc, c) => {
           acc += c;
           return acc;
         }, 0);
-        return sumR
+        return sumR;
       };
       console.log(GetSum(1, 0)) == 1; // 1 + 0 = 1
       GetSum(1, 2) == 3; // 1 + 2 = 3
@@ -513,6 +513,27 @@
       GetSum(1, 1) == 1; // 1 Since both are same
       GetSum(-1, 0) == -1; // -1 + 0 = -1
       console.log(GetSum(-1, 2)); // -1 + 0 + 1 + 2 = 2
+
+      console.log('============ sumOfMinimums ==========');
+      function sumOfMinimums(arr) {
+        const mapMinNum = arr.map(x => Math.min.apply(null,x))
+        console.log(mapMinNum);
+        return mapMinNum.reduce((acc, num)=> acc + num)
+      }
+      console.log(
+        sumOfMinimums([
+          [1, 2, 3, 4, 5],
+          [5, 6, 7, 8, 9],
+          [20, 21, 34, 56, 100]
+        ])
+      );
+
+      /*
+      [
+  [1, 2, 3, 4, 5], // minimum value of row is 1
+  [5, 6, 7, 8, 9], // minimum value of row is 5
+  [20, 21, 34, 56, 100] // minimum value of row is 20
+] */
     </script>
   </body>
 </html>
