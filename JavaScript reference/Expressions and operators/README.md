@@ -7,18 +7,18 @@
 ### Primary expressions
     Basic keywords and general expressions in JavaScript.
 
-#### this
-#### function
-#### class
-#### function*
-#### yield
-#### yield*
-#### async function
-#### await
-#### []
-#### {}
-#### /ab+c/i
-#### ( )
+#### [this] -The this keyword refers to a special property of an execution context.
+#### [function] -The function keyword defines a function expression.
+#### [class] -The class keyword defines a class expression.
+#### [function*] -The function* keyword defines a generator function expression.
+#### [yield] -Pause and resume a generator function.
+#### [yield*] -Delegate to another generator function or iterable object.
+#### [async function] -The async function defines an async function expression.
+#### [await] -Pause and resume an async function and wait for the promise's resolution/rejection.
+#### [[]] -Array initializer/literal syntax.
+#### [{}] -Object initializer/literal syntax.
+#### [/ab+c/i] -Regular expression literal syntax.
+#### [( )] -Left values are the destination of an assignment.
 
 =======================================================================
 ### Left-hand-side expressions
@@ -49,18 +49,12 @@
 =======================================================================
 ### Arithmetic operators
     Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value.
-#### +
-    Addition operator.
-#### -
-    Subtraction operator.
-#### /
-    Division operator.
-#### *
-    Multiplication operator.
-#### %
-    Remainder operator.
-#### **
-    Exponentiation operator.
+#### [+]()  -Addition operator.
+#### [-]  -Subtraction operator.
+#### [/]  -Division operator.
+#### [*]  -Multiplication operator.
+#### [%]  -Remainder operator.
+#### [**] -Exponentiation operator.
 
 =======================================================================
 ### Relational operators
