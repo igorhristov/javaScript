@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var reverse = function(x) {
+        if (x < 0) {
+          return (
+            0 -
+            Math.abs(x)
+              .toString()
+              .split('')
+              .reverse('')
+              .join('') *
+              1
+          );
+        } else {
+          return (
+            x
+              .toString()
+              .split('')
+              .reverse('')
+              .join('') * 1
+          );
+        }
+      };
+      console.log(reverse(-253));
+      console.log(reverse(155));
+      console.log(reverse(1534236469));
+      
+    </script>
+  </body>
+</html>
