@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kata 6</title>
+  </head>
+  <body>
+    <script>
+      function findUniq(arr) {
+        // let num;
+        // for (let i = 0; i < arr.length; i++) {
+        //   if (!num || num !== arr[i] || num !== arr[i + 1]) {
+        //     num = arr[i];
+        //   }
+        // }
+        // return num;
+        // return arr.filter(x => arr.indexOf(x) === arr.lastIndexOf(x)).join('') * 1
+        return arr.find(x => arr.indexOf(x) === arr.lastIndexOf(x));
+      }
+
+      console.log(findUniq([0, 1, 1, 1, 1, 1, 1, 1])); // 0
+      console.log(findUniq([0, 0, 0.55, 0, 0])); // 0.55
+      console.log(findUniq([8, 8, 8, 8, 8, 8, 8, 7])); // 7
+
+
+      console.log('=========Fastest Code : Excel Puzzle #2====================');
+      
+      function solveIt(excel, n) {
+        return excel.slice().sort((a,b)=> a-b)
+      }
+      console.log();
+      
+    console.log(solveIt([1,2,3,4,5],0));
+    console.log(solveIt([1,2,3,4,5],1));
+    console.log(solveIt([5,4,3,2,1],0));
+    console.log(solveIt([5,4,3,2,1],1));
+    console.log(solveIt([1,2,2,2,3],1));
+    console.log(solveIt([1,2,2,2,3],2));
+    console.log(solveIt([2,2,2,2,2],2));
+    console.log(solveIt([14,66,45,5,68,70,8,30,68,64,68,41],7));
+    </script>
+  </body>
+</html>
