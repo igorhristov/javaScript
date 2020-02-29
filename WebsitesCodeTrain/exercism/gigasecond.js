@@ -8,7 +8,7 @@ It is possible to return a correct value for this exercise by mutating the solut
 */
 /*
 const gigasecond = (date) => {
-  let today = date.getTime()
+  let startTime = date.getTime()
   var endDate = new Date(startTime + 1000000000000);
 	return endDate;
   console.log(today);
@@ -17,8 +17,34 @@ const gigasecond = (date) => {
 console.log(gigasecond());
 */
 
-  const gigasecond = (time) => {
-    return new Date (time.getTime() + Math.pow(10, 12));
-  };
-  let today = new Date()
+const gigasecond = time => {
+  /*
+  let thisDate = new Date(time).getTime()
+  return new Date(thisDate + Math.pow(10, 12));
+  */
+ let thisDate = time.getTime();
+   return new Date(thisDate + Math.pow(10, 12));
+};
+
+  console.log(gigasecond(new Date(Date.UTC(2015, 0, 24, 22, 0, 0))));
+  console.log(new Date(Date.parse('2046-10-02T23:46:40Z')));
+  
+  /*
   console.log(gigasecond(today));
+  console.log(gigasecond(today));
+  console.log(gigasecond(today));
+  console.log(gigasecond(today));
+  console.log(gigasecond(today));
+*/
+
+const gs = gigasecond(new Date(Date.UTC(2015, 0, 24, 23, 59, 59)));
+
+console.log(gs);
+
+const expectedDate = new Date(Date.parse('2046-10-03T01:46:39Z'));
+console.log(expectedDate);
+
+let input = new Date(Date.UTC(2020, 0, 4, 20, 28, 30));
+console.log(gigasecond(input));
+
+console.log(new Date(Date.UTC(2020, 0, 4, 20, 28, 30)));
