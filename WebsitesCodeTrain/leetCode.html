@@ -31,7 +31,19 @@
       console.log(reverse(-253));
       console.log(reverse(155));
       console.log(reverse(1534236469));
-      
+      var subtractProductAndSum = function(n) {
+        let num = n.toString().split('');
+        let multp = num.reduce((acc, c) => {
+          acc = acc * c * 1;
+          return acc;
+        }, 1);
+        let sum = num.reduce((acc, c) => {
+          acc = acc + c * 1;
+          return acc;
+        }, 0);
+        return multp - sum;
+      };
+      console.log(subtractProductAndSum(234));
     </script>
   </body>
 </html>
