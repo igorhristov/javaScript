@@ -31,6 +31,8 @@
       console.log(reverse(-253));
       console.log(reverse(155));
       console.log(reverse(1534236469));
+
+      console.log('=================== subtractProductAndSum ======================');
       var subtractProductAndSum = function(n) {
         let num = n.toString().split('');
         let multp = num.reduce((acc, c) => {
@@ -44,6 +46,31 @@
         return multp - sum;
       };
       console.log(subtractProductAndSum(234));
+
+      console.log('=================== sortedSquares ======================');
+      var sortedSquares = function(A) {
+        return A.map(x => Math.abs(x * x)).sort((a, b) => a - b);
+      };
+      console.log(sortedSquares([-4, -1, 0, 3, 10])); // Output: [0,1,9,16,100]
+
+      console.log('=================== sortedSquares ======================');
+      var singleNumber = function(nums) {
+        let notUnique;
+        for (let i = 0; i < nums.length; i++) {
+          if (nums[i] === nums[i + 1] || nums[i] === nums[i + 2]) {
+            notUnique = nums[i];
+          }
+        }
+        for (let j = 0; j < nums.length; j++) {
+          if (nums[j] !== notUnique) {
+            return nums[j];
+          }
+        }
+      };
+      console.log(singleNumber([2, 2, 1])); // 1
+      console.log(singleNumber([5, 1, 2, 5, 8, 2, 1])); // 8
+      console.log(singleNumber([4, 1, 2, 1, 2])); // 4
+      console.log(singleNumber([1,3,1,-1,3])); // -1
     </script>
   </body>
 </html>
