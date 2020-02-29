@@ -16,10 +16,12 @@ const gigasecond = (date) => {
 };
 console.log(gigasecond());
 */
-const gigasecondToMillisecond = 10e11;
 
-const gigasecond = date =>
-  new Date(date.getTime() + gigasecondToMillisecond);
-
-  console.log(gigasecond());
-  
+  const gigasecond = (date) => {
+    // conversion of the initial date in milliseconds with getTime()
+    // const initialDate = date.getTime();
+    // sum of the total of milliseconds of the initial date + 1 000 000 000 000 milliseconds (= 1 giga second) within the Date constructor which give the right format to the result
+    return new Date (now + Math.pow(10, 12));
+  };
+  var now = new Date().getTime()
+  console.log(gigasecond(now));
