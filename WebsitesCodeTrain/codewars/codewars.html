@@ -534,6 +534,33 @@
   [5, 6, 7, 8, 9], // minimum value of row is 5
   [20, 21, 34, 56, 100] // minimum value of row is 20
 ] */
+
+      console.log('============ logicalCalc ==========');
+function logicalCalc(array, op){
+  if(op === 'AND') {
+    op = '&&'
+  } else if(op === 'OR') {
+    op = '||'
+  } else {
+    op = '^'
+  }
+  let reduceB = array.reduce((acc, c) => {
+    return acc =  Boolean(acc) + Boolean(op) +  Boolean(c)
+
+  })
+  console.log(reduceB);
+  
+  let bul = array.map(x=> x + op).join('');
+   console.log(bul)
+   let bul1 = bul.slice(0, -op.length)
+   console.log(bul1)
+  
+  
+  return (bul1)
+}
+logicalCalc([true, true, true, false], "AND")
+logicalCalc([true, true, true, false], "OR")
+logicalCalc([true, true, true, false], "XOR")
     </script>
   </body>
 </html>
