@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function nextBigger(n) {
+        if (n < 12) {
+          return -1;
+        } else {
+          let num = String(n)
+            .split('')
+            .map(x => x * 1);
+          let target = 0;
+          let change = 0;
+          for (let i = num.length - 1; i >= 0; i--) {
+            if (num[i] > num[i - 1]) {
+              target = i;
+              change = i - 1;
+              break;
+            }
+          }
+          let rezult = num[change];
+          num[change] = num[target];
+          num[target] = rezult;
+
+          return num.join('') * 1;
+        }
+      }
+
+      console.log(nextBigger(12)); // 21
+      console.log(nextBigger(513)); // 531
+      console.log(nextBigger(2017)); // 2071
+      console.log(nextBigger(2017431)); // 2071
+      console.log(nextBigger(414)); // 441
+      console.log(nextBigger(144)); // 414
+      console.log(nextBigger(5)); // 414
+      console.log(nextBigger(59884848459853)); // 59884848483559
+
+      /*
+        Test.assertEquals(nextBigger(12),21)
+Test.assertEquals(nextBigger(513),531)
+Test.assertEquals(nextBigger(2017),2071)
+Test.assertEquals(nextBigger(414),441)
+Test.assertEquals(nextBigger(144),414)
+*/
+    </script>
+  </body>
+</html>
