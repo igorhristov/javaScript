@@ -41,3 +41,17 @@ console.log(isArmstrongNumber(9474)); // true Four digit number that is an Armst
 console.log(isArmstrongNumber(9475)); // false Four digit number that is not an Armstrong number
 console.log(isArmstrongNumber(9926315)); // true Seven digit number that is an Armstrong number
 console.log(isArmstrongNumber(9926314)); // false Seven digit number that is not an Armstrong number
+
+console.log('===== isAmstrongNum1====');
+
+const isArmstrongNumber1 = n => n === ('' + n).split('').reduce((sum, d, _, digits) => sum + (+d) ** digits.length, 0);
+
+console.log(isArmstrongNumber1(0));  // true Zero is an Armstrong number
+console.log(isArmstrongNumber1(5));  // true Single digit numbers are Armstrong numbers
+console.log(isArmstrongNumber1(10));  // false There are no 2 digit Armstrong numbers
+console.log(isArmstrongNumber1(100)); // false Three digit number that is not an Armstrong number
+console.log(isArmstrongNumber1(153));  // true Three digit number that is an Armstrong number
+console.log(isArmstrongNumber1(9474)); // true Four digit number that is an Armstrong number
+console.log(isArmstrongNumber1(9475)); // false Four digit number that is not an Armstrong number
+console.log(isArmstrongNumber1(9926315)); // true Seven digit number that is an Armstrong number
+console.log(isArmstrongNumber1(9926314)); // false Seven digit number that is not an Armstrong number
