@@ -16,6 +16,7 @@ const RUN = async () => {
     TABLE.setAttribute('id', 'userTable');
     const userTable = document.getElementById('userTable');
     userTable.width = '100%';
+    userTable.style.borderCollapse = 'collapse'
     userTable.style.border = '4px solid darkblue';
 
     const thead = addEl('thead');
@@ -25,9 +26,10 @@ const RUN = async () => {
     TABLE.append(thead);
     TABLE.append(tbody);
 
+
     const devUsers = await getUsers();
     console.log(devUsers);
-    const columns = [...Object.keys(devUsers[0])];
+    const columns = ['id','birthYear', 'firstName', 'lastName'];
     console.log(columns);
     const thTr = addEl('tr');
 
@@ -35,9 +37,13 @@ const RUN = async () => {
       const th = addEl('th');
       th.innerText = col;
       th.setAttribute('class', 'colls');
+      th.style.textAlign = 'left'
+      th.style.color = 'red'
+      th.style.border = '1px solid black'
       thTr.append(th);
     });
     thead.append(thTr);
+    // document.getElementsByClassName('colls').style.color = 'green'
     // const thClass = document.querySelectorAll('colls');
     // console.log(thClass);
     // thClass.style.color = 'red';
@@ -48,15 +54,14 @@ const RUN = async () => {
 
       columns.forEach(col => {
         const td = addEl('td');
-        td.innerText = user[col];
         td.setAttribute('class', 'tdClass');
+        td.style.border = '1px solid silver'
+        td.innerText = user[col];
         tdRow.append(td);
       });
       tbody.append(tdRow);
     });
     // document.getElementsByClassName('tdClass').style.color = 'red';
-    // const tdClass = document.getElementsByClassName('#userTable.tdClass');
-    // tdClass.style.color = 'red';
     // [...tdClass].style.color = 'red'
     // console.log(tdClass);
   } catch (error) {
