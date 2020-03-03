@@ -40,6 +40,7 @@ const RUN = async () => {
       th.style.textAlign = 'left'
       th.style.color = 'red'
       th.style.border = '1px solid black'
+      th.style.textTransform = 'upperCase'
       thTr.append(th);
     });
     thead.append(thTr);
