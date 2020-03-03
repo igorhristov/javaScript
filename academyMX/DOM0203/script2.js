@@ -21,7 +21,7 @@ const RUN = async () => {
     const thead = addEl('thead');
     const tbody = addEl('tbody');
     thead.setAttribute('id', 'theadId');
-    
+
     TABLE.append(thead);
     TABLE.append(tbody);
 
@@ -51,14 +51,13 @@ const RUN = async () => {
         td.innerText = user[col];
         td.setAttribute('class', 'tdClass');
         tdRow.append(td);
+      });
+      tbody.append(tdRow);
     });
-    tbody.append(tdRow);
-});
-// document.getElementsByClassName('tdClass').style.color = 'red';
-// const tdClass = document.getElementsByClassName('#userTable.tdClass');
+    // document.getElementsByClassName('tdClass').style.color = 'red';
+    // const tdClass = document.getElementsByClassName('#userTable.tdClass');
     // tdClass.style.color = 'red';
     // [...tdClass].style.color = 'red'
-    // tdClass.style.color = 'red';
     // console.log(tdClass);
   } catch (error) {
     console.log(error);
