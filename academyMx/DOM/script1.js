@@ -5,7 +5,7 @@ const DEV_TABLE = async () => {
   H1.style.textAlign = 'center';
   H1.style.textTransform = 'uppercase';
   document.body.append(H1);
-
+  
   const ROOT = addEl('div');
   ROOT.innerText = 'hereis root';
   document.body.append(ROOT);
