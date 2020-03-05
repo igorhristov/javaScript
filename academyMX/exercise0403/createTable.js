@@ -67,7 +67,8 @@ const createTable = async () => {
         actionTd.append(
             createElement('button', {
                 className: 'btn btn-outline-primary',
-                textContent: 'Info'
+                textContent: 'Info',
+                id: `userId-${user.id}`
             })
         );
 
