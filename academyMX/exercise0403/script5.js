@@ -16,4 +16,4 @@ const RUN_TABLE = async () => {
         btn.addEventListener('click', onButtonClick);
     })
 }
-RUN_TABLE()
+RUN_TABLE();
