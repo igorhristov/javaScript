@@ -3,7 +3,25 @@ const runTable = async () => {
   let sortBy = 'id';
   let sortOrder = 'asc';
   await createTable(sortOrder, sortBy);
+  const thNodes = document.querySelectorAll('thead th');
+  const arrTh = [...thNodes];
 
+  const onThClick = async event => {
+    let th = await event.target.innerText;
+    console.log(th);
+    if(th === '#') {
+      sortBy = 'id'
+    } else if(th === 'Birth year') {
+      return  sortBy = 'birthYear'
+    } else if(th === 'first Name') {
+        sortBy = firstName
+    }
+  return  await createTable(sortOrder, sortBy);
+  };
+
+  arrTh.forEach(th => {
+    th.addEventListener('click', onThClick);
+  });
   /////////////// tboty rows events ///////////////////
   const trNodes = document.querySelectorAll('tbody tr');
   const arrTbodyRows = [...trNodes];
