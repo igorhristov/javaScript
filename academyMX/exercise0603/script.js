@@ -1,4 +1,4 @@
 const runTable = async () => {
-    await createTable();
+    await createTable('asc', 'firstName');
 }
 runTable()

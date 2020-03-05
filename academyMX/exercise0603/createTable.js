@@ -8,9 +8,18 @@ const createElement = (type, attrs = {}) => {
     return el;
 }
 
-const createTable = async () => {
+const createTable = async (sortOrder = 'asc', sortBy = 'id') => {
     const d = document;
-    const users = await getUsers();
+    const users = await getUsers()
+        .then(users => {
+            return users.sort((a, b) => {
+                const by1 = a[sortBy];
+                const by2 = b[sortBy];
+                return sortOrder === 'desc' 
+                    ? by2 > by1 ? 1 : -1 
+                    : by1 > by2 ? 1 : -1;
+            })
+        })
     const columns = {
         id: '#',
         birthYear: 'Birth year',
