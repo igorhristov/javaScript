@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm the Ending</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Confirm the Ending</h3>
+    <p>
+      Check if a string (first argument, str) ends with the given target string (second argument, target). <br />
+      This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of
+      this challenge, we would like you to use one of the JavaScript substring methods instead.
+    </p>
+    <script>
+      function confirmEnding(str, target) {
+        return str.substr(-1) === target ? true : false;
+      }
+      console.log('========== Confirm the Ending: =============');
+      console.log(confirmEnding('Bastian', 'n')); // true
+    </script>
+  </body>
+</html>
