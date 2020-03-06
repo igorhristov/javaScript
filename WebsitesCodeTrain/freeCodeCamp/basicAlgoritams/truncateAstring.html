@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truncate a String</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Truncate a String</h3>
+    <p>
+      Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return
+      the truncated string with a ... ending.
+    </p>
+    <script>
+      function truncateString(str, num) {
+        if (str.length < 3) {
+          return str.charAt(0) + '...';
+        }
+        if (str.length <= num) {
+          return str;
+        } else {
+          return str.slice(0, num) + '...';
+        }
+      }
+      console.log('========== Truncate a String: =============');
+      console.log(truncateString('A-tisket a-tasket A green and yellow basket', 8)); // A-tisket...
+      console.log(truncateString('Peter Piper picked a peck of pickled peppers', 11)); // Peter Piper...
+      console.log(
+        truncateString(
+          'A-tisket a-tasket A green and yellow basket',
+          'A-tisket a-tasket A green and yellow basket'.length
+        )
+      ); //A-tisket a-tasket A green and yellow basket
+      console.log(
+        truncateString(
+          'A-tisket a-tasket A green and yellow basket',
+          'A-tisket a-tasket A green and yellow basket'.length + 2
+        )
+      ); // "A-tisket a-tasket A green and yellow basket"
+      console.log(truncateString('A-', 1)); // A...
+      console.log(truncateString('Absolutely Longer', 2)); // Ab...
+    </script>
+  </body>
+</html>
