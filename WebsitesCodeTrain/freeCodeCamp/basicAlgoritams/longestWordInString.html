@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the Longest Word in a String</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Find the Longest Word in a String</h3>
+    <p>
+      Return the length of the longest word in the provided sentence. Your response should be a number.
+    </p>
+    <script>
+      function findLongestWordLength(str) {
+        const strToArr = str.split(' ');
+        let temp = strToArr[0].length;
+        for (let i = 0; i < strToArr.length; i++) {
+          if (temp < strToArr[i].length) {
+            temp = strToArr[i].length;
+          }
+        }
+        return temp;
+      }
+
+      console.log('===== Find the Longest Word in a String: ================');
+
+      console.log(findLongestWordLength('The quick brown fox jumped over the lazy dog')); // 6
+      console.log(findLongestWordLength('Google do a barrel roll')); // 6
+      console.log(findLongestWordLength('May the force be with you')); // 5
+      console.log(findLongestWordLength('What if we try a super-long word such as otorhinolaryngology')); // 19
+    </script>
+  </body>
+</html>
