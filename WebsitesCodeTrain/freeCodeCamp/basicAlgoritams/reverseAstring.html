@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse a StringPassed</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Reverse a StringPassed</h3>
+    <p>
+      Reverse the provided string. You may need to turn the string into an array before you can reverse it. Your result
+      must be a string.
+    </p>
+    <script>
+      function reverseString(str) {
+        let newStr = '';
+
+        for (let i = str.length - 1; i >= 0; i--) {
+          newStr += str.charAt(i);
+        }
+
+        return newStr;
+      }
+      console.log('===== reverse a string:');
+
+      console.log(reverseString('hello'));
+      console.log(reverseString('Greetings from Earth')); // htraE morf sgniteerG
+    </script>
+  </body>
+</html>
