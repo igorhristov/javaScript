@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title Case a SentencePassed</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Title Case a SentencePassed</h3>
+    <p>
+      Return the provided string with the first letter of each word capitalized. Make sure the rest
+      of the word is in lower case. <br />
+      For the purpose of this exercise, you should also capitalize connecting words like "the" and
+      "of".
+    </p>
+    <script>
+      function titleCase(str) {
+        const newStr = str.toLowerCase().split(' ');
+        return newStr.map(x => x[0].toUpperCase() + x.slice(1)).join(' ');
+      }
+      console.log('========== Title Case a SentencePassed: =============');
+      console.log(titleCase("I'm a little tea pot")); // I'm A Little Tea Pot
+      console.log(titleCase('sHoRt AnD sToUt')); // Short And Stout
+      console.log(titleCase('HERE IS MY HANDLE HERE IS MY SPOUT')); // Here Is My Handle Here Is My Spout
+    </script>
+  </body>
+</html>
