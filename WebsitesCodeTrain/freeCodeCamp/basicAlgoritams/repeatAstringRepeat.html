@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repeat a String Repeat a String</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Repeat a String Repeat a String</h3>
+    <p>
+      Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a
+      positive number.
+    </p>
+    <script>
+      function repeatStringNumTimes(str, num) {
+        if (num < 1) {
+          return '';
+        } else {
+          let newStr = '';
+          for (let i = 0; i < num; i++) {
+            newStr += str;
+          }
+          return newStr;
+        }
+      }
+      console.log('========== Repeat a String Repeat a String: =============');
+      console.log(repeatStringNumTimes('abc', 3)); // abcabcabc
+      console.log(repeatStringNumTimes('*', 8)); // "********"
+      console.log(repeatStringNumTimes('abc', -2)); // ""
+      console.log(repeatStringNumTimes('abc', 0)); // ""
+    </script>
+  </body>
+</html>
