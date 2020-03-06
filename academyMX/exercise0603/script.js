@@ -4,7 +4,7 @@ const runTable = async () => {
   let sortOrder = 'asc';
   await createTable('asc', 'id');
 
-  const onThClick = async event => {
+ /* const onThClick = async event => {
     try {
       const thClickEvent = event.target.innerText;
       console.log(thClickEvent);
@@ -28,7 +28,7 @@ const runTable = async () => {
 
   await createTable('desc', sortBy);
   // sortBy1.resolve('birthYear')
-
+*/
   const onMouseOver = event => {
     event.target.style.cursor = 'pointer';
   };
