@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sumAll(arr) {
+        let sum = 0;
+        let arr1 = arr.slice().sort((a, b) => a - b);
+        for (let i = arr1[0]; i <= arr1[arr1.length - 1]; i++) {
+          sum += i;
+        }
+        return sum;
+      }
+      console.log(sumAll([1, 4])); // 10
+      console.log(sumAll([4, 1])); // 10
+      console.log(sumAll([5, 10])); // 45
+      console.log(sumAll([10, 5])); // 45
+
+      function diffArray(arr1, arr2) {
+        var newArr = [];
+        arr1.forEach(el => {
+          if (arr2.indexOf(el) === false) {
+            newArr.push(el);
+          } else {
+          }
+        });
+        return newArr;
+      }
+
+      console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+    </script>
+  </body>
+</html>
