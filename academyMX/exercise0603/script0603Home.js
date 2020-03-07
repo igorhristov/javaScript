@@ -26,7 +26,6 @@ const runTable = async () => {
     var parent = document.getElementById('root');
     var child = document.getElementsByTagName('table');
     parent.appendChild(child);
-
   };
   // return sortBy;
 
