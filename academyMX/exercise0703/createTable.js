@@ -8,7 +8,7 @@ const createElement = (type, attrs = {}) => {
   return el;
 };
 
-const createTable = async (sortOrder = 'asc', sortBy = 'id') => {
+const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
   const d = document;
   const sortUsers = await getUsers().then(users => {
     return users.sort((u1, u2) => {
@@ -21,11 +21,11 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id') => {
     });
   });
 
-  const itemsPerPage = 10;
-  const pageCount = Math.ceil(sortUsers.length / itemsPerPage);
-  // const page = Math.min(pageCount - 1, Math.max(curentPage, 0))
-  // const curentPage = curentPage < 0 ? 0 : curentPage > pageCount - 1 ? pageCount - 1 : curentPage;
-  users = sortUsers.slice(0, itemsPerPage);
+  const usersPerPage = 5;
+  const pageCount = Math.ceil(sortUsers.length / usersPerPage);
+  console.log(pageCount);
+  const page = Math.min(pageCount - 1, Math.max(currentPage, 0));
+  users = sortUsers.slice(page * usersPerPage, (page + 1) * usersPerPage);
 
   const columns = {
     id: '#',
@@ -80,16 +80,15 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id') => {
     createElement('button', {
       textContent: '<<< Previous',
       className: 'footBtn btn btn-danger m-1',
-      id: `footer-page-btn-next`
-      // disable: curentPage < 0
+      id: `footer-page-btn-previous`,
+      disable: pageCount < 0
     }),
 
     createElement('button', {
       textContent: 'Next >>>',
       className: 'footBtn btn btn-danger',
-      id: `footer-page-btn-next`
-      // disable: curentPage < 0
-
+      id: `footer-page-btn-next`,
+      disable: currentPage > currentPage - 1
     })
   );
   footerRow.append(td);
@@ -134,6 +133,13 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id') => {
   if (oldTable) {
     oldTable.remove();
   }
+
+  const par = document.createElement('p');
+  const oldP = d.querySelector('#root p');
+  if (oldP) {
+    par.remove();
+  }
+  document.getElementById('root').append(par);
 
   document.getElementById('root').append(table);
 };
