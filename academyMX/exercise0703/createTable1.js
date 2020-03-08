@@ -14,8 +14,11 @@ const napraviTabela = async currenPage => {
   const USERS_PER_PAGE = 10;
   const TOTAL_PAGES = Math.ceil(totalUsers.length / USERS_PER_PAGE);
   console.log(TOTAL_PAGES);
-  
-  const users = await totalUsers.slice(currenPage * USERS_PER_PAGE,currenPage * USERS_PER_PAGE + USERS_PER_PAGE);
+
+  const users = await totalUsers.slice(
+    currenPage * USERS_PER_PAGE,
+    currenPage * USERS_PER_PAGE + USERS_PER_PAGE
+  );
   /////////////// paginations END/////////////////////
 
   const TABELA = novElement('table', {
@@ -100,7 +103,6 @@ const napraviTabela = async currenPage => {
       className: 'paginationBtns btn btn-success',
       id: 'pgn-next',
       disabled: currenPage > TOTAL_PAGES - 2
-
     })
   );
   footRow.append(footTd);
