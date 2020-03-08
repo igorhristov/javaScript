@@ -15,19 +15,28 @@ RLE allows the original data to be perfectly reconstructed from the compressed d
 
 For simplicity, you can assume that the unencoded string will only contain the letters A through Z (either lower or upper case) and whitespace. This way data to be encoded will never contain any numbers and numbers inside data to be decoded always represent the count for the following character.
 */
-const encode = () => {
-  throw new Error('Remove this statement and implement this function');
-};
-console.log(encode('')); // ''
-console.log(encode('XYZ')); // 'XYZ'
-console.log(encode('AABBBCCCC')); // '2A3B4C'
-console.log(encode('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB')); // '12WB12W3B24WB'
-console.log(encode('  hsqq qww  ')); // '2 hs2q q2w2 '
-console.log(encode('aabbbcccc')); // '2a3b4c'
+const encode = string => {
+  let newStr = '';
+  let str = string;
+  console.log(str);
 
-const decode = () => {
-  throw new Error('Remove this statement and implement this function');
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+    }
+  }
+  console.log(newStr);
+  return newStr;
 };
+// console.log(encode('')); // ''
+// console.log(encode('XYZ')); // 'XYZ'
+console.log(encode('AABBBCCCC')); // '2A3B4C'
+// console.log(encode('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB')); // '12WB12W3B24WB'
+// console.log(encode('  hsqq qww  ')); // '2 hs2q q2w2 '
+// console.log(encode('aabbbcccc')); // '2a3b4c'
+
+console.log('DECODE');
+
+const decode = () => {};
 console.log(decode('')); // ''
 console.log(decode('XYZ')); // 'XYZ'
 console.log(decode('2A3B4C')); // 'AABBBCCCC'
@@ -36,5 +45,4 @@ console.log(decode('2 hs2q q2w2 ')); // '  hsqq qww  '
 console.log(decode('2a3b4c')); // 'aabbbcccc'
 console.log(decode('zzz ZZ  zZ')); // 'zzz ZZ  zZ'
 
-
-console.log(decode(encode('zzz ZZ  zZ'))); // 'zzz ZZ  zZ'
+// console.log(decode(encode('zzz ZZ  zZ'))); // 'zzz ZZ  zZ'
