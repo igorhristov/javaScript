@@ -116,7 +116,7 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
       ...Object.keys(columns).map(key =>
         createElement('td', {
           textContent: user[key],
-          ...(key === 'id' && { scope: 'row' })
+          ...user(key === 'id' && { scope: 'row' })
         })
       )
     );
