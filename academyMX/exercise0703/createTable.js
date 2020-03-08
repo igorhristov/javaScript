@@ -139,12 +139,12 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
 
   const par = document.createElement('p');
   par.setAttribute('id', 'myInfo');
-  par.setAttribute('class', 'text-center text-success bg-dark');
+  par.setAttribute('class', 'text-center text-success bg-dark align-middle');
   const oldP = d.querySelector('#root p');
   if (oldP) {
     par.remove();
   }
 
+  document.getElementById('root').append(table);
   document.getElementById('root').append(par);
-  document.getElementById('root').prepend(table);
 };
