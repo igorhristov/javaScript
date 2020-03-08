@@ -7,12 +7,15 @@ const novElement = (type, attributes = {}) => {
   return ELEMENT;
 };
 
-const napraviTabela = async (currenPage) => {
+const napraviTabela = async currenPage => {
   const totalUsers = await getUsers();
 
   /////////////// paginations /////////////////////
- const USERS_PER_PAGE = 10;
-  const users = await totalUsers.slice(0, USERS_PER_PAGE)
+  const USERS_PER_PAGE = 10;
+  const TOTAL_PAGES = Math.ceil(totalUsers.length / USERS_PER_PAGE);
+  console.log(TOTAL_PAGES);
+  
+  const users = await totalUsers.slice(currenPage * USERS_PER_PAGE,currenPage * USERS_PER_PAGE + USERS_PER_PAGE);
   /////////////// paginations END/////////////////////
 
   const TABELA = novElement('table', {
@@ -88,18 +91,23 @@ const napraviTabela = async (currenPage) => {
   footTd.append(
     novElement('button', {
       innerText: '<<< Previus',
-      className: 'paginationBtns btn btn-success mr-3'
+      className: 'paginationBtns btn btn-success mr-3',
+      id: 'pgn-previous',
+      disabled: currenPage < 1
     }),
     novElement('button', {
       innerText: 'NEXT >>>',
-      className: 'paginationBtns btn btn-success '
+      className: 'paginationBtns btn btn-success',
+      id: 'pgn-next',
+      disabled: currenPage > TOTAL_PAGES - 2
+
     })
   );
   footRow.append(footTd);
   /////////////// tfoot END ////////////////////
 
   /////////////// tabela RUN ///////////////////
-  const staraTabela = document.querySelector('root table');
+  const staraTabela = document.querySelector('#root table');
   if (staraTabela) {
     staraTabela.remove();
   }
