@@ -35,27 +35,6 @@ const render = async () => {
     }
   });
 
-  //   const thStyle = document.className('sortable');
-  //   thStyle.style.cursor = 'pointer'
-
-  // const [ idHead, birthYearHead ] = [
-  //     ...document.querySelectorAll('#root table th')
-  // ];
-
-  // const onIdHeadClick = async () => {
-  //     sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-  //     sortBy = 'id';
-
-  //     await createTable(sortOrder, sortBy);
-
-  //     const [ idHead, birthYearHead ] = [
-  //         ...document.querySelectorAll('#root table th')
-  //     ];
-
-  //     idHead.addEventListener('click', onIdHeadClick);
-  // }
-
-  // idHead.addEventListener('click', onIdHeadClick);
-};
+ };
 
 render();

@@ -10,7 +10,7 @@ const createElement = (type, attrs = {}) => {
 
 const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
   const d = document;
-  const sortUsers = await getUsers().then(users => {
+  const totalUsers = await getUsers().then(users => {
     return users.sort((u1, u2) => {
       let a = u1[sortBy];
       let b = u2[sortBy];
@@ -20,14 +20,22 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
       return a > b ? 1 : -1;
     });
   });
-
   const usersPerPage = 10;
-  const pageCount = Math.ceil(sortUsers.length / usersPerPage);
-  // console.log(pageCount);
-  const page = Math.min(pageCount - 1, Math.max(currentPage, 0));
-  // console.log(page);
 
-  users = sortUsers.slice(page * usersPerPage, (page + 1) * usersPerPage);
+  const maxPages = Math.ceil(totalUsers.length / usersPerPage);
+  console.log(maxPages);
+
+  const users = totalUsers.slice(
+    currentPage * usersPerPage,
+    currentPage * usersPerPage + usersPerPage
+  );
+
+  // const usersPerPage = 10;
+  // const pageCount = Math.ceil(sortUsers.length / usersPerPage);
+  // // console.log(pageCount);
+  // const page = Math.min(pageCount - 1, Math.max(currentPage, 0));
+  // // console.log(page);
+  // users = sortUsers.slice(page * usersPerPage, (page + 1) * usersPerPage);
 
   const columns = {
     id: '#',
@@ -84,14 +92,14 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
       textContent: '<<< Previous',
       className: 'footBtn btn btn-danger m-1',
       id: `footer-page-btn-previous`,
-      disabled: currentPage < 0
+      disabled: currentPage < 1
     }),
 
     createElement('button', {
       textContent: 'Next >>>',
       className: 'footBtn btn btn-danger',
       id: `footer-page-btn-next`,
-      disabled: page < currentPage
+      disabled: maxPages < currentPage + 2
     })
   );
   footerRow.append(td);
