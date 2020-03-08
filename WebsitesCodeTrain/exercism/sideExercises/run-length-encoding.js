@@ -15,24 +15,21 @@ RLE allows the original data to be perfectly reconstructed from the compressed d
 
 For simplicity, you can assume that the unencoded string will only contain the letters A through Z (either lower or upper case) and whitespace. This way data to be encoded will never contain any numbers and numbers inside data to be decoded always represent the count for the following character.
 */
-const encode = string => {
-  let newStr = '';
-  let str = string;
-  console.log(str);
-
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === str[i + 1]) {
-    }
-  }
-  console.log(newStr);
-  return newStr;
+const encode = str => {
+  var count = {};
+  str.split('').forEach(s => {
+    count[s] = count[s] ? count[s] + 1 : 1;
+  });
+  console.log(count);
+  
+  // return Object.entries(count).map(x => x.reverse()).flat().join('')
 };
 // console.log(encode('')); // ''
 // console.log(encode('XYZ')); // 'XYZ'
 console.log(encode('AABBBCCCC')); // '2A3B4C'
-// console.log(encode('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB')); // '12WB12W3B24WB'
+console.log(encode('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB')); // '12WB12W3B24WB'
 // console.log(encode('  hsqq qww  ')); // '2 hs2q q2w2 '
-// console.log(encode('aabbbcccc')); // '2a3b4c'
+console.log(encode('aabbbcccc')); // '2a3b4c'
 
 console.log('DECODE');
 
