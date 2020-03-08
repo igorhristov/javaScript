@@ -25,14 +25,11 @@ const render = async () => {
       await createTable(sortOrder, sortBy, currrentPage);
     }
 
-    
     if (event.target.matches('.btn-outline-primary')) {
-      console.log(event.target);
-      if(event.target.className ===  'btn-outline-primary') {
-        const para = document.getElementsByTagName('p'); 
-        para.innerText = ' hello';
-
-      }
+      const userInfo = await getUser(event.target.getAttribute('data-id') * 1);
+      const rot = document.getElementById('myInfo');
+      rot.innerText = `Hi my name is ${userInfo.firstName} ${userInfo.lastName}. I am ${2020 - userInfo.birthYear} years old ${userInfo.gender}. My Salary is ${Math.round(userInfo.salary)}$`
+    //   console.log(rot);
 
       await createTable(sortOrder, sortBy, currrentPage);
     }

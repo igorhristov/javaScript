@@ -21,10 +21,12 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
     });
   });
 
-  const usersPerPage = 5;
+  const usersPerPage = 10;
   const pageCount = Math.ceil(sortUsers.length / usersPerPage);
-  console.log(pageCount);
+  // console.log(pageCount);
   const page = Math.min(pageCount - 1, Math.max(currentPage, 0));
+  // console.log(page);
+
   users = sortUsers.slice(page * usersPerPage, (page + 1) * usersPerPage);
 
   const columns = {
@@ -74,21 +76,22 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
   tFooter.append(footerRow);
 
   const td = d.createElement('td');
-  td.colSpan = 6;
+  td.colSpan = 5;
+  td.setAttribute('class', 'text-right');
 
   td.append(
     createElement('button', {
       textContent: '<<< Previous',
       className: 'footBtn btn btn-danger m-1',
       id: `footer-page-btn-previous`,
-      disable: pageCount < 0
+      disabled: currentPage < 0
     }),
 
     createElement('button', {
       textContent: 'Next >>>',
       className: 'footBtn btn btn-danger',
       id: `footer-page-btn-next`,
-      disable: currentPage > currentPage - 1
+      disabled: page < currentPage
     })
   );
   footerRow.append(td);
@@ -135,11 +138,13 @@ const createTable = async (sortOrder = 'asc', sortBy = 'id', currentPage) => {
   }
 
   const par = document.createElement('p');
+  par.setAttribute('id', 'myInfo');
+  par.setAttribute('class', 'text-center text-success bg-dark');
   const oldP = d.querySelector('#root p');
   if (oldP) {
     par.remove();
   }
-  document.getElementById('root').append(par);
 
-  document.getElementById('root').append(table);
+  document.getElementById('root').append(par);
+  document.getElementById('root').prepend(table);
 };
