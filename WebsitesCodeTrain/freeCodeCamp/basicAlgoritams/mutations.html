@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mutations</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Mutations</h3>
+    <p>
+      Return true if the string in the first element of the array contains all of the letters of the string in the
+      second element of the array. <br />
+
+      For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in
+      the first, ignoring case. <br />
+
+      The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y". <br />
+
+      Lastly, ["Alien", "line"], should return true because all of the letters in "line" are present in "Alien".
+    </p>
+    <script>
+      function mutation(arr) {
+        const str1 = arr[0].toLowerCase().split('');
+        const str2 = arr[1].toLowerCase().split('');
+
+        for (let i = 0; i < str2.length; i++) {
+          let temp = [];
+          if (str1.includes(str2[i])) {
+            temp.push(str2[i]);
+          } else {
+            return false;
+          }
+        }
+
+        return true;
+      }
+      console.log('========== Mutations: =============');
+      console.log(mutation(['hello', 'hey'])); // false
+      console.log(mutation(['hello', 'Hello'])); // true
+      console.log(mutation(['Mary', 'Army'])); // true
+      console.log(mutation(['Alien', 'line'])); // true
+      console.log(mutation(['hello', 'neo'])); // false
+      console.log(mutation(['voodoo', 'no'])); // false
+      console.log(mutation(['Tiger', 'Zebra'])); // false
+      console.log(mutation(['Noel', 'Ole'])); // true
+    </script>
+  </body>
+</html>
