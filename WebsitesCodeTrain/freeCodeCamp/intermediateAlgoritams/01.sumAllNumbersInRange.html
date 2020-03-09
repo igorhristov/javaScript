@@ -8,34 +8,27 @@
   <body>
     <h1>free Code Camp</h1>
     <h2>Basic Algorithm Scripting</h2>
-    <h3>Return Largest Numbers in ArraysPassed</h3>
+    <h3>Sum All Numbers in a Range</h3>
+    <p>
+      We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers
+      between them. The lowest number will not always come first. <br />
 
+      For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+    </p>
     <script>
       function sumAll(arr) {
         let sum = 0;
-        let arr1 = arr.slice().sort((a, b) => a - b);
+        const arr1 = arr.slice().sort((a, b) => a - b);
         for (let i = arr1[0]; i <= arr1[arr1.length - 1]; i++) {
           sum += i;
         }
         return sum;
       }
+      console.log('========== Sum All Numbers in a Range: =============');
       console.log(sumAll([1, 4])); // 10
       console.log(sumAll([4, 1])); // 10
       console.log(sumAll([5, 10])); // 45
       console.log(sumAll([10, 5])); // 45
-
-      function diffArray(arr1, arr2) {
-        var newArr = [];
-        arr1.forEach(el => {
-          if (arr2.indexOf(el) === false) {
-            newArr.push(el);
-          } else {
-          }
-        });
-        return newArr;
-      }
-
-      console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
     </script>
   </body>
 </html>
