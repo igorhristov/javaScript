@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Falsy Bouncer</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Falsy Bouncer</h3>
+    <p>
+      Remove all falsy values from an array. <br />
+      Falsy values in JavaScript are false, null, 0, "", undefined, and NaN. <br />
+      Hint: Try converting each value to a Boolean.
+    </p>
+    <script>
+      function bouncer(arr) {
+        let newArr = [];
+        arr.forEach(element => {
+          element ? newArr.push(element) : [];
+        });
+        return newArr;
+      }
+      console.log('========== Falsy Bouncer: =============');
+      console.log(bouncer([7, 'ate', '', false, 9])); // [7, "ate", 9]
+      console.log(bouncer(['a', 'b', 'c'])); // ["a", "b", "c"]
+      console.log(bouncer([false, null, 0, NaN, undefined, ''])); // []
+      console.log(bouncer([null, NaN, 1, 2, undefined])); // [1, 2]
+    </script>
+  </body>
+</html>
