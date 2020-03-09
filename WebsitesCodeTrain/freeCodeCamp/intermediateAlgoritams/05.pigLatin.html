@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pig Latin</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Pig Latin</h3>
+    <p>
+      Translate the provided string to pig latin. <br />
+
+      Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and
+      suffixes an "ay". <br />
+
+      If a word begins with a vowel you just add "way" to the end. <br />
+      If a word does not contain a vowel, just add "ay" to the end. <br />
+      Input strings are guaranteed to be English words in all lowercase.
+    </p>
+    <script>
+      function translatePigLatin(str) {
+        const VOWEL = ['a', 'e', 'i', 'o', 'u'];
+        if (VOWEL.includes(str[0])) {
+          return str + 'way';
+        }
+        let pigLatin = '';
+        let temp;
+        let count = [];
+        for (let i = 0; i < str.length; i++) {
+          if (VOWEL.includes(str[i])) {
+            count.push(i);
+          }
+        }
+        if (count.length === 0) {
+          return str + 'ay';
+        }
+
+        temp = str.slice(count[0]);
+        pigLatin = temp + str.slice(0, count[0]) + 'ay';
+        return pigLatin;
+      }
+      console.log('========== Pig Latin: =============');
+      console.log(translatePigLatin('consonant'));
+      console.log(translatePigLatin('california')); // aliforniacay
+      console.log(translatePigLatin('glove')); // oveglay
+      console.log(translatePigLatin('rhythm')); // rhythmay
+      console.log(translatePigLatin('paragraphs')); // aragraphspay
+      console.log(translatePigLatin('algorithm')); // algorithmway
+      console.log(translatePigLatin('eight')); // eightway
+      console.log(translatePigLatin('schwartz')); // artzschway
+    </script>
+  </body>
+</html>
