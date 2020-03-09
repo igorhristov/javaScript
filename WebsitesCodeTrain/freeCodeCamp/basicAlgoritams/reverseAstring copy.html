@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chunky Monkey</title>
+  </head>
+  <body>
+    <h1>free Code Camp</h1>
+    <h2>Basic Algorithm Scripting</h2>
+    <h3>Chunky Monkey</h3>
+    <p>
+      Write a function that splits an array (first argument) into groups the length of size (second argument) and
+      returns them as a two-dimensional array.
+    </p>
+    <script>
+      function chunkArrayInGroups(arr, size) {
+        let newArr = [];
+        let bigArr = [];
+        for (let i = 0; i < arr.length; i++) {
+          [newArr.push(arr.slice(i * size, size + i * size))];
+        }
+        newArr.forEach(x => {
+          if (x.length !== 0) {
+            bigArr.push(x);
+          }
+        });
+        return bigArr;
+      }
+      console.log('========== Chunky Monkey: =============');
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2)); // [[0, 1], [2, 3], [4, 5]]
+      console.log(chunkArrayInGroups(['a', 'b', 'c', 'd'], 2)); //[["a", "b"], ["c", "d"]]
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3)); // [[0, 1, 2], [3, 4, 5]]
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4)); //  [[0, 1, 2, 3], [4, 5]]
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3)); // [[0, 1, 2], [3, 4, 5], [6]]
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4)); // [[0, 1, 2, 3], [4, 5, 6, 7], [8]]
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2)); // [[0, 1], [2, 3], [4, 5], [6, 7], [8]]
+    </script>
+  </body>
+</html>
