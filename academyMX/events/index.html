@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Events :: Form Validation</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container p-2">
+            <h1>Events // Form Validation</h1>
+        </div>
+        
+        <div class="container p-2">
+            <form>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupEmail">📧</span>
+                      </div>
+                      <input type="email" class="form-control" id="email" aria-describedby="inputGroupEmail" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" required>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="postcode">Post Code</label>
+                    <input type="text" class="form-control" id="postcode" required>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="country">Country</label>
+                    <select class="custom-select" id="country" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option>Macedonia</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="agree" required>
+                    <label class="form-check-label" for="agree">
+                      Agree to terms and conditions
+                    </label>
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Sign Up</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+            </form>        
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
