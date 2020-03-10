@@ -1,59 +1,40 @@
-window.addEventListener('load', () => {
-  const novEl = (type, attributes = {}) => {
-    const element = document.createElement(type);
+const novEl = (type, attributes = {}) => {
+  const element = document.createElement(type);
 
-    Object.keys(attributes).forEach(key => {
-      element[key] = attributes[key];
-    });
-    return element;
-  };
-  // Grab all the forms
-  var forms = document.getElementsByClassName('form-control');
-  // Iterate over each one
-  for (let form of forms) {
-    // Add a 'submit' event listener on each one
-    form.addEventListener('submit', evt => {
-      // check if the form input elements have the 'required' attribute
-      if (!form.checkValidity()) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        console.log('Bootstrap will handle incomplete form fields');
-      } else {
-        // Since form is now valid, prevent default behavior..
-        evt.preventDefault();
-        novEl('div', {
-          className: 'valid-feedback',
-          textContent: 'Dobro Izgleda'
-        });
-        console.info('All form fields are now valid...');
-      }
+  Object.keys(attributes).forEach(key => {
+    element[key] = attributes[key];
+  });
+  return element;
+};
+const forms = document.getElementsByClassName('form-control');
 
-      form.classList.add('was-validated');
-    });
-  }
-});
-
-/*
 const VALID = novEl('div', {
   className: 'valid-feedback',
   textContent: 'Dobro Izgleda'
 });
 const INVALID = novEl('div', {
   className: 'invalid-feedback',
-  textContent: 'Please enter a valid email address.'
+  textContent: `Please enter a valid name.`
 });
-const form = document.getElementsByTagName('form');
-const fname = document.getElementById('firstName');
-fname.after(VALID);
-const VALIDATION = async event => {
-  event.preventDefault();
-  console.log(event.target);
+const submitBTN = document.querySelector('[type=submit]');
 
-  const fname = document.getElementById('firstName');
-  const lname = document.getElementById('lastName');
-  const firstName = document.querySelector('#firstName');
-  if (fname.value.length < 3) {
+const fname = document.querySelector('#firstName');
+fname.addEventListener('submi', event => {
+  if (fname.checkValidity() === false) {
+    fname.classList.add('is-invalid');
+    fname.after(INVALID);
+    
+  } else {
+    fname.classList.add('is-valid');
+
+    fname.after(VALID);
   }
-};
-document.addEventListener('submit', VALIDATION);
-*/
+});
+
+const resetBtn = document.querySelector('[type=reset]');
+resetBtn.addEventListener('click', event => {
+  fname.classList.remove('is-invalid');
+  fname.classList.remove('is-valid');
+});
+
+console.log(resetBtn);
