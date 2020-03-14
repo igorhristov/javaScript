@@ -14,17 +14,29 @@ Examples of isograms:
 
 The word isograms, however, is not an isogram, because the s repeats.
 */
-const isIsogram = str => {
-  const reg = /[a-z]/i;
-  let count = 0;
-  str.split('').forEach(element => {
-    if(element.match(reg)) {
-      count++
-      console.log(count);
-      
+const isIsogram = string => {
+  const abc = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const str = string.toLowerCase();
+  let countLetters = [];
+  let countDouble = [];
+
+  for (let i = 0; i < str.length; i++) {
+    if (abc.includes(str[i])) {
+      countLetters.push(str[i]);
+      if (countLetters.includes(str[i])) {
+        countDouble.push(str[i]);
+      }
     }
-  });
-  return count === 0 ? true : false
+  }
+
+  countDouble = countLetters.reduce((acc, c) => {
+    if (!acc.includes(c)) {
+      acc.push(c);
+    }
+    return acc;
+  }, []);
+
+  return countLetters.length === countDouble.length;
 };
 
 console.log(isIsogram('isogram')); // true
