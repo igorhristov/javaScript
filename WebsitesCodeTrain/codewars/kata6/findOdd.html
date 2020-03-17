@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>findOdd</title>
+    </head>
+    <body>
+        <h1>findOdd</h1>
+        <code>
+            Given an array, find the integer that appears an odd number of times. <br />
+
+            There will always be only one integer that appears an odd number of times.
+        </code>
+        <script>
+            function findOdd(A) {
+                let arr = A.reduce((acc, c) => {
+                    acc[c] = acc[c] ? acc[c] + 1 : 1;
+                    return acc;
+                }, {});
+                console.log(arr);
+
+                let num;
+                for (let el in arr) {
+                    if (arr[el] % 2 !== 0) {
+                        num = el;
+                    }
+                }
+                return Number(num);
+            }
+            console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5
+            console.log();
+            console.log();
+
+            function findOdd1(arr) {
+                return arr.find((item, index) => arr.filter(el => el == item).length % 2);
+            }
+            console.log(findOdd1([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5
+
+            const findOdd2 = xs => xs.reduce((a, b) => a ^ b);
+            console.log(findOdd2([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5
+        </script>
+    </body>
+</html>
