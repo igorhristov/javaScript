@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STRONGN Strong Number (Special Numbers Series #2)</title>
+  </head>
+  <body>
+    <h1>STRONGN Strong Number (Special Numbers Series #2)</h1>
+    <code>
+      Definition <br />
+      Strong number is the number that the sum of the factorial of its digits is equal to number itself. <br />
+
+      For example: 145, since <br />
+      1! + 4! + 5! = 1 + 24 + 120 = 145 <br />
+      So, 145 is a Strong number.
+    </code>
+    <script>
+      function strong(n) {
+        const factorialNum = [];
+        let temp;
+        const arr = n
+          .toString()
+          .split('')
+          .map((x, ix, arrey) => {
+            if (Number(x) < 2 ) {
+              factorialNum.push(1);
+            } else {
+              temp = 1;
+              for (let i = 1; i <= x; i++) {
+                temp *= i;
+              }
+              factorialNum.push(temp);
+            }
+          });
+          console.log(factorialNum);
+          
+        return factorialNum.reduce((acc, c) => (acc += c)) === n ? 'STRONG!!!!' : 'Not Strong !!';
+      }
+
+      console.log(strong(145)); // "STRONG!!!!"
+      console.log(strong(40585)); // "STRONG!!!!"
+    </script>
+  </body>
+</html>
