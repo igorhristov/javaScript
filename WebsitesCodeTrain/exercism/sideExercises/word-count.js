@@ -13,16 +13,23 @@ free: 1
 */
 
 const countWords = str => {
-  const arr = str.toLowerCase().split(' ');
-  for(let i = 0; i < arr.length; i++) {
-    arr[i] = arr[i].replace(/\W/g, ' ')
-  }
-  console.log(arr);
-  
-  return arr.reduce((acc, elem, i) => {
-    acc[elem] = acc[elem] ? acc[elem] + 1 : 1;
-    return acc;
-  }, {});
+    return str
+        .toLowerCase()
+        .split(' ')
+        .reduce((acc, c) => {
+            let currentWord = c
+                .trim()
+                .replace(/\W+/g, ' ')
+                .trim();
+            if (currentWord !== '') {
+                acc.push(currentWord);
+            }
+            return acc;
+        }, [])
+        .reduce((acc, c) => {
+            acc[c] = acc[c] ? acc[c] + 1 : 1;
+            return acc;
+        }, {});
 };
 
 console.log(countWords('olly olly in come free')); // {olly: 2, in: 1, come: 1, free: 1}
@@ -32,8 +39,8 @@ console.log(countWords('one of each')); // { one: 1, of: 1, each: 1 }
 console.log(countWords('one,two,three')); // {one,two,three: 1}
 console.log(countWords('one,\ntwo,\nthree')); //
 console.log(countWords('go Go GO Stop stop')); //  go: 3, stop: 2
-console.log();
-console.log();
+console.log(countWords(",\n,one,\n ,two \n 'three'"));
+console.log(countWords('one,two,three'));
 console.log();
 console.log();
 
