@@ -11,7 +11,7 @@ come: 1
 free: 1
 
 */
-
+/*
 const countWords = str => {
     return str
         .toLowerCase()
@@ -31,7 +31,34 @@ const countWords = str => {
             return acc;
         }, {});
 };
+*/
+const countWords = str => {
+console.log(str.replace(/\'([a-z0-9]+)\'/g, '$1')); 
+// console.log(str.replace(/\'([a-z0-9]+)\'/g, '$1').split(/[^a-z0-9']/));
+// console.log(str.replace(/\'([a-z0-9]+)\'/g, '$1').split(/[^a-z0-9']/).filter(x=>!!x));
 
+
+  return str.toLowerCase()  // направи ги сите мали букви
+  
+     // отстрани ги зборовите во наводници (can't останува)
+     // "Joe can\'t tell between \'large\' and large." –> "Joe can\'t tell between large and large."
+    .replace(/\'([a-z0-9]+)\'/g, '$1')  // $1 == first match
+    
+    // направи низа од зборови, раздели по се што не е буква, бројка или '
+    .split(/[^a-z0-9']/)
+    
+    // отстрани ги празните стрингови
+    .filter(w => !!w)
+    
+    // направи објект (hash map) за бројот на појавувања на зборот
+    .reduce((acc, word) => {
+      acc[word] = acc[word]
+        ? acc[word] + 1
+        : 1;
+      
+        return acc;
+    }, {});
+}
 console.log(countWords('olly olly in come free')); // {olly: 2, in: 1, come: 1, free: 1}
 console.log(countWords('word')); // {word: 1}
 console.log(countWords('one fish two fish red fish blue fish')); // {one: 1, fish: 4, two: 1, red: 1, blue: 1}
@@ -41,7 +68,7 @@ console.log(countWords('one,\ntwo,\nthree')); //
 console.log(countWords('go Go GO Stop stop')); //  go: 3, stop: 2
 console.log(countWords(",\n,one,\n ,two \n 'three'"));
 console.log(countWords('one,two,three'));
-console.log();
+console.log(countWords("Joe can\'t tell between \'large\' and large."));
 console.log();
 
 /*
