@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Where my anagrams at?</title>
+    </head>
+    <body>
+        <h1>Where my anagrams at?</h1>
+        <code>
+            What is an anagram? Well, two words are anagrams of each other if they both contain the
+            same letters. For example: <br />
+
+            'abba' & 'baab' == true <br />
+            'abba' & 'bbaa' == true <br />
+            'abba' & 'abbba' == false <br />
+            'abba' & 'abca' == false <br />
+
+            Write a function that will find all the anagrams of a word from a list. You will be
+            given two inputs a word and an array with words. You should return an array of all the
+            anagrams or an empty array if there are none. For example: <br />
+
+            anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa'] <br />
+            anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+            <br />
+            anagrams('laser', ['lazing', 'lazy', 'lacer']) => []
+        </code>
+        <script>
+            function anagrams(word, words) {
+                const main = [...word].sort().join('');
+                const equals = [];
+                words.forEach(el => {
+                   const sekoj = [...el].sort().join('')
+                   if(sekoj === main) {
+                       equals.push(el)
+                   }
+                   console.log(sekoj);
+                   
+                });
+                
+                console.log(equals);
+
+                return equals
+            }
+            console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])); // ['aabb', 'bbaa']
+            console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']))
+        </script>
+    </body>
+</html>
