@@ -77,12 +77,7 @@
                 });
             }
             function greetDevelopersMap(list) {
-                return list.map(
-                    x => (
-                        (x.greeting = `Hi ${x.firstName}, what do you like the most about ${x.language}?`),
-                        x
-                    )
-                );
+                return list.map(x => ((x.greeting = `Hi ${x.firstName}, what do you like the most about ${x.language}?`),x));
             }
             console.log(greetDevelopers(list1)); // /*   { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
             //     greeting: 'Hi Sofia, what do you like the most about Java?'
