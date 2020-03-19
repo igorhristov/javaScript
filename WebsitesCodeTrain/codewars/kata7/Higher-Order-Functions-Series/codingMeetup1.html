@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Coding Meetup #1 - Higher-Order Functions Series - Count the number of JavaScript
+            developers coming from Europe
+        </title>
+    </head>
+    <body>
+        <h1>
+            Coding Meetup #1 - Higher-Order Functions Series - Count the number of JavaScript
+            developers coming from Europe
+        </h1>
+        <code>
+            You will be given an array of objects (hashes in ruby) representing data about
+            developers who have signed up to attend the coding meetup that you are organising for
+            the first time. <br />
+
+            Your task is to return the number of JavaScript developers coming from Europe. <br />
+
+            For example, given the following list: <br />
+
+            var list1 = [ { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent:
+            'Europe', age: 19, language: 'JavaScript' }, { firstName: 'Maia', lastName: 'S.',
+            country: 'Tahiti', continent: 'Oceania', age: 28, language: 'JavaScript' }, { firstName:
+            'Shufen', lastName: 'L.', country: 'Taiwan', continent: 'Asia', age: 35, language:
+            'HTML' }, { firstName: 'Sumayah', lastName: 'M.', country: 'Tajikistan', continent:
+            'Asia', age: 30, language: 'CSS' } ]; <br />
+
+            your function should return number 1. <br />
+
+            If, there are no JavaScript developers from Europe then your function should return 0.
+            <br />
+            Notes: <br />
+            The format of the strings will always be Europe and JavaScript. <br />
+            All data will always be valid and uniform as in the example above.
+        </code>
+        <script>
+            var list1 = [
+                {
+                    firstName: 'Noah',
+                    lastName: 'M.',
+                    country: 'Switzerland',
+                    continent: 'Europe',
+                    age: 19,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Maia',
+                    lastName: 'S.',
+                    country: 'Tahiti',
+                    continent: 'Oceania',
+                    age: 28,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Shufen',
+                    lastName: 'L.',
+                    country: 'Taiwan',
+                    continent: 'Asia',
+                    age: 35,
+                    language: 'HTML'
+                },
+                {
+                    firstName: 'Sumayah',
+                    lastName: 'M.',
+                    country: 'Tajikistan',
+                    continent: 'Asia',
+                    age: 30,
+                    language: 'CSS'
+                }
+            ];
+            function countDevelopers(list) {
+                return list.filter(x => x.language === 'JavaScript' && x.continent === 'Europe')
+                    .length;
+            }
+            console.log(countDevelopers(list1)); // 1
+        </script>
+    </body>
+</html>
