@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Coding Meetup #3 - Higher-Order Functions Series - Is Ruby coming?
+        </title>
+    </head>
+    <body>
+        <h1>
+            Coding Meetup #3 - Higher-Order Functions Series - Is Ruby coming?
+        </h1>
+        <code>
+            You will be given an array of objects (associative arrays in PHP) representing data
+            about developers who have signed up to attend the next coding meetup that you are
+            organising. <br />
+
+            Your task is to return: <br />
+
+            true if at least one Ruby developer has signed up; or <br />
+            false if there will be no Ruby developers. <br />
+
+            For example, given the following input array: <br />
+
+            var list1 = [ <br />
+            { firstName: 'Emma', lastName: 'Z.', country: 'Netherlands', continent: 'Europe', age:
+            29, language: 'Ruby' }, <br />
+            { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128,
+            language: 'Javascript' }, <br />
+            { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age:
+            42, language: 'JavaScript' } <br />
+            ]; <br />
+
+            your function should return true. <br />
+            <br />
+            Notes: <br />
+            The input array will always be valid and formatted as in the example above.
+        </code>
+        <script>
+            var list1 = [
+                {
+                    firstName: 'Sofia',
+                    lastName: 'I.',
+                    country: 'Argentina',
+                    continent: 'Americas',
+                    age: 35,
+                    language: 'Java'
+                },
+                {
+                    firstName: 'Lukas',
+                    lastName: 'X.',
+                    country: 'Croatia',
+                    continent: 'Europe',
+                    age: 35,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Madison',
+                    lastName: 'U.',
+                    country: 'United States',
+                    continent: 'Americas',
+                    age: 32,
+                    language: 'Ruby'
+                }
+            ];
+            function isRubyComing(list) {
+                return list.filter(x => x.language === 'Ruby').length > 0 ? true : false;
+            }
+            console.log(isRubyComing(list1)); // true
+
+            function isRubyComing1(list) {
+                return list.some(e => e.language === 'Ruby');
+            }
+
+            function isRubyComing2(list) {
+                return list.find(x => x.language == 'Ruby') != undefined;
+            }
+        </script>
+    </body>
+</html>
