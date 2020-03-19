@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simple Pig Latin</title>
+    </head>
+    <body>
+        <h1>Simple Pig Latin</h1>
+        <code>
+            Move the first letter of each word to the end of it, then add "ay" to the end of the
+            word. Leave punctuation marks untouched. <br />
+            Examples <br />
+
+            pigIt('Pig latin is cool'); // igPay atinlay siay oolcay <br />
+            pigIt('Hello world !'); // elloHay orldway !
+        </code>
+        <script>
+            function pigIt(str) {
+                const arr = str.split(' ');
+                console.log(arr);
+                const newArr = [];
+                if (arr[arr.length - 1].match(/[^a-z]/i)) {
+                    const arrLast = arr.slice(0, -1);
+
+                    arrLast.forEach(el => {
+                        let prvaBukva = el.slice(0, 1);
+                        let zbor = el.slice(1) + prvaBukva + 'ay';
+                        newArr.push(zbor);
+                    });
+                    newArr.push(arr[arr.length - 1]);
+                } else {
+                    arr.forEach(el => {
+                        let prvaBukva = el.slice(0, 1);
+                        let zbor = el.slice(1) + prvaBukva + 'ay';
+                        newArr.push(zbor);
+                    });
+                }
+
+                return newArr.join(' ');
+            }
+            console.log(pigIt('Pig latin is cool')); // igPay atinlay siay oolcay'
+            console.log(pigIt('This is my string')); // pigIt('This is my string')
+            console.log(pigIt('O tempora o mores !')); // 'Oay emporatay oay oresmay !'
+            console.log(pigIt('Quis custodiet ipsos custodes ?')); // 'uisQay ustodietcay psosiay ustodescay ?'
+        </script>
+    </body>
+</html>
