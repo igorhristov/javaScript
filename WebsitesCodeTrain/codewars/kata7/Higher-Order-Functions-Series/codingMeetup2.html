@@ -76,6 +76,14 @@
                     return x;
                 });
             }
+            function greetDevelopersMap(list) {
+                return list.map(
+                    x => (
+                        (x.greeting = `Hi ${x.firstName}, what do you like the most about ${x.language}?`),
+                        x
+                    )
+                );
+            }
             console.log(greetDevelopers(list1)); // /*   { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
             //     greeting: 'Hi Sofia, what do you like the most about Java?'
             //   },
@@ -87,6 +95,20 @@
             //   }
             // ];
             // */
+
+            function greetDevelopers1(list) {
+                list.forEach(function(developer) {
+                    developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`;
+                });
+
+                return list;
+            }
+
+            const greetDevelopers2 = list =>
+                list.map(dev => ({
+                    ...dev,
+                    greeting: `Hi ${dev.firstName}, what do you like the most about ${dev.language}?`
+                }));
         </script>
     </body>
 </html>
