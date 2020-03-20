@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Coding Challenge: The Coupon Code</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Coding Challenge: The Coupon Code</h1>
+            <p>
+                <a
+                    class="d-block my-1"
+                    href="https://www.codewars.com/kata/539de388a540db7fec000642/train/javascript"
+                >
+                    Function - The Coupon Code (codewars)
+                </a>
+
+                <code>
+                    Your online store likes to give out coupons for special occasions. Some
+                    customers try to cheat the system by entering invalid codes or using expired
+                    coupons. <br />
+
+                    Task <br />
+                    Your mission: <br />
+                    Write a function called checkCoupon which verifies that a coupon code is valid
+                    and not expired. <br />
+
+                    A coupon is no more valid on the day AFTER the expiration date. All dates will
+                    be passed as strings in this format: "MONTH DATE, YEAR". Examples: <br />
+
+                    checkCoupon("123", "123", "July 9, 2015", "July 9, 2015") === true <br />
+                    checkCoupon("123", "123", "July 9, 2015", "July 2, 2015") === false
+                </code>
+
+                <a class="d-block my-1" href="https://www.codewars.com/users/igorhristov">
+                    my solutions at codewars
+                </a>
+            </p>
+        </div>
+        <script>
+            function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
+                if (enteredCode !== correctCode) {
+                    return false;
+                }
+                if(enteredCode === correctCode && currentDate === expirationDate) {
+                    return true;
+                }
+                
+                return new Date(currentDate).getTime() - new Date(expirationDate).getTime() < 86400000
+                
+
+            }
+            console.log(checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014')); // true
+            console.log(checkCoupon('123a', '123', 'September 5, 2014', 'October 1, 2014')); // false
+            console.log(checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")); // true
+            console.log(checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")); // false
+            
+        </script>
+    </body>
+</html>
