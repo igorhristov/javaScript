@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Coding Challenge: The Coupon Code</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Coding Challenge: The Coupon Code</h1>
+            <p>
+                <a
+                    class="d-block my-1"
+                    href="https://www.codewars.com/kata/539de388a540db7fec000642/train/javascript"
+                >
+                    Function - The Coupon Code (codewars)
+                </a>
+
+                <code>
+                    Your online store likes to give out coupons for special occasions. Some
+                    customers try to cheat the system by entering invalid codes or using expired
+                    coupons. <br />
+
+                    Task <br />
+                    Your mission: <br />
+                    Write a function called checkCoupon which verifies that a coupon code is valid
+                    and not expired. <br />
+
+                    A coupon is no more valid on the day AFTER the expiration date. All dates will
+                    be passed as strings in this format: "MONTH DATE, YEAR". Examples: <br />
+
+                    checkCoupon("123", "123", "July 9, 2015", "July 9, 2015") === true <br />
+                    checkCoupon("123", "123", "July 9, 2015", "July 2, 2015") === false
+                </code>
+
+                <a class="d-block my-1" href="https://www.codewars.com/users/igorhristov">
+                    my solutions at codewars
+                </a>
+            </p>
+        </div>
+        <script>
+            function isSortedAndHow(array) {
+                const ascending = array.slice().sort((a, b) => a - b);
+                const descending = array.slice().sort((a, b) => b - a);
+
+                console.log(array);
+                console.log(ascending)
+                console.log(descending)
+
+                if (array === ascending) {
+                    return 'yes, ascending';
+                } else if (array === descending) {
+                    return 'yes, descending';
+                } else {
+                    return 'no';
+                }
+            }
+            console.log(isSortedAndHow([15, 7, 3, -8])); // yes, descending
+            console.log(isSortedAndHow([4, 2, 30])); // no
+            
+        </script>
+    </body>
+</html>
