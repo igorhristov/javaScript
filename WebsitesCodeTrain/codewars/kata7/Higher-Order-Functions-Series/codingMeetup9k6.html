@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <title>
+            Coding Meetup #9 - Higher-Order Functions Series - Is the meetup age-diverse?
+        </title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>
+                Coding Meetup #9 - Higher-Order Functions Series - Is the meetup age-diverse?
+            </h1>
+            <p>
+                <a
+                    class="d-block my-1"
+                    href="https://www.codewars.com/kata/coding-meetup-number-9-higher-order-functions-series-is-the-meetup-age-diverse"
+                >
+                    Function - Is the meetup age-diverse? (codewars)
+                </a>
+
+                <code>
+                    You will be given an array of objects (associative arrays in PHP) representing
+                    data about developers who have signed up to attend the next coding meetup that
+                    you are organising. <br />
+
+                    Your task is to return: <br />
+
+                    true if developers from all of the following age groups have signed up: teens,
+                    twenties, thirties, forties, fifties, sixties, seventies, eighties, nineties,
+                    centenarian (at least 100 years young). false otherwise. <br />
+
+                    For example, given the following input array: <br />
+
+                    var list1 <br />
+
+                    your function should return true as there is at least one developer from each
+                    age group. <br />
+
+                    Notes: <br />
+
+                    The input array will always be valid and formatted as in the example above.
+                    <br />
+                    Age is represented by a number which can be any positive integer up to 199.
+                </code>
+
+                <a class="d-block my-1" href="https://www.codewars.com/users/igorhristov">
+                    my solutions at codewars
+                </a>
+            </p>
+        </div>
+        <script>
+            var list1 = [
+                {
+                    firstName: 'Harry',
+                    lastName: 'K.',
+                    country: 'Brazil',
+                    continent: 'Americas',
+                    age: 19,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Kseniya',
+                    lastName: 'T.',
+                    country: 'Belarus',
+                    continent: 'Europe',
+                    age: 29,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Jing',
+                    lastName: 'X.',
+                    country: 'China',
+                    continent: 'Asia',
+                    age: 39,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Noa',
+                    lastName: 'A.',
+                    country: 'Israel',
+                    continent: 'Asia',
+                    age: 40,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Andrei',
+                    lastName: 'E.',
+                    country: 'Romania',
+                    continent: 'Europe',
+                    age: 59,
+                    language: 'C'
+                },
+                {
+                    firstName: 'Maria',
+                    lastName: 'S.',
+                    country: 'Peru',
+                    continent: 'Americas',
+                    age: 60,
+                    language: 'C'
+                },
+                {
+                    firstName: 'Lukas',
+                    lastName: 'X.',
+                    country: 'Croatia',
+                    continent: 'Europe',
+                    age: 75,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Chloe',
+                    lastName: 'K.',
+                    country: 'Guernsey',
+                    continent: 'Europe',
+                    age: 88,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Viktoria',
+                    lastName: 'W.',
+                    country: 'Bulgaria',
+                    continent: 'Europe',
+                    age: 98,
+                    language: 'PHP'
+                },
+                {
+                    firstName: 'Piotr',
+                    lastName: 'B.',
+                    country: 'Poland',
+                    continent: 'Europe',
+                    age: 128,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Harry',
+                    lastName: 'K.',
+                    country: 'Brazil',
+                    continent: 'Americas',
+                    age: 18,
+                    language: 'Python'
+                }
+            ];
+            var list2 = [
+                {
+                    firstName: 'Sofia',
+                    lastName: 'P.',
+                    country: 'Italy',
+                    continent: 'Europe',
+                    age: 41,
+                    language: 'Clojure'
+                },
+                {
+                    firstName: 'Jayden',
+                    lastName: 'P.',
+                    country: 'Jamaica',
+                    continent: 'Americas',
+                    age: 42,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Sou',
+                    lastName: 'B.',
+                    country: 'Japan',
+                    continent: 'Asia',
+                    age: 43,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Rimas',
+                    lastName: 'C.',
+                    country: 'Jordan',
+                    continent: 'Asia',
+                    age: 44,
+                    language: 'Java'
+                }
+            ];
+            let list3 = [
+                {
+                    firstName: 'Manuel',
+                    lastName: 'C.',
+                    country: 'Equatorial Guinea',
+                    continent: 'Africa',
+                    age: 22,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Chloe',
+                    lastName: 'K.',
+                    country: 'Guernsey',
+                    continent: 'Europe',
+                    age: 88,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Nareh',
+                    lastName: 'Q.',
+                    country: 'Armenia',
+                    continent: 'Europe',
+                    age: 80,
+                    language: 'Clojure'
+                },
+                {
+                    firstName: 'Harry',
+                    lastName: 'K.',
+                    country: 'Brazil',
+                    continent: 'Americas',
+                    age: 19,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Emily',
+                    lastName: 'N.',
+                    country: 'Ireland',
+                    continent: 'Europe',
+                    age: 98,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Sofia',
+                    lastName: 'C.',
+                    country: 'Estonia',
+                    continent: 'Europe',
+                    age: 29,
+                    language: 'PHP'
+                },
+                {
+                    firstName: 'Amar',
+                    lastName: 'V.',
+                    country: 'Bosnia and Herzegovina',
+                    continent: 'Europe',
+                    age: 32,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Shufen',
+                    lastName: 'L.',
+                    country: 'Taiwan',
+                    continent: 'Asia',
+                    age: 35,
+                    language: 'PHP'
+                },
+                {
+                    firstName: 'Jing',
+                    lastName: 'X.',
+                    country: 'China',
+                    continent: 'Asia',
+                    age: 39,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Fatima',
+                    lastName: 'K.',
+                    country: 'Saudi Arabia',
+                    continent: 'Asia',
+                    age: 105,
+                    language: 'Clojure'
+                },
+                {
+                    firstName: 'Artem',
+                    lastName: 'O.',
+                    country: 'Ukraine',
+                    continent: 'Europe',
+                    age: 29,
+                    language: 'Java'
+                },
+                {
+                    firstName: 'Sara',
+                    lastName: 'Y.',
+                    country: 'Montenegro',
+                    continent: 'Europe',
+                    age: 39,
+                    language: 'C'
+                },
+                {
+                    firstName: 'Maria',
+                    lastName: 'S.',
+                    country: 'Peru',
+                    continent: 'Americas',
+                    age: 60,
+                    language: 'C'
+                },
+                {
+                    firstName: 'Emma',
+                    lastName: 'B.',
+                    country: 'Norway',
+                    continent: 'Europe',
+                    age: 19,
+                    language: 'Clojure'
+                },
+                {
+                    firstName: 'Victoria',
+                    lastName: 'T.',
+                    country: 'Puerto Rico',
+                    continent: 'Americas',
+                    age: 70,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Sofia',
+                    lastName: 'I.',
+                    country: 'Argentina',
+                    continent: 'Americas',
+                    age: 35,
+                    language: 'Java'
+                },
+                {
+                    firstName: 'Noa',
+                    lastName: 'A.',
+                    country: 'Israel',
+                    continent: 'Asia',
+                    age: 40,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Lukas',
+                    lastName: 'X.',
+                    country: 'Croatia',
+                    continent: 'Europe',
+                    age: 75,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Sofia',
+                    lastName: 'A.',
+                    country: 'Denmark',
+                    continent: 'Europe',
+                    age: 19,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Piotr',
+                    lastName: 'B.',
+                    country: 'Poland',
+                    continent: 'Europe',
+                    age: 128,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Nikau',
+                    lastName: 'R.',
+                    country: 'New Zealand',
+                    continent: 'Oceania',
+                    age: 39,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Marija',
+                    lastName: 'U.',
+                    country: 'Republic of Macedonia',
+                    continent: 'Europe',
+                    age: 42,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Precious',
+                    lastName: 'G.',
+                    country: 'South Africa',
+                    continent: 'Africa',
+                    age: 22,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Sofija',
+                    lastName: 'Q.',
+                    country: 'Latvia',
+                    continent: 'Europe',
+                    age: 29,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Krishna',
+                    lastName: 'G.',
+                    country: 'Nepal',
+                    continent: 'Asia',
+                    age: 112,
+                    language: 'Java'
+                },
+                {
+                    firstName: 'Daniel',
+                    lastName: 'J.',
+                    country: 'Aruba',
+                    continent: 'Americas',
+                    age: 42,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Sofia',
+                    lastName: 'P.',
+                    country: 'Italy',
+                    continent: 'Europe',
+                    age: 71,
+                    language: 'Clojure'
+                },
+                {
+                    firstName: 'Emma',
+                    lastName: 'Z.',
+                    country: 'Netherlands',
+                    continent: 'Europe',
+                    age: 29,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Viktoria',
+                    lastName: 'W.',
+                    country: 'Bulgaria',
+                    continent: 'Europe',
+                    age: 98,
+                    language: 'PHP'
+                },
+                {
+                    firstName: 'Malik',
+                    lastName: 'J.',
+                    country: 'Greenland',
+                    continent: 'Europe',
+                    age: 19,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Zahra',
+                    lastName: 'S.',
+                    country: 'Azerbaijan',
+                    continent: 'Europe',
+                    age: 22,
+                    language: 'Java'
+                },
+                {
+                    firstName: 'William',
+                    lastName: 'L.',
+                    country: 'Sweden',
+                    continent: 'Europe',
+                    age: 32,
+                    language: 'Java'
+                },
+                {
+                    firstName: 'Oliver',
+                    lastName: 'P.',
+                    country: 'Wales',
+                    continent: 'Europe',
+                    age: 69,
+                    language: 'JavaScript'
+                },
+                {
+                    firstName: 'Mamadou',
+                    lastName: 'E.',
+                    country: 'Mali',
+                    continent: 'Africa',
+                    age: 22,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Ellen',
+                    lastName: 'E.',
+                    country: 'Finland',
+                    continent: 'Europe',
+                    age: 55,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Mehdi',
+                    lastName: 'H.',
+                    country: 'Tunisia',
+                    continent: 'Africa',
+                    age: 42,
+                    language: 'Python'
+                },
+                {
+                    firstName: 'Yerasyl',
+                    lastName: 'D.',
+                    country: 'Kazakhstan',
+                    continent: 'Asia',
+                    age: 22,
+                    language: 'Ruby'
+                },
+                {
+                    firstName: 'Agustín',
+                    lastName: 'M.',
+                    country: 'Chile',
+                    continent: 'Americas',
+                    age: 37,
+                    language: 'C'
+                },
+                {
+                    firstName: 'Nor',
+                    lastName: 'E.',
+                    country: 'Malaysia',
+                    continent: 'Asia',
+                    age: 21,
+                    language: 'Clojure'
+                },
+                {
+                    firstName: 'Liam',
+                    lastName: 'D.',
+                    country: 'Faroe Islands',
+                    continent: 'Europe',
+                    age: 28,
+                    language: 'Python'
+                }
+            ];
+            function isAgeDiverse(list) {
+                let count = [];
+                let arr = [];
+                for (let dev of list) {
+                    count.push(dev.age);
+                }
+                count.sort((a, b) => a - b);
+                for (let i = 0; i < count.length; i++) {
+                    if (count[i] > 100 && !arr.some(x => x > 100)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 90 && !arr.some(x => x >= 90)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 80 && !arr.some(x => x >= 80)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 70 && !arr.some(x => x >= 70)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 60 && !arr.some(x => x >= 60)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 50 && !arr.some(x => x >= 50)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 40 && !arr.some(x => x >= 40)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 30 && !arr.some(x => x >= 30)) {
+                        arr.push(count[i]);
+                    } else if (count[i] >= 20 && !arr.some(x => x >= 20)) {
+                        arr.push(count[i]);
+                    } else if (count[i] < 20 && !arr.some(x => x < 20)) {
+                        arr.push(count[i]);
+                    }
+                }
+
+                return arr.length === 10;
+            }
+            console.log(isAgeDiverse(list1)); // true
+            console.log(isAgeDiverse(list2)); // false
+            console.log(isAgeDiverse(list3)); // true
+        </script>
+    </body>
+</html>
