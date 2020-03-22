@@ -101,25 +101,16 @@ const runUsersTemplateMustache = async _ => {
 
         if (e.target.matches('.page-link')) {
             currentPage = e.target.getAttribute('data-page') * 1;
-            ROOT.innerHTML = Mustache.render(TEMPLATE, {
-                users: users.slice(currentPage * itemsPerPage, itemsPerPage * (currentPage + 1)),
-                pages: getPages(currentPage),
-                pagination: disablePreviousNext(currentPage)
-            });
-        }
-
-        let lastCurrentPage = currentPage
-        if (e.target.matches('.prev-next')) {
-            currentPage = lastCurrentPage
-            
             e.target.getAttribute('data-prevNext') === 'prev' ? currentPage-- : currentPage++;
+
             ROOT.innerHTML = Mustache.render(TEMPLATE, {
                 users: users.slice(currentPage * itemsPerPage, itemsPerPage * (currentPage + 1)),
                 pages: getPages(currentPage),
                 pagination: disablePreviousNext(currentPage)
             });
         }
-
+               
     });
+
 };
 runUsersTemplateMustache();
