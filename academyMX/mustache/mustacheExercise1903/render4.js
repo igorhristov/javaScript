@@ -27,23 +27,20 @@ const TEMPLATE = `
         <nav aria-label="Users pagination">
             <ul class="pagination">
 
-               
                 
                 {{#pagination}}
                     <li class="page-item {{ disabledPrev }}">
                         <a class="page-link prev-next" href="#" data-prevNext='prev'>Previous</a>
                     </li>
-                {{/pagination}}
                 
 
-                {{ #pages }}
-                    <li class="page-item {{ activeClass }}">
-                        <a class="page-link" href="#" data-page= {{ dataPage }}>{{ label }}<span class="sr-only">(current)</span></a>
-                    </li>
-                {{ /pages }}
+                    {{ #pages }}
+                        <li class="page-item {{ activeClass }}">
+                            <a class="page-link" href="#" data-page= {{ dataPage }}>{{ label }}<span class="sr-only">(current)</span></a>
+                        </li>
+                    {{ /pages }}
                 
 
-                {{#pagination}}
                     <li class="page-item {{ disabledNext }}">
                         <a class="page-link prev-next" href="#" data-prevNext='next'>Next</a>
                     </li>
@@ -59,7 +56,7 @@ const runUsersTemplateMustache = async _ => {
     const ROOT = document.querySelector('#root');
     const users = await getUsers();
 
-    let currentPage = 5;
+    let currentPage = 0;
     const itemsPerPage = 10;
     const totalPages = Math.ceil(users.length / itemsPerPage);
 
@@ -111,30 +108,18 @@ const runUsersTemplateMustache = async _ => {
             });
         }
 
+        let lastCurrentPage = currentPage
         if (e.target.matches('.prev-next')) {
-            if (e.target.getAttribute('data-prevNext') === 'prev') {
-                currentPage--;
-                ROOT.innerHTML = Mustache.render(TEMPLATE, {
-                    users: users.slice(
-                        currentPage * itemsPerPage,
-                        itemsPerPage * (currentPage + 1)
-                    ),
-                    pages: getPages(currentPage),
-                    pagination: disablePreviousNext(currentPage)
-                });
-            } else {
-                currentPage++;
-                ROOT.innerHTML = Mustache.render(TEMPLATE, {
-                    users: users.slice(
-                        currentPage * itemsPerPage,
-                        itemsPerPage * (currentPage + 1)
-                    ),
-                    pages: getPages(currentPage),
-                    pagination: disablePreviousNext(currentPage)
-                });
-            }
+            currentPage = lastCurrentPage
+            
+            e.target.getAttribute('data-prevNext') === 'prev' ? currentPage-- : currentPage++;
+            ROOT.innerHTML = Mustache.render(TEMPLATE, {
+                users: users.slice(currentPage * itemsPerPage, itemsPerPage * (currentPage + 1)),
+                pages: getPages(currentPage),
+                pagination: disablePreviousNext(currentPage)
+            });
         }
-        
+
     });
 };
 runUsersTemplateMustache();
