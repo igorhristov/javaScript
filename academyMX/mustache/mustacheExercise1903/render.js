@@ -75,6 +75,7 @@ const mustacheTemplate = async () => {
             moreInfoCnt.classList.toggle('d-none');
         }
     });
+    
 };
 
 mustacheTemplate();

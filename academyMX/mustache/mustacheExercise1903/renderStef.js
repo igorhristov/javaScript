@@ -21,6 +21,7 @@ async function usersTemplate() {
             </div>
         </div>
     {{/users}}
+
     <div class="container">
         <nav aria-label="Users pagination">
             <ul class="pagination">
@@ -32,6 +33,7 @@ async function usersTemplate() {
             </ul>
         </nav>
     </div>
+
     <div class="container">
         <nav aria-label="Users pagination">
             <ul class="pagination">
@@ -93,13 +95,16 @@ async function usersTemplate() {
         users: users.slice(currentPage * ITEMS_PER_PAGE, ITEMS_PER_PAGE * (currentPage + 1)),
         pages: getPages(currentPage)
     });
+
     document.getElementById('root').innerHTML = usersMarkup;
     document.getElementById('root')
         .addEventListener('click', (event) => {
             event.preventDefault()
+
             if (event.target.matches("a.card-link")) {
                 let infoBtnId = event.target.getAttribute('data-id')
                 document.getElementById(`more-info-${infoBtnId}`).classList.toggle('d-block');
+                
             } else if (event.target.matches("a.page-link")) {
                 currentPage = event.target.getAttribute('data-page') * 1;
                 document.getElementById('root').innerHTML = Mustache.render(usersTpl, {
