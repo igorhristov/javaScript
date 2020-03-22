@@ -27,17 +27,13 @@ const TEMPLATE = `
         <nav aria-label="Users pagination">
             <ul class="pagination">
 
-                {{ #prevNext }}
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
-                {{ /prevNext }}
+               
                 
-                {{#previousBtn}}
-                <li id="previous" class="page-item {{ disablePrevious }}">
-                    <a class="page-link page-previous-next" href="#" previous-next="previous">Previous</a>
-                </li>
-                {{/previousBtn}}
+                {{#pagination}}
+                    <li class="page-item {{ disabledPrev }}">
+                        <a class="page-link prev-next" href="#" data-prevNext='prev'>Previous</a>
+                    </li>
+                {{/pagination}}
                 
 
                 {{ #pages }}
@@ -47,9 +43,11 @@ const TEMPLATE = `
                 {{ /pages }}
                 
 
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
+                {{#pagination}}
+                    <li class="page-item {{ disabledNext }}">
+                        <a class="page-link prev-next" href="#" data-prevNext='next'>Next</a>
+                    </li>
+                {{/pagination}}
 
 
             </ul>
@@ -61,7 +59,7 @@ const runUsersTemplateMustache = async _ => {
     const ROOT = document.querySelector('#root');
     const users = await getUsers();
 
-    let currentPage = 0;
+    let currentPage = 5;
     const itemsPerPage = 10;
     const totalPages = Math.ceil(users.length / itemsPerPage);
 
@@ -79,9 +77,21 @@ const runUsersTemplateMustache = async _ => {
         return pages;
     };
 
+    const disablePreviousNext = currentPage => {
+        let prevNextBTN = [
+            {
+                disabledPrev: currentPage === 0 ? 'disabled' : '',
+                disabledNext: currentPage === totalPages - 1 ? 'disabled' : ''
+            }
+        ];
+
+        return prevNextBTN;
+    };
+
     ROOT.innerHTML = Mustache.render(TEMPLATE, {
         users: users.slice(currentPage * itemsPerPage, itemsPerPage * (currentPage + 1)),
-        pages: getPages(currentPage)
+        pages: getPages(currentPage),
+        pagination: disablePreviousNext(currentPage)
     });
 
     ROOT.addEventListener('click', async e => {
@@ -96,11 +106,35 @@ const runUsersTemplateMustache = async _ => {
             currentPage = e.target.getAttribute('data-page') * 1;
             ROOT.innerHTML = Mustache.render(TEMPLATE, {
                 users: users.slice(currentPage * itemsPerPage, itemsPerPage * (currentPage + 1)),
-                pages: getPages(currentPage)
+                pages: getPages(currentPage),
+                pagination: disablePreviousNext(currentPage)
             });
         }
 
+        if (e.target.matches('.prev-next')) {
+            if (e.target.getAttribute('data-prevNext') === 'prev') {
+                currentPage--;
+                ROOT.innerHTML = Mustache.render(TEMPLATE, {
+                    users: users.slice(
+                        currentPage * itemsPerPage,
+                        itemsPerPage * (currentPage + 1)
+                    ),
+                    pages: getPages(currentPage),
+                    pagination: disablePreviousNext(currentPage)
+                });
+            } else {
+                currentPage++;
+                ROOT.innerHTML = Mustache.render(TEMPLATE, {
+                    users: users.slice(
+                        currentPage * itemsPerPage,
+                        itemsPerPage * (currentPage + 1)
+                    ),
+                    pages: getPages(currentPage),
+                    pagination: disablePreviousNext(currentPage)
+                });
+            }
+        }
+        
     });
-
 };
 runUsersTemplateMustache();
