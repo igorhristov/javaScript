@@ -36,7 +36,7 @@ const TEMPLATE = `
 
                     {{ #pages }}
                         <li class="page-item {{ activeClass }}">
-                            <a class="page-link" href="#" data-page= {{ dataPage }}>{{ label }}<span class="sr-only">(current)</span></a>
+                            <a class="page-link page-numbers" href="#" data-page= {{ dataPage }}>{{ label }}<span class="sr-only">(current)</span></a>
                         </li>
                     {{ /pages }}
                 
@@ -99,8 +99,16 @@ const runUsersTemplateMustache = async _ => {
             document.querySelector('#more-info-' + ID).classList.toggle('d-none');
         }
 
-        if (e.target.matches('.page-link')) {
+        if (e.target.matches('.page-numbers')) {
             currentPage = e.target.getAttribute('data-page') * 1;
+            ROOT.innerHTML = Mustache.render(TEMPLATE, {
+                users: users.slice(currentPage * itemsPerPage, itemsPerPage * (currentPage + 1)),
+                pages: getPages(currentPage),
+                pagination: disablePreviousNext(currentPage)
+            });
+        }
+
+        if (e.target.matches('.prev-next')) {
             e.target.getAttribute('data-prevNext') === 'prev' ? currentPage-- : currentPage++;
 
             ROOT.innerHTML = Mustache.render(TEMPLATE, {
@@ -109,8 +117,6 @@ const runUsersTemplateMustache = async _ => {
                 pagination: disablePreviousNext(currentPage)
             });
         }
-               
     });
-
 };
 runUsersTemplateMustache();
