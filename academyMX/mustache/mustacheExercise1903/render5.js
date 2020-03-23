@@ -17,21 +17,68 @@ const RUN = async _ => {
                     <a href="#" class="card-link" data-id={{ id }}>More Info</a>
                 </div>
 
-                <div id="more-info-{{id}}" class="message d-none" >
+                <div id="more-info-{{ id }}" class="message d-none" >
                     <p class="card-text">Gender: {{gender}} BirthYear: {{birthYear}} Salary: {{salary}}</p>
                 </div>
 
             </div>
         </div>
     {{/users}}
+    <div class="container">
+        <nav aria-label="Users pagination">
+            <ul class="pagination">
+
+                {{ #pagination }}
+                    <li class="page-item {{ disabledPrev }}">
+                        <a class="page-link prev-next" href="#" tabindex="-1" data-prevNext='prev'>Previous</a>
+                    </li>
+
+                        {{ #pages }}
+                            <li class="page-item {{ activeClass }}">
+                                <a class="page-numbers page-link" href="#" data-page= {{ dataPage }}>{{ label }}</a>
+                            </li>
+                        {{ /pages }}
+
+                    <li class="page-item {{ disabledNext }}">
+                        <a class="page-link prev-next" href="#" data-prevNext='next'>Next</a>
+                    </li>
+                {{ /pagination }}
+
+            </ul>
+        </nav>
+    </div>
     `;
-    const currentPage = 1;
-    const usersPerPage = 2;
-    const maxPages = Math.ceil(users.length / usersPerPage);
-    console.log(maxPages);
+    let currentPage = 0;
+    const usersPerPage = 10;
+    const totalPages = Math.ceil(users.length / usersPerPage);
+    console.log(totalPages);
+
+    const getPages = currentPage => {
+        let pages = [];
+        for (let i = 0; i < totalPages; i++) {
+            pages.push({
+                dataPage: i,
+                label: i + 1,
+                activeClass: currentPage === i ? 'active' : ''
+            });
+        }
+
+        return pages;
+    };
+    const disabledPrevNext = currentPage => {
+        let prevNextBtn = [
+            {
+                disabledPrev: currentPage === 0 ? 'disabled' : '',
+                disabledNext: currentPage === totalPages - 1 ? 'disabled' : ''
+            }
+        ];
+        return prevNextBtn;
+    };
 
     document.querySelector('#root').innerHTML = Mustache.render(tpl, {
-        users: users.slice((currentPage - 1) * usersPerPage, usersPerPage * currentPage)
+        users: users.slice(currentPage * usersPerPage, usersPerPage * (currentPage + 1)),
+        pages: getPages(currentPage),
+        pagination: disabledPrevNext(currentPage)
     });
 
     document.querySelector('#root').addEventListener('click', e => {
@@ -40,6 +87,26 @@ const RUN = async _ => {
         if (e.target.matches('.card-link')) {
             const id = e.target.getAttribute('data-id');
             document.querySelector('#more-info-' + id).classList.toggle('d-none');
+        }
+
+        if (e.target.matches('.page-numbers')) {
+            currentPage = e.target.getAttribute('data-page') * 1;
+            console.log(currentPage);
+            document.querySelector('#root').innerHTML = Mustache.render(tpl, {
+                users: users.slice(currentPage * usersPerPage, usersPerPage * (currentPage + 1)),
+                pages: getPages(currentPage),
+                pagination: disabledPrevNext(currentPage)
+            });
+        }
+
+        if (e.target.matches('.prev-next')) {
+            e.target.getAttribute('data-prevNext') === 'next' ? currentPage++ : currentPage--;
+
+            document.querySelector('#root').innerHTML = Mustache.render(tpl, {
+                users: users.slice(currentPage * usersPerPage, usersPerPage * (currentPage + 1)),
+                pages: getPages(currentPage),
+                pagination: disabledPrevNext(currentPage)
+            });
         }
     });
 };
