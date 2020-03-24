@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <title>
+            Coding Meetup #14 - Higher-Order Functions Series - Order the food
+        </title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>
+                Coding Meetup #14 - Higher-Order Functions Series - Order the food
+            </h1>
+            <p>
+                <a
+                    class="d-block my-1"
+                    href="https://www.codewars.com/kata/coding-meetup-number-14-higher-order-functions-series-order-the-food"
+                >
+                    Function - orderFood (codewars)
+                </a>
+
+                <code>
+                    You will be given an array of objects representing data about developers who
+                    have signed up to attend the next coding meetup that you are organising. <br />
+
+                    Your task is to return an object which includes the count of food options
+                    selected by the developers on the meetup sign-up form.. <br />
+
+                    For example, given the following input array: <br />
+
+                    var list1 = [ { firstName: 'Noah', lastName: 'M.', country: 'Switzerland',
+                    continent: 'Europe', age: 19, language: 'C', meal: 'vegetarian' }, <br />
+                    { firstName: 'Anna', lastName: 'R.', country: 'Liechtenstein', continent:
+                    'Europe', age: 52, language: 'JavaScript', meal: 'standard' }, <br />
+                    { firstName: 'Ramona', lastName: 'R.', country: 'Paraguay', continent:
+                    'Americas', age: 29, language: 'Ruby', meal: 'vegan' }, <br />
+                    { firstName: 'George', lastName: 'B.', country: 'England', continent: 'Europe',
+                    age: 81, language: 'C', meal: 'vegetarian' }, ]; <br />
+
+                    your function should return the following object (the order of properties does
+                    not matter): <br />
+
+                    { vegetarian: 2, standard: 1, vegan: 1 } <br />
+
+                    Notes: <br />
+
+                    The order of the meals count in the object does not matter. <br />
+                    The count value should be a valid number. <br />
+                    The input array will always be valid and formatted as in the example above.
+                    <br />
+                    there are 5 possible meal options and the strings representing the selected meal
+                    option will always be formatted in the same way, as follows: 'standard',
+                    'vegetarian', 'vegan', 'diabetic', 'gluten-intolerant'.
+                </code>
+
+                <a class="d-block my-1" href="https://www.codewars.com/users/igorhristov">
+                    my solutions at codewars
+                </a>
+            </p>
+        </div>
+        <script>
+            var list1 = [
+                {
+                    firstName: 'Noah',
+                    lastName: 'M.',
+                    country: 'Switzerland',
+                    continent: 'Europe',
+                    age: 19,
+                    language: 'C',
+                    meal: 'vegetarian'
+                },
+                {
+                    firstName: 'Anna',
+                    lastName: 'R.',
+                    country: 'Liechtenstein',
+                    continent: 'Europe',
+                    age: 52,
+                    language: 'JavaScript',
+                    meal: 'standard'
+                },
+                {
+                    firstName: 'Ramona',
+                    lastName: 'R.',
+                    country: 'Paraguay',
+                    continent: 'Americas',
+                    age: 29,
+                    language: 'Ruby',
+                    meal: 'vegan'
+                },
+                {
+                    firstName: 'George',
+                    lastName: 'B.',
+                    country: 'England',
+                    continent: 'Europe',
+                    age: 81,
+                    language: 'C',
+                    meal: 'vegetarian'
+                }
+            ];
+
+            var answer = { vegetarian: 2, standard: 1, vegan: 1 };
+            function orderFood(list) {
+                return list.reduce((acc, c) => {
+                    acc[c.meal] = (acc[c.meal] || 0) + 1;
+                    return acc;
+                }, {});
+            }
+            console.log(orderFood(list1));
+            const orderFoodReduce1 = l =>
+                l.reduce((a, b) => {
+                    a[b.meal] ? a[b.meal]++ : (a[b.meal] = 1);
+                    return a;
+                }, {});
+
+            function orderFood1(list) {
+                var orders = {};
+                list.forEach(d => {
+                    if (orders[d.meal]) orders[d.meal]++;
+                    else orders[d.meal] = 1;
+                });
+                return orders;
+            }
+
+            function orderFood2(list) {
+                var res = {};
+                list.forEach(function(item) {
+                    res[item.meal] = res.hasOwnProperty(item.meal) ? res[item.meal] + 1 : 1;
+                });
+                return res;
+            }
+
+            function orderFood3(list) {
+                let foodOrder = {};
+
+                for (let i = 0; i < list.length; i++) {
+                    if (foodOrder[list[i].meal]) {
+                        foodOrder[list[i].meal]++;
+                    } else {
+                        foodOrder[list[i].meal] = 1;
+                    }
+                }
+                return foodOrder;
+            }
+        </script>
+    </body>
+</html>
