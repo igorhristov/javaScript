@@ -412,15 +412,30 @@
                     acc[c.language] = (acc[c.language] || 0) + 1;
                     return acc;
                 }, {});
-                
+
                 let sortedLangVal = Object.values(lang).sort((a, b) => a - b);
-                return sortedLangVal[0] * 2  >= sortedLangVal[sortedLangVal.length - 1]
+                return sortedLangVal[0] * 2 >= sortedLangVal[sortedLangVal.length - 1];
             }
+
             console.log(isLanguageDiverse(list1)); // false
             console.log(isLanguageDiverse(list2)); // true
             console.log(isLanguageDiverse(list3)); // true
             console.log(isLanguageDiverse(list4)); // true
             console.log(isLanguageDiverse(list5)); // false
+
+            function isLanguageDiverse1(list) {
+                const langs = list.reduce(
+                    (acc, el) => (
+                        !isNaN(acc[el.language]) ? (acc[el.language] += 1) : (acc[el.language] = 1),
+                        acc
+                    ),
+                    {}
+                );
+                const values = Object.values(langs);
+                const min = Math.min(...values) || 1;
+                const max = Math.max(...values) || 1;
+                return max / min <= 2;
+            }
         </script>
     </body>
 </html>
