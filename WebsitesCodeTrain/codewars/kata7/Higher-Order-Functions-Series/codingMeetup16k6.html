@@ -140,6 +140,16 @@
             }
             console.log(askForMissingDetails(list1));
             console.log(askForMissingDetails(list2));
+
+            const askForMissingDetails1 = list =>
+                list.reduce((p, c) => {
+                    for (var key in c)
+                        if (c[key] == null) {
+                            c.question = `Hi, could you please provide your ${key}.`;
+                            p.push(c);
+                        }
+                    return p;
+                }, []);
         </script>
     </body>
 </html>
