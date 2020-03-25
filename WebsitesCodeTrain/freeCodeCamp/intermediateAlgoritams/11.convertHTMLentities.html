@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Convert HTML Entities</title>
+    </head>
+    <body>
+        <h1>free Code Camp</h1>
+        <h2>Intermediate Algorithm Scripting: Convert HTML Entities</h2>
+        <h3>Convert HTML Entities</h3>
+        <p>
+            Convert the characters &, '<', >, " (double quote), and ' (apostrophe), in a string to
+            their corresponding HTML entities.
+        </p>
+        <script>
+            function convertHTML([...str]) {
+                const chars = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&apos;',
+                    '"': '&quot;'
+                };
+
+                let newStr = '';
+                for (let i = 0; i < str.length; i++) {
+                    if (chars[str[i]]) {
+                        newStr += chars[str[i]];
+                    } else {
+                        newStr += str[i];
+                    }
+                }
+
+                return newStr;
+            }
+
+            console.log('========== Convert HTML Entities: =============');
+            console.log(convertHTML('Dolce & Gabbana')); // Dolce &amp; Gabbana.
+            console.log(convertHTML('Hamburgers < Pizza < Tacos')); // Hamburgers &lt; Pizza &lt; Tacos.
+            console.log(convertHTML('Sixty > twelve')); // Sixty &gt; twelve.
+            console.log(convertHTML('Stuff in "quotation marks"')); // Stuff in &quot;quotation marks&quot;.
+            console.log(convertHTML("Schindler's List")); // Schindler&apos;s List.
+            console.log(convertHTML('<>')); // &lt;&gt;.
+            console.log(convertHTML('abc')); // abc
+        </script>
+    </body>
+</html>
