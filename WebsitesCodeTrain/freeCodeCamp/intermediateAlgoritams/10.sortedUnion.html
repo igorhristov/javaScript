@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sorted Union</title>
+    </head>
+    <body>
+        <h1>free Code Camp</h1>
+        <h2>Intermediate Algorithm Scripting: Sorted Union</h2>
+        <h3>Sorted Union</h3>
+        <p>
+            Write a function that takes two or more arrays and returns a new array of unique values
+            in the order of the original provided arrays. <br />
+
+            In other words, all values present from all arrays should be included in their original
+            order, but with no duplicates in the final array. <br />
+
+            The unique numbers should be sorted by their original order, but the final array should
+            not be sorted in numerical order. <br />
+
+            Check the assertion tests for examples. <br />
+        </p>
+        <script>
+            function uniteUnique(...arr) {
+                const uniqueArr = [];
+
+                arr.forEach(arrey => {
+
+                    arrey.forEach(item => {
+                        if (!uniqueArr.includes(item)) {
+                            uniqueArr.push(item);
+                        }
+                    });
+
+                });
+
+                return uniqueArr;
+            }
+            console.log('========== Sorted Union: =============');
+            console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])); //[1, 3, 2, 5, 4]
+            console.log(uniteUnique([1, 2, 3], [5, 2, 1])); // [1, 2, 3, 5]
+            console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])); //[1, 2, 3, 5, 4, 6, 7, 8]
+        </script>
+    </body>
+</html>
