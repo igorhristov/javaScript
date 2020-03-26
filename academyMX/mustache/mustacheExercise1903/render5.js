@@ -1,46 +1,64 @@
 const RUN = async _ => {
     const users = await getUsers();
     const tpl = `
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
-    <a class="navbar-brand" href="#">Team B</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+
+    <nav class="navbar navbar-dark bg-dark justify-content-between flex-nowrap flex-row">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand float-left font-weight-bold text-warning"> TEAM-B</a>
+
+            <ul class="nav navbar-nav flex-row float-right">
+
+                <li class="nav-item m-1">
+                    <a class="nav-link btn btn-lg btn-outline-primary p-4" href="#">Articles</a>
+                </li>
+
+               
+                <li class="nav-item m-1">
+                    <a class="nav-link btn btn-lg btn-outline-danger p-4" href="#">Autors</a>
+                </li>
+
+            </ul>
+
+            <form class="form-inline float-right">
+                <input class="form-control mr-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+            <div class="container mt-5 bg-dark text-light">
+                <h1 class="display-4 font-weight-bold">Articles</h1>
+
+                <p class="lead my-3">tuka treba nekoj naslov za artiklite da stavime za da rabote ka so treba  :D i ne mi rabote hrto ako ne e celosen text ajdee. ccc</p>
+                
+                <div class="container mt-5">
+
+                    <select class="btn btn-secondary float-left px-5">
+                        <option selected disabled>Tags...</option>
+                        <option value="tag1"><a href="#">tagOne</a></option>
+                        <option value="tag2">Two</option>
+                        <option value="tag3">Three</option>
+                    </select>
 
 
+                    <ul class="nav navbar-nav flex-row float-right">
 
+                        <li class="nav-item ">
+                            <span class="nav-link bg-outline-secondary px-4" >4565 articles</span>
+                        </li>     
+                       
+                        <li class="nav-item ">
+                            <a class="nav-link btn btn-outline-secondary px-4" href="#">sorting</a>
+                        </li>
 
-<div class="container w-60">
+                    </ul>
+                </div> 
+                    
+            </div>
+                    
+            <hr class="w-100 mb-1 p-1 rounded-pill bg-warning">
+        </div>
+    </nav>
+
+<div class="container w-40">
 <div class="row">
     {{#users}}
 
