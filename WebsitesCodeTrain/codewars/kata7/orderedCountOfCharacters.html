@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Coding Challenge: Ordered Count of Characters</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Coding Challenge: Ordered Count of Characters</h1>
+            <p>
+                <a
+                    class="d-block my-1"
+                    href="https://www.codewars.com/kata/57a6633153ba33189e000074"
+                >
+                    Function - Ordered Count of Characters (codewars)
+                </a>
+
+                <code>
+                    Count the number of occurrences of each character and return it as a list of
+                    tuples in order of appearance. <br />
+                    Example: <br />
+
+                    orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d',
+                    1]]
+                </code>
+
+                <a class="d-block my-1" href="https://www.codewars.com/users/igorhristov">
+                    my solutions at codewars
+                </a>
+            </p>
+        </div>
+        <script>
+            const orderedCount = text => {
+                
+                const countTheCaracters = [...text].reduce((acc, c) => {
+                    acc[c] ? acc[c]++ : (acc[c] = 1);
+                    return acc;
+                }, {});
+
+                const makeUniqueArr = [...new Set([...text])];
+
+                return makeUniqueArr.map(x => [x, countTheCaracters[x]]);
+            };
+            console.log(orderedCount('abracadabra')); // [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]]
+            console.log(orderedCount('212')); //  [['2', 2], ['1', 1 ]
+            console.log(orderedCount('343204297719355530127147894529116292514994824'));
+        </script>
+    </body>
+</html>
