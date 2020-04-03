@@ -34,23 +34,17 @@ A final note about scoring, Scrabble is played around the world in a variety of 
 */
 
 const transform = obj => {
-  
     let newObj = {};
 
     for (let ix in obj) {
-
-      obj[ix].map(x => {
-        
-        newObj[x.toLowerCase()] = ix * 1;
-        
-      });
-
+        obj[ix].map(x => {
+            newObj[x.toLowerCase()] = ix * 1;
+        });
     }
-
 
     return newObj;
 };
-// const old = { 1: ['A', 'E', 'I', 'O', 'U'] };
+const old = { 1: ['A', 'E', 'I', 'O', 'U'] };
 const expected = {
     a: 1,
     e: 1,
@@ -58,73 +52,58 @@ const expected = {
     o: 1,
     u: 1
 };
-// console.log(transform(old)); // expected
+console.log(transform(old)); // expected
+console.log(expected);
 
-// const old1 = { 1: ['A'] };
-// console.log(transform(old1)); // { a: 1 }
+const old1 = { 1: ['A'] };
+console.log(transform(old1)); // { a: 1 }
 
 const old2 = { 1: ['A', 'E'], 2: ['D', 'G'] };
-console.log(transform(old2)); //expected2
-
 const expected2 = {
     a: 1,
     e: 1,
     d: 2,
     g: 2
 };
-/*
+console.log(transform(old2)); //expected2
+console.log(expected2);
 
-  xtest('transforms more keys', () => {
-    const old = { 1: ['A', 'E'], 2: ['D', 'G'] };
-    const expected = {
-      a: 1, e: 1, d: 2, g: 2,
-    };
-
-    expect(transform(old)).toEqual(expected);
-  });
-
-  xtest('transforms a full dataset', () => {
-    const old = {
-      1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
-      2: ['D', 'G'],
-      3: ['B', 'C', 'M', 'P'],
-      4: ['F', 'H', 'V', 'W', 'Y'],
-      5: ['K'],
-      8: ['J', 'X'],
-      10: ['Q', 'Z'],
-    };
-    const expected = {
-      a: 1,
-      b: 3,
-      c: 3,
-      d: 2,
-      e: 1,
-      f: 4,
-      g: 2,
-      h: 4,
-      i: 1,
-      j: 8,
-      k: 5,
-      l: 1,
-      m: 3,
-      n: 1,
-      o: 1,
-      p: 3,
-      q: 10,
-      r: 1,
-      s: 1,
-      t: 1,
-      u: 1,
-      v: 4,
-      w: 4,
-      x: 8,
-      y: 4,
-      z: 10,
-    };
-
-    expect(transform(old)).toEqual(expected);
-  });
-});
-
-
-*/
+const old3 = {
+    1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
+    2: ['D', 'G'],
+    3: ['B', 'C', 'M', 'P'],
+    4: ['F', 'H', 'V', 'W', 'Y'],
+    5: ['K'],
+    8: ['J', 'X'],
+    10: ['Q', 'Z']
+};
+const expected3 = {
+    a: 1,
+    b: 3,
+    c: 3,
+    d: 2,
+    e: 1,
+    f: 4,
+    g: 2,
+    h: 4,
+    i: 1,
+    j: 8,
+    k: 5,
+    l: 1,
+    m: 3,
+    n: 1,
+    o: 1,
+    p: 3,
+    q: 10,
+    r: 1,
+    s: 1,
+    t: 1,
+    u: 1,
+    v: 4,
+    w: 4,
+    x: 8,
+    y: 4,
+    z: 10
+};
+console.log(transform(old3)); //expected3
+console.log(expected3);
