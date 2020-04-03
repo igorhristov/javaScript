@@ -1,84 +1,72 @@
-const isPaired = () => {};
+const isPaired = (str) => {
+    const arr = str.split('');
+    
+    let b = 0;
+    let b1 = 0;
+    let s = 0;
+    let s1 = 0;
+    let m = 0;
+    let m1 = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === '(') {
+            b++;
+        } else if(arr[i] === ')') {
+            b1++
+        }
+        if (arr[i] === '[') {
+            s++;
+        } else if(arr[i] === ']') {
+            s1++
+        }
 
-/**
- * 
- * import { isPaired } from './matching-brackets';
+        if (arr[i] === '{') {
+            m++;
+        } else if(arr[i] === '}') {
+            m1++
+        }
+       
+    }
 
-describe('Matching Brackets', () => {
-  test('paired square brackets', () => {
-    expect(isPaired('[]')).toEqual(true);
-  });
-
-  test('empty string', () => {
-    expect(isPaired('')).toEqual(true);
-  });
-
-  test('unpaired brackets', () => {
-    expect(isPaired('[[')).toEqual(false);
-  });
-
-  test('wrong ordered brackets', () => {
-    expect(isPaired('}{')).toEqual(false);
-  });
-
-  test('wrong closing bracket', () => {
-    expect(isPaired('{]')).toEqual(false);
-  });
-
-  test('paired with whitespace', () => {
-    expect(isPaired('{ }')).toEqual(true);
-  });
-
-  test('partially paired brackets', () => {
-    expect(isPaired('{[])')).toEqual(false);
-  });
-
-  test('simple nested brackets', () => {
-    expect(isPaired('{[]}')).toEqual(true);
-  });
-
-  test('several paired brackets', () => {
-    expect(isPaired('{}[]')).toEqual(true);
-  });
-
-  test('paired and nested brackets', () => {
-    expect(isPaired('([{}({}[])])')).toEqual(true);
-  });
-
-  test('unopened closing brackets', () => {
-    expect(isPaired('{[)][]}')).toEqual(false);
-  });
-
-  test('unpaired and nested brackets', () => {
-    expect(isPaired('([{])')).toEqual(false);
-  });
-
-  test('paired and wrong nested brackets', () => {
-    expect(isPaired('[({]})')).toEqual(false);
-  });
-
-  test('paired and incomplete brackets', () => {
-    expect(isPaired('{}[')).toEqual(false);
-  });
-
-  test('too many closing brackets', () => {
-    expect(isPaired('[]]')).toEqual(false);
-  });
-
-  test('math expression', () => {
-    expect(isPaired('(((185 + 223.85) * 15) - 543)/2')).toEqual(true);
-  });
-
-  test('complex latex expression', () => {
-    expect(
-      isPaired(
-        '\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)'
-      )
-    ).toEqual(true);
-  });
-});
-export const matchingBrackets = string => {
-  while (string.match(/{}|\[]|\(\)/)) string = string.replace(/{}|\[]|\(\)/, '');
-  return string === '';
+   return b === b1 && s === s1 && m === m1 ? true : false
 };
- */
+console.log(isPaired('[]')); // true
+console.log(isPaired('')); // true
+console.log(isPaired('[[')); // false
+console.log(isPaired('}{')); // false
+console.log(isPaired('{]')); // false
+console.log(isPaired('{ }')); // true
+console.log(isPaired('{[])')); // false
+console.log(isPaired('[]]')); // false
+console.log(isPaired('{[]}')); // true
+console.log(isPaired('{}[]')); // true
+console.log(isPaired('([{}({}[])])')); // true
+console.log(isPaired('{[)][]}')); // false
+console.log(isPaired('([{])')); // false
+console.log(isPaired('[({]})')); // false
+console.log(isPaired('{}[')); // false
+console.log(isPaired('(((185 + 223.85) * 15) - 543)/2')); // true
+console.log(isPaired('\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)')); // true
+
+/*
+"use strict";
+
+const PAIRS = {"{":"}", "[":"]", "(":")"};
+export const isPaired = (str) => {
+
+  let stack = [];
+
+  for (let element of str) {
+    if ('[{('.includes(element)) {
+      stack.push(element);
+    }
+    else if (']})'.includes(element)) 
+      if (element != PAIRS[stack.pop()]) {
+        return false;
+      }
+    }
+
+  return stack.length == 0;
+
+}
+
+*/ */
