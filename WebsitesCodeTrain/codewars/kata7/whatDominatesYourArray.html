@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>What dominates your array?</title>
+    </head>
+    <body>
+        <h1>What dominates your array?</h1>
+        <code>
+            A zero-indexed array arr consisting of n integers is given. <br />
+            The dominator of array arr is the value that occurs in more than half of the elements of
+            arr. <br />
+            For example, consider array arr such that arr = [3,4,3,2,3,1,3,3] <br />
+            The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more
+            than a half of 8. <br />
+            Write a function dominator(arr) that, given a zero-indexed array arr consisting of n
+            integers, returns the dominator of arr. The function should return −1 if array does not
+            have a dominator. All values in arr will be >=0.
+        </code>
+        <script>
+            function dominator(arr) {
+                const arrObj = arr.reduce((acc, c) => {
+                    acc[c] ? acc[c]++ : (acc[c] = 1);
+                    return acc;
+                }, {});
+
+                console.log(arrObj);
+                if (new Set(Object.values(arrObj)).size === 1) {
+                  return - 1
+                }
+                
+
+                return Object.keys(arrObj).reduce((a, b) => {
+                    if (arrObj[a] > arrObj[b]) {
+                        return a;
+                    } else {
+                        return b;
+                    }
+                });
+            }
+            // console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3])); // 3
+            console.log(dominator([1, 2, 3, 4, 5])); // -1
+            // console.log(dominator([1, 1, 1, 2, 2, 2, 2])); // 2
+            console.log(dominator([1,1,1,2,2,2])); // -1
+            console.log();
+        </script>
+    </body>
+</html>
