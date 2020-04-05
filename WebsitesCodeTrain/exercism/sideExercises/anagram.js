@@ -6,94 +6,27 @@ Given a word and a list of possible anagrams, select the correct sublist.
 
 Given "listen" and a list of candidates like "enlists" "google" "inlets" "banana" the program should return a list containing "inlets".
 */
-export const findAnagrams = () => {
-  
-  throw new Error("Remove this statement and implement this function");
-  
-}
-/*
-import { findAnagrams } from './anagram';
-
-describe('Anagram', () => {
-  test('no matches', () => {
-    expect(
-      findAnagrams('diaper', ['hello', 'world', 'zombies', 'pants'])
-    ).toEqual([]);
-  });
-
-  test('detects two anagrams', () => {
-    expect(findAnagrams('master', ['stream', 'pigeon', 'maters'])).toEqual([
-      'stream',
-      'maters'
-    ]);
-  });
-
-  test('does not detect anagram subsets', () => {
-    expect(findAnagrams('good', ['dog', 'goody'])).toEqual([]);
-  });
-
-  test('detects anagram', () => {
-    expect(
-      findAnagrams('listen', ['enlists', 'google', 'inlets', 'banana'])
-    ).toEqual(['inlets']);
-  });
-
-  test('detects three anagrams', () => {
-    expect(
-      findAnagrams('allergy', [
-        'gallery',
-        'ballerina',
-        'regally',
-        'clergy',
-        'largely',
-        'leading'
-      ])
-    ).toEqual(['gallery', 'regally', 'largely']);
-  });
-
-  test('detects multiple anagrams with different case', () => {
-    expect(findAnagrams('nose', ['Eons', 'ONES'])).toEqual(['Eons', 'ONES']);
-  });
-
-  test('does not detect non-anagrams with identical checksum', () => {
-    expect(findAnagrams('mass', ['last'])).toEqual([]);
-  });
-
-  test('detects anagrams case-insensitively', () => {
-    expect(
-      findAnagrams('Orchestra', ['cashregister', 'Carthorse', 'radishes'])
-    ).toEqual(['Carthorse']);
-  });
-
-  test('detects anagrams using case-insensitive subject', () => {
-    expect(
-      findAnagrams('Orchestra', ['cashregister', 'carthorse', 'radishes'])
-    ).toEqual(['carthorse']);
-  });
-
-  test('detects anagrams using case-insensitive possible matches', () => {
-    expect(
-      findAnagrams('orchestra', ['cashregister', 'Carthorse', 'radishes'])
-    ).toEqual(['Carthorse']);
-  });
-
-  test('does not detect an anagram if the original word is repeated', () => {
-    expect(findAnagrams('go', ['go Go GO'])).toEqual([]);
-  });
-
-  test('anagrams must use all letters exactly once', () => {
-    expect(findAnagrams('tapper', ['patter'])).toEqual([]);
-  });
-
-  test('words are not anagrams of themselves (case-insensitive)', () => {
-    expect(findAnagrams('BANANA', ['BANANA', 'Banana', 'banana'])).toEqual([]);
-  });
-
-  test('words other than themselves can be anagrams', () => {
-    expect(findAnagrams('LISTEN', ['Listen', 'Silent', 'LISTEN'])).toEqual([
-      'Silent'
-    ]);
-  });
-});
-
-*/
+const findAnagrams = (str, arr) => {
+    const arrStr = [...str.toLowerCase()].sort().join();
+    const anagram = [];
+    arr.forEach((el) => {
+        if(el.toLowerCase() !== str.toLowerCase()) {
+          arrStr === [...el.toLowerCase()].sort().join() ? anagram.push(el) : 1;
+        } 
+    });
+    return anagram;
+};
+console.log(findAnagrams('master', ['stream', 'pigeon', 'maters'])); // ['stream', 'maters']
+console.log(findAnagrams('listen', ['enlists', 'google', 'inlets', 'banana'])); //['inlets']
+console.log(findAnagrams('diaper', ['hello', 'world', 'zombies', 'pants'])); // []
+console.log(findAnagrams('good', ['dog', 'goody'])); // []
+console.log(findAnagrams('allergy', ['gallery', 'ballerina', 'regally', 'clergy', 'largely', 'leading'])); // ['gallery', 'regally', 'largely']
+console.log(findAnagrams('nose', ['Eons', 'ONES'])); // ['Eons', 'ONES']
+console.log(findAnagrams('mass', ['last'])); // []
+console.log(findAnagrams('Orchestra', ['cashregister', 'Carthorse', 'radishes'])); // ['Carthorse']
+console.log(findAnagrams('Orchestra', ['cashregister', 'carthorse', 'radishes'])); // ['carthorse']
+console.log(findAnagrams('orchestra', ['cashregister', 'Carthorse', 'radishes'])); // ['Carthorse']
+console.log(findAnagrams('go', ['go Go GO'])); // []
+console.log(findAnagrams('tapper', ['patter'])); []
+console.log(findAnagrams('BANANA', ['BANANA', 'Banana', 'banana'])); []
+console.log(findAnagrams('LISTEN', ['Listen', 'Silent', 'LISTEN'])); // ['Silent']
