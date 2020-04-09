@@ -29,17 +29,20 @@ See also: http://www.novaroma.org/via_romana/numbers.html
 
 */
 
+const romanNumerals = [
+	['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
+	['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'],
+	['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'],
+	['', 'M', 'MM', 'MMM']
+];
 
-const toRoman = (num) => {
-  let dec = (d) {
-    if(d >= 5) {
-      d = 'V'
-    }
-  }
-  // 93 = 90 + 3 XC + III
+ const toRoman = (decimal) =>
+	String(decimal).split('')
+		.reverse()
+		.map((x, ix) => romanNumerals[ix][Number(x)])
+		.reverse()
+		.join('');
   
-  // 141 = 100 + 40 + 1
-};
 console.log(toRoman(1)); // 'I'
 console.log(toRoman(3)); // III
 console.log(toRoman(4)); // IV
