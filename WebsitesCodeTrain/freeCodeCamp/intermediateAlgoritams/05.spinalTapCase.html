@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Spinal Tap Case</title>
+    </head>
+    <body>
+        <h1>free Code Camp</h1>
+        <h2>Intermediate Algorithm Scripting: Spinal Tap Case</h2>
+        <h3>DNA Pairing</h3>
+        <p>
+            Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+        </p>
+        <script>
+            function spinalCase(str) {
+                const removeNonAbc = str.replace(/[^a-z]/gi, ' ');
+                const splitCamelCase = removeNonAbc.replace(/([a-z](?=[A-Z]))/g, '$1 ');
+                return splitCamelCase.split(' ').join('-').toLowerCase();
+            }
+            console.log(spinalCase('This Is Spinal Tap')); // "this-is-spinal-tap"
+            console.log(spinalCase('thisIsSpinalTap')); // "this-is-spinal-tap".
+            console.log(spinalCase('The_Andy_Griffith_Show')); // "the-andy-griffith-show".
+            console.log(spinalCase('Teletubbies say Eh-oh')); // "teletubbies-say-eh-oh"
+            console.log(spinalCase('AllThe-small Things')); // "all-the-small-things"
+        </script>
+    </body>
+</html>
