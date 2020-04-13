@@ -42,20 +42,25 @@
                 var arr = [];
 
                 const sourceKeysArr = Object.keys(source);
-                for(let obj of collection) {
+                for (let obj of collection) {
+                    const objHasAllProperties = sourceKeysArr.every((key) =>
+                        obj.hasOwnProperty(key)
+                    );
 
-                  const objHasAllProperties = sourceKeysArr.every(key => obj.hasOwnProperty(key));
+                    const objHasAllValues = sourceKeysArr.every((key) => source[key] === obj[key]);
 
-                  const objHasAllValues = sourceKeysArr.every(key => source[key]=== obj[key])
-
-                  if(objHasAllProperties === true && objHasAllValues === true) {
-                    arr.push(obj)
-                  }
-                  
+                    if (objHasAllProperties === true && objHasAllValues === true) {
+                        arr.push(obj);
+                    }
                 }
-             
 
                 return arr;
+            }
+            function whatIsInAName2(collection, source) {
+                const keys = Object.keys(source);
+                return collection.filter((it) =>
+                    keys.every((key) => it[key] && it[key] === source[key])
+                );
             }
 
             console.log(
@@ -65,7 +70,6 @@
                 )
             ); //  should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
 
-            /*
             console.log(
                 whatIsInAName(
                     [
@@ -82,20 +86,18 @@
                     apple: 1,
                     bat: 2,
                 })
-            ); // should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }].
-            /*
+            ); // should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }]
+
             console.log(
                 whatIsInAName([{ apple: 1 }, { apple: 1 }, { apple: 1, bat: 2 }], { apple: 1 })
             ); //  should return [{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
-
-
 
             console.log(
                 whatIsInAName(
                     [{ apple: 1, bat: 2 }, { apple: 1 }, { apple: 1, bat: 2, cookie: 2 }],
                     { apple: 1, cookie: 2 }
                 )
-            ); // should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
+            ); // should return [{ "apple": 1, "bat": 2, "cookie": 2 }]
 
             console.log(
                 whatIsInAName(
@@ -110,7 +112,6 @@
             ); // should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }].
 
             console.log(whatIsInAName([{ a: 1, b: 2, c: 3 }], { a: 1, b: 9999, c: 3 })); // []
-            */
         </script>
     </body>
 </html>

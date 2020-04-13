@@ -22,42 +22,52 @@
             function dropElements(arr, func) {
                 const newArr = [...arr];
 
-                for (let i = 0; i < newArr.length; i++) {
-                    if (func(newArr[0])) {
-                        break;
-                    } else {
+                for (let i = 0; i < arr.length; i++) {
+                    if (!func(newArr[0])) {
                         newArr.shift();
+                    } else {
+                        break;
                     }
                 }
-                
+
                 return newArr;
+            }
+            
+            function dropElements1(arr, func) {
+                const ix = arr.findIndex(func);
+                return arr.slice(ix > -1 ? arr.length : ix);
             }
 
             console.log(
                 dropElements([1, 2, 3, 4], function (n) {
                     return n >= 3;
                 })
-            ); // [3, 4].
+            ); // [3, 4]
+
             console.log(
                 dropElements([0, 1, 0, 1], function (n) {
                     return n === 1;
                 })
-            ); // [1, 0, 1].
+            ); // [1, 0, 1]
+
             console.log(
                 dropElements([1, 2, 3], function (n) {
                     return n > 0;
                 })
-            ); // [1, 2, 3].
+            ); // [1, 2, 3]
+
             console.log(
                 dropElements([1, 2, 3, 4], function (n) {
                     return n > 5;
                 })
             ); // []
+
             console.log(
                 dropElements([1, 2, 3, 7, 4], function (n) {
                     return n > 3;
                 })
             ); // [7, 4]
+
             console.log(
                 dropElements([1, 2, 3, 9, 2], function (n) {
                     return n > 2;
