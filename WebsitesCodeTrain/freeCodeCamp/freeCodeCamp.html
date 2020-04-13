@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      var contacts = [
-        {
-          firstName: 'Akira',
-          lastName: 'Laine',
-          number: '0543236543',
-          likes: ['Pizza', 'Coding', 'Brownie Points']
-        },
-        {
-          firstName: 'Harry',
-          lastName: 'Potter',
-          number: '0994372684',
-          likes: ['Hogwarts', 'Magic', 'Hagrid']
-        },
-        {
-          firstName: 'Sherlock',
-          lastName: 'Holmes',
-          number: '0487345643',
-          likes: ['Intriguing Cases', 'Violin']
-        },
-        {
-          firstName: 'Kristian',
-          lastName: 'Vos',
-          number: 'unknown',
-          likes: ['JavaScript', 'Gaming', 'Foxes']
-        }
-      ];
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var contacts = [
+                {
+                    firstName: 'Akira',
+                    lastName: 'Laine',
+                    number: '0543236543',
+                    likes: ['Pizza', 'Coding', 'Brownie Points'],
+                },
+                {
+                    firstName: 'Harry',
+                    lastName: 'Potter',
+                    number: '0994372684',
+                    likes: ['Hogwarts', 'Magic', 'Hagrid'],
+                },
+                {
+                    firstName: 'Sherlock',
+                    lastName: 'Holmes',
+                    number: '0487345643',
+                    likes: ['Intriguing Cases', 'Violin'],
+                },
+                {
+                    firstName: 'Kristian',
+                    lastName: 'Vos',
+                    number: 'unknown',
+                    likes: ['JavaScript', 'Gaming', 'Foxes'],
+                },
+            ];
 
-      function lookUpProfile(name, prop) {
-        for (var i = 0; i < contacts.length; i++) {
-          if (contacts[i].firstName === name) {
-            if (contacts[i].hasOwnProperty(prop)) {
-              return contacts[i][prop];
-            } else {
-              return 'No such property';
+            function lookUpProfile(name, prop) {
+                for (var i = 0; i < contacts.length; i++) {
+                    if (contacts[i].firstName === name) {
+                        if (contacts[i].hasOwnProperty(prop)) {
+                            return contacts[i][prop];
+                        } else {
+                            return 'No such property';
+                        }
+                    }
+                }
+                return 'No such Contact';
             }
-          }
-        }
-        return 'No such Contact';
-      }
-      console.log(lookUpProfile('Harry', 'likes'));
-      console.log(lookUpProfile('Akira', 'address'));
-      console.log(lookUpProfile('Bob', 'number'));
-      console.log(lookUpProfile('Sherlock', 'likes'));
-      console.log(lookUpProfile('Kristian', 'lastName'));
+            console.log(lookUpProfile('Harry', 'likes'));
+            console.log(lookUpProfile('Akira', 'address'));
+            console.log(lookUpProfile('Bob', 'number'));
+            console.log(lookUpProfile('Sherlock', 'likes'));
+            console.log(lookUpProfile('Kristian', 'lastName'));
 
-      //random number from 1 to 10
-      function randomNumber() {
-        return Math.floor(Math.random() * 10 + 1);
-      }
-      var result = randomNumber();
-      console.log(result);
-      console.log(randomNumber());
+            //random number from 1 to 10
+            function randomNumber() {
+                return Math.floor(Math.random() * 10 + 1);
+            }
+            var result = randomNumber();
+            console.log(result);
+            console.log(randomNumber());
 
-      function randomNumberRange(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-      console.log('range: ' + randomNumberRange(11, 20));
-      console.log('range: ' + randomNumberRange(21, 30));
-      console.log('range: ' + randomNumberRange(31, 40));
+            function randomNumberRange(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            console.log('range: ' + randomNumberRange(11, 20));
+            console.log('range: ' + randomNumberRange(21, 30));
+            console.log('range: ' + randomNumberRange(31, 40));
 
-      function largestOfFour(arr) {
-        function maxNum(niza) {
-          const max = Math.max.apply(null, niza);
-          return max;
-        }
+            function largestOfFour(arr) {
+                function maxNum(niza) {
+                    const max = Math.max.apply(null, niza);
+                    return max;
+                }
 
-        return arr.reduce((acc, c) => {
-          acc.push(maxNum(c));
-          return acc;
-        }, []);
-      }
-      console.log(
-        largestOfFour([
-          [4, 5, 1, 3],
-          [13, 27, 18, 26],
-          [32, 35, 37, 39],
-          [1000, 1001, 857, 1]
-        ])
-      );
-      /* Alter code below this line */
-      class Thermostat {
-        constructor(t) {
-          this._t = (5 / 9) * (t - 32);
-        }
-        // getter
-        get temperature() {
-          return this._t;
-        }
-        //setter
-        set temperature(updateTemp) {
-          this._t = updateTemp;
-        }
-      }
-      /* Alter code above this line */
+                return arr.reduce((acc, c) => {
+                    acc.push(maxNum(c));
+                    return acc;
+                }, []);
+            }
+            console.log(
+                largestOfFour([
+                    [4, 5, 1, 3],
+                    [13, 27, 18, 26],
+                    [32, 35, 37, 39],
+                    [1000, 1001, 857, 1],
+                ])
+            );
+            /* Alter code below this line */
+            class Thermostat {
+                constructor(t) {
+                    this._t = (5 / 9) * (t - 32);
+                }
+                // getter
+                get temperature() {
+                    return this._t;
+                }
+                //setter
+                set temperature(updateTemp) {
+                    this._t = updateTemp;
+                }
+            }
+            /* Alter code above this line */
 
-      const thermos = new Thermostat(76); // setting in Fahrenheit scale
-      let temp = thermos.temperature; // 24.44 in C
-      thermos.temperature = 26;
-      temp = thermos.temperature; // 26 in C
-      console.log(temp);
-      const osumdeset = new Thermostat(80);
+            const thermos = new Thermostat(76); // setting in Fahrenheit scale
+            let temp = thermos.temperature; // 24.44 in C
+            thermos.temperature = 26;
+            temp = thermos.temperature; // 26 in C
+            console.log(temp);
+            const osumdeset = new Thermostat(80);
 
-      console.log(osumdeset.temperature);
-    </script>
-  </body>
+            console.log(osumdeset.temperature);
+        </script>
+    </body>
 </html>

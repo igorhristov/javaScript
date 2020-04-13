@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Recursive Functions</title>
-  </head>
-  <body>
-    <script>
-      // sum
-      function sumArr(arr, n) {
-        if (n <= 0) {
-          return arr[0];
-        } else {
-          return sumArr(arr, n - 1) + arr[n];
-        }
-      }
-      data = [1, 3, 7, 9, 10];
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Recursive Functions</title>
+    </head>
+    <body>
+        <script>
+            // sum
+            function sumArr(arr, n) {
+                if (n <= 0) {
+                    return arr[0];
+                } else {
+                    return sumArr(arr, n - 1) + arr[n];
+                }
+            }
+            data = [1, 3, 7, 9, 10];
 
-      var result = sumArr(data, 4);
-      console.log(result);
+            var result = sumArr(data, 4);
+            console.log(result);
 
-      /////////////// count UP
-      function countup(n) {
-        if (n < 1) {
-          return [];
-        } else {
-          var counting = countup(n - 1);
-          counting.push(n);
-          return counting;
-        }
-      }
+            /////////////// count UP
+            function countup(n) {
+                if (n < 1) {
+                    return [];
+                } else {
+                    var counting = countup(n - 1);
+                    counting.push(n);
+                    return counting;
+                }
+            }
 
-      var resCountup = countup(6);
-      console.log(resCountup);
+            var resCountup = countup(6);
+            console.log(resCountup);
 
-      ////////////// count DOWN
-      function countDown(n) {
-        if (n < 1) {
-          return [];
-        } else {
-          var varCountDown = countDown(n - 1);
-          varCountDown.unshift(n);
-          return varCountDown;
-        }
-      }
+            ////////////// count DOWN
+            function countDown(n) {
+                if (n < 1) {
+                    return [];
+                } else {
+                    var varCountDown = countDown(n - 1);
+                    varCountDown.unshift(n);
+                    return varCountDown;
+                }
+            }
 
-      var resCountDown = countDown(6);
-      console.log(resCountDown);
+            var resCountDown = countDown(6);
+            console.log(resCountDown);
 
-      /////////////// Range Of Numbers
-      function rangeOfNumbers(startNum, endNum) {
-        if (endNum - startNum === 0) {
-          return [startNum];
-        } else {
-          var add = endNum - 1;
-          var range = rangeOfNumbers(startNum, endNum - 1);
-          range.push(endNum);
-          return range;
-        }
-      }
-      console.log(rangeOfNumbers(5, 10));
-      console.log(rangeOfNumbers(5, 5));
-    </script>
-  </body>
+            /////////////// Range Of Numbers
+            function rangeOfNumbers(startNum, endNum) {
+                if (endNum - startNum === 0) {
+                    return [startNum];
+                } else {
+                    var add = endNum - 1;
+                    var range = rangeOfNumbers(startNum, endNum - 1);
+                    range.push(endNum);
+                    return range;
+                }
+            }
+            console.log(rangeOfNumbers(5, 10));
+            console.log(rangeOfNumbers(5, 5));
+        </script>
+    </body>
 </html>
