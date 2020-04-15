@@ -28,4 +28,16 @@ const saveJsonFile = (devs, filename) => {
   fs.writeFile(JSON_FILE_PATH, JSON.stringify(devs, null, 2));
 };
 
-module.exports = { readCsvLines, parseCsvLineToJson, saveJsonFile };
+const filteredDevs = (devs, gender = 'all', skill = 'all') => {
+  return devs.filter(dev => {
+    const genderCase = gender === 'all' || dev.gender === gender;
+    const skillCase = skill === 'all' || dev.skill === skill;
+    return genderCase && skillCase;
+  });
+};
+module.exports = {
+  readCsvLines,
+  parseCsvLineToJson,
+  saveJsonFile,
+  filteredDevs
+};
