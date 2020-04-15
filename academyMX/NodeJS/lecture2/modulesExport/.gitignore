@@ -46,4 +46,4 @@ yarn-error.log
 # VS Code
 .vscode
 # ignore generated json files 
-/src/data/*.json
+src/data/*.json
