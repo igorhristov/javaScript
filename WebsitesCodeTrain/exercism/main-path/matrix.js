@@ -31,69 +31,89 @@ And its columns:
 */
 
 class Matrix {
+  constructor(input) {
+      console.log(typeof rows)
+      this.matrix = input.split('\n')
+      .map((stringRow) => {
+              return stringRow.split(' ').map((stringNum) => {
+                  return Number(stringNum);
+              });
+          });
+      this.rows = this.matrix;
+      this.addColumns();
+//       console.log(this.columns[0])
+//      console.log(this.rows[0])
+  }
+
+  addColumns() {
+      let columns = [];
+  //    console.log(this.matrix[0][0])
+  //    console.log(this.matrix[0].length)
+      for (let col = 0; col < this.matrix[0].length; col++) {
+          let column = [];
+          for (let row = 0; row < this.matrix.length; row++) {
+              column.push(this.matrix[row][col]);
+          }
+          columns.push(column);
+      }
+      this.columns = columns;
+  }
+}
+
+
+console.log('Matrix');
+console.log('extract row from one number matrix');
+console.log(new Matrix('1').rows[0]); // [1]
+console.log('can extract row');
+console.log(new Matrix('1 2\n3 4').rows[1]); // [3, 4]
+console.log('extract row where numbers have different widths');
+console.log(new Matrix('1 2\n10 20').rows[1]); // [10, 20]
+console.log('can extract row from non-square matrix with no corresponding column');
+console.log(new Matrix('1 2 3\n4 5 6\n7 8 9\n8 7 6').rows[3]); // [8, 7, 6]
+console.log('extract column from one number matrix');
+console.log(new Matrix('1').columns[0]); // [1]
+console.log('can extract column');
+console.log(new Matrix('1 2 3\n4 5 6\n7 8 9').columns[2]); // [3, 6, 9]
+console.log('can extract column from non-square matrix with no corresponding row');
+console.log(new Matrix('1 2 3 4\n5 6 7 8\n9 8 7 6').columns[3]); // [4, 8, 6]
+console.log('can extract column from non-square matrix with more columns than rows');
+console.log(new Matrix('1 2 3\n4 5 6').columns[2]); // [3, 6]
+console.log('extract column where numbers have different widths');
+console.log(new Matrix('89 1903 3\n18 3 1\n9 4 800').columns[1]); // [1903, 3, 4]
+
+/***
+class Matrix1 {
     constructor(input) {
-      this.input = input
+        this.input = input;
     }
 
     get rows() {
-      return this.input.split('\n').map(x => x.split(' ').map(Number))
+        return this.input.split('\n').map((x) => x.split(' ').map(Number));
     }
 
     get columns() {
-        return Array.from(this.rows[0], (_, i) => this.rows.map(x => x[i]))
+        return Array.from(this.rows[0], (_, i) => this.rows.map((x) => x[i]));
     }
 }
+***/
 
-const str = '1 2\n3 4';
-const matStr = new Matrix(str).rows[1];
-console.log(matStr); // [3,4]
+/***
+ class Matrix2 {
+    constructor(matrix) {
+        this.matrix = matrix;
+        this.matrixArr = this.matrix .split('\n')
+    }
 
-const matStr4 = new Matrix('1 2 3\n4 5 6\n7 8 9\n8 7 6').rows[3]; // [8, 7, 6]
-console.log(matStr4);
+    get rows() {
+      return this.matrixArr.map(x=> x.split(' ').map(Number))
+    }
 
-const matStr5 = new Matrix('1 2 3\n4 5 6\n7 8 9').columns[2];
-console.log(matStr5); //[3, 6, 9]
+    get columns() {
+      return this.rows[0].map((col, i)=> this.rows.map(row=> row[i]))
+    }
+}
+ ***/
 
+/***
 
-/*
-import { Matrix } from './matrix';
-
-describe('Matrix', () => {
-  test('extract row from one number matrix', () => {
-    expect(new Matrix('1').rows[0]).toEqual([1]);
-  });
-
-  test('can extract row', () => {
-    expect(new Matrix('1 2\n3 4').rows[1]).toEqual([3, 4]);
-  });
-
-  test('extract row where numbers have different widths', () => {
-    expect(new Matrix('1 2\n10 20').rows[1]).toEqual([10, 20]);
-  });
-
-  test('can extract row from non-square matrix with no corresponding column', () => {
-    expect(new Matrix('1 2 3\n4 5 6\n7 8 9\n8 7 6').rows[3]).toEqual([8, 7, 6]);
-  });
-
-  test('extract column from one number matrix', () => {
-    expect(new Matrix('1').columns[0]).toEqual([1]);
-  });
-
-  test('can extract column', () => {
-    expect(new Matrix('1 2 3\n4 5 6\n7 8 9').columns[2]).toEqual([3, 6, 9]);
-  });
-
-  test('can extract column from non-square matrix with no corresponding row', () => {
-    expect(new Matrix('1 2 3 4\n5 6 7 8\n9 8 7 6').columns[3]).toEqual([4, 8, 6]);
-  });
-
-  test('can extract column from non-square matrix with more columns than rows', () => {
-    expect(new Matrix('1 2 3\n4 5 6').columns[2]).toEqual([3, 6]);
-  });
-
-  test('extract column where numbers have different widths', () => {
-    expect(new Matrix('89 1903 3\n18 3 1\n9 4 800').columns[1]).toEqual([1903, 3, 4]);
-  });
-});
-
-*/
+ ***/
