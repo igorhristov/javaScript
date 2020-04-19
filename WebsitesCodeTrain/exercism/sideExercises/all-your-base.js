@@ -1,19 +1,9 @@
 
 
 const convert = (arr, a, b) => {
-  /*let arrDone = arr.reduce((acc, c, i, niza) => {
-    return acc
-  }, [])*/
-   let arrDone =[]
-   let curent= 0;
-        for (let i = arr.length - 1; i >= 0; i--) {
-          curent += arr[i] * b**i
-         console.log(curent);
-         
-         arrDone.push(curent / a)
-        }
-        
-  return arrDone
+ 
+
+
 };
 
 console.log(convert([1, 0, 1], 2, 10)); // [5]
@@ -21,7 +11,8 @@ console.log(convert([1, 0, 1], 2, 10)); // [5]
 console.log(convert([5], 10, 2)); // [1, 0, 1]
 
 console.log(convert([3, 46, 60], 97, 73)); // [6, 10, 45]
-
+console.log(convert([101010]));
+  
 /* 
 
 
