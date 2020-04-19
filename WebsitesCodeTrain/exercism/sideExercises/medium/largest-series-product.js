@@ -23,7 +23,7 @@ const largestProduct = (str, dig) => {
     if (str.length < dig) {
         throw new Error('Span must be smaller than string length');
     }
-    if (/^[0-9]/.test(str)) {
+    if (/[^0-9]/.test(str)) {
         throw new Error('Digits input must only contain digits');
     }
     let product = 0;
@@ -53,7 +53,11 @@ const largestProduct = (str, dig) => {
 
     return product;
 };
+console.log('finds the largest product if span equals length');
 
+console.log(largestProduct('29', 2)); // 18
+
+/*
 console.log('reports zero if the only digits are zero');
 console.log(largestProduct('0000', 2)); // 0
 console.log('reports zero if all spans include zero');
@@ -85,3 +89,5 @@ console.log('rejects invalid character in digits');
 console.log(largestProduct('1234a5', 2));
 console.log('rejects negative span');
 console.log(largestProduct('12345', -1));
+
+*/
