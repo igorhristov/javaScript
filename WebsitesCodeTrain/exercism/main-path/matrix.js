@@ -29,18 +29,23 @@ And its columns:
 8, 3, 6
 7, 2, 7
 */
-
 class Matrix {
-    constructor(str) {
-        this.row = str
+    constructor(input) {
+        const parseMatrix = (str) => {
             // split the string with '\n'
-            .split('\n')
-            // list all elements
-            .map((x) =>
-                x.split(' ')
-                // make every element number
-                .map(Number)
+            return (
+                str
+                    .split('\n')
+                    // list all elements
+                    .map((x) =>
+                        x
+                            .split(' ')
+                            // make every element number
+                            .map(Number)
+                    )
             );
+        };
+        this.row = parseMatrix(input);
     }
 
     get rows() {
@@ -48,21 +53,25 @@ class Matrix {
     }
 
     get columns() {
-        let columns = [];
-        // list first element of row for numbers of columns
-        for (let i = 0; i < this.row[0].length; i++) {
-            let col = [];
+        const convertRowsToColumns = (arr) => {
+            let columns = [];
+            // list first element of row for numbers of columns
+            for (let i = 0; i < arr[0].length; i++) {
+                let col = [];
 
-            // push  elements in col array
-            for (let k = 0; k < this.row.length; k++) {
-                col.push(this.row[k][i]);
+                // push  elements in col array
+                for (let k = 0; k < arr.length; k++) {
+                    col.push(arr[k][i]);
+                }
+
+                // push every column to form columns
+                columns.push(col);
             }
 
-            // push every column to form column
-            columns.push(col);
-        }
+            return columns;
+        };
 
-        return columns;
+        return convertRowsToColumns(this.row);
     }
 }
 
@@ -148,5 +157,43 @@ class Matrix3 {
       }
       this.columns = columns;
   }
+}
+ ***/
+
+/***
+ class Matrix {
+    constructor(str) {
+        this.row = str
+            // split the string with '\n'
+            .split('\n')
+            // list all elements
+            .map((x) =>
+                x.split(' ')
+                // make every element number
+                .map(Number)
+            );
+    }
+
+    get rows() {
+        return this.row;
+    }
+
+    get columns() {
+        let columns = [];
+        // list first element of row for numbers of columns
+        for (let i = 0; i < this.row[0].length; i++) {
+            let col = [];
+
+            // push  elements in col array
+            for (let k = 0; k < this.row.length; k++) {
+                col.push(this.row[k][i]);
+            }
+
+            // push every column to form column
+            columns.push(col);
+        }
+
+        return columns;
+    }
 }
  ***/
