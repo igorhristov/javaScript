@@ -31,48 +31,49 @@ And its columns:
 */
 class Matrix {
     constructor(input) {
-        const parseMatrix = (str) => {
-            // split the string with '\n'
-            return (
-                str
-                    .split('\n')
-                    // list all elements
-                    .map((x) =>
-                        x
-                            .split(' ')
-                            // make every element number
-                            .map(Number)
-                    )
-            );
-        };
-        this.row = parseMatrix(input);
+        this.input = input;
     }
 
     get rows() {
-        return this.row;
+        return this.parseMatrix(this.input);
     }
 
     get columns() {
-        const convertRowsToColumns = (arr) => {
-            let columns = [];
-            // list first element of row for numbers of columns
-            for (let i = 0; i < arr[0].length; i++) {
-                let col = [];
+        return this.transposeArray(this.rows);
+    }
 
-                // push  elements in col array
-                for (let k = 0; k < arr.length; k++) {
-                    col.push(arr[k][i]);
-                }
+    parseMatrix(str) {
+        // split the string with '\n'
+        return (
+            str
+                .split('\n')
+                // list all elements
+                .map(element =>
+                    element.split(' ')
+                    // make every element number
+                    .map(Number)
+                )
+        );
+    }
 
-                // push every column to form columns
-                columns.push(col);
+    transposeArray(arr) {
+        let columns = [];
+        // list first element of row for numbers of columns
+        for (let i = 0; i < arr[0].length; i++) {
+            let col = [];
+
+            // push  elements in col array
+            for (let k = 0; k < arr.length; k++) {
+                col.push(arr[k][i]);
             }
 
-            return columns;
-        };
+            // push every column to form columns
+            columns.push(col);
+        }
 
-        return convertRowsToColumns(this.row);
+        return columns;
     }
+
 }
 
 console.log('Matrix');
