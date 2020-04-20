@@ -31,35 +31,40 @@ And its columns:
 */
 
 class Matrix {
-  constructor(input) {
-      console.log(typeof rows)
-      this.matrix = input.split('\n')
-      .map((stringRow) => {
-              return stringRow.split(' ').map((stringNum) => {
-                  return Number(stringNum);
-              });
-          });
-      this.rows = this.matrix;
-      this.addColumns();
-//       console.log(this.columns[0])
-//      console.log(this.rows[0])
-  }
+    constructor(str) {
+        this.row = str
+            // split the string with '\n'
+            .split('\n')
+            // list all elements
+            .map((x) =>
+                x.split(' ')
+                // make every element number
+                .map(Number)
+            );
+    }
 
-  addColumns() {
-      let columns = [];
-  //    console.log(this.matrix[0][0])
-  //    console.log(this.matrix[0].length)
-      for (let col = 0; col < this.matrix[0].length; col++) {
-          let column = [];
-          for (let row = 0; row < this.matrix.length; row++) {
-              column.push(this.matrix[row][col]);
-          }
-          columns.push(column);
-      }
-      this.columns = columns;
-  }
+    get rows() {
+        return this.row;
+    }
+
+    get columns() {
+        let columns = [];
+        // list first element of row for numbers of columns
+        for (let i = 0; i < this.row[0].length; i++) {
+            let col = [];
+
+            // push  elements in col array
+            for (let k = 0; k < this.row.length; k++) {
+                col.push(this.row[k][i]);
+            }
+
+            // push every column to form column
+            columns.push(col);
+        }
+
+        return columns;
+    }
 }
-
 
 console.log('Matrix');
 console.log('extract row from one number matrix');
@@ -115,5 +120,33 @@ class Matrix1 {
  ***/
 
 /***
+class Matrix3 {
+  constructor(input) {
+      console.log(typeof rows)
+      this.matrix = input.split('\n')
+      .map((stringRow) => {
+              return stringRow.split(' ').map((stringNum) => {
+                  return Number(stringNum);
+              });
+          });
+      this.rows = this.matrix;
+      this.addColumns();
+//       console.log(this.columns[0])
+//      console.log(this.rows[0])
+  }
 
+  addColumns() {
+      let columns = [];
+  //    console.log(this.matrix[0][0])
+  //    console.log(this.matrix[0].length)
+      for (let col = 0; col < this.matrix[0].length; col++) {
+          let column = [];
+          for (let row = 0; row < this.matrix.length; row++) {
+              column.push(this.matrix[row][col]);
+          }
+          columns.push(column);
+      }
+      this.columns = columns;
+  }
+}
  ***/

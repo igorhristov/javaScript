@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+                      const peoples = [
+                          ['Igor', 'hristov', 'Strumica', 39],
+                          ['Drakula', 'Tepes', 'walehia', 42],
+                          ['Gandalf', 'Gray', 'Middle Earth', 1080],
+                          ['Sauron', 'Dark', 'Mordor', 666],
+                      ];
+                      let columns = [];
+            //    console.log(this.matrix[0][0])
+            //    console.log(this.matrix[0].length)
+                // for (let i = 0; i < peoples[0].length; i++) {
+                //     let column = [];
+
+                //     for (let r = 0; r < peoples.length; r++) {
+                //         column.push(peoples[r][i]);
+                //     }
+
+                //     columns.push(column);
+                // }
+                // console.log(columns);
+                
+
+                    //   console.log(peoples[0][0]);
+                    //   console.log(peoples[1][0]);
+                    //   console.log(peoples[2][0]);
+                      let names = [];
+                      for (let i = 0; i < peoples[0].length; i++) {
+                          let col = [];
+                          for(let x = 0; x < peoples.length; x++) {
+                            col.push(peoples[i][x])
+                          }
+
+                          names.push(col)
+                      }
+
+                      console.log(names);
+                      console.log('names');
+
+                      const tables = [
+                          ['r1c1', 'r1c2', 'r1c3', 'r1c4'],
+                          ['r2c1', 'r2c2', 'r2c3', 'r2c4'],
+                          ['r3c1', 'r3c2', 'r3c3', 'r3c4'],
+                          ['r4c1', 'r4c2', 'r4c3', 'r4c4'],
+                      ];
+
+                      /*
+
+                      let table = []
+                      tables.forEach(row => {
+                          // console.log(row);
+                          row.forEach(col=> {
+                              console.log(col);
+                              table.push(col)
+                          })
+                          console.log('~~~~~~~~~~~~~~~~~~~~~~');
+
+                      })
+
+                      // console.log(table);
+
+                      let city = [];
+
+                      peoples.forEach((row) => {
+                          // console.log(row);
+                          row.forEach((col) => {
+                              // console.log(col);
+                          });
+                          // console.log('~~~~~~~~~~~~~~~~~~~~~~');
+                      });
+                      // console.log(city);
+                      */
+        </script>
+    </body>
+</html>
