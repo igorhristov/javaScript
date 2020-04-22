@@ -1,6 +1,6 @@
-const rederHomepage = require('.helpers/rederHomepage');
+const renderHomepage = require('./helpers/renderHomepage');
 
 const run = async () => {
-    await rederHomepage();
+    await renderHomepage();
 };
 run();
