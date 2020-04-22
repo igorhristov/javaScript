@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-backend",
+  "version": "0.0.1",
+  "description": "make front website to build every html",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./src/build",
+    "start-server": "live-server ./build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Igor Hristov",
+  "license": "ISC",
+  "dependencies": {
+    "mustache": "^4.0.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
