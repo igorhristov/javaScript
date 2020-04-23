@@ -23,7 +23,7 @@ module.exports = (title = 'Collaborative Frontend Project') => `<!DOCTYPE html>
           </li>
 
           <li class="nav-item m-1 my-auto">
-              <a class="nav-link btn btn-lg btn-outline-primary p-sm-1 p-md-4" href="./authors.html/">Authors</a>
+              <a class="nav-link btn btn-lg btn-outline-primary p-sm-1 p-md-4" href="./authors.html">Authors</a>
           </li>
       </ul>
   </div>
