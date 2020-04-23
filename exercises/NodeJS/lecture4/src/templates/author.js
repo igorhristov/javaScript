@@ -1,9 +1,9 @@
 const createHeader = require('./createHeader');
 const createFooter = require('./createFooter');
 
-module.exports = (author) => {
-    const title = `Show articles of ${author.username}`;
-    const homepageHeader = createHeader(title);
+module.exports = () => {
+    // const title = `Show articles of ${author.username}`;
+    const homepageHeader = createHeader();
     const homepageFooter = createFooter();
 
     return `

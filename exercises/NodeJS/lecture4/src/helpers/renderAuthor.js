@@ -10,11 +10,14 @@ module.exports = async () => {
         // const authorArticlesFilter = articles.filter(article => {
         //     return article.authorId === author.id;
         // })
-    const output = Mustache.render(authorTpl(), {
-        articles: articles.filter(({articlesArr}) => articlesArr.includes(authorId))
-    });
-
-    await saveHtmlPage(`author-${id}.html`, output);
+            const output = Mustache.render(authorTpl(), {
+                authors 
+                // articles: articles.filter(articles.id === a),
+                
+            });
+        
+            await saveHtmlPage(`author-${id}.html`, output);
+    
 
     // );
     
