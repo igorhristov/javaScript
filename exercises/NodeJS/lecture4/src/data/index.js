@@ -7,7 +7,7 @@ const authorsHashMap = authors.reduce((acc, author) => {
     acc[author.id] = author;
     return acc;
 }, {});
-// console.log(authorsHashMap['889ace1d-15d0-4b97-a4ad-6e2b56917d77']);
+// console.log(authorsHashMap);
 
 const extendedComments = comments.map((comment) => ({
     ...comment,
@@ -27,13 +27,19 @@ const extendedArticles = articles.map((article) => ({
     })),
 }));
 
+// console.log(extendedArticles.length);
 // console.log(extendedArticles[0]);
 const extendedAuthors = authors.map((author) => ({
     ...author,
     articles: extendedArticles.filter(({ authorId }) => authorId === author.id),
 }));
 
-// console.log(extendedAuthors[0]);
+// console.log(extendedAuthors[5]);
+
+// console.log(extendedAuthors.length);
+// console.log(extendedAuthors[5].articles.length);
+
+// console.log(extendedAuthors[5]);
 
 module.exports = {
     articles: extendedArticles,
@@ -43,3 +49,5 @@ module.exports = {
         title: tags[slug],
     })),
 };
+
+
