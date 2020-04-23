@@ -16,8 +16,8 @@ module.exports = () => {
                         <div class="card-body text-light text-center border border-info rounded shadow">
                             <img src="{{{ avatar }}}" class="rounded-circle border border-warning border-top-0" width="128" height="128">
                             
-                            <a class="card-link text-warning" href="../author-{{ id }}.html">
-                                <h3>{{ name }}</h3>
+                            <a class="card-link text-warning " href="../author-{{ id }}.html">
+                                <h3 class="my-3">{{ name }}</h3>
                             </a>
                             <div class="message">                   
                                 <p class="card-text text-left">{{ bio }}</p>
@@ -26,10 +26,10 @@ module.exports = () => {
                                 <a href="#" class="card-link">www: {{ website }}</a> 
                             </div>
                             <div class="actions">
-                                <a href="#" class="card-link">mail: {{ email }}</a>
+                                <a href="mailto:{{ email }}" class="card-link">mail: {{ email }}</a>
                             </div>
 
-                            <p class="my-0">wrote {{ articles.length }} articles</p>
+                            <p class="mt-2">wrote {{ articles.length }} articles</p>
                             <hr class="w-100 mb-1 mt-0 rounded-pill bg-warning" />
                         </div>
                     </div>
