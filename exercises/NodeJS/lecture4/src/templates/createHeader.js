@@ -19,7 +19,7 @@ module.exports = (title = 'Collaborative Frontend Project') => `<!DOCTYPE html>
   <div class="navbar-collapse collapse">
       <ul class="navbar-nav m-auto">
           <li class="nav-item ml-3 ml-sm-1 my-auto">
-              <a class="nav-link btn btn-lg btn-outline-primary p-sm-1 p-md-4 active" href="./">Home</a>
+              <a class="nav-link btn btn-lg btn-outline-primary p-sm-1 p-md-4" href="./">Home</a>
           </li>
 
           <li class="nav-item m-1 my-auto">
