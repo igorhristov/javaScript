@@ -7,11 +7,14 @@ const authorTpl = require('../templates/author');
 
 module.exports = async () => {
     // return Promise.all(
+        // const authorArticlesFilter = articles.filter(article => {
+        //     return article.authorId === author.id;
+        // })
+    const output = Mustache.render(authorTpl(), {
+        articles: articles.filter(({articlesArr}) => articlesArr.includes(authorId))
+    });
 
-    // const output = Mustache.render(authorTpl(), {
-    //     authors
-    // });
-    // return saveHtmlPage(`author-${id}.html`, output);
+    await saveHtmlPage(`author-${id}.html`, output);
 
     // );
     
