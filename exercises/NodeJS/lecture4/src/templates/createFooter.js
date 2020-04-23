@@ -1,12 +1,19 @@
 module.exports = () => `
         </div>
         <!-- END id="content" -->
-        <footer>
-            <div class="container-fluid">
-                <div class="bg-dark">
-                    <p class="m-0 text-center text-white footer-text">Igor Hristov Copyright 2020</p>
-                </div>
-            </div>
+
+        <!-- Footer -->
+        <footer class="page-footer font-small bg-dark text-muted pt-4">
+        
+                
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="#"> Igor Hristov</a>
+          </div>
+          <!-- Copyright -->
+        
         </footer>
+        <!-- Footer -->
+
     </body>
 </html>`;
