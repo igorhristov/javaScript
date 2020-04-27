@@ -1,6 +1,5 @@
 const fs = require('fs').promises;
 const path = require('path');
-
 const BUILD_PATH = path.resolve(__dirname, '../../build');
 
 module.exports = async (htmlFilename, output) => {

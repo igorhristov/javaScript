@@ -1,7 +1,6 @@
 const Mustache = require('mustache');
 const saveHtmlPage = require('./saveHtmlPage');
 const { articles, authors, tags } = require('../data');
-
 const homepageTpl = require('../templates/allAuthors');
 
 module.exports = async () => {
