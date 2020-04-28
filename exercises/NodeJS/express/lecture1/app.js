@@ -3,7 +3,10 @@ const express = require('express')
 const app = express();
 const port = 3001;
 app.get('/', (req, res) => {
-    res.send('<h1 style="text-align: center">Hello WOrld ajdee</h1>')
+    res.send(`
+    <h1 style="text-align: center">Hello WOrld ajdee</h1> 
+    <h2> testing live server</h2>
+    `)
 })
 
 // adding routes
