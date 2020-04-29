@@ -4,13 +4,16 @@
   "description": "learn express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "time": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "express-generator": "^4.16.1",
+    "moment": "^2.24.0",
     "nodemon": "^2.0.3"
   }
 }

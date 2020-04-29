@@ -9,11 +9,13 @@ app.get('/', (req, res) => {
     `)
 })
 
+app.get()
 // adding routes
-app.get('/blog/:title?', function(req, res) {
+app.get('/blog/:title', function(req, res) {
     const title = req.params.title;
+    console.log('hello world')
     if(title === undefined) {
-        res.status(503)
+        res.status(404)
         res.send("this Page is under counstruction")
     } else {
         const post = posts[title]
