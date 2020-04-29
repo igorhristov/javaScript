@@ -10,8 +10,15 @@ app.get('/', (req, res) => {
 })
 
 // adding routes
-app.get('/blog', function(req, res) {
-    res.send(posts)
+app.get('/blog/:title?', function(req, res) {
+    const title = req.params.title;
+    if(title === undefined) {
+        res.status(503)
+        res.send("this Page is under counstruction")
+    } else {
+        const post = posts[title]
+        res.send(post)
+    }
 })
 
 app.listen(port, () => console.log(`frontend server is runing at  http://localhost:${port}`))
