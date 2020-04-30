@@ -28,25 +28,16 @@ app.get('/ts-to-human', (req, res) => {
 
     })
 });
-/*
-app.get('/ts-to-human', (req, res) => {
-    const { ts } = req.query // ts --> seconds since 01-01-1970
-    try {
-        if (+ts !== moment.unix(+ts).utc().unix()) {
-            throw new Error('Invalid timestamp')
-        }
-    } catch (err) {     
-        // Handle Error
-    }
-    return res.json({
-        date: moment.unix(+ts).utc().format(DATE_FORMAT),
-        ts
-    })
-})
-*/
+
 app.get('/human-to-ts', (req, res) => {
     const dateTime = req.query.date;
-
+    try {
+        if (dateTime !== moment(TIME_FORMAT)) {
+            throw new Error('Invalid date! please insert in format 25-01-1999')
+        }
+    } catch (err) {
+        return err
+    }
    const date = moment(`${dateTime}`, `${TIME_FORMAT}`).utc(+2).format()
    const timestamp = moment(date).format("X");
 
