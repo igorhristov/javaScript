@@ -1,28 +1,27 @@
-const express = require('express')
+const express = require('express');
 const app = express();
 const moment = require('moment');
 const port = 3000;
-
+const TIME_FORMAT = 'DD MM YYYY';
 app.get('/', (req, res) => {
-    res.send(`hello world this is query exercise for dates`)
-})
+    res.send(`hello world this is query exercise for dates`);
+});
 
-app.get('/ts', (req, res) => {
-   const tsTime =  req.query.time;
-   const timeFromUnix = moment.unix(tsTime * 1)
-   console.log(timeFromUnix);
-   const unixToTs = moment(timeFromUnix).format('Do MM YYYY')
-   res.send(unixToTs)
-})
+app.get('/ts-to-human', (req, res) => {
+    const tsTime = req.query.time;
 
-app.get('/unix', (req, res) => {
-    const dateTime =  req.query.date * 1;
-    // const arr = dateTime.split(' ')
-    // const formatDate = arr.join('/')
-    const dateInNumber = moment.utc(dateTime, "D/M/YYYY/hh/mm").unix
-    const parseUnix = moment.unix(dateInNumber)
-    res.send(dateInNumber)
- })
- //moment.unix(ts);
+    const timeFromUnix = moment.unix(tsTime);
+    const unixToTs = moment(timeFromUnix).utc().format(TIME_FORMAT);
+    res.send(`${tsTime} send time is ${unixToTs}`);
+});
 
-app.listen(port, () => console.log(`frontend server for time is runing at  localhost:${port}`))
+app.get('/human-to-ts', (req, res) => {
+    const dateTime = req.query.date;
+
+   const date = moment(`${dateTime}`, `${TIME_FORMAT}`).utc(+2).format()
+   const timestamp = moment(date).format("X");
+
+    res.send(`${dateTime} in secunds ${timestamp}`);
+});
+
+app.listen(port, () => console.log(`frontend server for time is runing at  localhost:${port}`));
