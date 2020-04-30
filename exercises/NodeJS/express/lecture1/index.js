@@ -8,13 +8,42 @@ app.get('/', (req, res) => {
 });
 
 app.get('/ts-to-human', (req, res) => {
-    const tsTime = req.query.time;
+    const { time } = req.query;
+    // console.log(+time);
 
-    const timeFromUnix = moment.unix(tsTime);
+    try {
+        if(+time !== moment.unix(+time).utc().unix()) {
+            throw new Error('Invalid Timestamp')
+        }
+    } catch(err) {
+        return err
+    }
+
+    const timeFromUnix = moment.unix(+time);
     const unixToTs = moment(timeFromUnix).utc().format(TIME_FORMAT);
-    res.send(`${tsTime} send time is ${unixToTs}`);
-});
 
+    return res.json({
+        date :(`send time is ${unixToTs}`),
+        time
+
+    })
+});
+/*
+app.get('/ts-to-human', (req, res) => {
+    const { ts } = req.query // ts --> seconds since 01-01-1970
+    try {
+        if (+ts !== moment.unix(+ts).utc().unix()) {
+            throw new Error('Invalid timestamp')
+        }
+    } catch (err) {     
+        // Handle Error
+    }
+    return res.json({
+        date: moment.unix(+ts).utc().format(DATE_FORMAT),
+        ts
+    })
+})
+*/
 app.get('/human-to-ts', (req, res) => {
     const dateTime = req.query.date;
 
