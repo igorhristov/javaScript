@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/ts-to-human', (req, res) => {
-    const { time } = req.query;
+    const { time, time1 } = req.query;
     // console.log(+time);
 
     try {
@@ -32,7 +32,7 @@ app.get('/ts-to-human', (req, res) => {
 app.get('/human-to-ts', (req, res) => {
     const dateTime = req.query.date;
     try {
-        if (dateTime !== moment(TIME_FORMAT)) {
+        if (dateTime !== moment(dateTime, TIME_FORMAT)) {
             throw new Error('Invalid date! please insert in format 25-01-1999')
         }
     } catch (err) {
