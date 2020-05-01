@@ -20,3 +20,12 @@ const totalNumber = (n) => {
         });
 };
 console.log(totalNumber(5)); // 5,9,13,17,21
+
+let a = 3
+let b = {
+    a: 9,
+    b: ++a
+}
+console.log(++b.b);
+
+console.log(a + b.a + ++b.b);
