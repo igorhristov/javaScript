@@ -8,19 +8,34 @@ router.use('/articles', articles);
 router.use('/authors', authors);
 router.use('/tags', tags);
 
+/*
+router.get('/', (req, res) => {
+  res.json({ message: 'Connected!' });
+});
+
+router.post('/', (req, res) => {
+  console.log(req.body);
+  res.status(200).json({ status: 'Success !', data: { body: req.body } });
+});
+*/
+
 router
   .route('/')
   .get((req, res) => {
     res.status(200).json({ message: 'Get somthing!' });
   })
   .post((req, res) => {
-    // console.log(req.body);
-    res.status(200).json({ status: 'Add new with Post', data: { body: req.body } });
+    console.log(req.body);
+    res
+      .status(200)
+      .json({ status: 'Add new with Post', data: { body: req.body } });
   })
   .delete((req, res) => {
-    res.status(200).json({ message: 'Delete some article or author with DELETE!' });
+    res
+      .status(200)
+      .json({ message: 'Delete some article or author with DELETE!' });
   });
-  
+
 module.exports = router;
 
 /*
