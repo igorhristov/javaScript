@@ -3,17 +3,19 @@ const router = express.Router();
 const articles = require('./articles');
 const article = require('./article');
 const comments = require('./comments');
-const createArticle = require('./createArticle');
+const addArticle = require('./addArticle');
 const updateArticle = require('./updateArticle');
+const deleteArticle = require('./deleteArticle');
+const addComment = require('./addComment');
 
-// router.get('/', articles);
-// router.get('/:articleId', article);
-router.get('/:articleId/comments', comments);
+router.route('/').get(articles).post(addArticle);
 
-// router.post('/', createArticle);
-// router.post('/:articleId', updateArticle)
+router
+  .route('/:articleId')
+  .get(article)
+  .post(updateArticle)
+  .delete(deleteArticle);
 
-router.route('/').get(articles).post(createArticle);
-router.route('/:articleId').get(article).post(updateArticle);
+router.route('/:articleId/comments').get(comments).post(addComment);
 
 module.exports = router;
