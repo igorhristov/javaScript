@@ -8,17 +8,6 @@ router.use('/articles', articles);
 router.use('/authors', authors);
 router.use('/tags', tags);
 
-/*
-router.get('/', (req, res) => {
-  res.json({ message: 'Connected!' });
-});
-
-router.post('/', (req, res) => {
-  console.log(req.body);
-  res.status(200).json({ status: 'Success !', data: { body: req.body } });
-});
-*/
-
 router
   .route('/')
   .get((req, res) => {

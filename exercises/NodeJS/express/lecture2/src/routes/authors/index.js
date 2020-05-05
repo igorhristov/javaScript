@@ -1,11 +1,15 @@
 const express = require('express');
-const routes = express.Router();
+const router = express.Router();
 const authors = require('./authors');
 const author = require('./author');
 const authorArticles = require('./authorArticles');
+const addAuthor = require('./addAuthor');
+const updateAuthor = require('./updateAuthor');
 
-routes.get('/', authors);
-routes.get('/:authorId', author);
-routes.get('/:authorId/articles', authorArticles);
+router.route('/').get(authors).post(addAuthor);
 
-module.exports = routes;
+router.route('/:authorId').get(author).post(updateAuthor);
+
+router.get('/:authorId/articles', authorArticles);
+
+module.exports = router;
