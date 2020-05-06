@@ -11,5 +11,5 @@ module.exports = (req, res) => {
   const index = authors.indexOf(author);
   authors.splice(index, 1);
 
-  res.json({ warning: 'Folowing author is Deleted', author });
+  res.json({ warning: `Author with id:${authorId} is Deleted`, author });
 };
