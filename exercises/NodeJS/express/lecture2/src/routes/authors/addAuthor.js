@@ -13,6 +13,9 @@ module.exports = (req, res) => {
   if (!email || email.length < 3) {
     throw new Error('Invalid author body');
   }
+  if (!username || username < 3) {
+    throw new Error('Invalid author username');
+  }
   if (!website || website.length < 5) {
     throw new Error('Invalid author website');
   }
@@ -29,6 +32,6 @@ module.exports = (req, res) => {
     website,
     bio
   };
-
-  res.json(author);
+  authors.push(author)
+  res.json({"how many authors": authors.length ,author});
 };
