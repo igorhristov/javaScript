@@ -5,7 +5,9 @@ module.exports = (req, res) => {
   const author = authors.find(({ id }) => id === authorId);
 
   if (!author) {
-    return res.status(404).send(`The author with id ${authorId} is not found`);
+    return res
+      .status(404)
+      .send(`The author with id ${authorId} is not found`);
   }
 
   const index = authors.indexOf(author);
