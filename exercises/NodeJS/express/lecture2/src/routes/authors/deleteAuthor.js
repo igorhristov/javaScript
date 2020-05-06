@@ -10,9 +10,6 @@ module.exports = (req, res) => {
 
   const index = authors.indexOf(author);
   authors.splice(index, 1);
-  
-  console.log(authors.length);
 
-  res.send(author);
-  //   res.json({ msg: 'article DELETE treba da ima tuka na: ', author });
+  res.json({ warning: 'Folowing author is Deleted', author });
 };
