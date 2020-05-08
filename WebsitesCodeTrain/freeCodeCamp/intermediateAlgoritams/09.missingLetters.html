@@ -15,14 +15,23 @@
             If all letters are present in the range, return undefined.
         </p>
         <script>
+          
             function fearNotLetter(str) {
-                return str;
+                console.log('a'.charCodeAt());
+                console.log('b'.charCodeAt());
+                console.log('c'.charCodeAt());
+
+                for (let i = 0; i < str.length - 1; i++) {
+                    if (str[i].charCodeAt() - str[i + 1].charCodeAt() !== -1) {
+                        return String.fromCharCode(str[i].charCodeAt() + 1);
+                    }
+                }
             }
+
             console.log(fearNotLetter('abce')); // d
             console.log(fearNotLetter('abcdefghjklmno')); // i
             console.log(fearNotLetter('stvwx')); // u
             console.log(fearNotLetter('abcdefghijklmnopqrstuvwxyz')); // undefined
-            
         </script>
     </body>
 </html>
