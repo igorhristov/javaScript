@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sum All Odd Fibonacci Numbers</title>
+    </head>
+    <body>
+        <h1>free Code Camp</h1>
+        <h2>Intermediate Algorithm Sum All Odd Fibonacci Numbers</h2>
+        <h3>Sum All Odd Fibonacci Numbers</h3>
+        <p>
+            Given a positive integer num, return the sum of all odd Fibonacci numbers that are less
+            than or equal to num. <br />
+
+            The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in
+            the sequence is the sum of the two previous numbers. The first six numbers of the
+            Fibonacci sequence are 1, 1, 2, 3, 5 and 8. <br />
+
+            For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or
+            equal to 10 are 1, 1, 3, and 5.
+        </p>
+        <script>
+            function sumFibs(num) {
+                let arr = [0, 1];
+                let sum = 0;
+                for (let i = 2; i <= num; i++) {
+                    arr.push(arr[i - 1] + arr[i - 2]);
+                }
+               for(let i = 0; i < arr.length; i++) {
+                   if(arr[i] > num ) {
+                       return sum
+                   } else {
+                       if(arr[i] % 2 !== 0) {
+                           sum += arr[i]
+                       }
+                   }
+               }
+                return sum;
+            }
+
+            console.log(sumFibs(10)); //10
+        </script>
+    </body>
+</html>
