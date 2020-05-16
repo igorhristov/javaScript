@@ -27,19 +27,21 @@
                 for (let i = 2; i <= num; i++) {
                     arr.push(arr[i - 1] + arr[i - 2]);
                 }
-               for(let i = 0; i < arr.length; i++) {
-                   if(arr[i] > num ) {
-                       return sum
-                   } else {
-                       if(arr[i] % 2 !== 0) {
-                           sum += arr[i]
-                       }
-                   }
-               }
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] > num) {
+                        return sum;
+                    } else {
+                        if (arr[i] % 2 !== 0) {
+                            sum += arr[i];
+                        }
+                    }
+                }
                 return sum;
             }
 
             console.log(sumFibs(10)); //10
+            console.log(sumFibs(1000)); // 1785
+            console.log(sumFibs(4000000)); // 4613732
         </script>
     </body>
 </html>
