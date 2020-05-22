@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sum All Primes</title>
+    </head>
+    <body>
+        <h1>free Code Camp</h1>
+        <h2>Intermediate Algorithm Sum All Primes</h2>
+        <h3>Sum All Primes</h3>
+        <p>
+            Find the smallest common multiple of the provided parameters that can be evenly divided
+            by both, as well as by all sequential numbers in the range between these parameters.
+            <br />
+
+            The range will be an array of two numbers that will not necessarily be in numerical
+            order. <br />
+
+            For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is
+            also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+        </p>
+        <script>
+            function smallestCommons(arr) {
+                const sorted = arr.sort((a, b) => (a > b ? 1 : -1)); // min to max
+
+                let multiple = sorted[1]; // get max
+
+                for (let i = sorted[1]; i >= sorted[0]; i--) { 
+                    if (multiple % i !== 0) {
+                        multiple += sorted[1];
+                        i = sorted[1];
+                    }
+                }
+
+                return multiple;
+            }
+
+            console.log(smallestCommons([1, 5])); // 60
+            console.log(smallestCommons([5, 1])); // 60
+            console.log(smallestCommons([2, 10])); // 2520
+            console.log(smallestCommons([1, 13])); // 360360
+            console.log(smallestCommons([23, 18])); // 6056820
+        </script>
+    </body>
+</html>
