@@ -1,10 +1,10 @@
 import React from 'react';
-import NestedComponents from './nestedComponents/App';
-import StatelessComponent from './statelessFnComponent/App';
-import PassAnArrayAsProps from './passAnArrayAsProps/App';
-import OverrideDefaultProps from './overrideDefaultProps/App';
-import PropsWithStatelessComponents from './propsWithStatlessComp/App';
-import StateInTheUserInterface from './renderStateInUserInterface/App';
+import NestedComponents from './10.nestedComponents/App';
+import StatelessComponent from './14.statelessFnComponent/App';
+import PassAnArrayAsProps from './15.passAnArrayAsProps/App';
+import OverrideDefaultProps from './17.overrideDefaultProps/App';
+import PropsWithStatelessComponents from './20.propsWithStatlessComp/App';
+import StateInTheUserInterface from './22.renderStateInUserInterface/App';
 
 class MainApp extends React.Component {
     render() {
@@ -17,7 +17,6 @@ class MainApp extends React.Component {
                 <OverrideDefaultProps />
                 <PropsWithStatelessComponents />
                 <StateInTheUserInterface />
-                
             </main>
         );
     }
