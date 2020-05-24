@@ -29,7 +29,7 @@ class TypesOfFood extends React.Component {
     render() {
         return (
             <div>
-                <h2>Render Nested Components</h2>
+                <h2 className="text-success">Render Nested Components</h2>
                 <h3>Types of TypesOfFood</h3>
                 <Fruits/>
             </div>
