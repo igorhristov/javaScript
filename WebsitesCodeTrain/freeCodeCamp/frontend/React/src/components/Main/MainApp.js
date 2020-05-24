@@ -10,6 +10,7 @@ import StateToToggleAnElement from './26.useStateToToggleElement/App';
 import SimpleCounter from './27.writeSimpleCounter/App';
 import ControlledInput from './28.createControlledInput/App';
 import ControlledForm from './29.createControlledForm/App'
+import PassStateAsPropsToChildComp from './30.stateAsPropsToChildComp/App'
 
 class MainApp extends React.Component {
     render() {
@@ -28,6 +29,8 @@ class MainApp extends React.Component {
                 <SimpleCounter />
                 <ControlledInput />
                 <ControlledForm/>
+                <PassStateAsPropsToChildComp/>
+                
 
             </main>
         );
