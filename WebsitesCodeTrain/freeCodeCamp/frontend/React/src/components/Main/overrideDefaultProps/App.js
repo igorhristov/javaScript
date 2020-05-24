@@ -1,8 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Items = (props) => {
     return <h4>Current Quantity of Items in Cart: {props.quantity}</h4>;
 };
+
+
+/* React provides useful type-checking features to verify that components receive props of the correct type. */
+Items.propTypes = {
+    quantity: PropTypes.number.isRequired,
+};
+
 
 Items.defaultProps = {
     quantity: 0,
