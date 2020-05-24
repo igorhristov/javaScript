@@ -5,6 +5,7 @@ import PassAnArrayAsProps from './15.passAnArrayAsProps/App';
 import OverrideDefaultProps from './17.overrideDefaultProps/App';
 import PropsWithStatelessComponents from './20.propsWithStatlessComp/App';
 import StateInTheUserInterface from './22.renderStateInUserInterface/App';
+import SetStateWithThisSetState from './24.thisSetState/App';
 
 class MainApp extends React.Component {
     render() {
@@ -17,6 +18,8 @@ class MainApp extends React.Component {
                 <OverrideDefaultProps />
                 <PropsWithStatelessComponents />
                 <StateInTheUserInterface />
+                <SetStateWithThisSetState />
+                
             </main>
         );
     }
