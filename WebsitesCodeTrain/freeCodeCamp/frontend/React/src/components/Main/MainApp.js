@@ -6,6 +6,7 @@ import OverrideDefaultProps from './17.overrideDefaultProps/App';
 import PropsWithStatelessComponents from './20.propsWithStatlessComp/App';
 import StateInTheUserInterface from './22.renderStateInUserInterface/App';
 import SetStateWithThisSetState from './24.thisSetState/App';
+import StateToToggleAnElement from './26.useStateToToggleElement/App';
 
 class MainApp extends React.Component {
     render() {
@@ -19,7 +20,8 @@ class MainApp extends React.Component {
                 <PropsWithStatelessComponents />
                 <StateInTheUserInterface />
                 <SetStateWithThisSetState />
-                
+                <h2 className="text-success">Use State to Toggle an Element</h2>
+                <StateToToggleAnElement />
             </main>
         );
     }
