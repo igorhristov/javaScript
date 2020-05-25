@@ -12,6 +12,7 @@ import ControlledInput from './28.createControlledInput/App';
 import ControlledForm from './29.createControlledForm/App'
 import PassStateAsPropsToChildComp from './30.stateAsPropsToChildComp/App'
 import PassCallbackAsProps from './31.passCallbackAsProps/App'
+import ComponentDidMount from './33.componentDidMount/App'
 
 class MainApp extends React.Component {
     render() {
@@ -32,6 +33,7 @@ class MainApp extends React.Component {
                 <ControlledForm/>
                 <PassStateAsPropsToChildComp/>
                 <PassCallbackAsProps/>
+                <ComponentDidMount/>
 
             </main>
         );
