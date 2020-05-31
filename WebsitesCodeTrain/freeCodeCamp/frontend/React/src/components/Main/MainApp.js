@@ -15,6 +15,7 @@ import PassCallbackAsProps from './31.passCallbackAsProps/App';
 import ComponentDidMount from './33.componentDidMount/App';
 import AddEventListeners from './34.addEventListeners/EventListeners';
 import ReRendersWithShouldComponentUpdate from './35.shouldComponentUpdate/ShouldComponentUpdate';
+import RenderWithIfElseCondition from './38.renderWithIfElse/RenderWithIfElse';
 
 class MainApp extends React.Component {
     render() {
@@ -38,7 +39,8 @@ class MainApp extends React.Component {
                 <ComponentDidMount />
                 <AddEventListeners />
                 <ReRendersWithShouldComponentUpdate />
-                
+                <h2 className='text-success'>Render with an If-Else Condition</h2>
+                <RenderWithIfElseCondition />
             </main>
         );
     }
