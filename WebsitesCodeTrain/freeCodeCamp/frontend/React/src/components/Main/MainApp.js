@@ -14,6 +14,7 @@ import PassStateAsPropsToChildComp from './30.stateAsPropsToChildComp/App';
 import PassCallbackAsProps from './31.passCallbackAsProps/App';
 import ComponentDidMount from './33.componentDidMount/App';
 import AddEventListeners from './34.addEventListeners/EventListeners';
+import ReRendersWithShouldComponentUpdate from './35.shouldComponentUpdate/ShouldComponentUpdate';
 
 class MainApp extends React.Component {
     render() {
@@ -36,6 +37,8 @@ class MainApp extends React.Component {
                 <PassCallbackAsProps />
                 <ComponentDidMount />
                 <AddEventListeners />
+                <ReRendersWithShouldComponentUpdate />
+                
             </main>
         );
     }
