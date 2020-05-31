@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Make a Person</title>
+    </head>
+    <body>
+        <h1>free Code Camp</h1>
+        <h2>Intermediate Algorithm Scripting: Make a Person</h2>
+        <h3>Make a Person</h3>
+        <code>
+            Intermediate Algorithm Scripting: Make a Person <br />
+            Fill in the object constructor with the following methods below: <br />
+
+            getFirstName() <br />
+            getLastName() <br />
+            getFullName() <br />
+            setFirstName(first) <br />
+            setLastName(last) <br />
+            setFullName(firstAndLast) <br />
+            Run the tests to see the expected output for each method. The methods that take an
+            argument must accept only one argument and it has to be a string. These methods must be
+            the only available means of interacting with the object.
+        </code>
+        <script>
+            var Person = function (firstAndLast) {
+                // Complete the method below and implement the others similarly
+                let fullName = firstAndLast;
+
+                this.getFirstName = () => fullName.split(' ')[0];
+
+                this.getLastName = () => fullName.split(' ')[1];
+
+                this.getFullName = () => fullName;
+
+                this.setFirstName = (name) => (fullName = name + ' ' + fullName.split(' ')[1]);
+
+                this.setLastName = (name) => (fullName = fullName.split(' ')[0] + ' ' + name);
+
+                this.setFullName = (name) => (fullName = name);
+            };
+
+            var bob = new Person('Bob Ross');
+
+            console.log(bob.getFullName()); // "Bob Ross"
+            console.log(Object.keys(bob).length); // 6
+            console.log(bob instanceof Person); // true
+            console.log(bob.firstName); // undefined
+            console.log(bob.lastName); // undefined
+            console.log(bob.getFirstName()); // "Bob"
+            console.log(bob.getLastName()); // Ross
+
+            bob.setFirstName('Haskell');
+            console.log(bob.getFullName()); // "Haskell Ross"
+
+            bob.setLastName('Curry');
+            console.log(bob.getFullName()); // "Haskell Curry"
+
+            bob.setFullName('Haskell Curry');
+            console.log(bob.getFullName()); // "Haskell Curry"
+
+            console.log(bob.getFirstName());
+            console.log(bob.setFullName('Haskell Curry')); // Haskell
+
+            bob.setFullName('Haskell Curry');
+            console.log(bob.getLastName()); // Curry
+        </script>
+    </body>
+</html>
