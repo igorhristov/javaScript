@@ -9,10 +9,11 @@ import SetStateWithThisSetState from './24.thisSetState/App';
 import StateToToggleAnElement from './26.useStateToToggleElement/App';
 import SimpleCounter from './27.writeSimpleCounter/App';
 import ControlledInput from './28.createControlledInput/App';
-import ControlledForm from './29.createControlledForm/App'
-import PassStateAsPropsToChildComp from './30.stateAsPropsToChildComp/App'
-import PassCallbackAsProps from './31.passCallbackAsProps/App'
-import ComponentDidMount from './33.componentDidMount/App'
+import ControlledForm from './29.createControlledForm/App';
+import PassStateAsPropsToChildComp from './30.stateAsPropsToChildComp/App';
+import PassCallbackAsProps from './31.passCallbackAsProps/App';
+import ComponentDidMount from './33.componentDidMount/App';
+import AddEventListeners from './34.addEventListeners/EventListeners';
 
 class MainApp extends React.Component {
     render() {
@@ -30,11 +31,11 @@ class MainApp extends React.Component {
                 <StateToToggleAnElement />
                 <SimpleCounter />
                 <ControlledInput />
-                <ControlledForm/>
-                <PassStateAsPropsToChildComp/>
-                <PassCallbackAsProps/>
-                <ComponentDidMount/>
-
+                <ControlledForm />
+                <PassStateAsPropsToChildComp />
+                <PassCallbackAsProps />
+                <ComponentDidMount />
+                <AddEventListeners />
             </main>
         );
     }
