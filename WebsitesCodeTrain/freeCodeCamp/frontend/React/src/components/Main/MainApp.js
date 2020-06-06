@@ -17,6 +17,7 @@ import AddEventListeners from './34.addEventListeners/EventListeners';
 import ReRendersWithShouldComponentUpdate from './35.shouldComponentUpdate/ShouldComponentUpdate';
 import RenderWithIfElseCondition from './38.renderWithIfElse/RenderWithIfElse';
 import TernaryForRender from './40.ternaryForCondRender/TernaryForConditionalRendering';
+import GameOfChance from './42.conditionallyFromProps/GameOfChance';
 
 class MainApp extends React.Component {
     render() {
@@ -43,7 +44,7 @@ class MainApp extends React.Component {
                 <h2 className='text-success'>Render with an If-Else Condition</h2>
                 <RenderWithIfElseCondition />
                 <TernaryForRender />
-                
+                <GameOfChance />
             </main>
         );
     }
