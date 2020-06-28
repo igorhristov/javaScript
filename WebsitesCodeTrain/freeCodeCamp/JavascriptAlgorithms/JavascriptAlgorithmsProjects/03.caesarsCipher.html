@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Caesars Cipher</title>
+    </head>
+    <body>
+        <h1>free Code Camp</h1>
+        <h2>JavaScript Algorithms and Data Structures Projects: Caesars Cipher</h2>
+        <h3>Caesars Cipher</h3>
+        <p>
+            One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a
+            shift cipher the meanings of the letters are shifted by some set amount. <br />
+
+            A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A'
+            ↔ 'N', 'B' ↔ 'O' and so on. <br />
+
+            Write a function which takes a ROT13 encoded string as input and returns a decoded string. <br />
+
+            All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but
+            do pass them on.
+        </p>
+        <script>
+            const rot13 = (str) => {
+                const newArr = [];
+                [...str].forEach((character) => {
+                    character.charCodeAt() < 65 || character.charCodeAt() > 90
+                        ? newArr.push(character)
+                        : character.charCodeAt() < 78
+                        ? newArr.push(String.fromCharCode(character.charCodeAt() + 13))
+                        : newArr.push(String.fromCharCode(character.charCodeAt() - 13));
+                });
+                return newArr.join('');
+            };
+
+            console.log(rot13('SERR PBQR PNZC')); // FREE CODE CAMP
+            console.log(rot13('SERR CVMMN!')); // FREE PIZZA!
+            console.log(rot13('SERR YBIR?')); // FREE LOVE?
+            console.log(rot13('GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.')); // THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+        </script>
+    </body>
+</html>
